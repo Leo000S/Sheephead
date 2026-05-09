@@ -2,15 +2,8 @@ import os
 import streamlit as st
 import json
 import numpy as np
-from huggingface_hub import hf_hub_download, HfApi, RepoFile
-import requests
 import re
 import pandas as pd
-from typing import List, Optional
-from datetime import timedelta
-import io
-import itertools
-import matplotlib.pyplot as plt
 
 def punkte_abspeichern(df_player, player):
     # Gewinnlogik:

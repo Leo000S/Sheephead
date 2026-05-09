@@ -56,9 +56,6 @@ def save_round(st):
         return
     user_id = user_response.user.id
 
-    st.write(user_id)
-    st.write("SESSION USER:", supabase.auth.get_user())
-    st.write("SESSION ACCESS TOKEN:", supabase.auth.get_session())
     data = {
         "runden_timestamp": st.session_state.runden_timestamp,
         "tournament": st.session_state.tournament,

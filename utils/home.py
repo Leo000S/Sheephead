@@ -3,7 +3,7 @@ from services.supabase_client import supabase
 
 
 def home(user):
-    st.title("🃏 Infos & Aktuelles")
+    st.title("Infos & Aktuelles")
 
     # Begrüßung
     st.info(f"Schön, dass du da bist! Eingeloggt als: **{user.email}**")
@@ -12,7 +12,7 @@ def home(user):
     col1, col2 = st.columns([2, 1])
 
     with col1:
-        st.subheader("📢 Neuigkeiten")
+        st.subheader("Neuigkeiten")
         st.write("""
         *   **Nächstes Turnier:** 25. Mai 2026!
         *   **App-Status:** Wir sind jetzt in einer Art Beta-Phase.
@@ -25,16 +25,16 @@ def home(user):
     st.divider()
 
     # Termine & Kalender
-    st.subheader("📅 Nächste Termine")
+    st.subheader("Nächste Termine")
     t1, t2, t3 = st.columns(3)
     t1.metric("Stammtisch", "Jeden ??.")
-    t2.metric("Nächster Spielabend", "??. Mai")
+    t2.metric("Nächster Spielabend", "25. Mai")
     t3.metric("Großes Turnier", "Juni '??")
 
     st.divider()
 
     # Rechtliches & Spende in einem expander (nimmt nicht so viel Platz weg)
-    with st.expander("⚖️ Rechtliches & Unterstützung"):
+    with st.expander("Rechtliches & Unterstützung"):
         st.write("""
         **Erklärung des Erstellers:**
         Diese App wurde nach bestem Wissen und Gewissen entwickelt. 
@@ -51,12 +51,12 @@ def home(user):
 
     # Was dir noch einfallen könnte (Vorschlag: Statistiken oder Zitate)
     st.divider()
-    st.subheader("💡 Wusstest du schon?")
+    st.subheader("Wusstest du schon?")
     st.write("_'Ein schlechtes Blatt ist kein Grund für schlechte Laune – außer es ist ein Solo-Tout.'_")
 
     # Optional: Ein kleiner Quick-Link-Bereich
     # Einladungs-Link Sektion
     st.write("**Freunde einladen**")
-    app_url = "https://deine-app.streamlit.app"  # ODER localhost:8501
+    app_url = "https://sheephead.streamlit.app"
     st.code(f"{app_url}", language="text")
     st.caption("Kopiere diesen Link und sende ihn deinen Freunden, damit sie sich registrieren können.")

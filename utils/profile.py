@@ -15,7 +15,7 @@ def profile_menu(user):
         supabase.table("profiles").insert(profile).execute()
 
     # --- 1. PROFIL-DATEN ---
-    with st.expander("👤 Profildaten bearbeiten", expanded=True):
+    with st.expander("Profildaten bearbeiten", expanded=True):
         with st.form("profile_form"):
             fn = st.text_input("Vorname", value=profile.get("first_name", ""))
             ln = st.text_input("Nachname", value=profile.get("last_name", ""))
@@ -32,7 +32,7 @@ def profile_menu(user):
                     st.rerun()
 
     # --- 2. ACCOUNT SICHERHEIT (Email & Passwort) ---
-    with st.expander("🔐 Account-Sicherheit"):
+    with st.expander("Account und Sicherheit"):
         # Email ändern
         new_email = st.text_input("Neue E-Mail Adresse", placeholder=user.email)
         if st.button("E-Mail ändern"):
@@ -56,7 +56,7 @@ def profile_menu(user):
 
     # --- 3. GRUPPENVERWALTUNG ---
     st.divider()
-    st.subheader("👥 Gruppen")
+    st.subheader("Gruppen")
     t1, t2 = st.tabs(["Gruppe gründen", "Verwalten & Einladen"])
 
     with t1:

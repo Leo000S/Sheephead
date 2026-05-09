@@ -1,9 +1,0 @@
-streamlit
-pandas
-numpy
-streamlit-autorefresh
-requests
-huggingface_hub
-matplotlib
-plotly
-git+https://huggingface.co/LeoDerLoewe/sheephead-common

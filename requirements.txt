@@ -1,4 +1,2 @@
 streamlit
-supabase
-datetime
-io
+supabase==2.13.0

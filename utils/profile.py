@@ -79,13 +79,7 @@ def profile_menu(user):
             sel_g = st.selectbox("Gruppe wählen", [g["groupname"] for g in my_groups])
             g_data = next(g for g in my_groups if g["groupname"] == sel_g)
 
-            # Einladungs-Link Sektion
-            st.write("**Freunde einladen**")
-            app_url = "https://deine-app.streamlit.app"  # ODER localhost:8501
-            st.code(f"{app_url}", language="text")
-            st.caption("Kopiere diesen Link und sende ihn deinen Freunden, damit sie sich registrieren können.")
-
-            # Mitgliederliste
+            # --- MITGLIEDER VERWALTEN ---
             st.write(f"**Mitglieder ({len(g_data['members'])}):**")
             all_p = {p["user_id"]: p["username"] for p in
                      supabase.table("profiles").select("user_id, username").execute().data}
@@ -98,11 +92,30 @@ def profile_menu(user):
                     supabase.table("groups").update({"members": new_m}).eq("groupname", sel_g).execute()
                     st.rerun()
 
-            # Direktes Hinzufügen (für bereits registrierte User)
+            # --- HINZUFÜGEN ---
             other_users = {u: id for id, u in all_p.items() if id not in g_data["members"]}
             new_m_name = st.selectbox("Registrierten User hinzufügen", ["-- wählen --"] + list(other_users.keys()))
             if st.button("Hinzufügen") and new_m_name != "-- wählen --":
                 new_list = g_data["members"] + [other_users[new_m_name]]
                 supabase.table("groups").update({"members": new_list}).eq("groupname", sel_g).execute()
                 st.rerun()
+
+            # --- GEFAHRENBEREICH: GRUPPE LÖSCHEN ---
+            st.divider()
+            with st.expander("⚠️ Gruppe auflösen"):
+                st.warning(
+                    f"Bist du sicher, dass du die Gruppe '{sel_g}' komplett löschen willst? Alle Daten gehen verloren.")
+                confirm_delete = st.text_input("Gib 'LÖSCHEN' ein, um zu bestätigen")
+
+                if st.button(f"Gruppe '{sel_g}' endgültig löschen", type="primary"):
+                    if confirm_delete == "LÖSCHEN":
+                        try:
+                            # Löschen via groupname (oder id, falls du eine hast)
+                            supabase.table("groups").delete().eq("groupname", sel_g).execute()
+                            st.success(f"Gruppe '{sel_g}' wurde aufgelöst.")
+                            st.rerun()
+                        except Exception as e:
+                            st.error(f"Fehler beim Löschen: {e}")
+                    else:
+                        st.error("Bitte bestätige mit dem Wort 'LÖSCHEN'.")
 

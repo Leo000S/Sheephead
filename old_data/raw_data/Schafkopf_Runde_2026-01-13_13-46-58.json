@@ -1,0 +1,185 @@
+{
+    "runden_timestamp": "2026-01-13_13-46-58",
+    "tournament": "Ak-Schafkopf-3",
+    "User": "Kira",
+    "start_info": "",
+    "spieler": [
+        "Kira",
+        "Samuel",
+        "Stefan K.",
+        "Valentin W."
+    ],
+    "spiele": [
+        {
+            "Zeitstempel": "2026-01-13_13-47-25",
+            "Spielart": "Wenz",
+            "Spielmacher": "Valentin W.",
+            "Rufpartner": null,
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 16,
+            "Wert_NK": 8,
+            "Wert_Wue": 9,
+            "Wert_Wue_NK": 6,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Kira",
+                "Samuel",
+                "Stefan K.",
+                "Valentin W."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-13_13-52-23",
+            "Spielart": "Ramsch",
+            "Spielmacher": "Samuel",
+            "Rufpartner": null,
+            "Klopfer": 1,
+            "Gewonnen": false,
+            "Wert": 4,
+            "Wert_NK": 2,
+            "Wert_Wue": 4,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Kira",
+                "Samuel",
+                "Stefan K.",
+                "Valentin W."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-13_13-57-16",
+            "Spielart": "Ruf",
+            "Spielmacher": "Kira",
+            "Rufpartner": "Stefan K.",
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Kira",
+                "Samuel",
+                "Stefan K.",
+                "Valentin W."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-13_14-00-23",
+            "Spielart": "Ruf",
+            "Spielmacher": "Valentin W.",
+            "Rufpartner": "Kira",
+            "Klopfer": 1,
+            "Gewonnen": false,
+            "Wert": 2,
+            "Wert_NK": 1,
+            "Wert_Wue": 4,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Kira",
+                "Samuel",
+                "Stefan K.",
+                "Valentin W."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-13_14-05-57",
+            "Spielart": "Ruf",
+            "Spielmacher": "Valentin W.",
+            "Rufpartner": "Samuel",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 2,
+            "Wert_NK": 2,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Kira",
+                "Samuel",
+                "Stefan K.",
+                "Valentin W."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-13_14-10-38",
+            "Spielart": "Bettel",
+            "Spielmacher": "Stefan K.",
+            "Rufpartner": null,
+            "Klopfer": 1,
+            "Gewonnen": false,
+            "Wert": 20,
+            "Wert_NK": 10,
+            "Wert_Wue": 8,
+            "Wert_Wue_NK": 4,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Kira",
+                "Samuel",
+                "Stefan K.",
+                "Valentin W."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-13_14-14-55",
+            "Spielart": "Ruf",
+            "Spielmacher": "Stefan K.",
+            "Rufpartner": "Kira",
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 2,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Kira",
+                "Samuel",
+                "Stefan K.",
+                "Valentin W."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-13_14-17-56",
+            "Spielart": "Ruf",
+            "Spielmacher": "Valentin W.",
+            "Rufpartner": "Stefan K.",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Kira",
+                "Samuel",
+                "Stefan K.",
+                "Valentin W."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-13_14-21-39",
+            "Spielart": "Wenz",
+            "Spielmacher": "Valentin W.",
+            "Rufpartner": null,
+            "Klopfer": 2,
+            "Gewonnen": true,
+            "Wert": 28,
+            "Wert_NK": 7,
+            "Wert_Wue": 11,
+            "Wert_Wue_NK": 5,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Kira",
+                "Samuel",
+                "Stefan K.",
+                "Valentin W."
+            ]
+        }
+    ]
+}

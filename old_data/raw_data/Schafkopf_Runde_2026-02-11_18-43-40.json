@@ -1,0 +1,71 @@
+{
+    "runden_timestamp": "2026-02-11_18-43-40",
+    "tournament": "Ak-Schafkopf-3",
+    "User": "Gaudi Sepp",
+    "start_info": "",
+    "spieler": [
+        "Tim Plote",
+        "Valentin W.",
+        "Lukas H.",
+        "Elias S."
+    ],
+    "spiele": [
+        {
+            "Zeitstempel": "2026-02-11_18-48-03",
+            "Spielart": "Ruf",
+            "Spielmacher": "Elias S.",
+            "Rufpartner": "Tim Plote",
+            "Klopfer": 1,
+            "Gewonnen": false,
+            "Wert": 2,
+            "Wert_NK": 1,
+            "Wert_Wue": 4,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Tim Plote",
+                "Valentin W.",
+                "Lukas H.",
+                "Elias S."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-02-11_18-56-09",
+            "Spielart": "Ruf",
+            "Spielmacher": "Valentin W.",
+            "Rufpartner": "Lukas H.",
+            "Klopfer": 3,
+            "Gewonnen": false,
+            "Wert": 16,
+            "Wert_NK": 2,
+            "Wert_Wue": 12,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Tim Plote",
+                "Valentin W.",
+                "Lukas H.",
+                "Elias S."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-02-11_18-59-09",
+            "Spielart": "Bettel",
+            "Spielmacher": "Valentin W.",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 5,
+            "Wert_NK": 5,
+            "Wert_Wue": 3,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Tim Plote",
+                "Valentin W.",
+                "Lukas H.",
+                "Elias S."
+            ]
+        }
+    ]
+}

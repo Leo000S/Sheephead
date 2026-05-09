@@ -1,0 +1,52 @@
+{
+    "runden_timestamp": "2026-02-27_00-02-31",
+    "tournament": "Gesamtstatistik",
+    "User": "Gaudi Sepp",
+    "start_info": "",
+    "spieler": [
+        "Gaudi Sepp",
+        "Brummbernd",
+        "Schafkopf Schorsch",
+        "Musi Mann"
+    ],
+    "spiele": [
+        {
+            "Zeitstempel": "2026-02-27_00-05-52",
+            "Spielart": "Ruf",
+            "Spielmacher": "Brummbernd",
+            "Rufpartner": "Musi Mann",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Gaudi Sepp",
+                "Brummbernd",
+                "Schafkopf Schorsch",
+                "Musi Mann"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-02-27_00-13-52",
+            "Spielart": "Ruf",
+            "Spielmacher": "Gaudi Sepp",
+            "Rufpartner": "Brummbernd",
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 2,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Gaudi Sepp",
+                "Brummbernd",
+                "Schafkopf Schorsch",
+                "Musi Mann"
+            ]
+        }
+    ]
+}

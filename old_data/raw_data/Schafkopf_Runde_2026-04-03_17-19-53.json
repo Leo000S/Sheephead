@@ -1,0 +1,109 @@
+{
+    "runden_timestamp": "2026-04-03_17-19-53",
+    "tournament": "Gesamtstatistik",
+    "User": "Leo",
+    "start_info": "",
+    "ende_info": true,
+    "spieler": [
+        "Leo",
+        "Vali",
+        "Maxl",
+        "Monika",
+        "Franz"
+    ],
+    "spiele": [
+        {
+            "Zeitstempel": "2026-04-03_17-21-31",
+            "Spielart": "Trumpfsolo",
+            "Spielmacher": "Franz",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 8,
+            "Wert_NK": 8,
+            "Wert_Wue": 6,
+            "Wert_Wue_NK": 6,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Maxl",
+                "Monika",
+                "Franz"
+            ],
+            "spiel_info": {
+                "Spielart": "Trumpfsolo",
+                "Klopfer": 0,
+                "Laufende": 3,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 0,
+                "Schneider": false,
+                "Schwarz": false,
+                "Kontra": false,
+                "Gewonnen": true
+            }
+        },
+        {
+            "Zeitstempel": "2026-04-03_17-24-25",
+            "Spielart": "Ruf",
+            "Spielmacher": "Leo",
+            "Rufpartner": "Vali",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 7,
+            "Wert_NK": 7,
+            "Wert_Wue": 7,
+            "Wert_Wue_NK": 7,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Vali",
+                "Maxl",
+                "Monika"
+            ],
+            "spiel_info": {
+                "Spielart": "Ruf",
+                "Klopfer": 0,
+                "Laufende": 4,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 0,
+                "Schneider": false,
+                "Schwarz": true,
+                "Kontra": false,
+                "Gewonnen": true
+            }
+        },
+        {
+            "Zeitstempel": "2026-04-03_17-25-11",
+            "Spielart": "Ruf",
+            "Spielmacher": "Monika",
+            "Rufpartner": "Maxl",
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 4,
+            "Wert_NK": 4,
+            "Wert_Wue": 5,
+            "Wert_Wue_NK": 5,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Maxl",
+                "Monika",
+                "Franz"
+            ],
+            "spiel_info": {
+                "Spielart": "Ruf",
+                "Klopfer": 0,
+                "Laufende": 3,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 0,
+                "Schneider": false,
+                "Schwarz": false,
+                "Kontra": false,
+                "Gewonnen": false
+            }
+        }
+    ]
+}

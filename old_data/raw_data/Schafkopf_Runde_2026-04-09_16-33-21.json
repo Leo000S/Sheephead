@@ -1,0 +1,171 @@
+{
+    "runden_timestamp": "2026-04-09_16-33-21",
+    "tournament": "Ak-Schafkopf-4",
+    "User": "Valentin W.",
+    "start_info": "",
+    "ende_info": true,
+    "spieler": [
+        "Valentin W.",
+        "Hendrik",
+        "Reini",
+        "Stefan K.",
+        "Thomas"
+    ],
+    "spiele": [
+        {
+            "Zeitstempel": "2026-04-09_16-34-08",
+            "Spielart": "Ruf",
+            "Spielmacher": "Stefan K.",
+            "Rufpartner": "Thomas",
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Valentin W.",
+                "Hendrik",
+                "Stefan K.",
+                "Thomas"
+            ],
+            "spiel_info": {
+                "Spielart": "Ruf",
+                "Klopfer": 0,
+                "Laufende": 0,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 0,
+                "Schneider": false,
+                "Schwarz": false,
+                "Kontra": false,
+                "Gewonnen": false
+            }
+        },
+        {
+            "Zeitstempel": "2026-04-09_16-39-57",
+            "Spielart": "Ruf",
+            "Spielmacher": "Thomas",
+            "Rufpartner": "Stefan K.",
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Valentin W.",
+                "Reini",
+                "Stefan K.",
+                "Thomas"
+            ],
+            "spiel_info": {
+                "Spielart": "Ruf",
+                "Klopfer": 0,
+                "Laufende": 0,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 0,
+                "Schneider": false,
+                "Schwarz": false,
+                "Kontra": false,
+                "Gewonnen": false
+            }
+        },
+        {
+            "Zeitstempel": "2026-04-09_16-45-41",
+            "Spielart": "Trumpfsolo",
+            "Spielmacher": "Reini",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 5,
+            "Wert_NK": 5,
+            "Wert_Wue": 3,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Hendrik",
+                "Reini",
+                "Stefan K.",
+                "Thomas"
+            ],
+            "spiel_info": {
+                "Spielart": "Trumpfsolo",
+                "Klopfer": 0,
+                "Laufende": 0,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 0,
+                "Schneider": false,
+                "Schwarz": false,
+                "Kontra": false,
+                "Gewonnen": true
+            }
+        },
+        {
+            "Zeitstempel": "2026-04-09_16-51-26",
+            "Spielart": "Geier",
+            "Spielmacher": "Hendrik",
+            "Rufpartner": null,
+            "Klopfer": 1,
+            "Gewonnen": false,
+            "Wert": 10,
+            "Wert_NK": 5,
+            "Wert_Wue": 6,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Valentin W.",
+                "Hendrik",
+                "Reini",
+                "Thomas"
+            ],
+            "spiel_info": {
+                "Spielart": "Geier",
+                "Klopfer": 1,
+                "Laufende": 0,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 0,
+                "Schneider": false,
+                "Schwarz": false,
+                "Kontra": false,
+                "Gewonnen": false
+            }
+        },
+        {
+            "Zeitstempel": "2026-04-09_16-55-56",
+            "Spielart": "Ruf",
+            "Spielmacher": "Stefan K.",
+            "Rufpartner": "Hendrik",
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 4,
+            "Wert_NK": 2,
+            "Wert_Wue": 4,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Valentin W.",
+                "Hendrik",
+                "Reini",
+                "Stefan K."
+            ],
+            "spiel_info": {
+                "Spielart": "Ruf",
+                "Klopfer": 1,
+                "Laufende": 0,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 0,
+                "Schneider": true,
+                "Schwarz": false,
+                "Kontra": false,
+                "Gewonnen": true
+            }
+        }
+    ]
+}

@@ -1,0 +1,139 @@
+{
+    "runden_timestamp": "2026-04-09_17-17-49",
+    "tournament": "Ak-Schafkopf-4",
+    "User": "Lukas H.",
+    "start_info": "",
+    "ende_info": true,
+    "spieler": [
+        "Lukas H.",
+        "Reini",
+        "Thomas",
+        "Stefan K."
+    ],
+    "spiele": [
+        {
+            "Zeitstempel": "2026-04-09_17-22-08",
+            "Spielart": "Wenz",
+            "Spielmacher": "Lukas H.",
+            "Rufpartner": null,
+            "Klopfer": 1,
+            "Gewonnen": false,
+            "Wert": 16,
+            "Wert_NK": 8,
+            "Wert_Wue": 9,
+            "Wert_Wue_NK": 6,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Lukas H.",
+                "Reini",
+                "Thomas",
+                "Stefan K."
+            ],
+            "spiel_info": {
+                "Spielart": "Wenz",
+                "Klopfer": 1,
+                "Laufende": 3,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 0,
+                "Schneider": false,
+                "Schwarz": false,
+                "Kontra": false,
+                "Gewonnen": false
+            }
+        },
+        {
+            "Zeitstempel": "2026-04-09_17-28-00",
+            "Spielart": "Ruf",
+            "Spielmacher": "Lukas H.",
+            "Rufpartner": "Thomas",
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 2,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Lukas H.",
+                "Reini",
+                "Thomas",
+                "Stefan K."
+            ],
+            "spiel_info": {
+                "Spielart": "Ruf",
+                "Klopfer": 1,
+                "Laufende": 0,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 0,
+                "Schneider": false,
+                "Schwarz": false,
+                "Kontra": false,
+                "Gewonnen": true
+            }
+        },
+        {
+            "Zeitstempel": "2026-04-09_17-32-47",
+            "Spielart": "Ruf",
+            "Spielmacher": "Lukas H.",
+            "Rufpartner": "Thomas",
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 2,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Lukas H.",
+                "Reini",
+                "Thomas",
+                "Stefan K."
+            ],
+            "spiel_info": {
+                "Spielart": "Ruf",
+                "Klopfer": 1,
+                "Laufende": 0,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 0,
+                "Schneider": false,
+                "Schwarz": false,
+                "Kontra": false,
+                "Gewonnen": true
+            }
+        },
+        {
+            "Zeitstempel": "2026-04-09_17-38-19",
+            "Spielart": "Ramsch",
+            "Spielmacher": "Lukas H.",
+            "Rufpartner": null,
+            "Klopfer": 1,
+            "Gewonnen": false,
+            "Wert": 4,
+            "Wert_NK": 2,
+            "Wert_Wue": 4,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Lukas H.",
+                "Reini",
+                "Thomas",
+                "Stefan K."
+            ],
+            "spiel_info": {
+                "Spielart": "Ramsch",
+                "Klopfer": 1,
+                "Laufende": 0,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 1,
+                "Schneider": false,
+                "Schwarz": false,
+                "Kontra": false,
+                "Gewonnen": false
+            }
+        }
+    ]
+}

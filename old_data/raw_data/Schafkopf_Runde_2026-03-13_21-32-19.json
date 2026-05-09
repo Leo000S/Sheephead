@@ -1,0 +1,282 @@
+{
+    "runden_timestamp": "2026-03-13_21-32-19",
+    "tournament": "Aux-14.03",
+    "User": "Leo",
+    "start_info": "",
+    "ende_info": true,
+    "spieler": [
+        "Leo",
+        "Marc",
+        "Vali",
+        "Monika",
+        "Stephan M."
+    ],
+    "spiele": [
+        {
+            "Zeitstempel": "2026-03-13_21-32-37",
+            "Spielart": "Ruf",
+            "Spielmacher": "Stephan M.",
+            "Rufpartner": "Leo",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Marc",
+                "Vali",
+                "Stephan M."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-13_21-35-35",
+            "Spielart": "Ramsch",
+            "Spielmacher": "Marc",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Marc",
+                "Vali",
+                "Monika"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-13_21-39-02",
+            "Spielart": "Trumpfsolo",
+            "Spielmacher": "Vali",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 5,
+            "Wert_NK": 5,
+            "Wert_Wue": 3,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Vali",
+                "Monika",
+                "Stephan M."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-13_21-42-31",
+            "Spielart": "Ruf",
+            "Spielmacher": "Vali",
+            "Rufpartner": "Marc",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 5,
+            "Wert_NK": 5,
+            "Wert_Wue": 5,
+            "Wert_Wue_NK": 5,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Marc",
+                "Vali",
+                "Monika",
+                "Stephan M."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-13_21-45-57",
+            "Spielart": "Ruf",
+            "Spielmacher": "Stephan M.",
+            "Rufpartner": "Marc",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Marc",
+                "Monika",
+                "Stephan M."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-13_21-48-51",
+            "Spielart": "Ruf",
+            "Spielmacher": "Vali",
+            "Rufpartner": "Stephan M.",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 2,
+            "Wert_NK": 2,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Marc",
+                "Vali",
+                "Stephan M."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-13_21-52-19",
+            "Spielart": "Ruf",
+            "Spielmacher": "Monika",
+            "Rufpartner": "Vali",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 2,
+            "Wert_NK": 2,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Marc",
+                "Vali",
+                "Monika"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-13_21-56-43",
+            "Spielart": "Ruf",
+            "Spielmacher": "Leo",
+            "Rufpartner": "Vali",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 2,
+            "Wert_NK": 2,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Vali",
+                "Monika",
+                "Stephan M."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-13_22-00-52",
+            "Spielart": "Ruf",
+            "Spielmacher": "Monika",
+            "Rufpartner": "Marc",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 2,
+            "Wert_NK": 2,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Marc",
+                "Vali",
+                "Monika",
+                "Stephan M."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-13_22-04-55",
+            "Spielart": "Ruf",
+            "Spielmacher": "Monika",
+            "Rufpartner": "Stephan M.",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Marc",
+                "Monika",
+                "Stephan M."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-13_22-08-24",
+            "Spielart": "Trumpfsolo",
+            "Spielmacher": "Vali",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 5,
+            "Wert_NK": 5,
+            "Wert_Wue": 3,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Marc",
+                "Vali",
+                "Stephan M."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-13_22-13-55",
+            "Spielart": "Ruf",
+            "Spielmacher": "Leo",
+            "Rufpartner": "Marc",
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 2,
+            "Wert_NK": 2,
+            "Wert_Wue": 4,
+            "Wert_Wue_NK": 4,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Marc",
+                "Vali",
+                "Monika"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-13_22-17-32",
+            "Spielart": "Ruf",
+            "Spielmacher": "Monika",
+            "Rufpartner": "Vali",
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Vali",
+                "Monika",
+                "Stephan M."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-13_22-21-09",
+            "Spielart": "Ruf",
+            "Spielmacher": "Vali",
+            "Rufpartner": "Stephan M.",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 5,
+            "Wert_NK": 5,
+            "Wert_Wue": 5,
+            "Wert_Wue_NK": 5,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Marc",
+                "Vali",
+                "Monika",
+                "Stephan M."
+            ]
+        }
+    ]
+}

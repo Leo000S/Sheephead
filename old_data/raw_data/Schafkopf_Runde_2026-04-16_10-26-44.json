@@ -1,0 +1,139 @@
+{
+    "runden_timestamp": "2026-04-16_10-26-44",
+    "tournament": "Ak-Schafkopf-4",
+    "User": "Elias S.",
+    "start_info": "",
+    "ende_info": true,
+    "spieler": [
+        "Elias S.",
+        "Tim Plote",
+        "Stefan K.",
+        "Kira"
+    ],
+    "spiele": [
+        {
+            "Zeitstempel": "2026-04-16_10-29-25",
+            "Spielart": "Ruf",
+            "Spielmacher": "Kira",
+            "Rufpartner": "Elias S.",
+            "Klopfer": 1,
+            "Gewonnen": false,
+            "Wert": 2,
+            "Wert_NK": 1,
+            "Wert_Wue": 4,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Elias S.",
+                "Tim Plote",
+                "Stefan K.",
+                "Kira"
+            ],
+            "spiel_info": {
+                "Spielart": "Ruf",
+                "Klopfer": 1,
+                "Laufende": 0,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 0,
+                "Schneider": false,
+                "Schwarz": false,
+                "Kontra": false,
+                "Gewonnen": false
+            }
+        },
+        {
+            "Zeitstempel": "2026-04-16_10-34-17",
+            "Spielart": "Ramsch",
+            "Spielmacher": "Tim Plote",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Elias S.",
+                "Tim Plote",
+                "Stefan K.",
+                "Kira"
+            ],
+            "spiel_info": {
+                "Spielart": "Ramsch",
+                "Klopfer": 0,
+                "Laufende": 0,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 0,
+                "Schneider": false,
+                "Schwarz": false,
+                "Kontra": false,
+                "Gewonnen": false
+            }
+        },
+        {
+            "Zeitstempel": "2026-04-16_10-38-24",
+            "Spielart": "Trumpfsolo",
+            "Spielmacher": "Elias S.",
+            "Rufpartner": null,
+            "Klopfer": 2,
+            "Gewonnen": true,
+            "Wert": 40,
+            "Wert_NK": 10,
+            "Wert_Wue": 18,
+            "Wert_Wue_NK": 8,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Elias S.",
+                "Tim Plote",
+                "Stefan K.",
+                "Kira"
+            ],
+            "spiel_info": {
+                "Spielart": "Trumpfsolo",
+                "Klopfer": 2,
+                "Laufende": 3,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 0,
+                "Schneider": true,
+                "Schwarz": true,
+                "Kontra": false,
+                "Gewonnen": true
+            }
+        },
+        {
+            "Zeitstempel": "2026-04-16_10-43-26",
+            "Spielart": "Ruf",
+            "Spielmacher": "Stefan K.",
+            "Rufpartner": "Tim Plote",
+            "Klopfer": 2,
+            "Gewonnen": true,
+            "Wert": 4,
+            "Wert_NK": 1,
+            "Wert_Wue": 3,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Elias S.",
+                "Tim Plote",
+                "Stefan K.",
+                "Kira"
+            ],
+            "spiel_info": {
+                "Spielart": "Ruf",
+                "Klopfer": 2,
+                "Laufende": 0,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 0,
+                "Schneider": false,
+                "Schwarz": false,
+                "Kontra": false,
+                "Gewonnen": true
+            }
+        }
+    ]
+}

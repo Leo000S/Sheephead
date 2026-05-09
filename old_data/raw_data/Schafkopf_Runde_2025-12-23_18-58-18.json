@@ -1,0 +1,91 @@
+{
+    "runden_timestamp": "2025-12-23_18-58-18",
+    "tournament": "Aux-23.12",
+    "User": "Jakob",
+    "start_info": "",
+    "spieler": [
+        "Jakob",
+        "Stephan M.",
+        "Eli",
+        "Felix"
+    ],
+    "infos_zur_runde": "",
+    "spiele": [
+        {
+            "Zeitstempel": "2025-12-23_18-58-42",
+            "Spielart": "Ruf",
+            "Spielmacher": "Jakob",
+            "Rufpartner": "Felix",
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Jakob",
+                "Stephan M.",
+                "Eli",
+                "Felix"
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-23_19-03-07",
+            "Spielart": "Ruf",
+            "Spielmacher": "Eli",
+            "Rufpartner": "Felix",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 11,
+            "Wert_NK": 11,
+            "Wert_Wue": 11,
+            "Wert_Wue_NK": 11,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Jakob",
+                "Stephan M.",
+                "Eli",
+                "Felix"
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-23_19-07-26",
+            "Spielart": "Ruf",
+            "Spielmacher": "Stephan M.",
+            "Rufpartner": "Jakob",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Jakob",
+                "Stephan M.",
+                "Eli",
+                "Felix"
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-23_19-11-12",
+            "Spielart": "Trumpfsolo",
+            "Spielmacher": "Stephan M.",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 5,
+            "Wert_NK": 5,
+            "Wert_Wue": 3,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Jakob",
+                "Stephan M.",
+                "Eli",
+                "Felix"
+            ]
+        }
+    ]
+}

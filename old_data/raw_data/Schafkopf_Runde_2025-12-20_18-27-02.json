@@ -1,0 +1,262 @@
+{
+    "runden_timestamp": "2025-12-20_18-27-02",
+    "tournament": "Gesamtstatistik",
+    "User": "Leo",
+    "start_info": "",
+    "spieler": [
+        "Leo",
+        "Eli",
+        "Maxl",
+        "Jonas L."
+    ],
+    "infos_zur_runde": "",
+    "spiele": [
+        {
+            "Zeitstempel": "2025-12-20_18-30-07",
+            "Spielart": "Wenz",
+            "Spielmacher": "Leo",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 5,
+            "Wert_NK": 5,
+            "Wert_Wue": 3,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Eli",
+                "Maxl",
+                "Jonas L."
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-20_18-35-08",
+            "Spielart": "Ruf",
+            "Spielmacher": "Leo",
+            "Rufpartner": "Jonas L.",
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 4,
+            "Wert_NK": 4,
+            "Wert_Wue": 5,
+            "Wert_Wue_NK": 5,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Eli",
+                "Maxl",
+                "Jonas L."
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-20_18-38-54",
+            "Spielart": "Ramsch",
+            "Spielmacher": "Eli",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 2,
+            "Wert_NK": 2,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Eli",
+                "Maxl",
+                "Jonas L."
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-20_18-43-54",
+            "Spielart": "Ruf",
+            "Spielmacher": "Maxl",
+            "Rufpartner": "Jonas L.",
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Eli",
+                "Maxl",
+                "Jonas L."
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-20_18-50-06",
+            "Spielart": "Geier",
+            "Spielmacher": "Leo",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 5,
+            "Wert_NK": 5,
+            "Wert_Wue": 3,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Eli",
+                "Maxl",
+                "Jonas L."
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-20_18-58-11",
+            "Spielart": "Ruf",
+            "Spielmacher": "Eli",
+            "Rufpartner": "Jonas L.",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Eli",
+                "Maxl",
+                "Jonas L."
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-20_19-03-38",
+            "Spielart": "Ruf",
+            "Spielmacher": "Jonas L.",
+            "Rufpartner": "Leo",
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Eli",
+                "Maxl",
+                "Jonas L."
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-20_19-14-52",
+            "Spielart": "Ruf",
+            "Spielmacher": "Leo",
+            "Rufpartner": "Jonas L.",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 5,
+            "Wert_NK": 5,
+            "Wert_Wue": 5,
+            "Wert_Wue_NK": 5,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Eli",
+                "Maxl",
+                "Jonas L."
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-20_19-15-08",
+            "Spielart": "Ruf",
+            "Spielmacher": "Leo",
+            "Rufpartner": "Maxl",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 2,
+            "Wert_NK": 2,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Eli",
+                "Maxl",
+                "Jonas L."
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-20_19-23-11",
+            "Spielart": "Trumpfsolo",
+            "Spielmacher": "Maxl",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 6,
+            "Wert_NK": 6,
+            "Wert_Wue": 4,
+            "Wert_Wue_NK": 4,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Eli",
+                "Maxl",
+                "Jonas L."
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-20_19-25-50",
+            "Spielart": "Ruf",
+            "Spielmacher": "Leo",
+            "Rufpartner": "Eli",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Eli",
+                "Maxl",
+                "Jonas L."
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-20_19-31-10",
+            "Spielart": "Ruf",
+            "Spielmacher": "Leo",
+            "Rufpartner": "Eli",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Eli",
+                "Maxl",
+                "Jonas L."
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-20_19-42-57",
+            "Spielart": "Trumpfsolo",
+            "Spielmacher": "Eli",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 5,
+            "Wert_NK": 5,
+            "Wert_Wue": 3,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Eli",
+                "Maxl",
+                "Jonas L."
+            ]
+        }
+    ]
+}

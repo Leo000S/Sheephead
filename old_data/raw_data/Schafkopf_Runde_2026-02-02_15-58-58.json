@@ -1,0 +1,166 @@
+{
+    "runden_timestamp": "2026-02-02_15-58-58",
+    "tournament": "Ak-Schafkopf-3",
+    "User": "Leo",
+    "start_info": "",
+    "spieler": [
+        "Leo",
+        "Tim Plote",
+        "Stefan K.",
+        "Valentin W."
+    ],
+    "spiele": [
+        {
+            "Zeitstempel": "2026-02-02_16-02-18",
+            "Spielart": "Bettel",
+            "Spielmacher": "Valentin W.",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 5,
+            "Wert_NK": 5,
+            "Wert_Wue": 3,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Tim Plote",
+                "Stefan K.",
+                "Valentin W."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-02-02_16-05-33",
+            "Spielart": "Ruf",
+            "Spielmacher": "Leo",
+            "Rufpartner": "Valentin W.",
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 2,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Tim Plote",
+                "Stefan K.",
+                "Valentin W."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-02-02_16-10-06",
+            "Spielart": "Ruf",
+            "Spielmacher": "Stefan K.",
+            "Rufpartner": "Leo",
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 2,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Tim Plote",
+                "Stefan K.",
+                "Valentin W."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-02-02_16-13-51",
+            "Spielart": "Ruf",
+            "Spielmacher": "Valentin W.",
+            "Rufpartner": "Leo",
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 2,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Tim Plote",
+                "Stefan K.",
+                "Valentin W."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-02-02_16-18-49",
+            "Spielart": "Trumpfsolo",
+            "Spielmacher": "Stefan K.",
+            "Rufpartner": null,
+            "Klopfer": 2,
+            "Gewonnen": true,
+            "Wert": 20,
+            "Wert_NK": 5,
+            "Wert_Wue": 9,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Tim Plote",
+                "Stefan K.",
+                "Valentin W."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-02-02_16-22-15",
+            "Spielart": "Ruf",
+            "Spielmacher": "Tim Plote",
+            "Rufpartner": "Stefan K.",
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 14,
+            "Wert_NK": 7,
+            "Wert_Wue": 10,
+            "Wert_Wue_NK": 7,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Tim Plote",
+                "Stefan K.",
+                "Valentin W."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-02-02_16-26-22",
+            "Spielart": "Ruf",
+            "Spielmacher": "Tim Plote",
+            "Rufpartner": "Stefan K.",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 2,
+            "Wert_NK": 2,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Tim Plote",
+                "Stefan K.",
+                "Valentin W."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-02-02_16-30-27",
+            "Spielart": "Ruf",
+            "Spielmacher": "Leo",
+            "Rufpartner": "Tim Plote",
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 6,
+            "Wert_NK": 3,
+            "Wert_Wue": 6,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Tim Plote",
+                "Stefan K.",
+                "Valentin W."
+            ]
+        }
+    ]
+}

@@ -1,0 +1,187 @@
+{
+    "runden_timestamp": "2025-12-23_20-35-38",
+    "tournament": "Aux-23.12",
+    "User": "Leo",
+    "start_info": "",
+    "spieler": [
+        "Leo",
+        "Jonas L.",
+        "Maxl",
+        "Leif",
+        "Stephan M."
+    ],
+    "infos_zur_runde": "",
+    "spiele": [
+        {
+            "Zeitstempel": "2025-12-23_20-38-23",
+            "Spielart": "Trumpfsolo",
+            "Spielmacher": "Stephan M.",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 9,
+            "Wert_NK": 9,
+            "Wert_Wue": 7,
+            "Wert_Wue_NK": 7,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Jonas L.",
+                "Maxl",
+                "Leif",
+                "Stephan M."
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-23_20-41-41",
+            "Spielart": "Ruf",
+            "Spielmacher": "Maxl",
+            "Rufpartner": "Leo",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Maxl",
+                "Leif",
+                "Stephan M."
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-23_20-45-46",
+            "Spielart": "Trumpfsolo",
+            "Spielmacher": "Leo",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 5,
+            "Wert_NK": 5,
+            "Wert_Wue": 3,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Jonas L.",
+                "Maxl",
+                "Leif"
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-23_20-49-26",
+            "Spielart": "Ruf",
+            "Spielmacher": "Stephan M.",
+            "Rufpartner": "Maxl",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Jonas L.",
+                "Maxl",
+                "Stephan M."
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-23_20-52-47",
+            "Spielart": "Ruf",
+            "Spielmacher": "Jonas L.",
+            "Rufpartner": "Leif",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Jonas L.",
+                "Leif",
+                "Stephan M."
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-23_20-57-59",
+            "Spielart": "Trumpfsolo",
+            "Spielmacher": "Jonas L.",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 5,
+            "Wert_NK": 5,
+            "Wert_Wue": 3,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Jonas L.",
+                "Maxl",
+                "Leif",
+                "Stephan M."
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-23_21-01-14",
+            "Spielart": "Ruf",
+            "Spielmacher": "Stephan M.",
+            "Rufpartner": "Maxl",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Maxl",
+                "Leif",
+                "Stephan M."
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-23_21-05-52",
+            "Spielart": "Ramsch",
+            "Spielmacher": "Jonas L.",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 2,
+            "Wert_NK": 2,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Jonas L.",
+                "Maxl",
+                "Leif"
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-23_21-09-59",
+            "Spielart": "Trumpfsolo",
+            "Spielmacher": "Leo",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 5,
+            "Wert_NK": 5,
+            "Wert_Wue": 3,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Jonas L.",
+                "Maxl",
+                "Stephan M."
+            ]
+        }
+    ]
+}

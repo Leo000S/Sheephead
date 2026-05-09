@@ -1,0 +1,166 @@
+{
+    "runden_timestamp": "2026-02-24_14-43-07",
+    "tournament": "Ak-Schafkopf-3",
+    "User": "Tim Hasi",
+    "start_info": "",
+    "spieler": [
+        "Tim Hasi",
+        "Maja",
+        "Leo",
+        "Valentin W."
+    ],
+    "spiele": [
+        {
+            "Zeitstempel": "2026-02-24_14-47-02",
+            "Spielart": "Ruf",
+            "Spielmacher": "Tim Hasi",
+            "Rufpartner": "Leo",
+            "Klopfer": 1,
+            "Gewonnen": false,
+            "Wert": 2,
+            "Wert_NK": 1,
+            "Wert_Wue": 4,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Tim Hasi",
+                "Maja",
+                "Leo",
+                "Valentin W."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-02-24_14-52-18",
+            "Spielart": "Ruf",
+            "Spielmacher": "Leo",
+            "Rufpartner": "Maja",
+            "Klopfer": 1,
+            "Gewonnen": false,
+            "Wert": 2,
+            "Wert_NK": 1,
+            "Wert_Wue": 4,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Tim Hasi",
+                "Maja",
+                "Leo",
+                "Valentin W."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-02-24_14-58-13",
+            "Spielart": "Trumpfsolo",
+            "Spielmacher": "Leo",
+            "Rufpartner": null,
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 10,
+            "Wert_NK": 5,
+            "Wert_Wue": 6,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Tim Hasi",
+                "Maja",
+                "Leo",
+                "Valentin W."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-02-24_15-02-27",
+            "Spielart": "Ruf",
+            "Spielmacher": "Tim Hasi",
+            "Rufpartner": "Maja",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Tim Hasi",
+                "Maja",
+                "Leo",
+                "Valentin W."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-02-24_15-07-02",
+            "Spielart": "Bettel",
+            "Spielmacher": "Leo",
+            "Rufpartner": null,
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 10,
+            "Wert_NK": 5,
+            "Wert_Wue": 6,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Tim Hasi",
+                "Maja",
+                "Leo",
+                "Valentin W."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-02-24_15-12-29",
+            "Spielart": "Ruf",
+            "Spielmacher": "Valentin W.",
+            "Rufpartner": "Maja",
+            "Klopfer": 2,
+            "Gewonnen": false,
+            "Wert": 8,
+            "Wert_NK": 2,
+            "Wert_Wue": 9,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Tim Hasi",
+                "Maja",
+                "Leo",
+                "Valentin W."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-02-24_15-16-44",
+            "Spielart": "Ruf",
+            "Spielmacher": "Maja",
+            "Rufpartner": "Tim Hasi",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 3,
+            "Wert_NK": 3,
+            "Wert_Wue": 3,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Tim Hasi",
+                "Maja",
+                "Leo",
+                "Valentin W."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-02-24_15-21-12",
+            "Spielart": "Ramsch",
+            "Spielmacher": "Leo",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 2,
+            "Wert_NK": 2,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Tim Hasi",
+                "Maja",
+                "Leo",
+                "Valentin W."
+            ]
+        }
+    ]
+}

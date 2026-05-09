@@ -1,0 +1,471 @@
+{
+    "runden_timestamp": "2026-03-29_19-24-33",
+    "tournament": "Ak-Schafkopf-4",
+    "User": "Kira",
+    "start_info": "",
+    "ende_info": true,
+    "spieler": [
+        "Lukas H.",
+        "Elias S.",
+        "Kira",
+        "Reini"
+    ],
+    "spiele": [
+        {
+            "Zeitstempel": "2026-03-29_19-26-07",
+            "Spielart": "Ruf",
+            "Spielmacher": "Reini",
+            "Rufpartner": "Kira",
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 2,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Lukas H.",
+                "Elias S.",
+                "Kira",
+                "Reini"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-29_19-29-36",
+            "Spielart": "Geier",
+            "Spielmacher": "Kira",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 8,
+            "Wert_NK": 8,
+            "Wert_Wue": 6,
+            "Wert_Wue_NK": 6,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Lukas H.",
+                "Elias S.",
+                "Kira",
+                "Reini"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-29_19-32-17",
+            "Spielart": "Bettel",
+            "Spielmacher": "Reini",
+            "Rufpartner": null,
+            "Klopfer": 2,
+            "Gewonnen": true,
+            "Wert": 20,
+            "Wert_NK": 5,
+            "Wert_Wue": 9,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Lukas H.",
+                "Elias S.",
+                "Kira",
+                "Reini"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-29_19-35-53",
+            "Spielart": "Ruf",
+            "Spielmacher": "Elias S.",
+            "Rufpartner": "Reini",
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 2,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Lukas H.",
+                "Elias S.",
+                "Kira",
+                "Reini"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-29_19-39-37",
+            "Spielart": "Ramsch",
+            "Spielmacher": "Reini",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 2,
+            "Wert_NK": 2,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Lukas H.",
+                "Elias S.",
+                "Kira",
+                "Reini"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-29_19-44-19",
+            "Spielart": "Ruf",
+            "Spielmacher": "Reini",
+            "Rufpartner": "Kira",
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Lukas H.",
+                "Elias S.",
+                "Kira",
+                "Reini"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-29_19-47-49",
+            "Spielart": "Ruf",
+            "Spielmacher": "Elias S.",
+            "Rufpartner": "Reini",
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 2,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Lukas H.",
+                "Elias S.",
+                "Kira",
+                "Reini"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-29_19-51-37",
+            "Spielart": "Geier",
+            "Spielmacher": "Lukas H.",
+            "Rufpartner": null,
+            "Klopfer": 2,
+            "Gewonnen": false,
+            "Wert": 20,
+            "Wert_NK": 5,
+            "Wert_Wue": 9,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Lukas H.",
+                "Elias S.",
+                "Kira",
+                "Reini"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-29_19-56-26",
+            "Spielart": "Ruf",
+            "Spielmacher": "Lukas H.",
+            "Rufpartner": "Reini",
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 2,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Lukas H.",
+                "Elias S.",
+                "Kira",
+                "Reini"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-29_20-05-10",
+            "Spielart": "Ruf",
+            "Spielmacher": "Elias S.",
+            "Rufpartner": "Kira",
+            "Klopfer": 2,
+            "Gewonnen": false,
+            "Wert": 4,
+            "Wert_NK": 1,
+            "Wert_Wue": 6,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Lukas H.",
+                "Elias S.",
+                "Kira",
+                "Reini"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-29_20-09-36",
+            "Spielart": "Ruf",
+            "Spielmacher": "Elias S.",
+            "Rufpartner": "Reini",
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 2,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Lukas H.",
+                "Elias S.",
+                "Kira",
+                "Reini"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-29_20-13-08",
+            "Spielart": "Ruf",
+            "Spielmacher": "Elias S.",
+            "Rufpartner": "Lukas H.",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 3,
+            "Wert_NK": 3,
+            "Wert_Wue": 3,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Lukas H.",
+                "Elias S.",
+                "Kira",
+                "Reini"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-29_20-15-16",
+            "Spielart": "Bettel",
+            "Spielmacher": "Elias S.",
+            "Rufpartner": null,
+            "Klopfer": 1,
+            "Gewonnen": false,
+            "Wert": 10,
+            "Wert_NK": 5,
+            "Wert_Wue": 6,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Lukas H.",
+                "Elias S.",
+                "Kira",
+                "Reini"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-29_20-21-11",
+            "Spielart": "Ruf",
+            "Spielmacher": "Reini",
+            "Rufpartner": "Elias S.",
+            "Klopfer": 3,
+            "Gewonnen": true,
+            "Wert": 8,
+            "Wert_NK": 1,
+            "Wert_Wue": 4,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Lukas H.",
+                "Elias S.",
+                "Kira",
+                "Reini"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-29_20-25-01",
+            "Spielart": "Ruf",
+            "Spielmacher": "Lukas H.",
+            "Rufpartner": "Elias S.",
+            "Klopfer": 2,
+            "Gewonnen": true,
+            "Wert": 16,
+            "Wert_NK": 4,
+            "Wert_Wue": 6,
+            "Wert_Wue_NK": 4,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Lukas H.",
+                "Elias S.",
+                "Kira",
+                "Reini"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-29_20-28-53",
+            "Spielart": "Geier",
+            "Spielmacher": "Elias S.",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 5,
+            "Wert_NK": 5,
+            "Wert_Wue": 3,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Lukas H.",
+                "Elias S.",
+                "Kira",
+                "Reini"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-29_20-34-09",
+            "Spielart": "Ruf",
+            "Spielmacher": "Lukas H.",
+            "Rufpartner": "Reini",
+            "Klopfer": 1,
+            "Gewonnen": false,
+            "Wert": 2,
+            "Wert_NK": 1,
+            "Wert_Wue": 4,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Lukas H.",
+                "Elias S.",
+                "Kira",
+                "Reini"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-29_20-38-24",
+            "Spielart": "Geier",
+            "Spielmacher": "Reini",
+            "Rufpartner": null,
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 16,
+            "Wert_NK": 8,
+            "Wert_Wue": 9,
+            "Wert_Wue_NK": 6,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Lukas H.",
+                "Elias S.",
+                "Kira",
+                "Reini"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-29_20-43-22",
+            "Spielart": "Ruf",
+            "Spielmacher": "Kira",
+            "Rufpartner": "Reini",
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Lukas H.",
+                "Elias S.",
+                "Kira",
+                "Reini"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-29_20-47-16",
+            "Spielart": "Ruf",
+            "Spielmacher": "Reini",
+            "Rufpartner": "Lukas H.",
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 2,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Lukas H.",
+                "Elias S.",
+                "Kira",
+                "Reini"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-29_20-50-09",
+            "Spielart": "Bettel",
+            "Spielmacher": "Reini",
+            "Rufpartner": null,
+            "Klopfer": 1,
+            "Gewonnen": false,
+            "Wert": 10,
+            "Wert_NK": 5,
+            "Wert_Wue": 6,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Lukas H.",
+                "Elias S.",
+                "Kira",
+                "Reini"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-29_20-55-18",
+            "Spielart": "Ruf",
+            "Spielmacher": "Kira",
+            "Rufpartner": "Elias S.",
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 2,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Lukas H.",
+                "Elias S.",
+                "Kira",
+                "Reini"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-29_21-05-05",
+            "Spielart": "Bettel",
+            "Spielmacher": "Lukas H.",
+            "Rufpartner": null,
+            "Klopfer": 1,
+            "Gewonnen": false,
+            "Wert": 12,
+            "Wert_NK": 6,
+            "Wert_Wue": 8,
+            "Wert_Wue_NK": 4,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Lukas H.",
+                "Elias S.",
+                "Kira",
+                "Reini"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-29_21-09-55",
+            "Spielart": "Ruf",
+            "Spielmacher": "Reini",
+            "Rufpartner": "Elias S.",
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 2,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Lukas H.",
+                "Elias S.",
+                "Kira",
+                "Reini"
+            ]
+        }
+    ]
+}

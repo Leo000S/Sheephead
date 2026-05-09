@@ -1,0 +1,139 @@
+{
+    "runden_timestamp": "2026-04-17_11-31-14",
+    "tournament": "Ak-Schafkopf-4",
+    "User": "Tim Hasi",
+    "start_info": "",
+    "ende_info": true,
+    "spieler": [
+        "Tim Pasta",
+        "Leo",
+        "Thomas",
+        "Tim Hasi"
+    ],
+    "spiele": [
+        {
+            "Zeitstempel": "2026-04-17_11-34-26",
+            "Spielart": "Ruf",
+            "Spielmacher": "Tim Hasi",
+            "Rufpartner": "Tim Pasta",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 2,
+            "Wert_NK": 2,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Tim Pasta",
+                "Leo",
+                "Thomas",
+                "Tim Hasi"
+            ],
+            "spiel_info": {
+                "Spielart": "Ruf",
+                "Klopfer": 0,
+                "Laufende": 0,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 0,
+                "Schneider": true,
+                "Schwarz": false,
+                "Kontra": false,
+                "Gewonnen": true
+            }
+        },
+        {
+            "Zeitstempel": "2026-04-17_11-39-20",
+            "Spielart": "Ruf",
+            "Spielmacher": "Tim Pasta",
+            "Rufpartner": "Tim Hasi",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Tim Pasta",
+                "Leo",
+                "Thomas",
+                "Tim Hasi"
+            ],
+            "spiel_info": {
+                "Spielart": "Ruf",
+                "Klopfer": 0,
+                "Laufende": 0,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 0,
+                "Schneider": false,
+                "Schwarz": false,
+                "Kontra": false,
+                "Gewonnen": true
+            }
+        },
+        {
+            "Zeitstempel": "2026-04-17_11-43-07",
+            "Spielart": "Ruf",
+            "Spielmacher": "Tim Hasi",
+            "Rufpartner": "Tim Pasta",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Tim Pasta",
+                "Leo",
+                "Thomas",
+                "Tim Hasi"
+            ],
+            "spiel_info": {
+                "Spielart": "Ruf",
+                "Klopfer": 0,
+                "Laufende": 0,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 0,
+                "Schneider": false,
+                "Schwarz": false,
+                "Kontra": false,
+                "Gewonnen": true
+            }
+        },
+        {
+            "Zeitstempel": "2026-04-17_11-48-44",
+            "Spielart": "Ruf",
+            "Spielmacher": "Leo",
+            "Rufpartner": "Tim Pasta",
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 4,
+            "Wert_NK": 4,
+            "Wert_Wue": 6,
+            "Wert_Wue_NK": 6,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Tim Pasta",
+                "Leo",
+                "Thomas",
+                "Tim Hasi"
+            ],
+            "spiel_info": {
+                "Spielart": "Ruf",
+                "Klopfer": 0,
+                "Laufende": 0,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 0,
+                "Schneider": true,
+                "Schwarz": false,
+                "Kontra": true,
+                "Gewonnen": false
+            }
+        }
+    ]
+}

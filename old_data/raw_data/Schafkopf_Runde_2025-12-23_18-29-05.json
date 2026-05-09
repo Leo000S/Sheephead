@@ -1,0 +1,186 @@
+{
+    "runden_timestamp": "2025-12-23_18-29-05",
+    "tournament": "Aux-23.12",
+    "User": "Leo",
+    "start_info": "Vor der Pizza",
+    "spieler": [
+        "Arne",
+        "Leo",
+        "Stephan S.",
+        "Maxl"
+    ],
+    "infos_zur_runde": "",
+    "spiele": [
+        {
+            "Zeitstempel": "2025-12-23_18-54-46",
+            "Spielart": "Ruf",
+            "Spielmacher": "Stephan S.",
+            "Rufpartner": "Leo",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Arne",
+                "Leo",
+                "Stephan S.",
+                "Maxl"
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-23_18-58-05",
+            "Spielart": "Ramsch",
+            "Spielmacher": "Maxl",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Arne",
+                "Leo",
+                "Stephan S.",
+                "Maxl"
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-23_19-02-55",
+            "Spielart": "Ruf",
+            "Spielmacher": "Stephan S.",
+            "Rufpartner": "Arne",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 2,
+            "Wert_NK": 2,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Arne",
+                "Leo",
+                "Stephan S.",
+                "Maxl"
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-23_19-06-58",
+            "Spielart": "Ruf",
+            "Spielmacher": "Leo",
+            "Rufpartner": "Arne",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 2,
+            "Wert_NK": 2,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Arne",
+                "Leo",
+                "Stephan S.",
+                "Maxl"
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-23_19-10-19",
+            "Spielart": "Ruf",
+            "Spielmacher": "Maxl",
+            "Rufpartner": "Leo",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 2,
+            "Wert_NK": 2,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Arne",
+                "Leo",
+                "Stephan S.",
+                "Maxl"
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-23_19-13-48",
+            "Spielart": "Trumpfsolo",
+            "Spielmacher": "Leo",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 5,
+            "Wert_NK": 5,
+            "Wert_Wue": 3,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Arne",
+                "Leo",
+                "Stephan S.",
+                "Maxl"
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-23_19-17-40",
+            "Spielart": "Ruf",
+            "Spielmacher": "Maxl",
+            "Rufpartner": "Arne",
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Arne",
+                "Leo",
+                "Stephan S.",
+                "Maxl"
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-23_19-21-21",
+            "Spielart": "Ruf",
+            "Spielmacher": "Leo",
+            "Rufpartner": "Arne",
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Arne",
+                "Leo",
+                "Stephan S.",
+                "Maxl"
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-23_19-25-55",
+            "Spielart": "Ruf",
+            "Spielmacher": "Stephan S.",
+            "Rufpartner": "Leo",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 2,
+            "Wert_NK": 2,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Arne",
+                "Leo",
+                "Stephan S.",
+                "Maxl"
+            ]
+        }
+    ]
+}

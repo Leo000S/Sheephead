@@ -1,0 +1,91 @@
+{
+    "runden_timestamp": "2026-03-11_20-19-17",
+    "tournament": "Ak-Schafkopf-4",
+    "User": "Leo",
+    "start_info": "",
+    "spieler": [
+        "Leo",
+        "Davina",
+        "Thomas",
+        "Thomas S.",
+        "Elias S."
+    ],
+    "spiele": [
+        {
+            "Zeitstempel": "2026-03-11_20-19-41",
+            "Spielart": "Ruf",
+            "Spielmacher": "Davina",
+            "Rufpartner": "Leo",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Davina",
+                "Thomas S.",
+                "Elias S."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-11_20-24-30",
+            "Spielart": "Ruf",
+            "Spielmacher": "Leo",
+            "Rufpartner": "Thomas S.",
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 2,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Thomas",
+                "Thomas S.",
+                "Elias S."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-11_20-28-49",
+            "Spielart": "Ruf",
+            "Spielmacher": "Thomas",
+            "Rufpartner": "Leo",
+            "Klopfer": 2,
+            "Gewonnen": true,
+            "Wert": 20,
+            "Wert_NK": 5,
+            "Wert_Wue": 7,
+            "Wert_Wue_NK": 5,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Davina",
+                "Thomas",
+                "Thomas S."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-11_20-33-07",
+            "Spielart": "Ruf",
+            "Spielmacher": "Davina",
+            "Rufpartner": "Elias S.",
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 4,
+            "Wert_NK": 2,
+            "Wert_Wue": 4,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Davina",
+                "Thomas",
+                "Elias S."
+            ]
+        }
+    ]
+}

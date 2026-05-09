@@ -1,0 +1,387 @@
+{
+    "runden_timestamp": "2026-04-14_18-29-48",
+    "tournament": "Ak-Schafkopf-4",
+    "User": "Valentin W.",
+    "start_info": "",
+    "ende_info": true,
+    "spieler": [
+        "Valentin W.",
+        "Tim Plote",
+        "Thomas S.",
+        "Elias S."
+    ],
+    "spiele": [
+        {
+            "Zeitstempel": "2026-04-14_18-40-09",
+            "Spielart": "Ruf",
+            "Spielmacher": "Thomas S.",
+            "Rufpartner": "Tim Plote",
+            "Klopfer": 1,
+            "Gewonnen": false,
+            "Wert": 8,
+            "Wert_NK": 4,
+            "Wert_Wue": 9,
+            "Wert_Wue_NK": 6,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Valentin W.",
+                "Tim Plote",
+                "Thomas S.",
+                "Elias S."
+            ],
+            "spiel_info": {
+                "Spielart": "Ruf",
+                "Klopfer": 1,
+                "Laufende": 0,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 0,
+                "Schneider": true,
+                "Schwarz": false,
+                "Kontra": true,
+                "Gewonnen": false
+            }
+        },
+        {
+            "Zeitstempel": "2026-04-14_18-40-40",
+            "Spielart": "Ruf",
+            "Spielmacher": "Thomas S.",
+            "Rufpartner": "Elias S.",
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 12,
+            "Wert_NK": 6,
+            "Wert_Wue": 9,
+            "Wert_Wue_NK": 6,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Valentin W.",
+                "Tim Plote",
+                "Thomas S.",
+                "Elias S."
+            ],
+            "spiel_info": {
+                "Spielart": "Ruf",
+                "Klopfer": 1,
+                "Laufende": 3,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 0,
+                "Schneider": true,
+                "Schwarz": true,
+                "Kontra": false,
+                "Gewonnen": true
+            }
+        },
+        {
+            "Zeitstempel": "2026-04-14_18-47-49",
+            "Spielart": "Ruf",
+            "Spielmacher": "Valentin W.",
+            "Rufpartner": "Elias S.",
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 12,
+            "Wert_NK": 6,
+            "Wert_Wue": 8,
+            "Wert_Wue_NK": 6,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Valentin W.",
+                "Tim Plote",
+                "Thomas S.",
+                "Elias S."
+            ],
+            "spiel_info": {
+                "Spielart": "Ruf",
+                "Klopfer": 1,
+                "Laufende": 4,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 0,
+                "Schneider": true,
+                "Schwarz": false,
+                "Kontra": false,
+                "Gewonnen": true
+            }
+        },
+        {
+            "Zeitstempel": "2026-04-14_18-54-46",
+            "Spielart": "Ruf",
+            "Spielmacher": "Tim Plote",
+            "Rufpartner": "Thomas S.",
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 4,
+            "Wert_NK": 2,
+            "Wert_Wue": 4,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Valentin W.",
+                "Tim Plote",
+                "Thomas S.",
+                "Elias S."
+            ],
+            "spiel_info": {
+                "Spielart": "Ruf",
+                "Klopfer": 1,
+                "Laufende": 0,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 0,
+                "Schneider": true,
+                "Schwarz": false,
+                "Kontra": false,
+                "Gewonnen": true
+            }
+        },
+        {
+            "Zeitstempel": "2026-04-14_19-00-29",
+            "Spielart": "Ruf",
+            "Spielmacher": "Elias S.",
+            "Rufpartner": "Valentin W.",
+            "Klopfer": 1,
+            "Gewonnen": false,
+            "Wert": 2,
+            "Wert_NK": 1,
+            "Wert_Wue": 4,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Valentin W.",
+                "Tim Plote",
+                "Thomas S.",
+                "Elias S."
+            ],
+            "spiel_info": {
+                "Spielart": "Ruf",
+                "Klopfer": 1,
+                "Laufende": 0,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 0,
+                "Schneider": false,
+                "Schwarz": false,
+                "Kontra": false,
+                "Gewonnen": false
+            }
+        },
+        {
+            "Zeitstempel": "2026-04-14_19-05-12",
+            "Spielart": "Wenz",
+            "Spielmacher": "Elias S.",
+            "Rufpartner": null,
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 20,
+            "Wert_NK": 10,
+            "Wert_Wue": 12,
+            "Wert_Wue_NK": 8,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Valentin W.",
+                "Tim Plote",
+                "Thomas S.",
+                "Elias S."
+            ],
+            "spiel_info": {
+                "Spielart": "Wenz",
+                "Klopfer": 1,
+                "Laufende": 4,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 0,
+                "Schneider": true,
+                "Schwarz": false,
+                "Kontra": false,
+                "Gewonnen": true
+            }
+        },
+        {
+            "Zeitstempel": "2026-04-14_19-10-04",
+            "Spielart": "Ruf",
+            "Spielmacher": "Thomas S.",
+            "Rufpartner": "Valentin W.",
+            "Klopfer": 2,
+            "Gewonnen": true,
+            "Wert": 16,
+            "Wert_NK": 4,
+            "Wert_Wue": 6,
+            "Wert_Wue_NK": 4,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Valentin W.",
+                "Tim Plote",
+                "Thomas S.",
+                "Elias S."
+            ],
+            "spiel_info": {
+                "Spielart": "Ruf",
+                "Klopfer": 2,
+                "Laufende": 3,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 0,
+                "Schneider": false,
+                "Schwarz": false,
+                "Kontra": false,
+                "Gewonnen": true
+            }
+        },
+        {
+            "Zeitstempel": "2026-04-14_19-13-03",
+            "Spielart": "Ruf",
+            "Spielmacher": "Thomas S.",
+            "Rufpartner": "Elias S.",
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 4,
+            "Wert_NK": 2,
+            "Wert_Wue": 4,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Valentin W.",
+                "Tim Plote",
+                "Thomas S.",
+                "Elias S."
+            ],
+            "spiel_info": {
+                "Spielart": "Ruf",
+                "Klopfer": 1,
+                "Laufende": 0,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 0,
+                "Schneider": true,
+                "Schwarz": false,
+                "Kontra": false,
+                "Gewonnen": true
+            }
+        },
+        {
+            "Zeitstempel": "2026-04-14_19-17-05",
+            "Spielart": "Ruf",
+            "Spielmacher": "Tim Plote",
+            "Rufpartner": "Elias S.",
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 12,
+            "Wert_NK": 6,
+            "Wert_Wue": 8,
+            "Wert_Wue_NK": 6,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Valentin W.",
+                "Tim Plote",
+                "Thomas S.",
+                "Elias S."
+            ],
+            "spiel_info": {
+                "Spielart": "Ruf",
+                "Klopfer": 1,
+                "Laufende": 4,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 0,
+                "Schneider": true,
+                "Schwarz": false,
+                "Kontra": false,
+                "Gewonnen": true
+            }
+        },
+        {
+            "Zeitstempel": "2026-04-14_19-22-13",
+            "Spielart": "Wenz",
+            "Spielmacher": "Thomas S.",
+            "Rufpartner": null,
+            "Klopfer": 2,
+            "Gewonnen": true,
+            "Wert": 24,
+            "Wert_NK": 6,
+            "Wert_Wue": 12,
+            "Wert_Wue_NK": 4,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Valentin W.",
+                "Tim Plote",
+                "Thomas S.",
+                "Elias S."
+            ],
+            "spiel_info": {
+                "Spielart": "Wenz",
+                "Klopfer": 2,
+                "Laufende": 0,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 0,
+                "Schneider": true,
+                "Schwarz": false,
+                "Kontra": false,
+                "Gewonnen": true
+            }
+        },
+        {
+            "Zeitstempel": "2026-04-14_19-27-39",
+            "Spielart": "Ruf",
+            "Spielmacher": "Elias S.",
+            "Rufpartner": "Valentin W.",
+            "Klopfer": 2,
+            "Gewonnen": true,
+            "Wert": 4,
+            "Wert_NK": 1,
+            "Wert_Wue": 3,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Valentin W.",
+                "Tim Plote",
+                "Thomas S.",
+                "Elias S."
+            ],
+            "spiel_info": {
+                "Spielart": "Ruf",
+                "Klopfer": 2,
+                "Laufende": 0,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 0,
+                "Schneider": false,
+                "Schwarz": false,
+                "Kontra": false,
+                "Gewonnen": true
+            }
+        },
+        {
+            "Zeitstempel": "2026-04-14_19-32-40",
+            "Spielart": "Wenz",
+            "Spielmacher": "Thomas S.",
+            "Rufpartner": null,
+            "Klopfer": 1,
+            "Gewonnen": false,
+            "Wert": 12,
+            "Wert_NK": 6,
+            "Wert_Wue": 8,
+            "Wert_Wue_NK": 4,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Valentin W.",
+                "Tim Plote",
+                "Thomas S.",
+                "Elias S."
+            ],
+            "spiel_info": {
+                "Spielart": "Wenz",
+                "Klopfer": 1,
+                "Laufende": 0,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 0,
+                "Schneider": true,
+                "Schwarz": false,
+                "Kontra": false,
+                "Gewonnen": false
+            }
+        }
+    ]
+}

@@ -1,0 +1,139 @@
+{
+    "runden_timestamp": "2026-04-27_12-22-47",
+    "tournament": "Ak-Schafkopf-4",
+    "User": "Valentin W.",
+    "start_info": "",
+    "ende_info": true,
+    "spieler": [
+        "Valentin W.",
+        "Tim Pasta",
+        "Elias S.",
+        "Davina"
+    ],
+    "spiele": [
+        {
+            "Zeitstempel": "2026-04-27_12-25-59",
+            "Spielart": "Ruf",
+            "Spielmacher": "Tim Pasta",
+            "Rufpartner": "Valentin W.",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 14,
+            "Wert_NK": 14,
+            "Wert_Wue": 8,
+            "Wert_Wue_NK": 8,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Valentin W.",
+                "Tim Pasta",
+                "Elias S.",
+                "Davina"
+            ],
+            "spiel_info": {
+                "Spielart": "Ruf",
+                "Klopfer": 0,
+                "Laufende": 6,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 0,
+                "Schneider": false,
+                "Schwarz": false,
+                "Kontra": true,
+                "Gewonnen": true
+            }
+        },
+        {
+            "Zeitstempel": "2026-04-27_12-29-49",
+            "Spielart": "Geier",
+            "Spielmacher": "Elias S.",
+            "Rufpartner": null,
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 16,
+            "Wert_NK": 8,
+            "Wert_Wue": 10,
+            "Wert_Wue_NK": 6,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Valentin W.",
+                "Tim Pasta",
+                "Elias S.",
+                "Davina"
+            ],
+            "spiel_info": {
+                "Spielart": "Geier",
+                "Klopfer": 1,
+                "Laufende": 2,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 0,
+                "Schneider": true,
+                "Schwarz": false,
+                "Kontra": false,
+                "Gewonnen": true
+            }
+        },
+        {
+            "Zeitstempel": "2026-04-27_12-33-40",
+            "Spielart": "Ruf",
+            "Spielmacher": "Davina",
+            "Rufpartner": "Valentin W.",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Valentin W.",
+                "Tim Pasta",
+                "Elias S.",
+                "Davina"
+            ],
+            "spiel_info": {
+                "Spielart": "Ruf",
+                "Klopfer": 0,
+                "Laufende": 0,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 0,
+                "Schneider": false,
+                "Schwarz": false,
+                "Kontra": false,
+                "Gewonnen": true
+            }
+        },
+        {
+            "Zeitstempel": "2026-04-27_12-37-15",
+            "Spielart": "Geier",
+            "Spielmacher": "Elias S.",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 9,
+            "Wert_NK": 9,
+            "Wert_Wue": 7,
+            "Wert_Wue_NK": 7,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Valentin W.",
+                "Tim Pasta",
+                "Elias S.",
+                "Davina"
+            ],
+            "spiel_info": {
+                "Spielart": "Geier",
+                "Klopfer": 0,
+                "Laufende": 2,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 0,
+                "Schneider": true,
+                "Schwarz": true,
+                "Kontra": false,
+                "Gewonnen": true
+            }
+        }
+    ]
+}

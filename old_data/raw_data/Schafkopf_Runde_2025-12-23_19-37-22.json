@@ -1,0 +1,167 @@
+{
+    "runden_timestamp": "2025-12-23_19-37-22",
+    "tournament": "Aux-23.12",
+    "User": "Stephan S.",
+    "start_info": "",
+    "spieler": [
+        "Stephan M.",
+        "Arne",
+        "Stephan S.",
+        "Monika"
+    ],
+    "infos_zur_runde": "",
+    "spiele": [
+        {
+            "Zeitstempel": "2025-12-23_19-41-13",
+            "Spielart": "Ruf",
+            "Spielmacher": "Stephan S.",
+            "Rufpartner": "Arne",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Stephan M.",
+                "Arne",
+                "Stephan S.",
+                "Monika"
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-23_19-44-56",
+            "Spielart": "Ruf",
+            "Spielmacher": "Arne",
+            "Rufpartner": "Stephan S.",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Stephan M.",
+                "Arne",
+                "Stephan S.",
+                "Monika"
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-23_19-48-49",
+            "Spielart": "Ruf",
+            "Spielmacher": "Stephan M.",
+            "Rufpartner": "Stephan S.",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Stephan M.",
+                "Arne",
+                "Stephan S.",
+                "Monika"
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-23_19-53-40",
+            "Spielart": "Ruf",
+            "Spielmacher": "Stephan M.",
+            "Rufpartner": "Arne",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 4,
+            "Wert_NK": 4,
+            "Wert_Wue": 4,
+            "Wert_Wue_NK": 4,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Stephan M.",
+                "Arne",
+                "Stephan S.",
+                "Monika"
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-23_19-57-50",
+            "Spielart": "Wenz",
+            "Spielmacher": "Stephan M.",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 7,
+            "Wert_NK": 7,
+            "Wert_Wue": 5,
+            "Wert_Wue_NK": 5,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Stephan M.",
+                "Arne",
+                "Stephan S.",
+                "Monika"
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-23_20-01-03",
+            "Spielart": "Ruf",
+            "Spielmacher": "Stephan S.",
+            "Rufpartner": "Stephan M.",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Stephan M.",
+                "Arne",
+                "Stephan S.",
+                "Monika"
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-23_20-06-46",
+            "Spielart": "Ruf",
+            "Spielmacher": "Arne",
+            "Rufpartner": "Stephan S.",
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Stephan M.",
+                "Arne",
+                "Stephan S.",
+                "Monika"
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-23_20-11-06",
+            "Spielart": "Ruf",
+            "Spielmacher": "Stephan S.",
+            "Rufpartner": "Stephan M.",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Stephan M.",
+                "Arne",
+                "Stephan S.",
+                "Monika"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,168 @@
+{
+    "runden_timestamp": "2026-03-13_18-35-40",
+    "tournament": "Aux-14.03",
+    "User": "Vali",
+    "start_info": "",
+    "ende_info": true,
+    "spieler": [
+        "Vali",
+        "Marc",
+        "Leif",
+        "Ben S.",
+        "Robin"
+    ],
+    "spiele": [
+        {
+            "Zeitstempel": "2026-03-13_18-37-14",
+            "Spielart": "Ruf",
+            "Spielmacher": "Leif",
+            "Rufpartner": "Ben S.",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 5,
+            "Wert_NK": 5,
+            "Wert_Wue": 5,
+            "Wert_Wue_NK": 5,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Vali",
+                "Marc",
+                "Leif",
+                "Ben S."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-13_18-42-32",
+            "Spielart": "Ruf",
+            "Spielmacher": "Ben S.",
+            "Rufpartner": "Marc",
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Vali",
+                "Marc",
+                "Ben S.",
+                "Robin"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-13_18-45-39",
+            "Spielart": "Ruf",
+            "Spielmacher": "Ben S.",
+            "Rufpartner": "Robin",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 4,
+            "Wert_NK": 4,
+            "Wert_Wue": 4,
+            "Wert_Wue_NK": 4,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Vali",
+                "Leif",
+                "Ben S.",
+                "Robin"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-13_18-49-07",
+            "Spielart": "Trumpfsolo",
+            "Spielmacher": "Vali",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 10,
+            "Wert_NK": 10,
+            "Wert_Wue": 6,
+            "Wert_Wue_NK": 6,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Vali",
+                "Marc",
+                "Leif",
+                "Robin"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-13_18-53-56",
+            "Spielart": "Ramsch",
+            "Spielmacher": "Marc",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Marc",
+                "Leif",
+                "Ben S.",
+                "Robin"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-13_18-57-19",
+            "Spielart": "Ruf",
+            "Spielmacher": "Ben S.",
+            "Rufpartner": "Vali",
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Vali",
+                "Marc",
+                "Leif",
+                "Ben S."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-13_19-03-39",
+            "Spielart": "Ruf",
+            "Spielmacher": "Marc",
+            "Rufpartner": "Robin",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Vali",
+                "Marc",
+                "Ben S.",
+                "Robin"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-13_19-09-41",
+            "Spielart": "Ruf",
+            "Spielmacher": "Robin",
+            "Rufpartner": "Ben S.",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Vali",
+                "Leif",
+                "Ben S.",
+                "Robin"
+            ]
+        }
+    ]
+}

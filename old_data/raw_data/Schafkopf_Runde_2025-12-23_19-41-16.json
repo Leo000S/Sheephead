@@ -1,0 +1,186 @@
+{
+    "runden_timestamp": "2025-12-23_19-41-16",
+    "tournament": "Aux-23.12",
+    "User": "Niclas N.",
+    "start_info": "",
+    "spieler": [
+        "Julik",
+        "Jakob",
+        "Niclas N.",
+        "Leo"
+    ],
+    "infos_zur_runde": "",
+    "spiele": [
+        {
+            "Zeitstempel": "2025-12-23_19-42-00",
+            "Spielart": "Wenz",
+            "Spielmacher": "Niclas N.",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 7,
+            "Wert_NK": 7,
+            "Wert_Wue": 5,
+            "Wert_Wue_NK": 5,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Julik",
+                "Jakob",
+                "Niclas N.",
+                "Leo"
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-23_19-44-33",
+            "Spielart": "Ruf",
+            "Spielmacher": "Leo",
+            "Rufpartner": "Niclas N.",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 2,
+            "Wert_NK": 2,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Julik",
+                "Jakob",
+                "Niclas N.",
+                "Leo"
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-23_19-48-12",
+            "Spielart": "Ruf",
+            "Spielmacher": "Julik",
+            "Rufpartner": "Leo",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Julik",
+                "Jakob",
+                "Niclas N.",
+                "Leo"
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-23_19-51-20",
+            "Spielart": "Ruf",
+            "Spielmacher": "Niclas N.",
+            "Rufpartner": "Leo",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Julik",
+                "Jakob",
+                "Niclas N.",
+                "Leo"
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-23_19-55-15",
+            "Spielart": "Ruf",
+            "Spielmacher": "Jakob",
+            "Rufpartner": "Leo",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 7,
+            "Wert_NK": 7,
+            "Wert_Wue": 7,
+            "Wert_Wue_NK": 7,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Julik",
+                "Jakob",
+                "Niclas N.",
+                "Leo"
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-23_19-59-02",
+            "Spielart": "Ruf",
+            "Spielmacher": "Leo",
+            "Rufpartner": "Niclas N.",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Julik",
+                "Jakob",
+                "Niclas N.",
+                "Leo"
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-23_20-02-41",
+            "Spielart": "Trumpfsolo",
+            "Spielmacher": "Jakob",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 5,
+            "Wert_NK": 5,
+            "Wert_Wue": 3,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Julik",
+                "Jakob",
+                "Niclas N.",
+                "Leo"
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-23_20-07-38",
+            "Spielart": "Ruf",
+            "Spielmacher": "Julik",
+            "Rufpartner": "Jakob",
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Julik",
+                "Jakob",
+                "Niclas N.",
+                "Leo"
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-23_20-12-03",
+            "Spielart": "Ruf",
+            "Spielmacher": "Leo",
+            "Rufpartner": "Niclas N.",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 2,
+            "Wert_NK": 2,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Julik",
+                "Jakob",
+                "Niclas N.",
+                "Leo"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,166 @@
+{
+    "runden_timestamp": "2026-02-18_13-30-01",
+    "tournament": "Ak-Schafkopf-3",
+    "User": "Kira",
+    "start_info": "",
+    "spieler": [
+        "Kira",
+        "Lukas F.",
+        "Lukas H.",
+        "Valentin W."
+    ],
+    "spiele": [
+        {
+            "Zeitstempel": "2026-02-18_13-31-03",
+            "Spielart": "Ruf",
+            "Spielmacher": "Kira",
+            "Rufpartner": "Valentin W.",
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Kira",
+                "Lukas F.",
+                "Lukas H.",
+                "Valentin W."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-02-18_13-35-12",
+            "Spielart": "Ruf",
+            "Spielmacher": "Lukas F.",
+            "Rufpartner": "Lukas H.",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Kira",
+                "Lukas F.",
+                "Lukas H.",
+                "Valentin W."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-02-18_13-39-53",
+            "Spielart": "Ruf",
+            "Spielmacher": "Lukas H.",
+            "Rufpartner": "Valentin W.",
+            "Klopfer": 2,
+            "Gewonnen": false,
+            "Wert": 4,
+            "Wert_NK": 1,
+            "Wert_Wue": 6,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Kira",
+                "Lukas F.",
+                "Lukas H.",
+                "Valentin W."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-02-18_13-44-19",
+            "Spielart": "Ruf",
+            "Spielmacher": "Valentin W.",
+            "Rufpartner": "Kira",
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 4,
+            "Wert_NK": 2,
+            "Wert_Wue": 4,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Kira",
+                "Lukas F.",
+                "Lukas H.",
+                "Valentin W."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-02-18_13-46-33",
+            "Spielart": "Bettel",
+            "Spielmacher": "Valentin W.",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 5,
+            "Wert_NK": 5,
+            "Wert_Wue": 3,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Kira",
+                "Lukas F.",
+                "Lukas H.",
+                "Valentin W."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-02-18_13-50-39",
+            "Spielart": "Ruf",
+            "Spielmacher": "Lukas H.",
+            "Rufpartner": "Kira",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Kira",
+                "Lukas F.",
+                "Lukas H.",
+                "Valentin W."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-02-18_13-54-49",
+            "Spielart": "Ruf",
+            "Spielmacher": "Kira",
+            "Rufpartner": "Lukas H.",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Kira",
+                "Lukas F.",
+                "Lukas H.",
+                "Valentin W."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-02-18_14-00-26",
+            "Spielart": "Ruf",
+            "Spielmacher": "Lukas H.",
+            "Rufpartner": "Valentin W.",
+            "Klopfer": 2,
+            "Gewonnen": true,
+            "Wert": 4,
+            "Wert_NK": 1,
+            "Wert_Wue": 3,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Kira",
+                "Lukas F.",
+                "Lukas H.",
+                "Valentin W."
+            ]
+        }
+    ]
+}

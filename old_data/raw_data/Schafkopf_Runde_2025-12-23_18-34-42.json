@@ -1,0 +1,34 @@
+{
+    "runden_timestamp": "2025-12-23_18-34-42",
+    "tournament": "Aux-23.12",
+    "User": "Niclas N.",
+    "start_info": "grad am Anfang",
+    "spieler": [
+        "Niclas N.",
+        "Leif",
+        "Roman",
+        "Jonas L."
+    ],
+    "infos_zur_runde": "",
+    "spiele": [
+        {
+            "Zeitstempel": "2025-12-23_18-34-56",
+            "Spielart": "Ramsch",
+            "Spielmacher": "Niclas N.",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Niclas N.",
+                "Leif",
+                "Roman",
+                "Jonas L."
+            ]
+        }
+    ]
+}

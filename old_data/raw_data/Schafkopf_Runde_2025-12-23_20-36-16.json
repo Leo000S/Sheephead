@@ -1,0 +1,206 @@
+{
+    "runden_timestamp": "2025-12-23_20-36-16",
+    "tournament": "Aux-23.12",
+    "User": "Stephan S.",
+    "start_info": "",
+    "spieler": [
+        "Arne",
+        "Monika",
+        "Matze U.",
+        "Robin",
+        "Stephan S."
+    ],
+    "infos_zur_runde": "",
+    "spiele": [
+        {
+            "Zeitstempel": "2025-12-23_20-39-06",
+            "Spielart": "Ruf",
+            "Spielmacher": "Stephan S.",
+            "Rufpartner": "Matze U.",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Arne",
+                "Monika",
+                "Matze U.",
+                "Stephan S."
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-23_20-43-36",
+            "Spielart": "Wenz",
+            "Spielmacher": "Robin",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 7,
+            "Wert_NK": 7,
+            "Wert_Wue": 5,
+            "Wert_Wue_NK": 5,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Monika",
+                "Matze U.",
+                "Robin",
+                "Stephan S."
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-23_20-47-03",
+            "Spielart": "Wenz",
+            "Spielmacher": "Stephan S.",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 5,
+            "Wert_NK": 5,
+            "Wert_Wue": 3,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Arne",
+                "Matze U.",
+                "Robin",
+                "Stephan S."
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-23_20-50-53",
+            "Spielart": "Ruf",
+            "Spielmacher": "Monika",
+            "Rufpartner": "Arne",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Arne",
+                "Monika",
+                "Matze U.",
+                "Robin"
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-23_20-56-43",
+            "Spielart": "Ruf",
+            "Spielmacher": "Monika",
+            "Rufpartner": "Robin",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 2,
+            "Wert_NK": 2,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Arne",
+                "Monika",
+                "Robin",
+                "Stephan S."
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-23_21-01-41",
+            "Spielart": "Ruf",
+            "Spielmacher": "Arne",
+            "Rufpartner": "Monika",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 4,
+            "Wert_NK": 4,
+            "Wert_Wue": 4,
+            "Wert_Wue_NK": 4,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Arne",
+                "Monika",
+                "Matze U.",
+                "Stephan S."
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-23_21-06-28",
+            "Spielart": "Wenz",
+            "Spielmacher": "Robin",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 8,
+            "Wert_NK": 8,
+            "Wert_Wue": 6,
+            "Wert_Wue_NK": 6,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Monika",
+                "Matze U.",
+                "Robin",
+                "Stephan S."
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-23_21-07-13",
+            "Spielart": "Wenz",
+            "Spielmacher": "Robin",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 8,
+            "Wert_NK": 8,
+            "Wert_Wue": 6,
+            "Wert_Wue_NK": 6,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Monika",
+                "Matze U.",
+                "Robin",
+                "Stephan S."
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-23_21-13-51",
+            "Spielart": "Ruf",
+            "Spielmacher": "Monika",
+            "Rufpartner": "Arne",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Arne",
+                "Monika",
+                "Robin",
+                "Stephan S."
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-23_21-17-58",
+            "Spielart": "Ruf",
+            "Spielmacher": "Robin",
+            "Rufpartner": "Stephan S.",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Arne",
+                "Matze U.",
+                "Robin",
+                "Stephan S."
+            ]
+        }
+    ]
+}

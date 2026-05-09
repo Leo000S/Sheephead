@@ -1,0 +1,395 @@
+{
+    "runden_timestamp": "2026-01-20_22-21-53",
+    "tournament": "Ak-Schafkopf-3",
+    "User": "Lukas H.",
+    "start_info": "",
+    "spieler": [
+        "Lukas H.",
+        "Lukas F.",
+        "Kira",
+        "Stefan K.",
+        "Samuel"
+    ],
+    "spiele": [
+        {
+            "Zeitstempel": "2026-01-20_22-24-03",
+            "Spielart": "Ruf",
+            "Spielmacher": "Stefan K.",
+            "Rufpartner": "Lukas F.",
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 14,
+            "Wert_NK": 7,
+            "Wert_Wue": 9,
+            "Wert_Wue_NK": 7,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Lukas H.",
+                "Lukas F.",
+                "Stefan K.",
+                "Samuel"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-20_22-29-03",
+            "Spielart": "Ruf",
+            "Spielmacher": "Lukas H.",
+            "Rufpartner": "Samuel",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 2,
+            "Wert_NK": 2,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Lukas H.",
+                "Lukas F.",
+                "Stefan K.",
+                "Samuel"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-20_22-32-29",
+            "Spielart": "Wenz",
+            "Spielmacher": "Samuel",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 5,
+            "Wert_NK": 5,
+            "Wert_Wue": 3,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Lukas H.",
+                "Lukas F.",
+                "Stefan K.",
+                "Samuel"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-20_22-38-29",
+            "Spielart": "Ruf",
+            "Spielmacher": "Lukas F.",
+            "Rufpartner": "Lukas H.",
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Lukas H.",
+                "Lukas F.",
+                "Stefan K.",
+                "Samuel"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-20_22-42-57",
+            "Spielart": "Wenz",
+            "Spielmacher": "Samuel",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 6,
+            "Wert_NK": 6,
+            "Wert_Wue": 4,
+            "Wert_Wue_NK": 4,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Lukas H.",
+                "Lukas F.",
+                "Kira",
+                "Samuel"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-20_22-46-03",
+            "Spielart": "Ramsch",
+            "Spielmacher": "Lukas H.",
+            "Rufpartner": null,
+            "Klopfer": 1,
+            "Gewonnen": false,
+            "Wert": 2,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Lukas H.",
+                "Lukas F.",
+                "Kira",
+                "Samuel"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-20_22-50-02",
+            "Spielart": "Ruf",
+            "Spielmacher": "Lukas H.",
+            "Rufpartner": "Lukas F.",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Lukas H.",
+                "Lukas F.",
+                "Kira",
+                "Samuel"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-20_22-53-36",
+            "Spielart": "Bettel",
+            "Spielmacher": "Lukas H.",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 5,
+            "Wert_NK": 5,
+            "Wert_Wue": 3,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Lukas H.",
+                "Lukas F.",
+                "Kira",
+                "Samuel"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-20_22-59-03",
+            "Spielart": "Bettel",
+            "Spielmacher": "Kira",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 5,
+            "Wert_NK": 5,
+            "Wert_Wue": 3,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Lukas H.",
+                "Lukas F.",
+                "Kira",
+                "Samuel"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-20_23-01-41",
+            "Spielart": "Wenz",
+            "Spielmacher": "Lukas H.",
+            "Rufpartner": null,
+            "Klopfer": 1,
+            "Gewonnen": false,
+            "Wert": 14,
+            "Wert_NK": 7,
+            "Wert_Wue": 8,
+            "Wert_Wue_NK": 5,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Lukas H.",
+                "Lukas F.",
+                "Kira",
+                "Samuel"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-20_23-05-41",
+            "Spielart": "Ruf",
+            "Spielmacher": "Lukas H.",
+            "Rufpartner": "Samuel",
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Lukas H.",
+                "Lukas F.",
+                "Kira",
+                "Samuel"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-20_23-08-45",
+            "Spielart": "Ramsch",
+            "Spielmacher": "Lukas F.",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Lukas H.",
+                "Lukas F.",
+                "Kira",
+                "Samuel"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-20_23-13-06",
+            "Spielart": "Ruf",
+            "Spielmacher": "Kira",
+            "Rufpartner": "Lukas H.",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 5,
+            "Wert_NK": 5,
+            "Wert_Wue": 5,
+            "Wert_Wue_NK": 5,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Lukas H.",
+                "Lukas F.",
+                "Kira",
+                "Samuel"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-20_23-17-26",
+            "Spielart": "Ramsch",
+            "Spielmacher": "Lukas F.",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Lukas H.",
+                "Lukas F.",
+                "Kira",
+                "Samuel"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-20_23-20-53",
+            "Spielart": "Ruf",
+            "Spielmacher": "Samuel",
+            "Rufpartner": "Kira",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Lukas H.",
+                "Lukas F.",
+                "Kira",
+                "Samuel"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-20_23-24-06",
+            "Spielart": "Ruf",
+            "Spielmacher": "Kira",
+            "Rufpartner": "Lukas F.",
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 4,
+            "Wert_NK": 2,
+            "Wert_Wue": 4,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Lukas H.",
+                "Lukas F.",
+                "Kira",
+                "Samuel"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-20_23-28-28",
+            "Spielart": "Wenz",
+            "Spielmacher": "Kira",
+            "Rufpartner": null,
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 18,
+            "Wert_NK": 9,
+            "Wert_Wue": 11,
+            "Wert_Wue_NK": 7,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Lukas H.",
+                "Lukas F.",
+                "Kira",
+                "Samuel"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-20_23-31-43",
+            "Spielart": "Ruf",
+            "Spielmacher": "Samuel",
+            "Rufpartner": "Kira",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Lukas H.",
+                "Lukas F.",
+                "Kira",
+                "Samuel"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-20_23-36-47",
+            "Spielart": "Geier",
+            "Spielmacher": "Kira",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 7,
+            "Wert_NK": 7,
+            "Wert_Wue": 5,
+            "Wert_Wue_NK": 5,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Lukas H.",
+                "Lukas F.",
+                "Kira",
+                "Samuel"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-20_23-39-40",
+            "Spielart": "Ruf",
+            "Spielmacher": "Samuel",
+            "Rufpartner": "Lukas F.",
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 4,
+            "Wert_NK": 2,
+            "Wert_Wue": 4,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Lukas H.",
+                "Lukas F.",
+                "Kira",
+                "Samuel"
+            ]
+        }
+    ]
+}

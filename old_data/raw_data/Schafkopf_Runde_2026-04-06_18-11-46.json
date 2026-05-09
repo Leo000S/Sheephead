@@ -1,0 +1,357 @@
+{
+    "runden_timestamp": "2026-04-06_18-11-46",
+    "tournament": "Ak-Schafkopf-4",
+    "User": "Stefan K.",
+    "start_info": "",
+    "ende_info": true,
+    "spieler": [
+        "Stefan K.",
+        "Elias S.",
+        "Lukas H.",
+        "Valentin W.",
+        "Davina"
+    ],
+    "spiele": [
+        {
+            "Zeitstempel": "2026-04-06_18-12-19",
+            "Spielart": "Wenz",
+            "Spielmacher": "Stefan K.",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 8,
+            "Wert_NK": 8,
+            "Wert_Wue": 6,
+            "Wert_Wue_NK": 6,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Stefan K.",
+                "Elias S.",
+                "Lukas H.",
+                "Davina"
+            ],
+            "spiel_info": {
+                "Spielart": "Wenz",
+                "Klopfer": 0,
+                "Laufende": 3,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 0,
+                "Schneider": false,
+                "Schwarz": false,
+                "Kontra": false,
+                "Gewonnen": true
+            }
+        },
+        {
+            "Zeitstempel": "2026-04-06_18-16-56",
+            "Spielart": "Ruf",
+            "Spielmacher": "Elias S.",
+            "Rufpartner": "Stefan K.",
+            "Klopfer": 1,
+            "Gewonnen": false,
+            "Wert": 2,
+            "Wert_NK": 1,
+            "Wert_Wue": 4,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Stefan K.",
+                "Elias S.",
+                "Lukas H.",
+                "Valentin W."
+            ],
+            "spiel_info": {
+                "Spielart": "Ruf",
+                "Klopfer": 1,
+                "Laufende": 0,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 0,
+                "Schneider": false,
+                "Schwarz": false,
+                "Kontra": false,
+                "Gewonnen": false
+            }
+        },
+        {
+            "Zeitstempel": "2026-04-06_18-20-38",
+            "Spielart": "Ruf",
+            "Spielmacher": "Valentin W.",
+            "Rufpartner": "Lukas H.",
+            "Klopfer": 1,
+            "Gewonnen": false,
+            "Wert": 2,
+            "Wert_NK": 1,
+            "Wert_Wue": 4,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Elias S.",
+                "Lukas H.",
+                "Valentin W.",
+                "Davina"
+            ],
+            "spiel_info": {
+                "Spielart": "Ruf",
+                "Klopfer": 1,
+                "Laufende": 0,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 0,
+                "Schneider": false,
+                "Schwarz": false,
+                "Kontra": false,
+                "Gewonnen": false
+            }
+        },
+        {
+            "Zeitstempel": "2026-04-06_18-27-12",
+            "Spielart": "Wenz",
+            "Spielmacher": "Stefan K.",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 5,
+            "Wert_NK": 5,
+            "Wert_Wue": 3,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Stefan K.",
+                "Lukas H.",
+                "Valentin W.",
+                "Davina"
+            ],
+            "spiel_info": {
+                "Spielart": "Wenz",
+                "Klopfer": 0,
+                "Laufende": 0,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 0,
+                "Schneider": false,
+                "Schwarz": false,
+                "Kontra": false,
+                "Gewonnen": false
+            }
+        },
+        {
+            "Zeitstempel": "2026-04-06_18-34-23",
+            "Spielart": "Ruf",
+            "Spielmacher": "Valentin W.",
+            "Rufpartner": "Elias S.",
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Stefan K.",
+                "Elias S.",
+                "Valentin W.",
+                "Davina"
+            ],
+            "spiel_info": {
+                "Spielart": "Ruf",
+                "Klopfer": 0,
+                "Laufende": 0,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 0,
+                "Schneider": false,
+                "Schwarz": false,
+                "Kontra": false,
+                "Gewonnen": false
+            }
+        },
+        {
+            "Zeitstempel": "2026-04-06_18-38-29",
+            "Spielart": "Ruf",
+            "Spielmacher": "Lukas H.",
+            "Rufpartner": "Stefan K.",
+            "Klopfer": 2,
+            "Gewonnen": true,
+            "Wert": 24,
+            "Wert_NK": 6,
+            "Wert_Wue": 12,
+            "Wert_Wue_NK": 6,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Stefan K.",
+                "Elias S.",
+                "Lukas H.",
+                "Davina"
+            ],
+            "spiel_info": {
+                "Spielart": "Ruf",
+                "Klopfer": 2,
+                "Laufende": 3,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 0,
+                "Schneider": true,
+                "Schwarz": true,
+                "Kontra": false,
+                "Gewonnen": true
+            }
+        },
+        {
+            "Zeitstempel": "2026-04-06_18-43-13",
+            "Spielart": "Ruf",
+            "Spielmacher": "Lukas H.",
+            "Rufpartner": "Elias S.",
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Stefan K.",
+                "Elias S.",
+                "Lukas H.",
+                "Valentin W."
+            ],
+            "spiel_info": {
+                "Spielart": "Ruf",
+                "Klopfer": 0,
+                "Laufende": 0,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 0,
+                "Schneider": false,
+                "Schwarz": false,
+                "Kontra": false,
+                "Gewonnen": false
+            }
+        },
+        {
+            "Zeitstempel": "2026-04-06_18-48-05",
+            "Spielart": "Ramsch",
+            "Spielmacher": "Elias S.",
+            "Rufpartner": null,
+            "Klopfer": 1,
+            "Gewonnen": false,
+            "Wert": 4,
+            "Wert_NK": 2,
+            "Wert_Wue": 4,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Elias S.",
+                "Lukas H.",
+                "Valentin W.",
+                "Davina"
+            ],
+            "spiel_info": {
+                "Spielart": "Ramsch",
+                "Klopfer": 1,
+                "Laufende": 0,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 1,
+                "Schneider": false,
+                "Schwarz": false,
+                "Kontra": false,
+                "Gewonnen": false
+            }
+        },
+        {
+            "Zeitstempel": "2026-04-06_18-51-42",
+            "Spielart": "Ruf",
+            "Spielmacher": "Valentin W.",
+            "Rufpartner": "Stefan K.",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 2,
+            "Wert_NK": 2,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Stefan K.",
+                "Lukas H.",
+                "Valentin W.",
+                "Davina"
+            ],
+            "spiel_info": {
+                "Spielart": "Ruf",
+                "Klopfer": 0,
+                "Laufende": 0,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 0,
+                "Schneider": true,
+                "Schwarz": false,
+                "Kontra": false,
+                "Gewonnen": true
+            }
+        },
+        {
+            "Zeitstempel": "2026-04-06_18-55-30",
+            "Spielart": "Ruf",
+            "Spielmacher": "Valentin W.",
+            "Rufpartner": "Stefan K.",
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 2,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Stefan K.",
+                "Elias S.",
+                "Valentin W.",
+                "Davina"
+            ],
+            "spiel_info": {
+                "Spielart": "Ruf",
+                "Klopfer": 1,
+                "Laufende": 0,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 0,
+                "Schneider": false,
+                "Schwarz": false,
+                "Kontra": false,
+                "Gewonnen": true
+            }
+        },
+        {
+            "Zeitstempel": "2026-04-06_18-55-36",
+            "Spielart": "Ruf",
+            "Spielmacher": "Valentin W.",
+            "Rufpartner": "Stefan K.",
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 2,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Stefan K.",
+                "Elias S.",
+                "Valentin W.",
+                "Davina"
+            ],
+            "spiel_info": {
+                "Spielart": "Ruf",
+                "Klopfer": 1,
+                "Laufende": 0,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 0,
+                "Schneider": false,
+                "Schwarz": false,
+                "Kontra": false,
+                "Gewonnen": true
+            }
+        }
+    ]
+}

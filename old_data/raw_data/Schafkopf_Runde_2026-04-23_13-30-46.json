@@ -1,0 +1,140 @@
+{
+    "runden_timestamp": "2026-04-23_13-30-46",
+    "tournament": "Ak-Schafkopf-4",
+    "User": "Gaudi Sepp",
+    "start_info": "",
+    "ende_info": true,
+    "spieler": [
+        "Leo",
+        "Davina",
+        "Kira",
+        "Tim Plote",
+        "Reini"
+    ],
+    "spiele": [
+        {
+            "Zeitstempel": "2026-04-23_13-36-28",
+            "Spielart": "Ramsch",
+            "Spielmacher": "Reini",
+            "Rufpartner": null,
+            "Klopfer": 1,
+            "Gewonnen": false,
+            "Wert": 2,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Kira",
+                "Tim Plote",
+                "Reini"
+            ],
+            "spiel_info": {
+                "Spielart": "Ramsch",
+                "Klopfer": 1,
+                "Laufende": 0,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 0,
+                "Schneider": false,
+                "Schwarz": false,
+                "Kontra": false,
+                "Gewonnen": false
+            }
+        },
+        {
+            "Zeitstempel": "2026-04-23_13-39-22",
+            "Spielart": "Ruf",
+            "Spielmacher": "Tim Plote",
+            "Rufpartner": "Kira",
+            "Klopfer": 2,
+            "Gewonnen": true,
+            "Wert": 16,
+            "Wert_NK": 4,
+            "Wert_Wue": 6,
+            "Wert_Wue_NK": 4,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Davina",
+                "Kira",
+                "Tim Plote",
+                "Reini"
+            ],
+            "spiel_info": {
+                "Spielart": "Ruf",
+                "Klopfer": 2,
+                "Laufende": 3,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 0,
+                "Schneider": false,
+                "Schwarz": false,
+                "Kontra": false,
+                "Gewonnen": true
+            }
+        },
+        {
+            "Zeitstempel": "2026-04-23_13-51-37",
+            "Spielart": "Geier",
+            "Spielmacher": "Reini",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 7,
+            "Wert_NK": 7,
+            "Wert_Wue": 5,
+            "Wert_Wue_NK": 5,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Davina",
+                "Kira",
+                "Tim Plote",
+                "Reini"
+            ],
+            "spiel_info": {
+                "Spielart": "Geier",
+                "Klopfer": 0,
+                "Laufende": 2,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 0,
+                "Schneider": false,
+                "Schwarz": false,
+                "Kontra": false,
+                "Gewonnen": true
+            }
+        },
+        {
+            "Zeitstempel": "2026-04-23_13-56-15",
+            "Spielart": "Ruf",
+            "Spielmacher": "Davina",
+            "Rufpartner": "Reini",
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 2,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Davina",
+                "Kira",
+                "Tim Plote",
+                "Reini"
+            ],
+            "spiel_info": {
+                "Spielart": "Ruf",
+                "Klopfer": 1,
+                "Laufende": 0,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 0,
+                "Schneider": false,
+                "Schwarz": false,
+                "Kontra": false,
+                "Gewonnen": true
+            }
+        }
+    ]
+}

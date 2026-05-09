@@ -1,0 +1,110 @@
+{
+    "runden_timestamp": "2026-02-11_19-53-50",
+    "tournament": "Ak-Schafkopf-3",
+    "User": "Lukas H.",
+    "start_info": "",
+    "spieler": [
+        "Lukas H.",
+        "Tim Plote",
+        "Kira",
+        "Elias S.",
+        "Stefan K."
+    ],
+    "spiele": [
+        {
+            "Zeitstempel": "2026-02-11_19-56-55",
+            "Spielart": "Bettel",
+            "Spielmacher": "Elias S.",
+            "Rufpartner": null,
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 10,
+            "Wert_NK": 5,
+            "Wert_Wue": 6,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Lukas H.",
+                "Tim Plote",
+                "Elias S.",
+                "Stefan K."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-02-11_20-02-46",
+            "Spielart": "Ruf",
+            "Spielmacher": "Kira",
+            "Rufpartner": "Elias S.",
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 2,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Tim Plote",
+                "Kira",
+                "Elias S.",
+                "Stefan K."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-02-11_20-07-06",
+            "Spielart": "Ruf",
+            "Spielmacher": "Elias S.",
+            "Rufpartner": "Kira",
+            "Klopfer": 1,
+            "Gewonnen": false,
+            "Wert": 2,
+            "Wert_NK": 1,
+            "Wert_Wue": 4,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Lukas H.",
+                "Kira",
+                "Elias S.",
+                "Stefan K."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-02-11_20-11-02",
+            "Spielart": "Ruf",
+            "Spielmacher": "Tim Plote",
+            "Rufpartner": "Lukas H.",
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 2,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Lukas H.",
+                "Tim Plote",
+                "Kira",
+                "Stefan K."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-02-11_20-16-05",
+            "Spielart": "Trumpfsolo",
+            "Spielmacher": "Lukas H.",
+            "Rufpartner": null,
+            "Klopfer": 1,
+            "Gewonnen": false,
+            "Wert": 10,
+            "Wert_NK": 5,
+            "Wert_Wue": 6,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Lukas H.",
+                "Tim Plote",
+                "Kira",
+                "Elias S."
+            ]
+        }
+    ]
+}

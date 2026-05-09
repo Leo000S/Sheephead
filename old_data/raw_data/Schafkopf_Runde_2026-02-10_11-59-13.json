@@ -1,0 +1,242 @@
+{
+    "runden_timestamp": "2026-02-10_11-59-13",
+    "tournament": "Ak-Schafkopf-3",
+    "User": "Leo",
+    "start_info": "",
+    "spieler": [
+        "Leo",
+        "Lukas H.",
+        "Kira",
+        "Stefan K."
+    ],
+    "spiele": [
+        {
+            "Zeitstempel": "2026-02-10_11-59-28",
+            "Spielart": "Trumpfsolo",
+            "Spielmacher": "Leo",
+            "Rufpartner": null,
+            "Klopfer": 2,
+            "Gewonnen": true,
+            "Wert": 32,
+            "Wert_NK": 8,
+            "Wert_Wue": 12,
+            "Wert_Wue_NK": 6,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Lukas H.",
+                "Kira",
+                "Stefan K."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-02-10_12-02-29",
+            "Spielart": "Ruf",
+            "Spielmacher": "Lukas H.",
+            "Rufpartner": "Leo",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Lukas H.",
+                "Kira",
+                "Stefan K."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-02-10_12-06-16",
+            "Spielart": "Ruf",
+            "Spielmacher": "Stefan K.",
+            "Rufpartner": "Kira",
+            "Klopfer": 2,
+            "Gewonnen": false,
+            "Wert": 4,
+            "Wert_NK": 1,
+            "Wert_Wue": 6,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Lukas H.",
+                "Kira",
+                "Stefan K."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-02-10_12-09-50",
+            "Spielart": "Ruf",
+            "Spielmacher": "Stefan K.",
+            "Rufpartner": "Kira",
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Lukas H.",
+                "Kira",
+                "Stefan K."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-02-10_12-13-48",
+            "Spielart": "Wenz",
+            "Spielmacher": "Kira",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 5,
+            "Wert_NK": 5,
+            "Wert_Wue": 3,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Lukas H.",
+                "Kira",
+                "Stefan K."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-02-10_12-19-31",
+            "Spielart": "Trumpfsolo",
+            "Spielmacher": "Stefan K.",
+            "Rufpartner": null,
+            "Klopfer": 1,
+            "Gewonnen": false,
+            "Wert": 10,
+            "Wert_NK": 5,
+            "Wert_Wue": 6,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Lukas H.",
+                "Kira",
+                "Stefan K."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-02-10_12-23-33",
+            "Spielart": "Ruf",
+            "Spielmacher": "Leo",
+            "Rufpartner": "Stefan K.",
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 2,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Lukas H.",
+                "Kira",
+                "Stefan K."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-02-10_12-28-44",
+            "Spielart": "Ruf",
+            "Spielmacher": "Kira",
+            "Rufpartner": "Lukas H.",
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 2,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Lukas H.",
+                "Kira",
+                "Stefan K."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-02-10_12-32-40",
+            "Spielart": "Trumpfsolo",
+            "Spielmacher": "Lukas H.",
+            "Rufpartner": null,
+            "Klopfer": 2,
+            "Gewonnen": false,
+            "Wert": 20,
+            "Wert_NK": 5,
+            "Wert_Wue": 9,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Lukas H.",
+                "Kira",
+                "Stefan K."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-02-10_12-36-23",
+            "Spielart": "Wenz",
+            "Spielmacher": "Lukas H.",
+            "Rufpartner": null,
+            "Klopfer": 1,
+            "Gewonnen": false,
+            "Wert": 10,
+            "Wert_NK": 5,
+            "Wert_Wue": 6,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Lukas H.",
+                "Kira",
+                "Stefan K."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-02-10_12-40-56",
+            "Spielart": "Ruf",
+            "Spielmacher": "Kira",
+            "Rufpartner": "Stefan K.",
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 2,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Lukas H.",
+                "Kira",
+                "Stefan K."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-02-10_12-44-37",
+            "Spielart": "Trumpfsolo",
+            "Spielmacher": "Leo",
+            "Rufpartner": null,
+            "Klopfer": 1,
+            "Gewonnen": false,
+            "Wert": 20,
+            "Wert_NK": 10,
+            "Wert_Wue": 12,
+            "Wert_Wue_NK": 8,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Lukas H.",
+                "Kira",
+                "Stefan K."
+            ]
+        }
+    ]
+}

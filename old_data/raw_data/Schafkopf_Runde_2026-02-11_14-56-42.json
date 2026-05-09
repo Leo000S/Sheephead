@@ -1,0 +1,166 @@
+{
+    "runden_timestamp": "2026-02-11_14-56-42",
+    "tournament": "Ak-Schafkopf-3",
+    "User": "Kira",
+    "start_info": "",
+    "spieler": [
+        "Kira",
+        "Stefan K.",
+        "Lukas H.",
+        "Hendrik"
+    ],
+    "spiele": [
+        {
+            "Zeitstempel": "2026-02-11_15-01-15",
+            "Spielart": "Ruf",
+            "Spielmacher": "Stefan K.",
+            "Rufpartner": "Kira",
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 2,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Kira",
+                "Stefan K.",
+                "Lukas H.",
+                "Hendrik"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-02-11_15-05-29",
+            "Spielart": "Bettel",
+            "Spielmacher": "Kira",
+            "Rufpartner": null,
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 10,
+            "Wert_NK": 5,
+            "Wert_Wue": 6,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Kira",
+                "Stefan K.",
+                "Lukas H.",
+                "Hendrik"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-02-11_15-09-20",
+            "Spielart": "Ruf",
+            "Spielmacher": "Stefan K.",
+            "Rufpartner": "Kira",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Kira",
+                "Stefan K.",
+                "Lukas H.",
+                "Hendrik"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-02-11_15-13-57",
+            "Spielart": "Ruf",
+            "Spielmacher": "Hendrik",
+            "Rufpartner": "Lukas H.",
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 2,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Kira",
+                "Stefan K.",
+                "Lukas H.",
+                "Hendrik"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-02-11_15-18-26",
+            "Spielart": "Trumpfsolo",
+            "Spielmacher": "Kira",
+            "Rufpartner": null,
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 10,
+            "Wert_NK": 5,
+            "Wert_Wue": 6,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Kira",
+                "Stefan K.",
+                "Lukas H.",
+                "Hendrik"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-02-11_15-22-51",
+            "Spielart": "Ruf",
+            "Spielmacher": "Lukas H.",
+            "Rufpartner": "Stefan K.",
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 4,
+            "Wert_NK": 2,
+            "Wert_Wue": 4,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Kira",
+                "Stefan K.",
+                "Lukas H.",
+                "Hendrik"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-02-11_15-26-50",
+            "Spielart": "Ruf",
+            "Spielmacher": "Lukas H.",
+            "Rufpartner": "Kira",
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 4,
+            "Wert_NK": 2,
+            "Wert_Wue": 4,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Kira",
+                "Stefan K.",
+                "Lukas H.",
+                "Hendrik"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-02-11_15-31-50",
+            "Spielart": "Wenz",
+            "Spielmacher": "Hendrik",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 5,
+            "Wert_NK": 5,
+            "Wert_Wue": 3,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Kira",
+                "Stefan K.",
+                "Lukas H.",
+                "Hendrik"
+            ]
+        }
+    ]
+}

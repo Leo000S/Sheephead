@@ -1,0 +1,77 @@
+{
+    "runden_timestamp": "2026-04-24_12-56-32",
+    "tournament": "Ak-Schafkopf-4",
+    "User": "Tim Hasi",
+    "start_info": "",
+    "ende_info": true,
+    "spieler": [
+        "Davina",
+        "Valentin W.",
+        "Tim Pasta",
+        "Tim Hasi"
+    ],
+    "spiele": [
+        {
+            "Zeitstempel": "2026-04-24_12-59-24",
+            "Spielart": "Ruf",
+            "Spielmacher": "Valentin W.",
+            "Rufpartner": "Davina",
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 4,
+            "Wert_NK": 4,
+            "Wert_Wue": 5,
+            "Wert_Wue_NK": 5,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Davina",
+                "Valentin W.",
+                "Tim Pasta",
+                "Tim Hasi"
+            ],
+            "spiel_info": {
+                "Spielart": "Ruf",
+                "Klopfer": 0,
+                "Laufende": 3,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 0,
+                "Schneider": false,
+                "Schwarz": false,
+                "Kontra": false,
+                "Gewonnen": false
+            }
+        },
+        {
+            "Zeitstempel": "2026-04-24_13-02-21",
+            "Spielart": "Ruf",
+            "Spielmacher": "Tim Pasta",
+            "Rufpartner": "Tim Hasi",
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 4,
+            "Wert_NK": 2,
+            "Wert_Wue": 4,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Davina",
+                "Valentin W.",
+                "Tim Pasta",
+                "Tim Hasi"
+            ],
+            "spiel_info": {
+                "Spielart": "Ruf",
+                "Klopfer": 1,
+                "Laufende": 0,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 0,
+                "Schneider": true,
+                "Schwarz": false,
+                "Kontra": false,
+                "Gewonnen": true
+            }
+        }
+    ]
+}

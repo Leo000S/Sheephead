@@ -1,0 +1,171 @@
+{
+    "runden_timestamp": "2026-05-06_15-40-07",
+    "tournament": "Ak-Schafkopf-4",
+    "User": "Kira",
+    "start_info": "",
+    "ende_info": true,
+    "spieler": [
+        "Kira",
+        "Stefan K.",
+        "Elias S.",
+        "Thomas",
+        "Davina"
+    ],
+    "spiele": [
+        {
+            "Zeitstempel": "2026-05-06_15-41-26",
+            "Spielart": "Trumpfsolo",
+            "Spielmacher": "Davina",
+            "Rufpartner": null,
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 10,
+            "Wert_NK": 5,
+            "Wert_Wue": 6,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Stefan K.",
+                "Elias S.",
+                "Thomas",
+                "Davina"
+            ],
+            "spiel_info": {
+                "Spielart": "Trumpfsolo",
+                "Klopfer": 1,
+                "Laufende": 0,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 0,
+                "Schneider": false,
+                "Schwarz": false,
+                "Kontra": false,
+                "Gewonnen": true
+            }
+        },
+        {
+            "Zeitstempel": "2026-05-06_15-45-10",
+            "Spielart": "Ruf",
+            "Spielmacher": "Thomas",
+            "Rufpartner": "Davina",
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Kira",
+                "Elias S.",
+                "Thomas",
+                "Davina"
+            ],
+            "spiel_info": {
+                "Spielart": "Ruf",
+                "Klopfer": 0,
+                "Laufende": 0,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 0,
+                "Schneider": false,
+                "Schwarz": false,
+                "Kontra": false,
+                "Gewonnen": false
+            }
+        },
+        {
+            "Zeitstempel": "2026-05-06_15-49-23",
+            "Spielart": "Trumpfsolo",
+            "Spielmacher": "Thomas",
+            "Rufpartner": null,
+            "Klopfer": 1,
+            "Gewonnen": false,
+            "Wert": 14,
+            "Wert_NK": 7,
+            "Wert_Wue": 8,
+            "Wert_Wue_NK": 5,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Kira",
+                "Stefan K.",
+                "Thomas",
+                "Davina"
+            ],
+            "spiel_info": {
+                "Spielart": "Trumpfsolo",
+                "Klopfer": 1,
+                "Laufende": 2,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 0,
+                "Schneider": false,
+                "Schwarz": false,
+                "Kontra": false,
+                "Gewonnen": false
+            }
+        },
+        {
+            "Zeitstempel": "2026-05-06_15-55-15",
+            "Spielart": "Trumpfsolo",
+            "Spielmacher": "Stefan K.",
+            "Rufpartner": null,
+            "Klopfer": 1,
+            "Gewonnen": false,
+            "Wert": 10,
+            "Wert_NK": 5,
+            "Wert_Wue": 6,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Kira",
+                "Stefan K.",
+                "Elias S.",
+                "Davina"
+            ],
+            "spiel_info": {
+                "Spielart": "Trumpfsolo",
+                "Klopfer": 1,
+                "Laufende": 0,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 0,
+                "Schneider": false,
+                "Schwarz": false,
+                "Kontra": false,
+                "Gewonnen": false
+            }
+        },
+        {
+            "Zeitstempel": "2026-05-06_15-59-30",
+            "Spielart": "Ramsch",
+            "Spielmacher": "Elias S.",
+            "Rufpartner": null,
+            "Klopfer": 1,
+            "Gewonnen": false,
+            "Wert": 2,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Kira",
+                "Stefan K.",
+                "Elias S.",
+                "Thomas"
+            ],
+            "spiel_info": {
+                "Spielart": "Ramsch",
+                "Klopfer": 1,
+                "Laufende": 0,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 0,
+                "Schneider": false,
+                "Schwarz": false,
+                "Kontra": false,
+                "Gewonnen": false
+            }
+        }
+    ]
+}

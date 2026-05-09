@@ -1,0 +1,205 @@
+{
+    "runden_timestamp": "2025-12-23_19-39-54",
+    "tournament": "Aux-23.12",
+    "User": "Vali",
+    "start_info": "",
+    "spieler": [
+        "Matze U.",
+        "Marc",
+        "Magnus",
+        "Vali"
+    ],
+    "infos_zur_runde": "",
+    "spiele": [
+        {
+            "Zeitstempel": "2025-12-23_19-40-06",
+            "Spielart": "Ruf",
+            "Spielmacher": "Vali",
+            "Rufpartner": "Matze U.",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Matze U.",
+                "Marc",
+                "Magnus",
+                "Vali"
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-23_19-46-16",
+            "Spielart": "Ruf",
+            "Spielmacher": "Vali",
+            "Rufpartner": "Magnus",
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Matze U.",
+                "Marc",
+                "Magnus",
+                "Vali"
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-23_19-49-04",
+            "Spielart": "Ruf",
+            "Spielmacher": "Vali",
+            "Rufpartner": "Matze U.",
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 2,
+            "Wert_NK": 2,
+            "Wert_Wue": 3,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Matze U.",
+                "Marc",
+                "Magnus",
+                "Vali"
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-23_19-50-21",
+            "Spielart": "Ruf",
+            "Spielmacher": "Vali",
+            "Rufpartner": "Matze U.",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 2,
+            "Wert_NK": 2,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Matze U.",
+                "Marc",
+                "Magnus",
+                "Vali"
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-23_19-50-23",
+            "Spielart": "Ruf",
+            "Spielmacher": "Vali",
+            "Rufpartner": "Matze U.",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 2,
+            "Wert_NK": 2,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Matze U.",
+                "Marc",
+                "Magnus",
+                "Vali"
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-23_19-53-11",
+            "Spielart": "Ruf",
+            "Spielmacher": "Matze U.",
+            "Rufpartner": "Vali",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 2,
+            "Wert_NK": 2,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Matze U.",
+                "Marc",
+                "Magnus",
+                "Vali"
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-23_19-55-34",
+            "Spielart": "Wenz",
+            "Spielmacher": "Vali",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 5,
+            "Wert_NK": 5,
+            "Wert_Wue": 3,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Matze U.",
+                "Marc",
+                "Magnus",
+                "Vali"
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-23_19-58-32",
+            "Spielart": "Ruf",
+            "Spielmacher": "Magnus",
+            "Rufpartner": "Vali",
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Matze U.",
+                "Marc",
+                "Magnus",
+                "Vali"
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-23_20-03-46",
+            "Spielart": "Trumpfsolo",
+            "Spielmacher": "Matze U.",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 5,
+            "Wert_NK": 5,
+            "Wert_Wue": 3,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Matze U.",
+                "Marc",
+                "Magnus",
+                "Vali"
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-23_20-07-39",
+            "Spielart": "Ramsch",
+            "Spielmacher": "Vali",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Matze U.",
+                "Marc",
+                "Magnus",
+                "Vali"
+            ]
+        }
+    ]
+}

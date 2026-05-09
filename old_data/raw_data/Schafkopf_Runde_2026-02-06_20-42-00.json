@@ -1,0 +1,262 @@
+{
+    "runden_timestamp": "2026-02-06_20-42-00",
+    "tournament": "Wue-02-06",
+    "User": "Leo",
+    "start_info": "",
+    "spieler": [
+        "Leo",
+        "Eli",
+        "Katharina",
+        "Sophia",
+        "Tim Pasta"
+    ],
+    "spiele": [
+        {
+            "Zeitstempel": "2026-02-06_20-46-52",
+            "Spielart": "Ruf",
+            "Spielmacher": "Katharina",
+            "Rufpartner": "Eli",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 5,
+            "Wert_NK": 5,
+            "Wert_Wue": 5,
+            "Wert_Wue_NK": 5,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Eli",
+                "Katharina",
+                "Sophia"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-02-06_20-49-19",
+            "Spielart": "Wenz",
+            "Spielmacher": "Tim Pasta",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 5,
+            "Wert_NK": 5,
+            "Wert_Wue": 3,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Eli",
+                "Katharina",
+                "Tim Pasta"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-02-06_20-57-11",
+            "Spielart": "Ruf",
+            "Spielmacher": "Sophia",
+            "Rufpartner": "Tim Pasta",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 2,
+            "Wert_NK": 2,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Eli",
+                "Sophia",
+                "Tim Pasta"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-02-06_21-01-46",
+            "Spielart": "Trumpfsolo",
+            "Spielmacher": "Leo",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 5,
+            "Wert_NK": 5,
+            "Wert_Wue": 3,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Katharina",
+                "Sophia",
+                "Tim Pasta"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-02-06_21-12-39",
+            "Spielart": "Wenz",
+            "Spielmacher": "Leo",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 5,
+            "Wert_NK": 5,
+            "Wert_Wue": 3,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Eli",
+                "Katharina",
+                "Tim Pasta"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-02-06_21-12-59",
+            "Spielart": "Ruf",
+            "Spielmacher": "Sophia",
+            "Rufpartner": "Katharina",
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Eli",
+                "Katharina",
+                "Sophia"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-02-06_21-18-30",
+            "Spielart": "Ruf",
+            "Spielmacher": "Tim Pasta",
+            "Rufpartner": "Katharina",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Eli",
+                "Katharina",
+                "Sophia",
+                "Tim Pasta"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-02-06_21-23-01",
+            "Spielart": "Trumpfsolo",
+            "Spielmacher": "Eli",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 6,
+            "Wert_NK": 6,
+            "Wert_Wue": 4,
+            "Wert_Wue_NK": 4,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Eli",
+                "Sophia",
+                "Tim Pasta"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-02-06_21-28-11",
+            "Spielart": "Trumpfsolo",
+            "Spielmacher": "Sophia",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 5,
+            "Wert_NK": 5,
+            "Wert_Wue": 3,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Katharina",
+                "Sophia",
+                "Tim Pasta"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-02-06_21-35-50",
+            "Spielart": "Trumpfsolo",
+            "Spielmacher": "Tim Pasta",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 5,
+            "Wert_NK": 5,
+            "Wert_Wue": 3,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Eli",
+                "Katharina",
+                "Tim Pasta"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-02-06_21-40-12",
+            "Spielart": "Ramsch",
+            "Spielmacher": "Sophia",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Eli",
+                "Katharina",
+                "Sophia"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-02-06_21-48-02",
+            "Spielart": "Ramsch",
+            "Spielmacher": "Katharina",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Eli",
+                "Katharina",
+                "Sophia",
+                "Tim Pasta"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-02-06_21-53-59",
+            "Spielart": "Geier",
+            "Spielmacher": "Tim Pasta",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 6,
+            "Wert_NK": 6,
+            "Wert_Wue": 4,
+            "Wert_Wue_NK": 4,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Eli",
+                "Sophia",
+                "Tim Pasta"
+            ]
+        }
+    ]
+}

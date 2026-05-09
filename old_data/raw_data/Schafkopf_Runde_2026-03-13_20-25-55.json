@@ -1,0 +1,187 @@
+{
+    "runden_timestamp": "2026-03-13_20-25-55",
+    "tournament": "Aux-14.03",
+    "User": "Tim Pasta",
+    "start_info": "Die schummeln bestimmt",
+    "ende_info": true,
+    "spieler": [
+        "Tim Pasta",
+        "Monika",
+        "Leif",
+        "Davina",
+        "Robin"
+    ],
+    "spiele": [
+        {
+            "Zeitstempel": "2026-03-13_20-29-08",
+            "Spielart": "Ruf",
+            "Spielmacher": "Davina",
+            "Rufpartner": "Monika",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 6,
+            "Wert_NK": 6,
+            "Wert_Wue": 6,
+            "Wert_Wue_NK": 6,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Tim Pasta",
+                "Monika",
+                "Leif",
+                "Davina"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-13_20-35-00",
+            "Spielart": "Ruf",
+            "Spielmacher": "Monika",
+            "Rufpartner": "Tim Pasta",
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 2,
+            "Wert_NK": 2,
+            "Wert_Wue": 3,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Tim Pasta",
+                "Monika",
+                "Leif",
+                "Robin"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-13_20-39-00",
+            "Spielart": "Trumpfsolo",
+            "Spielmacher": "Davina",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 8,
+            "Wert_NK": 8,
+            "Wert_Wue": 6,
+            "Wert_Wue_NK": 6,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Tim Pasta",
+                "Leif",
+                "Davina",
+                "Robin"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-13_20-45-19",
+            "Spielart": "Ruf",
+            "Spielmacher": "Monika",
+            "Rufpartner": "Robin",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Tim Pasta",
+                "Monika",
+                "Davina",
+                "Robin"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-13_20-49-59",
+            "Spielart": "Ruf",
+            "Spielmacher": "Monika",
+            "Rufpartner": "Leif",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 5,
+            "Wert_NK": 5,
+            "Wert_Wue": 5,
+            "Wert_Wue_NK": 5,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Tim Pasta",
+                "Monika",
+                "Leif",
+                "Davina"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-13_20-59-02",
+            "Spielart": "Ruf",
+            "Spielmacher": "Tim Pasta",
+            "Rufpartner": "Leif",
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Tim Pasta",
+                "Monika",
+                "Leif",
+                "Robin"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-13_21-05-36",
+            "Spielart": "Ruf",
+            "Spielmacher": "Monika",
+            "Rufpartner": "Davina",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Monika",
+                "Leif",
+                "Davina",
+                "Robin"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-13_21-10-21",
+            "Spielart": "Trumpfsolo",
+            "Spielmacher": "Tim Pasta",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 5,
+            "Wert_NK": 5,
+            "Wert_Wue": 3,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Tim Pasta",
+                "Leif",
+                "Davina",
+                "Robin"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-13_21-16-29",
+            "Spielart": "Ruf",
+            "Spielmacher": "Monika",
+            "Rufpartner": "Robin",
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 4,
+            "Wert_NK": 4,
+            "Wert_Wue": 5,
+            "Wert_Wue_NK": 5,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Tim Pasta",
+                "Monika",
+                "Davina",
+                "Robin"
+            ]
+        }
+    ]
+}

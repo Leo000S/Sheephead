@@ -1,0 +1,90 @@
+{
+    "runden_timestamp": "2026-03-11_12-53-46",
+    "tournament": "Gesamtstatistik",
+    "User": "Leo",
+    "start_info": "",
+    "spieler": [
+        "Leo",
+        "Kira",
+        "Thomas",
+        "Davina"
+    ],
+    "spiele": [
+        {
+            "Zeitstempel": "2026-03-11_12-54-11",
+            "Spielart": "Ruf",
+            "Spielmacher": "Leo",
+            "Rufpartner": "Thomas",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 2,
+            "Wert_NK": 2,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Kira",
+                "Thomas",
+                "Davina"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-11_12-58-21",
+            "Spielart": "Ruf",
+            "Spielmacher": "Davina",
+            "Rufpartner": "Thomas",
+            "Klopfer": 1,
+            "Gewonnen": false,
+            "Wert": 10,
+            "Wert_NK": 5,
+            "Wert_Wue": 8,
+            "Wert_Wue_NK": 6,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Kira",
+                "Thomas",
+                "Davina"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-11_13-03-18",
+            "Spielart": "Ruf",
+            "Spielmacher": "Leo",
+            "Rufpartner": "Kira",
+            "Klopfer": 2,
+            "Gewonnen": true,
+            "Wert": 8,
+            "Wert_NK": 2,
+            "Wert_Wue": 6,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Kira",
+                "Thomas",
+                "Davina"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-11_13-07-21",
+            "Spielart": "Trumpfsolo",
+            "Spielmacher": "Thomas",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 6,
+            "Wert_NK": 6,
+            "Wert_Wue": 4,
+            "Wert_Wue_NK": 4,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Kira",
+                "Thomas",
+                "Davina"
+            ]
+        }
+    ]
+}

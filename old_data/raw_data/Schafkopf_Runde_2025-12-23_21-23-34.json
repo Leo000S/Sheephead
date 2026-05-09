@@ -1,0 +1,34 @@
+{
+    "runden_timestamp": "2025-12-23_21-23-34",
+    "tournament": "Aux-23.12",
+    "User": "Eli",
+    "start_info": "",
+    "spieler": [
+        "Felix",
+        "Julik",
+        "Eli",
+        "Stephan M."
+    ],
+    "infos_zur_runde": "",
+    "spiele": [
+        {
+            "Zeitstempel": "2025-12-23_21-25-34",
+            "Spielart": "Wenz",
+            "Spielmacher": "Stephan M.",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 7,
+            "Wert_NK": 7,
+            "Wert_Wue": 5,
+            "Wert_Wue_NK": 5,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Felix",
+                "Julik",
+                "Eli",
+                "Stephan M."
+            ]
+        }
+    ]
+}

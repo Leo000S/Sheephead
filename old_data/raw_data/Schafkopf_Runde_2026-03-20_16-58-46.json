@@ -1,0 +1,149 @@
+{
+    "runden_timestamp": "2026-03-20_16-58-46",
+    "tournament": "Ak-Schafkopf-4",
+    "User": "Thomas",
+    "start_info": "",
+    "ende_info": true,
+    "spieler": [
+        "Thomas",
+        "Tim Pasta",
+        "Stefan K.",
+        "Davina",
+        "Elias S."
+    ],
+    "spiele": [
+        {
+            "Zeitstempel": "2026-03-20_17-02-46",
+            "Spielart": "Ruf",
+            "Spielmacher": "Thomas",
+            "Rufpartner": "Davina",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Thomas",
+                "Stefan K.",
+                "Davina",
+                "Elias S."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-20_17-07-33",
+            "Spielart": "Ruf",
+            "Spielmacher": "Thomas",
+            "Rufpartner": "Elias S.",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 2,
+            "Wert_NK": 2,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Thomas",
+                "Tim Pasta",
+                "Davina",
+                "Elias S."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-20_17-13-44",
+            "Spielart": "Ramsch",
+            "Spielmacher": "Stefan K.",
+            "Rufpartner": null,
+            "Klopfer": 1,
+            "Gewonnen": false,
+            "Wert": 4,
+            "Wert_NK": 2,
+            "Wert_Wue": 4,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Thomas",
+                "Tim Pasta",
+                "Stefan K.",
+                "Elias S."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-20_17-19-08",
+            "Spielart": "Geier",
+            "Spielmacher": "Thomas",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 7,
+            "Wert_NK": 7,
+            "Wert_Wue": 5,
+            "Wert_Wue_NK": 5,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Thomas",
+                "Tim Pasta",
+                "Stefan K.",
+                "Davina"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-20_17-23-16",
+            "Spielart": "Ruf",
+            "Spielmacher": "Davina",
+            "Rufpartner": "Tim Pasta",
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 2,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Tim Pasta",
+                "Stefan K.",
+                "Davina",
+                "Elias S."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-20_17-28-31",
+            "Spielart": "Ruf",
+            "Spielmacher": "Thomas",
+            "Rufpartner": "Elias S.",
+            "Klopfer": 1,
+            "Gewonnen": false,
+            "Wert": 2,
+            "Wert_NK": 1,
+            "Wert_Wue": 4,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Thomas",
+                "Stefan K.",
+                "Davina",
+                "Elias S."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-20_17-35-30",
+            "Spielart": "Wenz",
+            "Spielmacher": "Davina",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 5,
+            "Wert_NK": 5,
+            "Wert_Wue": 3,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Thomas",
+                "Tim Pasta",
+                "Davina",
+                "Elias S."
+            ]
+        }
+    ]
+}

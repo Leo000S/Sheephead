@@ -1,0 +1,167 @@
+{
+    "runden_timestamp": "2025-12-23_21-18-29",
+    "tournament": "Aux-23.12",
+    "User": "Vali",
+    "start_info": "",
+    "spieler": [
+        "Leif",
+        "Bent",
+        "Ben S.",
+        "Vali"
+    ],
+    "infos_zur_runde": "",
+    "spiele": [
+        {
+            "Zeitstempel": "2025-12-23_21-23-33",
+            "Spielart": "Trumpfsolo",
+            "Spielmacher": "Leif",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 5,
+            "Wert_NK": 5,
+            "Wert_Wue": 3,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Leif",
+                "Bent",
+                "Ben S.",
+                "Vali"
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-23_21-28-27",
+            "Spielart": "Ruf",
+            "Spielmacher": "Vali",
+            "Rufpartner": "Ben S.",
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 2,
+            "Wert_NK": 2,
+            "Wert_Wue": 4,
+            "Wert_Wue_NK": 4,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leif",
+                "Bent",
+                "Ben S.",
+                "Vali"
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-23_21-32-33",
+            "Spielart": "Ruf",
+            "Spielmacher": "Bent",
+            "Rufpartner": "Ben S.",
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 2,
+            "Wert_NK": 2,
+            "Wert_Wue": 4,
+            "Wert_Wue_NK": 4,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leif",
+                "Bent",
+                "Ben S.",
+                "Vali"
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-23_21-37-20",
+            "Spielart": "Ruf",
+            "Spielmacher": "Bent",
+            "Rufpartner": "Vali",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leif",
+                "Bent",
+                "Ben S.",
+                "Vali"
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-23_21-41-10",
+            "Spielart": "Wenz",
+            "Spielmacher": "Vali",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 5,
+            "Wert_NK": 5,
+            "Wert_Wue": 3,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Leif",
+                "Bent",
+                "Ben S.",
+                "Vali"
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-23_21-44-11",
+            "Spielart": "Ruf",
+            "Spielmacher": "Bent",
+            "Rufpartner": "Leif",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 2,
+            "Wert_NK": 2,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leif",
+                "Bent",
+                "Ben S.",
+                "Vali"
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-23_21-48-51",
+            "Spielart": "Ruf",
+            "Spielmacher": "Vali",
+            "Rufpartner": "Ben S.",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 4,
+            "Wert_NK": 4,
+            "Wert_Wue": 4,
+            "Wert_Wue_NK": 4,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leif",
+                "Bent",
+                "Ben S.",
+                "Vali"
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-23_21-51-48",
+            "Spielart": "Trumpfsolo",
+            "Spielmacher": "Bent",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 5,
+            "Wert_NK": 5,
+            "Wert_Wue": 3,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Leif",
+                "Bent",
+                "Ben S.",
+                "Vali"
+            ]
+        }
+    ]
+}

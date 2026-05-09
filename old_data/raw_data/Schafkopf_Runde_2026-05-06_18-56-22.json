@@ -1,0 +1,139 @@
+{
+    "runden_timestamp": "2026-05-06_18-56-22",
+    "tournament": "Ak-Schafkopf-4",
+    "User": "Stefan K.",
+    "start_info": "",
+    "ende_info": true,
+    "spieler": [
+        "Stefan K.",
+        "Thomas",
+        "Valentin W.",
+        "Davina"
+    ],
+    "spiele": [
+        {
+            "Zeitstempel": "2026-05-06_19-00-21",
+            "Spielart": "Ruf",
+            "Spielmacher": "Stefan K.",
+            "Rufpartner": "Valentin W.",
+            "Klopfer": 2,
+            "Gewonnen": true,
+            "Wert": 8,
+            "Wert_NK": 2,
+            "Wert_Wue": 6,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Stefan K.",
+                "Thomas",
+                "Valentin W.",
+                "Davina"
+            ],
+            "spiel_info": {
+                "Spielart": "Ruf",
+                "Klopfer": 2,
+                "Laufende": 0,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 0,
+                "Schneider": true,
+                "Schwarz": false,
+                "Kontra": false,
+                "Gewonnen": true
+            }
+        },
+        {
+            "Zeitstempel": "2026-05-06_19-04-34",
+            "Spielart": "Wenz",
+            "Spielmacher": "Valentin W.",
+            "Rufpartner": null,
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 14,
+            "Wert_NK": 7,
+            "Wert_Wue": 8,
+            "Wert_Wue_NK": 5,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Stefan K.",
+                "Thomas",
+                "Valentin W.",
+                "Davina"
+            ],
+            "spiel_info": {
+                "Spielart": "Wenz",
+                "Klopfer": 1,
+                "Laufende": 2,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 0,
+                "Schneider": false,
+                "Schwarz": false,
+                "Kontra": false,
+                "Gewonnen": true
+            }
+        },
+        {
+            "Zeitstempel": "2026-05-06_19-08-46",
+            "Spielart": "Ruf",
+            "Spielmacher": "Valentin W.",
+            "Rufpartner": "Thomas",
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 8,
+            "Wert_NK": 4,
+            "Wert_Wue": 5,
+            "Wert_Wue_NK": 4,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Stefan K.",
+                "Thomas",
+                "Valentin W.",
+                "Davina"
+            ],
+            "spiel_info": {
+                "Spielart": "Ruf",
+                "Klopfer": 1,
+                "Laufende": 3,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 0,
+                "Schneider": false,
+                "Schwarz": false,
+                "Kontra": false,
+                "Gewonnen": true
+            }
+        },
+        {
+            "Zeitstempel": "2026-05-06_19-13-46",
+            "Spielart": "Ruf",
+            "Spielmacher": "Valentin W.",
+            "Rufpartner": "Davina",
+            "Klopfer": 1,
+            "Gewonnen": false,
+            "Wert": 2,
+            "Wert_NK": 1,
+            "Wert_Wue": 4,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Stefan K.",
+                "Thomas",
+                "Valentin W.",
+                "Davina"
+            ],
+            "spiel_info": {
+                "Spielart": "Ruf",
+                "Klopfer": 1,
+                "Laufende": 0,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 0,
+                "Schneider": false,
+                "Schwarz": false,
+                "Kontra": false,
+                "Gewonnen": false
+            }
+        }
+    ]
+}

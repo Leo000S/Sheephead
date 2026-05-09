@@ -1,0 +1,73 @@
+{
+    "runden_timestamp": "2026-03-17_12-48-01",
+    "tournament": "Ak-Schafkopf-4",
+    "User": "Lukas H.",
+    "start_info": "",
+    "ende_info": true,
+    "spieler": [
+        "Lukas H.",
+        "Stefan K.",
+        "Leo",
+        "Thomas",
+        "Reini"
+    ],
+    "spiele": [
+        {
+            "Zeitstempel": "2026-03-17_12-53-56",
+            "Spielart": "Geier",
+            "Spielmacher": "Thomas",
+            "Rufpartner": null,
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 14,
+            "Wert_NK": 7,
+            "Wert_Wue": 8,
+            "Wert_Wue_NK": 5,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Stefan K.",
+                "Leo",
+                "Thomas",
+                "Reini"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-17_12-59-40",
+            "Spielart": "Ruf",
+            "Spielmacher": "Thomas",
+            "Rufpartner": "Leo",
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 2,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Lukas H.",
+                "Leo",
+                "Thomas",
+                "Reini"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-17_13-04-12",
+            "Spielart": "Ruf",
+            "Spielmacher": "Thomas",
+            "Rufpartner": "Stefan K.",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Lukas H.",
+                "Stefan K.",
+                "Thomas",
+                "Reini"
+            ]
+        }
+    ]
+}

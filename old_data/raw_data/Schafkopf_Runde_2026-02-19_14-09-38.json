@@ -1,0 +1,205 @@
+{
+    "runden_timestamp": "2026-02-19_14-09-38",
+    "tournament": "Ak-Schafkopf-3",
+    "User": "Leo",
+    "start_info": "",
+    "spieler": [
+        "Leo",
+        "Hendrik",
+        "Tim Hasi",
+        "Valentin W.",
+        "Stefan K."
+    ],
+    "spiele": [
+        {
+            "Zeitstempel": "2026-02-19_14-09-55",
+            "Spielart": "Trumpfsolo",
+            "Spielmacher": "Leo",
+            "Rufpartner": null,
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 12,
+            "Wert_NK": 6,
+            "Wert_Wue": 8,
+            "Wert_Wue_NK": 4,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Hendrik",
+                "Valentin W.",
+                "Stefan K."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-02-19_14-13-06",
+            "Spielart": "Ruf",
+            "Spielmacher": "Hendrik",
+            "Rufpartner": "Valentin W.",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Hendrik",
+                "Tim Hasi",
+                "Valentin W.",
+                "Stefan K."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-02-19_14-16-49",
+            "Spielart": "Ruf",
+            "Spielmacher": "Tim Hasi",
+            "Rufpartner": "Leo",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 3,
+            "Wert_NK": 3,
+            "Wert_Wue": 3,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Tim Hasi",
+                "Valentin W.",
+                "Stefan K."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-02-19_14-21-56",
+            "Spielart": "Ruf",
+            "Spielmacher": "Valentin W.",
+            "Rufpartner": "Leo",
+            "Klopfer": 2,
+            "Gewonnen": true,
+            "Wert": 20,
+            "Wert_NK": 5,
+            "Wert_Wue": 9,
+            "Wert_Wue_NK": 5,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Hendrik",
+                "Tim Hasi",
+                "Valentin W."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-02-19_14-27-12",
+            "Spielart": "Ramsch",
+            "Spielmacher": "Hendrik",
+            "Rufpartner": null,
+            "Klopfer": 1,
+            "Gewonnen": false,
+            "Wert": 2,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Hendrik",
+                "Tim Hasi",
+                "Stefan K."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-02-19_14-33-20",
+            "Spielart": "Ruf",
+            "Spielmacher": "Stefan K.",
+            "Rufpartner": "Hendrik",
+            "Klopfer": 1,
+            "Gewonnen": false,
+            "Wert": 4,
+            "Wert_NK": 2,
+            "Wert_Wue": 8,
+            "Wert_Wue_NK": 4,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Hendrik",
+                "Valentin W.",
+                "Stefan K."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-02-19_14-38-07",
+            "Spielart": "Ruf",
+            "Spielmacher": "Hendrik",
+            "Rufpartner": "Tim Hasi",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 2,
+            "Wert_NK": 2,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Hendrik",
+                "Tim Hasi",
+                "Valentin W.",
+                "Stefan K."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-02-19_14-42-04",
+            "Spielart": "Ruf",
+            "Spielmacher": "Valentin W.",
+            "Rufpartner": "Leo",
+            "Klopfer": 1,
+            "Gewonnen": false,
+            "Wert": 2,
+            "Wert_NK": 1,
+            "Wert_Wue": 4,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Tim Hasi",
+                "Valentin W.",
+                "Stefan K."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-02-19_14-46-51",
+            "Spielart": "Ruf",
+            "Spielmacher": "Leo",
+            "Rufpartner": "Hendrik",
+            "Klopfer": 1,
+            "Gewonnen": false,
+            "Wert": 2,
+            "Wert_NK": 1,
+            "Wert_Wue": 4,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Hendrik",
+                "Tim Hasi",
+                "Valentin W."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-02-19_14-53-23",
+            "Spielart": "Ruf",
+            "Spielmacher": "Leo",
+            "Rufpartner": "Hendrik",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 13,
+            "Wert_NK": 13,
+            "Wert_Wue": 13,
+            "Wert_Wue_NK": 13,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Hendrik",
+                "Tim Hasi",
+                "Stefan K."
+            ]
+        }
+    ]
+}

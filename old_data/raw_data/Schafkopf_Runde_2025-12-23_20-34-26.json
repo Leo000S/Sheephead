@@ -1,0 +1,54 @@
+{
+    "runden_timestamp": "2025-12-23_20-34-26",
+    "tournament": "Aux-23.12",
+    "User": "Vali",
+    "start_info": "",
+    "spieler": [
+        "Marc",
+        "Bent",
+        "Ben S.",
+        "Vali",
+        "Julik"
+    ],
+    "infos_zur_runde": "",
+    "spiele": [
+        {
+            "Zeitstempel": "2025-12-23_20-37-20",
+            "Spielart": "Ramsch",
+            "Spielmacher": "Ben S.",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 2,
+            "Wert_NK": 2,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Marc",
+                "Ben S.",
+                "Vali",
+                "Julik"
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-23_20-40-56",
+            "Spielart": "Ruf",
+            "Spielmacher": "Ben S.",
+            "Rufpartner": "Bent",
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 2,
+            "Wert_NK": 2,
+            "Wert_Wue": 4,
+            "Wert_Wue_NK": 4,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Bent",
+                "Ben S.",
+                "Vali",
+                "Julik"
+            ]
+        }
+    ]
+}

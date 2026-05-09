@@ -1,0 +1,263 @@
+{
+    "runden_timestamp": "2026-04-14_10-34-19",
+    "tournament": "Ak-Schafkopf-4",
+    "User": "Elias S.",
+    "start_info": "",
+    "ende_info": true,
+    "spieler": [
+        "Elias S.",
+        "Valentin W.",
+        "Davina",
+        "Tim Plote"
+    ],
+    "spiele": [
+        {
+            "Zeitstempel": "2026-04-14_10-37-53",
+            "Spielart": "Ruf",
+            "Spielmacher": "Tim Plote",
+            "Rufpartner": "Davina",
+            "Klopfer": 1,
+            "Gewonnen": false,
+            "Wert": 2,
+            "Wert_NK": 1,
+            "Wert_Wue": 4,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Elias S.",
+                "Valentin W.",
+                "Davina",
+                "Tim Plote"
+            ],
+            "spiel_info": {
+                "Spielart": "Ruf",
+                "Klopfer": 1,
+                "Laufende": 0,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 0,
+                "Schneider": false,
+                "Schwarz": false,
+                "Kontra": false,
+                "Gewonnen": false
+            }
+        },
+        {
+            "Zeitstempel": "2026-04-14_10-44-12",
+            "Spielart": "Trumpfsolo",
+            "Spielmacher": "Elias S.",
+            "Rufpartner": null,
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 12,
+            "Wert_NK": 6,
+            "Wert_Wue": 8,
+            "Wert_Wue_NK": 4,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Elias S.",
+                "Valentin W.",
+                "Davina",
+                "Tim Plote"
+            ],
+            "spiel_info": {
+                "Spielart": "Trumpfsolo",
+                "Klopfer": 1,
+                "Laufende": 0,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 0,
+                "Schneider": true,
+                "Schwarz": false,
+                "Kontra": false,
+                "Gewonnen": true
+            }
+        },
+        {
+            "Zeitstempel": "2026-04-14_10-48-31",
+            "Spielart": "Wenz",
+            "Spielmacher": "Elias S.",
+            "Rufpartner": null,
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 14,
+            "Wert_NK": 7,
+            "Wert_Wue": 8,
+            "Wert_Wue_NK": 5,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Elias S.",
+                "Valentin W.",
+                "Davina",
+                "Tim Plote"
+            ],
+            "spiel_info": {
+                "Spielart": "Wenz",
+                "Klopfer": 1,
+                "Laufende": 2,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 0,
+                "Schneider": false,
+                "Schwarz": false,
+                "Kontra": false,
+                "Gewonnen": true
+            }
+        },
+        {
+            "Zeitstempel": "2026-04-14_10-52-40",
+            "Spielart": "Ruf",
+            "Spielmacher": "Valentin W.",
+            "Rufpartner": "Elias S.",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Elias S.",
+                "Valentin W.",
+                "Davina",
+                "Tim Plote"
+            ],
+            "spiel_info": {
+                "Spielart": "Ruf",
+                "Klopfer": 0,
+                "Laufende": 0,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 0,
+                "Schneider": false,
+                "Schwarz": false,
+                "Kontra": false,
+                "Gewonnen": true
+            }
+        },
+        {
+            "Zeitstempel": "2026-04-14_10-59-12",
+            "Spielart": "Bettel",
+            "Spielmacher": "Valentin W.",
+            "Rufpartner": null,
+            "Klopfer": 2,
+            "Gewonnen": false,
+            "Wert": 20,
+            "Wert_NK": 5,
+            "Wert_Wue": 9,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Elias S.",
+                "Valentin W.",
+                "Davina",
+                "Tim Plote"
+            ],
+            "spiel_info": {
+                "Spielart": "Bettel",
+                "Klopfer": 2,
+                "Laufende": 0,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 0,
+                "Schneider": false,
+                "Schwarz": false,
+                "Kontra": false,
+                "Gewonnen": false
+            }
+        },
+        {
+            "Zeitstempel": "2026-04-14_11-05-41",
+            "Spielart": "Bettel",
+            "Spielmacher": "Tim Plote",
+            "Rufpartner": null,
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 10,
+            "Wert_NK": 5,
+            "Wert_Wue": 6,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Elias S.",
+                "Valentin W.",
+                "Davina",
+                "Tim Plote"
+            ],
+            "spiel_info": {
+                "Spielart": "Bettel",
+                "Klopfer": 1,
+                "Laufende": 0,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 0,
+                "Schneider": false,
+                "Schwarz": false,
+                "Kontra": false,
+                "Gewonnen": true
+            }
+        },
+        {
+            "Zeitstempel": "2026-04-14_11-10-43",
+            "Spielart": "Wenz",
+            "Spielmacher": "Davina",
+            "Rufpartner": null,
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 10,
+            "Wert_NK": 5,
+            "Wert_Wue": 6,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Elias S.",
+                "Valentin W.",
+                "Davina",
+                "Tim Plote"
+            ],
+            "spiel_info": {
+                "Spielart": "Wenz",
+                "Klopfer": 1,
+                "Laufende": 0,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 0,
+                "Schneider": false,
+                "Schwarz": false,
+                "Kontra": false,
+                "Gewonnen": true
+            }
+        },
+        {
+            "Zeitstempel": "2026-04-14_11-15-28",
+            "Spielart": "Bettel",
+            "Spielmacher": "Elias S.",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 5,
+            "Wert_NK": 5,
+            "Wert_Wue": 3,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Elias S.",
+                "Valentin W.",
+                "Davina",
+                "Tim Plote"
+            ],
+            "spiel_info": {
+                "Spielart": "Bettel",
+                "Klopfer": 0,
+                "Laufende": 0,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 0,
+                "Schneider": false,
+                "Schwarz": false,
+                "Kontra": false,
+                "Gewonnen": true
+            }
+        }
+    ]
+}

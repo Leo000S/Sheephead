@@ -1,0 +1,72 @@
+{
+    "runden_timestamp": "2025-12-23_21-23-50",
+    "tournament": "Aux-23.12",
+    "User": "Maxl",
+    "start_info": "",
+    "spieler": [
+        "Stephan S.",
+        "Matze U.",
+        "Robin",
+        "Maxl"
+    ],
+    "infos_zur_runde": "",
+    "spiele": [
+        {
+            "Zeitstempel": "2025-12-23_21-24-01",
+            "Spielart": "Ramsch",
+            "Spielmacher": "Maxl",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 2,
+            "Wert_NK": 2,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Stephan S.",
+                "Matze U.",
+                "Robin",
+                "Maxl"
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-23_21-27-52",
+            "Spielart": "Ramsch",
+            "Spielmacher": "Maxl",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 2,
+            "Wert_NK": 2,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Stephan S.",
+                "Matze U.",
+                "Robin",
+                "Maxl"
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-23_21-31-31",
+            "Spielart": "Ruf",
+            "Spielmacher": "Stephan S.",
+            "Rufpartner": "Robin",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 4,
+            "Wert_NK": 4,
+            "Wert_Wue": 4,
+            "Wert_Wue_NK": 4,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Stephan S.",
+                "Matze U.",
+                "Robin",
+                "Maxl"
+            ]
+        }
+    ]
+}

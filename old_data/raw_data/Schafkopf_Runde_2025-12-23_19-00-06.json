@@ -1,0 +1,73 @@
+{
+    "runden_timestamp": "2025-12-23_19-00-06",
+    "tournament": "Aux-23.12",
+    "User": "Vali",
+    "start_info": "",
+    "spieler": [
+        "Vali",
+        "Bent",
+        "Marc",
+        "Magnus",
+        "Monika"
+    ],
+    "infos_zur_runde": "",
+    "spiele": [
+        {
+            "Zeitstempel": "2025-12-23_19-01-01",
+            "Spielart": "Ruf",
+            "Spielmacher": "Bent",
+            "Rufpartner": "Magnus",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 4,
+            "Wert_NK": 4,
+            "Wert_Wue": 4,
+            "Wert_Wue_NK": 4,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Vali",
+                "Bent",
+                "Marc",
+                "Magnus"
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-23_19-05-24",
+            "Spielart": "Wenz",
+            "Spielmacher": "Bent",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 7,
+            "Wert_NK": 7,
+            "Wert_Wue": 5,
+            "Wert_Wue_NK": 5,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Vali",
+                "Bent",
+                "Marc",
+                "Magnus"
+            ]
+        },
+        {
+            "Zeitstempel": "2025-12-23_19-08-32",
+            "Spielart": "Ruf",
+            "Spielmacher": "Marc",
+            "Rufpartner": "Magnus",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Bent",
+                "Marc",
+                "Magnus",
+                "Monika"
+            ]
+        }
+    ]
+}

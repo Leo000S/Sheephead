@@ -1,0 +1,319 @@
+{
+    "runden_timestamp": "2026-03-14_15-58-33",
+    "tournament": "Gesamtstatistik",
+    "User": "Eli",
+    "start_info": "",
+    "ende_info": true,
+    "spieler": [
+        "Leo",
+        "Davina",
+        "Tim Pasta",
+        "Eli"
+    ],
+    "spiele": [
+        {
+            "Zeitstempel": "2026-03-14_16-05-06",
+            "Spielart": "Ruf",
+            "Spielmacher": "Tim Pasta",
+            "Rufpartner": "Eli",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 9,
+            "Wert_NK": 9,
+            "Wert_Wue": 9,
+            "Wert_Wue_NK": 9,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Davina",
+                "Tim Pasta",
+                "Eli"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-14_16-09-18",
+            "Spielart": "Ruf",
+            "Spielmacher": "Eli",
+            "Rufpartner": "Tim Pasta",
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Davina",
+                "Tim Pasta",
+                "Eli"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-14_16-15-02",
+            "Spielart": "Ruf",
+            "Spielmacher": "Eli",
+            "Rufpartner": "Tim Pasta",
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 8,
+            "Wert_NK": 8,
+            "Wert_Wue": 7,
+            "Wert_Wue_NK": 5,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Davina",
+                "Tim Pasta",
+                "Eli"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-14_16-20-32",
+            "Spielart": "Ruf",
+            "Spielmacher": "Leo",
+            "Rufpartner": "Eli",
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Davina",
+                "Tim Pasta",
+                "Eli"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-14_16-28-53",
+            "Spielart": "Ruf",
+            "Spielmacher": "Davina",
+            "Rufpartner": "Tim Pasta",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 2,
+            "Wert_NK": 2,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Davina",
+                "Tim Pasta",
+                "Eli"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-14_16-33-08",
+            "Spielart": "Wenz",
+            "Spielmacher": "Davina",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 6,
+            "Wert_NK": 6,
+            "Wert_Wue": 4,
+            "Wert_Wue_NK": 4,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Davina",
+                "Tim Pasta",
+                "Eli"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-14_16-38-30",
+            "Spielart": "Ruf",
+            "Spielmacher": "Davina",
+            "Rufpartner": "Eli",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 2,
+            "Wert_NK": 2,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Davina",
+                "Tim Pasta",
+                "Eli"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-14_16-42-41",
+            "Spielart": "Ruf",
+            "Spielmacher": "Leo",
+            "Rufpartner": "Davina",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 3,
+            "Wert_NK": 3,
+            "Wert_Wue": 3,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Davina",
+                "Tim Pasta",
+                "Eli"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-14_16-51-50",
+            "Spielart": "Ruf",
+            "Spielmacher": "Eli",
+            "Rufpartner": "Leo",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 8,
+            "Wert_NK": 8,
+            "Wert_Wue": 5,
+            "Wert_Wue_NK": 4,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Davina",
+                "Tim Pasta",
+                "Eli"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-14_16-55-00",
+            "Spielart": "Wenz",
+            "Spielmacher": "Leo",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 5,
+            "Wert_NK": 5,
+            "Wert_Wue": 3,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Davina",
+                "Tim Pasta",
+                "Eli"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-14_17-00-12",
+            "Spielart": "Ramsch",
+            "Spielmacher": "Tim Pasta",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 2,
+            "Wert_NK": 2,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Davina",
+                "Tim Pasta",
+                "Eli"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-14_17-05-59",
+            "Spielart": "Trumpfsolo",
+            "Spielmacher": "Tim Pasta",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 5,
+            "Wert_NK": 5,
+            "Wert_Wue": 3,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Davina",
+                "Tim Pasta",
+                "Eli"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-14_17-13-24",
+            "Spielart": "Ruf",
+            "Spielmacher": "Davina",
+            "Rufpartner": "Eli",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Davina",
+                "Tim Pasta",
+                "Eli"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-14_17-16-46",
+            "Spielart": "Trumpfsolo",
+            "Spielmacher": "Leo",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 5,
+            "Wert_NK": 5,
+            "Wert_Wue": 3,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Davina",
+                "Tim Pasta",
+                "Eli"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-14_17-20-56",
+            "Spielart": "Ruf",
+            "Spielmacher": "Davina",
+            "Rufpartner": "Eli",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Davina",
+                "Tim Pasta",
+                "Eli"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-14_17-26-11",
+            "Spielart": "Ruf",
+            "Spielmacher": "Leo",
+            "Rufpartner": "Tim Pasta",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Davina",
+                "Tim Pasta",
+                "Eli"
+            ]
+        }
+    ]
+}

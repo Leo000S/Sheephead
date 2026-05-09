@@ -1,0 +1,71 @@
+{
+    "runden_timestamp": "2026-03-11_12-30-12",
+    "tournament": "Ak-Schafkopf-4",
+    "User": "Leo",
+    "start_info": "",
+    "spieler": [
+        "Leo",
+        "Kira",
+        "Davina",
+        "Thomas"
+    ],
+    "spiele": [
+        {
+            "Zeitstempel": "2026-03-11_12-33-34",
+            "Spielart": "Wenz",
+            "Spielmacher": "Kira",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 7,
+            "Wert_NK": 7,
+            "Wert_Wue": 5,
+            "Wert_Wue_NK": 5,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Kira",
+                "Davina",
+                "Thomas"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-11_12-38-33",
+            "Spielart": "Trumpfsolo",
+            "Spielmacher": "Davina",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 5,
+            "Wert_NK": 5,
+            "Wert_Wue": 3,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Kira",
+                "Davina",
+                "Thomas"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-11_12-42-45",
+            "Spielart": "Ramsch",
+            "Spielmacher": "Leo",
+            "Rufpartner": null,
+            "Klopfer": 1,
+            "Gewonnen": false,
+            "Wert": 2,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Kira",
+                "Davina",
+                "Thomas"
+            ]
+        }
+    ]
+}

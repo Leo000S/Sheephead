@@ -1,0 +1,167 @@
+{
+    "runden_timestamp": "2026-03-18_11-58-09",
+    "tournament": "Ak-Schafkopf-4",
+    "User": "Elias S.",
+    "start_info": "",
+    "ende_info": true,
+    "spieler": [
+        "Elias S.",
+        "Lukas H.",
+        "Davina",
+        "Tim Pasta"
+    ],
+    "spiele": [
+        {
+            "Zeitstempel": "2026-03-18_12-01-14",
+            "Spielart": "Ruf",
+            "Spielmacher": "Elias S.",
+            "Rufpartner": "Lukas H.",
+            "Klopfer": 1,
+            "Gewonnen": false,
+            "Wert": 2,
+            "Wert_NK": 1,
+            "Wert_Wue": 4,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Elias S.",
+                "Lukas H.",
+                "Davina",
+                "Tim Pasta"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-18_12-05-43",
+            "Spielart": "Bettel",
+            "Spielmacher": "Tim Pasta",
+            "Rufpartner": null,
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 10,
+            "Wert_NK": 5,
+            "Wert_Wue": 6,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Elias S.",
+                "Lukas H.",
+                "Davina",
+                "Tim Pasta"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-18_12-09-54",
+            "Spielart": "Ruf",
+            "Spielmacher": "Davina",
+            "Rufpartner": "Elias S.",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 2,
+            "Wert_NK": 2,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Elias S.",
+                "Lukas H.",
+                "Davina",
+                "Tim Pasta"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-18_12-15-41",
+            "Spielart": "Wenz",
+            "Spielmacher": "Tim Pasta",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 6,
+            "Wert_NK": 6,
+            "Wert_Wue": 4,
+            "Wert_Wue_NK": 4,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Elias S.",
+                "Lukas H.",
+                "Davina",
+                "Tim Pasta"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-18_12-18-07",
+            "Spielart": "Wenz",
+            "Spielmacher": "Lukas H.",
+            "Rufpartner": null,
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 10,
+            "Wert_NK": 5,
+            "Wert_Wue": 6,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Elias S.",
+                "Lukas H.",
+                "Davina",
+                "Tim Pasta"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-18_12-22-44",
+            "Spielart": "Ruf",
+            "Spielmacher": "Lukas H.",
+            "Rufpartner": "Davina",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Elias S.",
+                "Lukas H.",
+                "Davina",
+                "Tim Pasta"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-18_12-26-47",
+            "Spielart": "Trumpfsolo",
+            "Spielmacher": "Elias S.",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 10,
+            "Wert_NK": 10,
+            "Wert_Wue": 8,
+            "Wert_Wue_NK": 8,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Elias S.",
+                "Lukas H.",
+                "Davina",
+                "Tim Pasta"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-18_12-30-36",
+            "Spielart": "Bettel",
+            "Spielmacher": "Elias S.",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 5,
+            "Wert_NK": 5,
+            "Wert_Wue": 3,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Elias S.",
+                "Lukas H.",
+                "Davina",
+                "Tim Pasta"
+            ]
+        }
+    ]
+}

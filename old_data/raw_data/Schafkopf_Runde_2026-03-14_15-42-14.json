@@ -1,0 +1,72 @@
+{
+    "runden_timestamp": "2026-03-14_15-42-14",
+    "tournament": "Gesamtstatistik",
+    "User": "Eli",
+    "start_info": "",
+    "ende_info": true,
+    "spieler": [
+        "Maxl",
+        "Davina",
+        "Tim Pasta",
+        "Eli"
+    ],
+    "spiele": [
+        {
+            "Zeitstempel": "2026-03-14_15-45-41",
+            "Spielart": "Wenz",
+            "Spielmacher": "Tim Pasta",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 8,
+            "Wert_NK": 8,
+            "Wert_Wue": 6,
+            "Wert_Wue_NK": 6,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Maxl",
+                "Davina",
+                "Tim Pasta",
+                "Eli"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-14_15-49-45",
+            "Spielart": "Ruf",
+            "Spielmacher": "Eli",
+            "Rufpartner": "Davina",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 7,
+            "Wert_NK": 7,
+            "Wert_Wue": 7,
+            "Wert_Wue_NK": 7,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Maxl",
+                "Davina",
+                "Tim Pasta",
+                "Eli"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-14_15-55-30",
+            "Spielart": "Ruf",
+            "Spielmacher": "Maxl",
+            "Rufpartner": "Eli",
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Maxl",
+                "Davina",
+                "Tim Pasta",
+                "Eli"
+            ]
+        }
+    ]
+}

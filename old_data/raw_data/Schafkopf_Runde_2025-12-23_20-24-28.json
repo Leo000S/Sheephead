@@ -1,0 +1,34 @@
+{
+    "runden_timestamp": "2025-12-23_20-24-28",
+    "tournament": "Aux-23.12",
+    "User": "Eli",
+    "start_info": "",
+    "spieler": [
+        "Jakob",
+        "Maxl",
+        "Eli",
+        "Felix"
+    ],
+    "infos_zur_runde": "",
+    "spiele": [
+        {
+            "Zeitstempel": "2025-12-23_20-29-33",
+            "Spielart": "Trumpfsolo",
+            "Spielmacher": "Jakob",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 5,
+            "Wert_NK": 5,
+            "Wert_Wue": 3,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Jakob",
+                "Maxl",
+                "Eli",
+                "Felix"
+            ]
+        }
+    ]
+}

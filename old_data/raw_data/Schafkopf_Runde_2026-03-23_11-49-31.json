@@ -1,0 +1,167 @@
+{
+    "runden_timestamp": "2026-03-23_11-49-31",
+    "tournament": "Ak-Schafkopf-4",
+    "User": "Lukas H.",
+    "start_info": "",
+    "ende_info": true,
+    "spieler": [
+        "Lukas H.",
+        "Kira",
+        "Reini",
+        "Tim Hasi"
+    ],
+    "spiele": [
+        {
+            "Zeitstempel": "2026-03-23_11-53-28",
+            "Spielart": "Ruf",
+            "Spielmacher": "Kira",
+            "Rufpartner": "Tim Hasi",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Lukas H.",
+                "Kira",
+                "Reini",
+                "Tim Hasi"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-23_11-57-54",
+            "Spielart": "Ruf",
+            "Spielmacher": "Reini",
+            "Rufpartner": "Kira",
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 4,
+            "Wert_NK": 2,
+            "Wert_Wue": 4,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Lukas H.",
+                "Kira",
+                "Reini",
+                "Tim Hasi"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-23_12-01-36",
+            "Spielart": "Ruf",
+            "Spielmacher": "Tim Hasi",
+            "Rufpartner": "Kira",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 3,
+            "Wert_NK": 3,
+            "Wert_Wue": 3,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Lukas H.",
+                "Kira",
+                "Reini",
+                "Tim Hasi"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-23_12-05-46",
+            "Spielart": "Ramsch",
+            "Spielmacher": "Lukas H.",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 2,
+            "Wert_NK": 2,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Lukas H.",
+                "Kira",
+                "Reini",
+                "Tim Hasi"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-23_12-10-09",
+            "Spielart": "Trumpfsolo",
+            "Spielmacher": "Tim Hasi",
+            "Rufpartner": null,
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 10,
+            "Wert_NK": 5,
+            "Wert_Wue": 6,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Lukas H.",
+                "Kira",
+                "Reini",
+                "Tim Hasi"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-23_12-16-18",
+            "Spielart": "Bettel",
+            "Spielmacher": "Tim Hasi",
+            "Rufpartner": null,
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 10,
+            "Wert_NK": 5,
+            "Wert_Wue": 6,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Lukas H.",
+                "Kira",
+                "Reini",
+                "Tim Hasi"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-23_12-20-06",
+            "Spielart": "Ramsch",
+            "Spielmacher": "Reini",
+            "Rufpartner": null,
+            "Klopfer": 1,
+            "Gewonnen": false,
+            "Wert": 2,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Lukas H.",
+                "Kira",
+                "Reini",
+                "Tim Hasi"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-23_12-24-56",
+            "Spielart": "Trumpfsolo",
+            "Spielmacher": "Tim Hasi",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 5,
+            "Wert_NK": 5,
+            "Wert_Wue": 3,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Lukas H.",
+                "Kira",
+                "Reini",
+                "Tim Hasi"
+            ]
+        }
+    ]
+}

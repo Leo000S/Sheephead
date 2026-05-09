@@ -1,0 +1,72 @@
+{
+    "runden_timestamp": "2026-03-30_16-13-20",
+    "tournament": "Ak-Schafkopf-4",
+    "User": "Tim Pasta",
+    "start_info": "",
+    "ende_info": true,
+    "spieler": [
+        "Tim Pasta",
+        "Davina",
+        "Stefan K.",
+        "Thomas"
+    ],
+    "spiele": [
+        {
+            "Zeitstempel": "2026-03-30_16-16-33",
+            "Spielart": "Bettel",
+            "Spielmacher": "Stefan K.",
+            "Rufpartner": null,
+            "Klopfer": 1,
+            "Gewonnen": false,
+            "Wert": 12,
+            "Wert_NK": 6,
+            "Wert_Wue": 8,
+            "Wert_Wue_NK": 4,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Tim Pasta",
+                "Davina",
+                "Stefan K.",
+                "Thomas"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-30_16-23-22",
+            "Spielart": "Ramsch",
+            "Spielmacher": "Stefan K.",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 2,
+            "Wert_NK": 2,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Tim Pasta",
+                "Davina",
+                "Stefan K.",
+                "Thomas"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-30_16-28-50",
+            "Spielart": "Bettel",
+            "Spielmacher": "Davina",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 5,
+            "Wert_NK": 5,
+            "Wert_Wue": 3,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Tim Pasta",
+                "Davina",
+                "Stefan K.",
+                "Thomas"
+            ]
+        }
+    ]
+}

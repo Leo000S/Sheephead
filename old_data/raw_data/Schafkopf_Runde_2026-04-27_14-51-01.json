@@ -1,0 +1,46 @@
+{
+    "runden_timestamp": "2026-04-27_14-51-01",
+    "tournament": "Ak-Schafkopf-4",
+    "User": "Gaudi Sepp",
+    "start_info": "",
+    "ende_info": true,
+    "spieler": [
+        "Thomas",
+        "Kira",
+        "Reini",
+        "Tim Hasi"
+    ],
+    "spiele": [
+        {
+            "Zeitstempel": "2026-04-27_14-52-05",
+            "Spielart": "Ramsch",
+            "Spielmacher": "Thomas",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Thomas",
+                "Kira",
+                "Reini",
+                "Tim Hasi"
+            ],
+            "spiel_info": {
+                "Spielart": "Ramsch",
+                "Klopfer": 0,
+                "Laufende": 0,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 0,
+                "Schneider": false,
+                "Schwarz": false,
+                "Kontra": false,
+                "Gewonnen": false
+            }
+        }
+    ]
+}

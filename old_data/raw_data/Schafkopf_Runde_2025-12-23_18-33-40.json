@@ -1,0 +1,34 @@
+{
+    "runden_timestamp": "2025-12-23_18-33-40",
+    "tournament": "Aux-23.12",
+    "User": "Eli",
+    "start_info": "",
+    "spieler": [
+        "Jakob",
+        "Stephan M.",
+        "Eli",
+        "Felix"
+    ],
+    "infos_zur_runde": "",
+    "spiele": [
+        {
+            "Zeitstempel": "2025-12-23_18-36-54",
+            "Spielart": "Ruf",
+            "Spielmacher": "Eli",
+            "Rufpartner": "Stephan M.",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Jakob",
+                "Stephan M.",
+                "Eli",
+                "Felix"
+            ]
+        }
+    ]
+}

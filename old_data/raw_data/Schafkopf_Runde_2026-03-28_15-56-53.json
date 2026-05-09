@@ -1,0 +1,243 @@
+{
+    "runden_timestamp": "2026-03-28_15-56-53",
+    "tournament": "Ak-Schafkopf-4",
+    "User": "Tim Pasta",
+    "start_info": "Sie benehmen sich nicht",
+    "ende_info": true,
+    "spieler": [
+        "Gaudi Sepp",
+        "Tim Pasta",
+        "Thomas",
+        "Davina"
+    ],
+    "spiele": [
+        {
+            "Zeitstempel": "2026-03-28_16-00-45",
+            "Spielart": "Geier",
+            "Spielmacher": "Gaudi Sepp",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 7,
+            "Wert_NK": 7,
+            "Wert_Wue": 5,
+            "Wert_Wue_NK": 5,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Gaudi Sepp",
+                "Tim Pasta",
+                "Thomas",
+                "Davina"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-28_16-08-25",
+            "Spielart": "Ruf",
+            "Spielmacher": "Tim Pasta",
+            "Rufpartner": "Thomas",
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 2,
+            "Wert_NK": 2,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Gaudi Sepp",
+                "Tim Pasta",
+                "Thomas",
+                "Davina"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-28_16-14-40",
+            "Spielart": "Ruf",
+            "Spielmacher": "Davina",
+            "Rufpartner": "Gaudi Sepp",
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 4,
+            "Wert_NK": 2,
+            "Wert_Wue": 4,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Gaudi Sepp",
+                "Tim Pasta",
+                "Thomas",
+                "Davina"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-28_16-19-50",
+            "Spielart": "Ruf",
+            "Spielmacher": "Gaudi Sepp",
+            "Rufpartner": "Tim Pasta",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Gaudi Sepp",
+                "Tim Pasta",
+                "Thomas",
+                "Davina"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-28_16-22-22",
+            "Spielart": "Bettel",
+            "Spielmacher": "Gaudi Sepp",
+            "Rufpartner": null,
+            "Klopfer": 2,
+            "Gewonnen": false,
+            "Wert": 20,
+            "Wert_NK": 5,
+            "Wert_Wue": 9,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Gaudi Sepp",
+                "Tim Pasta",
+                "Thomas",
+                "Davina"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-28_16-29-49",
+            "Spielart": "Ruf",
+            "Spielmacher": "Tim Pasta",
+            "Rufpartner": "Thomas",
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Gaudi Sepp",
+                "Tim Pasta",
+                "Thomas",
+                "Davina"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-28_16-35-31",
+            "Spielart": "Ruf",
+            "Spielmacher": "Thomas",
+            "Rufpartner": "Gaudi Sepp",
+            "Klopfer": 1,
+            "Gewonnen": false,
+            "Wert": 2,
+            "Wert_NK": 1,
+            "Wert_Wue": 4,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Gaudi Sepp",
+                "Tim Pasta",
+                "Thomas",
+                "Davina"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-28_16-43-37",
+            "Spielart": "Ruf",
+            "Spielmacher": "Tim Pasta",
+            "Rufpartner": "Gaudi Sepp",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Gaudi Sepp",
+                "Tim Pasta",
+                "Thomas",
+                "Davina"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-28_16-48-20",
+            "Spielart": "Wenz",
+            "Spielmacher": "Tim Pasta",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 6,
+            "Wert_NK": 6,
+            "Wert_Wue": 4,
+            "Wert_Wue_NK": 4,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Gaudi Sepp",
+                "Tim Pasta",
+                "Thomas",
+                "Davina"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-28_16-52-40",
+            "Spielart": "Ruf",
+            "Spielmacher": "Davina",
+            "Rufpartner": "Gaudi Sepp",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 2,
+            "Wert_NK": 2,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Gaudi Sepp",
+                "Tim Pasta",
+                "Thomas",
+                "Davina"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-28_16-57-27",
+            "Spielart": "Ruf",
+            "Spielmacher": "Davina",
+            "Rufpartner": "Thomas",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 7,
+            "Wert_NK": 7,
+            "Wert_Wue": 7,
+            "Wert_Wue_NK": 7,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Gaudi Sepp",
+                "Tim Pasta",
+                "Thomas",
+                "Davina"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-28_17-02-21",
+            "Spielart": "Ruf",
+            "Spielmacher": "Gaudi Sepp",
+            "Rufpartner": "Thomas",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Gaudi Sepp",
+                "Tim Pasta",
+                "Thomas",
+                "Davina"
+            ]
+        }
+    ]
+}

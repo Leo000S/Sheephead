@@ -1,0 +1,394 @@
+{
+    "runden_timestamp": "2026-01-09_17-44-24",
+    "tournament": "Ak-Schafkopf-3",
+    "User": "Kira",
+    "start_info": "",
+    "spieler": [
+        "Tim Pasta",
+        "Kira",
+        "Stefan K.",
+        "Lukas H."
+    ],
+    "spiele": [
+        {
+            "Zeitstempel": "2026-01-09_17-48-26",
+            "Spielart": "Ruf",
+            "Spielmacher": "Tim Pasta",
+            "Rufpartner": "Lukas H.",
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 2,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Tim Pasta",
+                "Kira",
+                "Stefan K.",
+                "Lukas H."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-09_17-53-06",
+            "Spielart": "Ramsch",
+            "Spielmacher": "Kira",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 2,
+            "Wert_NK": 2,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Tim Pasta",
+                "Kira",
+                "Stefan K.",
+                "Lukas H."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-09_17-57-40",
+            "Spielart": "Ruf",
+            "Spielmacher": "Kira",
+            "Rufpartner": "Stefan K.",
+            "Klopfer": 2,
+            "Gewonnen": true,
+            "Wert": 4,
+            "Wert_NK": 1,
+            "Wert_Wue": 3,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Tim Pasta",
+                "Kira",
+                "Stefan K.",
+                "Lukas H."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-09_18-02-16",
+            "Spielart": "Ramsch",
+            "Spielmacher": "Lukas H.",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Tim Pasta",
+                "Kira",
+                "Stefan K.",
+                "Lukas H."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-09_18-07-24",
+            "Spielart": "Bettel",
+            "Spielmacher": "Tim Pasta",
+            "Rufpartner": null,
+            "Klopfer": 1,
+            "Gewonnen": false,
+            "Wert": 20,
+            "Wert_NK": 10,
+            "Wert_Wue": 8,
+            "Wert_Wue_NK": 4,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Tim Pasta",
+                "Kira",
+                "Stefan K.",
+                "Lukas H."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-09_18-11-58",
+            "Spielart": "Ruf",
+            "Spielmacher": "Lukas H.",
+            "Rufpartner": "Tim Pasta",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Tim Pasta",
+                "Kira",
+                "Stefan K.",
+                "Lukas H."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-09_18-15-46",
+            "Spielart": "Ruf",
+            "Spielmacher": "Stefan K.",
+            "Rufpartner": "Tim Pasta",
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 4,
+            "Wert_NK": 2,
+            "Wert_Wue": 4,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Tim Pasta",
+                "Kira",
+                "Stefan K.",
+                "Lukas H."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-09_18-18-38",
+            "Spielart": "Geier",
+            "Spielmacher": "Lukas H.",
+            "Rufpartner": null,
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 12,
+            "Wert_NK": 6,
+            "Wert_Wue": 8,
+            "Wert_Wue_NK": 4,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Tim Pasta",
+                "Kira",
+                "Stefan K.",
+                "Lukas H."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-09_18-24-04",
+            "Spielart": "Ruf",
+            "Spielmacher": "Tim Pasta",
+            "Rufpartner": "Stefan K.",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Tim Pasta",
+                "Kira",
+                "Stefan K.",
+                "Lukas H."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-09_18-29-18",
+            "Spielart": "Ruf",
+            "Spielmacher": "Stefan K.",
+            "Rufpartner": "Lukas H.",
+            "Klopfer": 2,
+            "Gewonnen": true,
+            "Wert": 4,
+            "Wert_NK": 1,
+            "Wert_Wue": 3,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Tim Pasta",
+                "Kira",
+                "Stefan K.",
+                "Lukas H."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-09_18-32-47",
+            "Spielart": "Ruf",
+            "Spielmacher": "Lukas H.",
+            "Rufpartner": "Stefan K.",
+            "Klopfer": 2,
+            "Gewonnen": true,
+            "Wert": 20,
+            "Wert_NK": 5,
+            "Wert_Wue": 9,
+            "Wert_Wue_NK": 5,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Tim Pasta",
+                "Kira",
+                "Stefan K.",
+                "Lukas H."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-09_18-36-50",
+            "Spielart": "Trumpfsolo",
+            "Spielmacher": "Lukas H.",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 5,
+            "Wert_NK": 5,
+            "Wert_Wue": 3,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Tim Pasta",
+                "Kira",
+                "Stefan K.",
+                "Lukas H."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-09_18-40-15",
+            "Spielart": "Bettel",
+            "Spielmacher": "Stefan K.",
+            "Rufpartner": null,
+            "Klopfer": 1,
+            "Gewonnen": false,
+            "Wert": 10,
+            "Wert_NK": 5,
+            "Wert_Wue": 6,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Tim Pasta",
+                "Kira",
+                "Stefan K.",
+                "Lukas H."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-09_18-46-03",
+            "Spielart": "Wenz",
+            "Spielmacher": "Stefan K.",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 8,
+            "Wert_NK": 8,
+            "Wert_Wue": 6,
+            "Wert_Wue_NK": 6,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Tim Pasta",
+                "Kira",
+                "Stefan K.",
+                "Lukas H."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-09_18-50-15",
+            "Spielart": "Ramsch",
+            "Spielmacher": "Lukas H.",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Tim Pasta",
+                "Kira",
+                "Stefan K.",
+                "Lukas H."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-09_18-55-37",
+            "Spielart": "Ruf",
+            "Spielmacher": "Lukas H.",
+            "Rufpartner": "Kira",
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 4,
+            "Wert_NK": 2,
+            "Wert_Wue": 4,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Tim Pasta",
+                "Kira",
+                "Stefan K.",
+                "Lukas H."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-09_18-59-31",
+            "Spielart": "Ruf",
+            "Spielmacher": "Kira",
+            "Rufpartner": "Tim Pasta",
+            "Klopfer": 2,
+            "Gewonnen": false,
+            "Wert": 4,
+            "Wert_NK": 1,
+            "Wert_Wue": 6,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Tim Pasta",
+                "Kira",
+                "Stefan K.",
+                "Lukas H."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-09_19-03-27",
+            "Spielart": "Geier",
+            "Spielmacher": "Kira",
+            "Rufpartner": null,
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 16,
+            "Wert_NK": 8,
+            "Wert_Wue": 9,
+            "Wert_Wue_NK": 6,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Tim Pasta",
+                "Kira",
+                "Stefan K.",
+                "Lukas H."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-09_19-07-00",
+            "Spielart": "Ruf",
+            "Spielmacher": "Tim Pasta",
+            "Rufpartner": "Lukas H.",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 2,
+            "Wert_NK": 2,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Tim Pasta",
+                "Kira",
+                "Stefan K.",
+                "Lukas H."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-09_19-11-12",
+            "Spielart": "Ruf",
+            "Spielmacher": "Stefan K.",
+            "Rufpartner": "Tim Pasta",
+            "Klopfer": 2,
+            "Gewonnen": true,
+            "Wert": 4,
+            "Wert_NK": 1,
+            "Wert_Wue": 3,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Tim Pasta",
+                "Kira",
+                "Stefan K.",
+                "Lukas H."
+            ]
+        }
+    ]
+}

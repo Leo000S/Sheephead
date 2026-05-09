@@ -1,0 +1,34 @@
+{
+    "runden_timestamp": "2025-12-23_21-37-32",
+    "tournament": "Aux-23.12",
+    "User": "Felix",
+    "start_info": "",
+    "spieler": [
+        "Marc",
+        "Felix",
+        "Stephan M.",
+        "Julik"
+    ],
+    "infos_zur_runde": "",
+    "spiele": [
+        {
+            "Zeitstempel": "2025-12-23_21-40-18",
+            "Spielart": "Ramsch",
+            "Spielmacher": "Stephan M.",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 2,
+            "Wert_NK": 2,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Marc",
+                "Felix",
+                "Stephan M.",
+                "Julik"
+            ]
+        }
+    ]
+}

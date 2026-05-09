@@ -1,0 +1,341 @@
+{
+    "runden_timestamp": "2026-03-14_15-24-58",
+    "tournament": "Ak-Schafkopf-4",
+    "User": "Leo",
+    "start_info": "Nachgetragen",
+    "ende_info": true,
+    "spieler": [
+        "Thomas",
+        "Reini",
+        "Davina",
+        "Kira",
+        "Stefan K.",
+        "Lukas H.",
+        "Valentin W."
+    ],
+    "spiele": [
+        {
+            "Zeitstempel": "2026-03-14_15-25-45",
+            "Spielart": "Bettel",
+            "Spielmacher": "Lukas H.",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 5,
+            "Wert_NK": 5,
+            "Wert_Wue": 3,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Thomas",
+                "Reini",
+                "Kira",
+                "Lukas H."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-14_15-27-14",
+            "Spielart": "Geier",
+            "Spielmacher": "Kira",
+            "Rufpartner": null,
+            "Klopfer": 3,
+            "Gewonnen": false,
+            "Wert": 40,
+            "Wert_NK": 5,
+            "Wert_Wue": 12,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Reini",
+                "Kira",
+                "Stefan K.",
+                "Lukas H."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-14_15-27-41",
+            "Spielart": "Ruf",
+            "Spielmacher": "Lukas H.",
+            "Rufpartner": "Stefan K.",
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 2,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Reini",
+                "Kira",
+                "Stefan K.",
+                "Lukas H."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-14_15-28-06",
+            "Spielart": "Geier",
+            "Spielmacher": "Kira",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 5,
+            "Wert_NK": 5,
+            "Wert_Wue": 3,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Reini",
+                "Kira",
+                "Stefan K.",
+                "Lukas H."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-14_15-29-01",
+            "Spielart": "Trumpfsolo",
+            "Spielmacher": "Stefan K.",
+            "Rufpartner": null,
+            "Klopfer": 1,
+            "Gewonnen": false,
+            "Wert": 10,
+            "Wert_NK": 5,
+            "Wert_Wue": 6,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Reini",
+                "Kira",
+                "Stefan K.",
+                "Lukas H."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-14_15-29-29",
+            "Spielart": "Wenz",
+            "Spielmacher": "Kira",
+            "Rufpartner": null,
+            "Klopfer": 1,
+            "Gewonnen": false,
+            "Wert": 10,
+            "Wert_NK": 5,
+            "Wert_Wue": 6,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Reini",
+                "Kira",
+                "Stefan K.",
+                "Lukas H."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-14_15-31-57",
+            "Spielart": "Wenz",
+            "Spielmacher": "Lukas H.",
+            "Rufpartner": null,
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 18,
+            "Wert_NK": 9,
+            "Wert_Wue": 11,
+            "Wert_Wue_NK": 7,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Thomas",
+                "Davina",
+                "Stefan K.",
+                "Lukas H."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-14_15-46-03",
+            "Spielart": "Ruf",
+            "Spielmacher": "Davina",
+            "Rufpartner": "Kira",
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Reini",
+                "Davina",
+                "Kira",
+                "Stefan K."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-14_15-47-20",
+            "Spielart": "Ruf",
+            "Spielmacher": "Lukas H.",
+            "Rufpartner": "Davina",
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 4,
+            "Wert_NK": 2,
+            "Wert_Wue": 4,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Thomas",
+                "Reini",
+                "Davina",
+                "Lukas H."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-14_15-48-54",
+            "Spielart": "Ruf",
+            "Spielmacher": "Stefan K.",
+            "Rufpartner": "Lukas H.",
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 2,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Thomas",
+                "Kira",
+                "Stefan K.",
+                "Lukas H."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-14_15-51-50",
+            "Spielart": "Ruf",
+            "Spielmacher": "Davina",
+            "Rufpartner": "Kira",
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 2,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Davina",
+                "Kira",
+                "Stefan K.",
+                "Lukas H."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-14_15-52-45",
+            "Spielart": "Ruf",
+            "Spielmacher": "Kira",
+            "Rufpartner": "Stefan K.",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Thomas",
+                "Davina",
+                "Kira",
+                "Stefan K."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-14_15-53-57",
+            "Spielart": "Ruf",
+            "Spielmacher": "Thomas",
+            "Rufpartner": "Lukas H.",
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Thomas",
+                "Davina",
+                "Lukas H.",
+                "Valentin W."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-14_15-55-18",
+            "Spielart": "Trumpfsolo",
+            "Spielmacher": "Davina",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 6,
+            "Wert_NK": 6,
+            "Wert_Wue": 4,
+            "Wert_Wue_NK": 4,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Davina",
+                "Stefan K.",
+                "Lukas H.",
+                "Valentin W."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-14_15-57-04",
+            "Spielart": "Ruf",
+            "Spielmacher": "Stefan K.",
+            "Rufpartner": "Davina",
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Thomas",
+                "Davina",
+                "Stefan K.",
+                "Valentin W."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-14_15-59-13",
+            "Spielart": "Ruf",
+            "Spielmacher": "Davina",
+            "Rufpartner": "Valentin W.",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 5,
+            "Wert_NK": 5,
+            "Wert_Wue": 5,
+            "Wert_Wue_NK": 5,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Thomas",
+                "Davina",
+                "Stefan K.",
+                "Valentin W."
+            ]
+        },
+        {
+            "Zeitstempel": "2026-03-14_15-59-35",
+            "Spielart": "Ruf",
+            "Spielmacher": "Stefan K.",
+            "Rufpartner": "Davina",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Thomas",
+                "Davina",
+                "Stefan K.",
+                "Valentin W."
+            ]
+        }
+    ]
+}

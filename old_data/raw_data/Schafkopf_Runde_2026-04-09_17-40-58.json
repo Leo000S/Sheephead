@@ -1,0 +1,48 @@
+{
+    "runden_timestamp": "2026-04-09_17-40-58",
+    "tournament": "Ak-Schafkopf-4",
+    "User": "Lukas H.",
+    "start_info": "",
+    "ende_info": false,
+    "spieler": [
+        "Davina",
+        "Stefan K.",
+        "Thomas",
+        "Kira",
+        "Reini",
+        "Lukas H."
+    ],
+    "spiele": [
+        {
+            "Zeitstempel": "2026-04-09_17-44-11",
+            "Spielart": "Ruf",
+            "Spielmacher": "Davina",
+            "Rufpartner": "Stefan K.",
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Davina",
+                "Stefan K.",
+                "Reini",
+                "Lukas H."
+            ],
+            "spiel_info": {
+                "Spielart": "Ruf",
+                "Klopfer": 0,
+                "Laufende": 0,
+                "Tout": false,
+                "Sie": false,
+                "Jungfrau": 0,
+                "Schneider": false,
+                "Schwarz": false,
+                "Kontra": false,
+                "Gewonnen": false
+            }
+        }
+    ]
+}

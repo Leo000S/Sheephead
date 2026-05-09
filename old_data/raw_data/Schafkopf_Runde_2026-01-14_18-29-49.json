@@ -1,0 +1,603 @@
+{
+    "runden_timestamp": "2026-01-14_18-29-49",
+    "tournament": "Ak-Schafkopf-3",
+    "User": "Leo",
+    "start_info": "",
+    "spieler": [
+        "Leo",
+        "Thomas",
+        "Davina",
+        "Kira"
+    ],
+    "spiele": [
+        {
+            "Zeitstempel": "2026-01-14_18-33-23",
+            "Spielart": "Ruf",
+            "Spielmacher": "Thomas",
+            "Rufpartner": "Leo",
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Thomas",
+                "Davina",
+                "Kira"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-14_18-36-36",
+            "Spielart": "Ruf",
+            "Spielmacher": "Leo",
+            "Rufpartner": "Thomas",
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 4,
+            "Wert_NK": 2,
+            "Wert_Wue": 4,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Thomas",
+                "Davina",
+                "Kira"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-14_18-39-22",
+            "Spielart": "Geier",
+            "Spielmacher": "Kira",
+            "Rufpartner": null,
+            "Klopfer": 1,
+            "Gewonnen": false,
+            "Wert": 10,
+            "Wert_NK": 5,
+            "Wert_Wue": 6,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Thomas",
+                "Davina",
+                "Kira"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-14_18-42-57",
+            "Spielart": "Geier",
+            "Spielmacher": "Kira",
+            "Rufpartner": null,
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 10,
+            "Wert_NK": 5,
+            "Wert_Wue": 6,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Thomas",
+                "Davina",
+                "Kira"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-14_18-47-17",
+            "Spielart": "Trumpfsolo",
+            "Spielmacher": "Leo",
+            "Rufpartner": null,
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 10,
+            "Wert_NK": 5,
+            "Wert_Wue": 6,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Thomas",
+                "Davina",
+                "Kira"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-14_18-50-04",
+            "Spielart": "Ruf",
+            "Spielmacher": "Davina",
+            "Rufpartner": "Kira",
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Thomas",
+                "Davina",
+                "Kira"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-14_18-52-42",
+            "Spielart": "Ruf",
+            "Spielmacher": "Leo",
+            "Rufpartner": "Davina",
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 2,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Thomas",
+                "Davina",
+                "Kira"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-14_18-55-13",
+            "Spielart": "Bettel",
+            "Spielmacher": "Davina",
+            "Rufpartner": null,
+            "Klopfer": 2,
+            "Gewonnen": true,
+            "Wert": 20,
+            "Wert_NK": 5,
+            "Wert_Wue": 9,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Thomas",
+                "Davina",
+                "Kira"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-14_19-00-02",
+            "Spielart": "Geier",
+            "Spielmacher": "Kira",
+            "Rufpartner": null,
+            "Klopfer": 1,
+            "Gewonnen": false,
+            "Wert": 14,
+            "Wert_NK": 7,
+            "Wert_Wue": 8,
+            "Wert_Wue_NK": 5,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Thomas",
+                "Davina",
+                "Kira"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-14_19-04-39",
+            "Spielart": "Trumpfsolo",
+            "Spielmacher": "Kira",
+            "Rufpartner": null,
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 10,
+            "Wert_NK": 5,
+            "Wert_Wue": 6,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Thomas",
+                "Davina",
+                "Kira"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-14_19-07-01",
+            "Spielart": "Trumpfsolo",
+            "Spielmacher": "Thomas",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 5,
+            "Wert_NK": 5,
+            "Wert_Wue": 3,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Thomas",
+                "Davina",
+                "Kira"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-14_19-09-38",
+            "Spielart": "Ruf",
+            "Spielmacher": "Leo",
+            "Rufpartner": "Davina",
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 4,
+            "Wert_NK": 4,
+            "Wert_Wue": 5,
+            "Wert_Wue_NK": 5,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Thomas",
+                "Davina",
+                "Kira"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-14_19-15-46",
+            "Spielart": "Durchmarsch",
+            "Spielmacher": "Kira",
+            "Rufpartner": null,
+            "Klopfer": 3,
+            "Gewonnen": true,
+            "Wert": 8,
+            "Wert_NK": 1,
+            "Wert_Wue": 4,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Thomas",
+                "Davina",
+                "Kira"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-14_19-17-25",
+            "Spielart": "Ruf",
+            "Spielmacher": "Davina",
+            "Rufpartner": "Leo",
+            "Klopfer": 1,
+            "Gewonnen": false,
+            "Wert": 2,
+            "Wert_NK": 1,
+            "Wert_Wue": 4,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Thomas",
+                "Davina",
+                "Kira"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-14_19-20-17",
+            "Spielart": "Ramsch",
+            "Spielmacher": "Davina",
+            "Rufpartner": null,
+            "Klopfer": 1,
+            "Gewonnen": false,
+            "Wert": 2,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Thomas",
+                "Davina",
+                "Kira"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-14_19-23-29",
+            "Spielart": "Ruf",
+            "Spielmacher": "Kira",
+            "Rufpartner": "Leo",
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 6,
+            "Wert_NK": 3,
+            "Wert_Wue": 6,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Thomas",
+                "Davina",
+                "Kira"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-14_19-27-29",
+            "Spielart": "Ruf",
+            "Spielmacher": "Leo",
+            "Rufpartner": "Thomas",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 5,
+            "Wert_NK": 5,
+            "Wert_Wue": 5,
+            "Wert_Wue_NK": 5,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Thomas",
+                "Davina",
+                "Kira"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-14_19-31-17",
+            "Spielart": "Ruf",
+            "Spielmacher": "Leo",
+            "Rufpartner": "Thomas",
+            "Klopfer": 1,
+            "Gewonnen": false,
+            "Wert": 2,
+            "Wert_NK": 1,
+            "Wert_Wue": 4,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Thomas",
+                "Davina",
+                "Kira"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-14_19-33-49",
+            "Spielart": "Ruf",
+            "Spielmacher": "Davina",
+            "Rufpartner": "Leo",
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 8,
+            "Wert_NK": 4,
+            "Wert_Wue": 5,
+            "Wert_Wue_NK": 4,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Thomas",
+                "Davina",
+                "Kira"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-14_19-37-56",
+            "Spielart": "Geier",
+            "Spielmacher": "Leo",
+            "Rufpartner": null,
+            "Klopfer": 1,
+            "Gewonnen": true,
+            "Wert": 10,
+            "Wert_NK": 5,
+            "Wert_Wue": 6,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Thomas",
+                "Davina",
+                "Kira"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-14_19-41-30",
+            "Spielart": "Trumpfsolo",
+            "Spielmacher": "Davina",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 10,
+            "Wert_NK": 10,
+            "Wert_Wue": 6,
+            "Wert_Wue_NK": 6,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Thomas",
+                "Davina",
+                "Kira"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-14_19-44-41",
+            "Spielart": "Ruf",
+            "Spielmacher": "Thomas",
+            "Rufpartner": "Kira",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Thomas",
+                "Davina",
+                "Kira"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-14_19-47-37",
+            "Spielart": "Ruf",
+            "Spielmacher": "Kira",
+            "Rufpartner": "Leo",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 2,
+            "Wert_NK": 2,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Thomas",
+                "Davina",
+                "Kira"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-14_19-49-18",
+            "Spielart": "Bettel",
+            "Spielmacher": "Kira",
+            "Rufpartner": null,
+            "Klopfer": 1,
+            "Gewonnen": false,
+            "Wert": 10,
+            "Wert_NK": 5,
+            "Wert_Wue": 6,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Thomas",
+                "Davina",
+                "Kira"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-14_19-53-18",
+            "Spielart": "Bettel",
+            "Spielmacher": "Kira",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 5,
+            "Wert_NK": 5,
+            "Wert_Wue": 3,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Thomas",
+                "Davina",
+                "Kira"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-14_19-56-14",
+            "Spielart": "Bettel",
+            "Spielmacher": "Kira",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 5,
+            "Wert_NK": 5,
+            "Wert_Wue": 3,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Thomas",
+                "Davina",
+                "Kira"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-14_19-59-51",
+            "Spielart": "Ruf",
+            "Spielmacher": "Leo",
+            "Rufpartner": "Kira",
+            "Klopfer": 1,
+            "Gewonnen": false,
+            "Wert": 2,
+            "Wert_NK": 1,
+            "Wert_Wue": 4,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Thomas",
+                "Davina",
+                "Kira"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-14_20-03-25",
+            "Spielart": "Ruf",
+            "Spielmacher": "Thomas",
+            "Rufpartner": "Davina",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 2,
+            "Wert_NK": 2,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Thomas",
+                "Davina",
+                "Kira"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-14_20-07-23",
+            "Spielart": "Ruf",
+            "Spielmacher": "Davina",
+            "Rufpartner": "Kira",
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 1,
+            "Wert_Wue_NK": 1,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Thomas",
+                "Davina",
+                "Kira"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-14_20-15-17",
+            "Spielart": "Bettel",
+            "Spielmacher": "Kira",
+            "Rufpartner": null,
+            "Klopfer": 0,
+            "Gewonnen": true,
+            "Wert": 5,
+            "Wert_NK": 5,
+            "Wert_Wue": 3,
+            "Wert_Wue_NK": 3,
+            "Verteilungsfaktor": 1,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Thomas",
+                "Davina",
+                "Kira"
+            ]
+        },
+        {
+            "Zeitstempel": "2026-01-14_20-18-02",
+            "Spielart": "Ruf",
+            "Spielmacher": "Leo",
+            "Rufpartner": "Davina",
+            "Klopfer": 0,
+            "Gewonnen": false,
+            "Wert": 1,
+            "Wert_NK": 1,
+            "Wert_Wue": 2,
+            "Wert_Wue_NK": 2,
+            "Verteilungsfaktor": 0.5,
+            "Mitspieler_Runde": [
+                "Leo",
+                "Thomas",
+                "Davina",
+                "Kira"
+            ]
+        }
+    ]
+}

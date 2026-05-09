@@ -1,5 +1,4 @@
-import streamlit as st
-from services.supabase_client import supabase
+
 import streamlit as st
 from services.supabase_client import supabase
 

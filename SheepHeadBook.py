@@ -7,8 +7,6 @@ import json
 import os
 import requests
 
-from .SpielerInnen import SPIELER_AUSWAHL
-from .TurnierAuswahl import Turnier_Auswahl
 
 
 
@@ -48,6 +46,7 @@ def spielwert_bestimmen_wue(spielart, klopfer, laufende, tout, jungfrau, schneid
     wertn_wue_NK = (basis+jungfrau) * (1 + kontrazahl) + laufende
     return wert_wue, wertn_wue_NK
 
+
 def berechne_statistik(spieler, spiele):
     konto_normal = defaultdict(int)
     konto_wue = defaultdict(int)
@@ -61,7 +60,7 @@ def berechne_statistik(spieler, spiele):
         wertn = spiel["Wert"]
         wertw = spiel["Wert_Wue"]
         gewonnen = spiel["Gewonnen"]
-        spielende =  [s[0] for s in spiel["Mitspieler_Runde"]]
+        spielende = set([s[0] for s in spiel["Mitspieler_Runde"]])
         team = {sm}
         if rp:
             team.add(rp)
@@ -106,7 +105,9 @@ def berechne_statistik(spieler, spiele):
         }
         for s in spieler
     ])
-    
+
     return df
+
+
 
 

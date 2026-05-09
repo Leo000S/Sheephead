@@ -12,62 +12,60 @@ import pandas as pd
 from datetime import datetime
 from collections import defaultdict
 import json
-from streamlit_autorefresh import st_autorefresh
 import os
 
 
-from sheephead_common.TurnierAuswahl import Turnier_Auswahl
-from sheephead_common.SpielerInnen import SPIELER_AUSWAHL
-from sheephead_common.SheepHeadBook import spielwert_bestimmen_wue
-from sheephead_common.SheepHeadBook import spielwert_bestimmen_normal
-from sheephead_common.SheepHeadBook import berechne_statistik
-from sheephead_common.SheepHeadBook import autosave_start_new_round
-from sheephead_common.SheepHeadBook import autosave_add_game
-from sheephead_common.SpieleAuswahl import Aux, Wue, AllR, Standard
+from TurnierAuswahl import Turnier_Auswahl
+from SpielerInnen import SPIELER_AUSWAHL
+from SheepHeadBook import spielwert_bestimmen_wue
+from SheepHeadBook import spielwert_bestimmen_normal
+from SheepHeadBook import (berechne_statistik)
+from SheepHeadBook import autosave_add_game
+from SpieleAuswahl import Aux, Wue, AllR, Standard
 
-# -----------------------------
-# HUGGING FACE SETTINGS
-# -----------------------------
-REPO_ID = "LeoDerLoewe/SchafkopfDataAutosave"
-HF_TOKEN = os.getenv("Sheephead_Autosave")
-if HF_TOKEN is None:
-    raise ValueError("HF_Token fehlt! Bitte als Umgebungsvariable setzen.")
 
-api = HfApi(token=HF_TOKEN)
-
-ROUNDS_PREFIX = "AllContributingRounds"
-
-api = HfApi()
 
 def load_open_rounds():
+    heute = datetime.now().date()
 
-    heute = datetime.now().strftime("%Y-%m-%d")
-
-    files = api.list_repo_files(
-        repo_id=REPO_ID,
-        repo_type="dataset"
-        )
+    response = (
+        supabase
+        .table("rounds")
+        .select("*")
+        .gte("created_at", str(heute))   # alles ab heute 00:00
+        .execute()
+    )
 
     offene_runden = []
 
-    
-    for file in files:
+    for row in response.data:
+        data = row["data"]
 
-        if file.startswith(f"{ROUNDS_PREFIX}/{heute}") and file.endswith(".json"):
-
-            url = f"https://huggingface.co/datasets/{REPO_ID}/resolve/main/{file}"
-
-            try:
-                import requests
-                data = requests.get(url).json()
-
-                if not data.get("ende_info", False):
-                    offene_runden.append((file, data))
-
-            except:
-                pass
+        if not data.get("ende_info", False):
+            offene_runden.append(data)
 
     return offene_runden
+
+
+def save_or_update_round(st):
+    timestamp = st.session_state.runden_timestamp
+
+    data = {
+        "runden_timestamp": timestamp,
+        "tournament": st.session_state.tournament,
+        "User": st.session_state.user,
+        "start_info": st.session_state.start_info,
+        "ende_info": st.session_state.ende,
+        "spieler": st.session_state.spieler,
+        "spiele": st.session_state.spiele
+    }
+
+    supabase.table("rounds").upsert({
+        "user_id": st.session_state.user,
+        "runden_timestamp": timestamp,
+        "data": data
+    }).execute()
+
 
 def resolve_restrictions(tournament):
     restrictions = Standard
@@ -80,7 +78,12 @@ def resolve_restrictions(tournament):
     if tournament == "Allgäuer-Rundn":
         restrictions = AllR
     return restrictions
-    
+
+######################## wieder wegmachen... ###########
+SPIELWERTE = {"Ruf": 1, "Ramsch": 1, "Trumpfsolo": 5, "Wenz": 5, "Geier": 5, "Bettel": 5, "Durchmarsch": 5}
+Standard = [SPIELWERTE, True, True, True, "normal"]
+######################## wieder wegmachen... ###########
+
 KLOPFEN = True
 TOUT = True
 SIE = True
@@ -146,7 +149,9 @@ if not st.session_state.runde_aktiv:
             st.session_state.user = data.get("User", "")
             st.session_state.autosave_file = file[33:]
             st.session_state.runde_aktiv = True
-            autosave_add_game(st)
+            save_or_update_round(st)
+
+
         
             st.rerun()
             
@@ -192,7 +197,7 @@ if not st.session_state.runde_aktiv:
                 st.session_state.start_info = Start_Info
                 st.session_state.tournament = tournament
                 st.session_state.user = user
-                autosave_start_new_round(st)
+                save_or_update_round(st)
                 st.success(f"Runde gestartet mit: {', '.join(spieler)}")
                 st.rerun()
                 

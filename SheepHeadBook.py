@@ -41,7 +41,7 @@ def spielwert_bestimmen_wue(spielart, klopfer, laufende, tout, jungfrau, schneid
     wertn_wue_NK = (basis+jungfrau) * (1 + kontrazahl) + laufende
     return wert_wue, wertn_wue_NK
 
-
+# Berechnung der Statistik, welche im book angezeigt wird...
 def berechne_statistik(spieler, spiele):
     konto_normal = defaultdict(int)
     konto_wue = defaultdict(int)

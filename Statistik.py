@@ -5,6 +5,7 @@ import numpy as np
 import re
 import pandas as pd
 
+# Berechnet aus allen Spielen eines Spielers die Punkte (wue, normal und mit/ohne Klopfen)
 def punkte_abspeichern(df_player, player):
     # Gewinnlogik:
     # - Wenn Spieler = Spielmacher oder Rufpartner und Gewonnen == True → Spieler gewinnt
@@ -43,15 +44,8 @@ def punkte_abspeichern(df_player, player):
     }
     return df_player
 
-def extract_file_timestamp(filename):
-    match = re.search(r'(\d{4}-\d{2}-\d{2}_\d{2}-\d{2}-\d{2})', filename)
-    if match:
-        return match.group(1)
-    else:
-        raise ValueError(f"Kein gültiger Timestamp im Dateinamen: {filename}")
 
-
-
+# Wir in Punkte abspeichern benötigt
 def berechne_punkte(x, player):
     # Basiswert: + oder - je nach Sieg/Niederlage
     punkte = x["Wert"] if x["Hat_gewonnen"] else -x["Wert"]
@@ -73,72 +67,8 @@ def berechne_punkte(x, player):
     
     return pd.Series([punkte, punkte_wue, punkte_NK, punkte_NK_wue])
 
-def join_all_tischrundn(csv_files, csv_dir):
-    # Dateien nach Timestamp sortieren
-    csv_files.sort(key=extract_file_timestamp)
-    # Sets für doppelte Prüfung
-    seen_file_timestamps = set()
-    seen_game_timestamps = set()
-    all_games = []
-    for file in csv_files:
-        file_path = os.path.join(csv_dir, file)
-        file_timestamp = extract_file_timestamp(file)
-        
-        if file_timestamp in seen_file_timestamps:
-            print(file)
-            raise ValueError(f"Fehler: Datei mit Timestamp {file_timestamp} wurde bereits verarbeitet: {file}")
-        seen_file_timestamps.add(file_timestamp)
-        
-        # JSON einlesen
-        with open(file_path, "r", encoding="utf-8") as f:
-            data = json.load(f)
-        
-        # Spiele extrahieren
-        games_list = data.get("spiele", [])
-        
-        if not games_list:
-            print(f"⚠️ Keine Spiele in Datei {file}")
-            continue
-        
-        for game in games_list:
-            if "Zeitstempel" not in game:
-                raise ValueError(f"Spalte 'Zeitstempel' fehlt in einem Spiel in Datei {file}")
 
-            # Zeitstempel einlesen und ggf. in datetime umwandeln
-            game_ts = game["Zeitstempel"]
-            
-            # Spezialfall: gleicher Zeitstempel → um 1 Sekunde erhöhen
-            while game_ts in seen_game_timestamps:
-                game_ts = game_ts + "A"
-            
-            # Zurück ins gewünschte Format (ISO-String)
-            game["Zeitstempel"] = game_ts
-            
-            seen_game_timestamps.add(game_ts)
-                        
-            # Optional: Metadaten hinzufügen
-            game["runde_file"] = file
-            game["start_info"] = data.get("start_info", "")
-            game["tournament"] = data.get("tournament")
-            game["runden_timestamp"] = data.get("runden_timestamp", "")
-            
-            all_games.append(game)
-
-    # Spiele nach Zeitstempel sortieren
-    all_games_sorted = sorted(all_games, key=lambda x: x["Zeitstempel"])
-    
-    # In DataFrame zurückwandeln
-    final_df = pd.DataFrame(all_games_sorted)
-    
-    # Existierende Spielnummer-Spalte entfernen, falls vorhanden
-    if "Spielnummer" in final_df.columns:
-        final_df.drop(columns=["Spielnummer"], inplace=True)
-
-    # Spielnummern korrekt neu vergeben: 1, 2, 3, ...
-    final_df.insert(0, "Spielnummer", range(1, len(final_df) + 1))
-    
-    return final_df
-
+# Erstellt die Datentabelle für alle Spieler einzeln, welche die Inhalte in der großen Tabelle definieren in run_statistic():
 def analyse_all_players(df, all_players, MinSpiele):
     
     spieler_stats = {} 
@@ -193,11 +123,14 @@ def analyse_all_players(df, all_players, MinSpiele):
     
     return spieler_stats
 
+
+# schreibt "Treppchen" etc.
 def show_block(title, df, interesting_key):
         st.write(title)
         st.write(df[interesting_key].round(2))
 
-# Erstellt die vergleichende Statistik des Turniers
+
+# Erstellt die vergleichende Statistik des Turniers, also die große Tabelle in run_statistic()
 def analyse_different_stats(spieler_stats, Punkteart, show=False):
       
     overview = pd.DataFrame.from_dict(
@@ -236,6 +169,8 @@ def analyse_different_stats(spieler_stats, Punkteart, show=False):
 
     return overview
 
+
+# Macht den plot in run_statistic()
 import plotly.graph_objects as go
 def plot_stats_streamlit(spieler_stats, KeyKumulativ):
 
@@ -276,6 +211,8 @@ def plot_stats_streamlit(spieler_stats, KeyKumulativ):
 
     st.plotly_chart(fig, use_container_width=True)
 
+
+# Setzt die filter in run_statistic() um:
 def filter_spiele(
     df: pd.DataFrame,
     namen=None,
@@ -298,7 +235,6 @@ def filter_spiele(
 
     # --- Tournament ---
     if tournament:
-        st.write(tournament)
         df_f = df_f[df_f["tournament"].isin(tournament)]
 
 

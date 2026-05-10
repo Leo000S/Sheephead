@@ -298,6 +298,7 @@ def filter_spiele(
 
     # --- Tournament ---
     if tournament:
+        st.write(tournament)
         df_f = df_f[df_f["tournament"].isin(tournament)]
 
 

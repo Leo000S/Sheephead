@@ -87,7 +87,7 @@ def home(user):
         st.write("- Zusätzlich gibt es einen Ramsch (1 Punkt) und Durchmarsch (3 Punkte)")
     with wue:
         st.subheader("Würzburger Berechnung")
-        st.write("- Hier ist der Ruf wertvoller, und eine Niederlage als Spielerpartei schmerzhaft:")
+        st.write("- Hier ist der Ruf wertvoller, und eine Niederlage als Spielerpartei schmerzhaft (+1 Punkt):")
         st.write("- Ruf = 1 Punkt, Soli (Wenz und Trumpfsolo) = 3 Punkte")
         st.write("- Schneider, Schwarz = +1 Punkt")
         st.write(r"- Klopfen, Kontra, Tout, ...  Erhöhung der Punkte um den Faktor n+1 = 2, 3, 4, ...")

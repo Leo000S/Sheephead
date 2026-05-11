@@ -34,20 +34,6 @@ def home(user):
 
     st.divider()
 
-    # Rechtliches & Spende in einem expander (nimmt nicht so viel Platz weg)
-    with st.expander("Rechtliches & Unterstützung"):
-        st.write("""
-        **Erklärung des Erstellers:**
-        Diese App wurde nach bestem Wissen und Gewissen entwickelt. 
-        *   Es wird **keine Haftung** für Richtigkeit der Punkte, Serverausfälle oder verlorene Daten übernommen.
-        *   Dies ist ein privates Projekt zur Förderung unserer Spielkultur.
-
-        **Support:**
-        Wenn dir die App gefällt und du  mein nächstes Kaltgetränk unterstützen möchtest, freue ich mich über eine kleine Spende:
-        """)
-
-        st.caption("Email für PayPal: schallerleopold01@gmail.com")
-        st.caption("Email für Wero: schallerleopold01@gmail.com")
 
     # Was dir noch einfallen könnte (Vorschlag: Statistiken oder Zitate)
     st.divider()
@@ -61,19 +47,16 @@ def home(user):
     st.code(f"{app_url}", language="text")
     st.caption("Kopiere diesen Link und sende ihn deinen Freunden, damit sie sich registrieren können.")
 
-    def display_pdf(file_path):
-        with open(file_path, "rb") as f:
-            base64_pdf = base64.b64encode(f.read()).decode('utf-8')
-
-        # PDF in einem HTML-Iframe anzeigen
-        pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="100%" height="600" type="application/pdf"></iframe>'
-        st.markdown(pdf_display, unsafe_allow_html=True)
 
     # Aufrufen der Funktion
-    st.subheader("Regeln")
-    if st.checkbox("Regeln für Würzburger Schafkopfrunden"):
-        display_pdf("assets/probepdf.pdf")
-
+    st.subheader("Regeln zum nachlesen")
+    with open("RegelwerkWue.pdf", "rb") as f:
+        st.download_button(
+            label="Würzburger Regeln als PDF herunterladen",
+            data=f,
+            file_name="Schafkopf_Regeln_Wue.pdf",
+            mime="application/pdf"
+        )
 
     st.subheader("Wie werden deine Punkte berechnet?")
     # Spalten-Layout für die erste Sektion
@@ -92,3 +75,18 @@ def home(user):
         st.write("- Schneider, Schwarz = +1 Punkt")
         st.write(r"- Klopfen, Kontra, Tout, ...  Erhöhung der Punkte um den Faktor n+1 = 2, 3, 4, ...")
         st.write("- Zusätzlich gibt es einen Ramsch (1 Punkt), Durchmarsch (3 Punkte), Geier(3 Punkte) und einen Bettel (Brett) für 3(4) Punkte")
+
+    # Rechtliches & Spende in einem expander (nimmt nicht so viel Platz weg)
+    with st.expander("Rechtliches & Unterstützung"):
+        st.write("""
+        **Erklärung des Erstellers:**
+        Diese App wurde nach bestem Wissen und Gewissen entwickelt. 
+        *   Es wird **keine Haftung** für Richtigkeit der Punkte, Serverausfälle oder verlorene Daten übernommen.
+        *   Dies ist ein privates Projekt zur Förderung unserer Spielkultur.
+
+        **Support:**
+        Wenn dir die App gefällt und du  mein nächstes Kaltgetränk unterstützen möchtest, freue ich mich über eine kleine Spende:
+        """)
+
+        st.caption("Email für PayPal: schallerleopold01@gmail.com")
+        st.caption("Email für Wero: schallerleopold01@gmail.com")

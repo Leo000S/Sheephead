@@ -1,4 +1,5 @@
 import streamlit as st
+import base64
 from services.supabase_client import supabase
 
 
@@ -53,18 +54,30 @@ def home(user):
     st.subheader("*Wusstest du schon?*")
     st.write("Allein durch den Klick auf Spiel abspeichern ist das Spiel schon online gesichert - also bitte nicht Spiele doppelt nachtragen")
     st.write("Streamlit stürzt leider ab, wenn es Verbindungsprobleme gibt oder dein Browser neu lädt. Bereits angefangene Runden kannst du über \" offene Runden \" jedoch später einfach weiterfüllen")
-    # Optional: Ein kleiner Quick-Link-Bereich
+
     # Einladungs-Link Sektion
-    st.write("**Freunde einladen**")
+    st.subheader("*Freunde einladen*")
     app_url = "https://sheephead.streamlit.app"
     st.code(f"{app_url}", language="text")
     st.caption("Kopiere diesen Link und sende ihn deinen Freunden, damit sie sich registrieren können.")
-    # Regeln und regionale Unterschiede:
-    st.write("Das sind unsere Regeln")
-    st.write("Wie werden deine Punkte berechnet?")
+
+    def display_pdf(file_path):
+        with open(file_path, "rb") as f:
+            base64_pdf = base64.b64encode(f.read()).decode('utf-8')
+
+        # PDF in einem HTML-Iframe anzeigen
+        pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="100%" height="600" type="application/pdf"></iframe>'
+        st.markdown(pdf_display, unsafe_allow_html=True)
+
+    # Aufrufen der Funktion
+    st.subheader("Regeln")
+    if st.checkbox("Regeln für Würzburger Schafkopfrunden"):
+        display_pdf("assets/RegelwerkWue.pdf")
+
+
+    st.subheader("Wie werden deine Punkte berechnet?")
     # Spalten-Layout für die erste Sektion
     aux, wue = st.columns([1, 1])
-
     with aux:
         st.subheader("Normale Berechnung")
         st.write("- Hier halten wir uns an die traditionellen Punkteverteilung:")

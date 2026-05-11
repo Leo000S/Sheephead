@@ -15,7 +15,7 @@ def home(user):
         st.subheader("Neuigkeiten")
         st.write("""
         *   **Nächstes Turnier:** 25. Mai 2026!
-        *   **App-Status:** Wir sind jetzt in einer Art Beta-Phase.
+        *   **App-Status:** Wir sind jetzt in einer Art Beta-Phase, Fehler gerne melden.
         """)
 
     with col2:
@@ -39,11 +39,10 @@ def home(user):
         **Erklärung des Erstellers:**
         Diese App wurde nach bestem Wissen und Gewissen entwickelt. 
         *   Es wird **keine Haftung** für Richtigkeit der Punkte, Serverausfälle oder verlorene Daten übernommen.
-        *   Die Nutzung erfolgt auf eigene Gefahr.
         *   Dies ist ein privates Projekt zur Förderung unserer Spielkultur.
 
         **Support:**
-        Wenn dir die App gefällt und du die Serverkosten (oder mein nächstes Kaltgetränk) unterstützen möchtest, freue ich mich über eine kleine Spende:
+        Wenn dir die App gefällt und du  mein nächstes Kaltgetränk unterstützen möchtest, freue ich mich über eine kleine Spende:
         """)
 
         st.caption("Email für PayPal: schallerleopold01@gmail.com")
@@ -51,12 +50,32 @@ def home(user):
 
     # Was dir noch einfallen könnte (Vorschlag: Statistiken oder Zitate)
     st.divider()
-    st.subheader("Wusstest du schon?")
-    st.write("_'Ein schlechtes Blatt ist kein Grund für schlechte Laune – außer es ist ein Solo-Tout.'_")
-
+    st.subheader("*Wusstest du schon?*")
+    st.write("Allein durch den Klick auf Spiel abspeichern ist das Spiel schon online gesichert - also bitte nicht Spiele doppelt nachtragen")
+    st.write("Streamlit stürzt leider ab, wenn es Verbindungsprobleme gibt oder dein Browser neu lädt. Bereits angefangene Runden kannst du über \" offene Runden \" jedoch später einfach weiterfüllen")
     # Optional: Ein kleiner Quick-Link-Bereich
     # Einladungs-Link Sektion
     st.write("**Freunde einladen**")
     app_url = "https://sheephead.streamlit.app"
     st.code(f"{app_url}", language="text")
     st.caption("Kopiere diesen Link und sende ihn deinen Freunden, damit sie sich registrieren können.")
+    # Regeln und regionale Unterschiede:
+    st.write("Das sind unsere Regeln")
+    st.write("Wie werden deine Punkte berechnet?")
+    # Spalten-Layout für die erste Sektion
+    aux, wue = st.columns([1, 1])
+
+    with aux:
+        st.subheader("Normale Berechnung")
+        st.write("- Hier halten wir uns an die traditionellen Punkteverteilung:")
+        st.write("- Ruf = 1 Punkt, Soli (Wenz und Trumpfsolo) = 5 Punkte")
+        st.write("- Schneider, Schwarz = +1 Punkt")
+        st.write(r"- Klopfen, Kontra, Tout, ... führt zu Verdopplung der Punkte, also ein Faktor $2^n$ = 2, 4, 6, ...")
+        st.write("- Zusätzlich gibt es einen Ramsch (1 Punkt) und Durchmarsch (3 Punkte)")
+    with wue:
+        st.subheader("Würzburger Berechnung")
+        st.write("- Hier ist der Ruf wertvoller, und eine Niederlage als Spielerpartei schmerzhaft:")
+        st.write("- Ruf = 1 Punkt, Soli (Wenz und Trumpfsolo) = 3 Punkte")
+        st.write("- Schneider, Schwarz = +1 Punkt")
+        st.write(r"- Klopfen, Kontra, Tout, ...  Erhöhung der Punkte um den Faktor n+1 = 2, 3, 4, ...")
+        st.write("- Zusätzlich gibt es einen Ramsch (1 Punkt), Durchmarsch (3 Punkte), Geier(3 Punkte) und einen Bettel (Brett) für 3(4) Punkte")

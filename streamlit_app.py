@@ -83,4 +83,5 @@ else:
 
 # Daten migrieren
 # Code verschlanken???
-# Spielerstatistik auch nach Spielart und mit komplexen formeln...
+# Spielerstatistik auch nach Spielart und mit komplexen formeln..
+# Boss-Supabasse bearbeitung... (service_key_role...)

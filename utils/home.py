@@ -50,7 +50,7 @@ def home(user):
 
     # Aufrufen der Funktion
     st.subheader("Regeln zum nachlesen")
-    with open("RegelwerkWue.pdf", "rb") as f:
+    with open("assets/RegelwerkWue.pdf", "rb") as f:
         st.download_button(
             label="Würzburger Regeln als PDF herunterladen",
             data=f,

@@ -72,7 +72,7 @@ def home(user):
     # Aufrufen der Funktion
     st.subheader("Regeln")
     if st.checkbox("Regeln für Würzburger Schafkopfrunden"):
-        display_pdf("assets/probepdfpdf.pdf")
+        display_pdf("assets/probepdf")
 
 
     st.subheader("Wie werden deine Punkte berechnet?")

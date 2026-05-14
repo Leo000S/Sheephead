@@ -1,11 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Sat Oct 11 20:41:00 2025
-
-@author: leopoldschaller
-"""
-
 import streamlit as st
 import pandas as pd
 from datetime import datetime
@@ -18,6 +10,7 @@ from SheepHeadBook import (berechne_statistik)
 from SheepHeadBook import load_open_rounds
 from SheepHeadBook import update_round
 from SheepHeadBook import save_round
+from SheepHeadBook import load_profiles
 from SpieleAuswahl import Aux, Wue, AllR, Standard
 
 def resolve_restrictions(tournament):
@@ -37,7 +30,6 @@ def resolve_restrictions(tournament):
     st.session_state.SIE = restrictions[3]
     st.session_state.mode = restrictions[4]
 
-# load profiles:
 
 def load_profiles():
     response = supabase.table("profiles") \
@@ -170,13 +162,9 @@ def run_book():
         if st.session_state.anzahl < 7:
 
             if st.checkbox("➕ Weiteren Spieler nachtragen"):
-
                 i = st.session_state.anzahl
-
-                # Bereits gewählte Namen
                 bereits = [s[0] for s in st.session_state.spieler]
 
-                # Nur verfügbare anzeigen
                 optionen = [
                     name for name in st.session_state.username_to_id.keys()
                     if name not in bereits
@@ -270,13 +258,12 @@ def run_book():
             Verteilungsfaktor = 1
             if spielart != "Ramsch":
                 spielmacher = st.selectbox("Wer hat das Spiel angesagt?", spielende_spieler_names)
-                spielmacher_id = st.session_state.player_to_id[spielmacher]
             if spielart == "Ramsch":
                 spielmacher = st.selectbox("Wer hat den Ramsch verloren?", spielende_spieler_names)
-                spielmacher_id = st.session_state.player_to_id[spielmacher]
+
+            spielmacher_id = st.session_state.player_to_id[spielmacher]
             if st.session_state.KLOPFEN == False:
                 klopfer = 0
-
             rufpartner = None
             rufpartner_id = None
             jungfrau = 0
@@ -385,17 +372,15 @@ def run_book():
                 }
 
                 st.session_state.spiele.append(spiel_dict)
-
-
-                # ⬇️ NEU: in Autosave-Datei einfügen
                 update_round(st)
+
                 st.session_state.letztes_spiel = (spielmacher + " hat ein " + spielart + " für " + str(Punkte) + " (" + st.session_state.mode + ")" + Punkte_str + win_text)
                 st.session_state.eingabe_phase = 1
                 st.session_state.spielart_temp = None
                 st.rerun()
 
     #########################################################################################
-    # Anzeige der Statistik und Downloads und letztes Spiel zurücksetzen und Runde beenden:
+    # Anzeige der Statistik und Spiel zurücksetzen und Runde beenden:
     #########################################################################################
 
         # --- STATISTIK ---
@@ -413,15 +398,13 @@ def run_book():
                     df.drop(columns=ausblenden),
                     hide_index=True)
 
-
-            # --- CSV Export: einzelne Spiele ---
+            # --- einzelne Spiele ---
             spiele_df = pd.DataFrame(st.session_state.spiele)
             spiele_df.index = range(1, len(spiele_df) + 1)
             spiele_df.reset_index(inplace=True)
             spiele_df.rename(columns={"index": "Spielnummer"}, inplace=True)
 
             # 2. Listen-Spalten "entpacken" (Nur den Namen extrahieren)
-            # Wir prüfen, ob die Spalte existiert, und nehmen dann den Index 0
             for col in ["Spielmacher", "Rufpartner"]:
                 if col in spiele_df.columns:
                     spiele_df[col] = spiele_df[col].apply(
@@ -436,11 +419,7 @@ def run_book():
                 )
             # Hier gibst du an, welche Spalten du behalten willst
             gewuenschte_spalten = ["Spielnummer", "Spielart", "Spielmacher", "Rufpartner", "Gewonnen", "Wert", "Wert_Wue", "Mitspieler_Runde"]
-
-            # Wir filtern das DataFrame (errors='ignore' verhindert Abstürze, falls eine Spalte fehlt)
             spiele_anzeige_df = spiele_df[gewuenschte_spalten]
-
-            # Anzeige in Streamlit
             st.dataframe(spiele_anzeige_df)
 
             # --- Kompakter Lösch-Bereich ---
@@ -461,7 +440,6 @@ def run_book():
                     art = s.get('Spielart', 'Spiel')
 
                 with cols[1]:
-                    # Kurze Sicherheitsabfrage
                     confirm = st.checkbox("Sicher?", key="del_conf")
 
                 with cols[2]:

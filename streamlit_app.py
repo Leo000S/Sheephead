@@ -85,4 +85,3 @@ else:
 # Code verschlanken???
 # Spielerstatistik auch nach Spielart und mit komplexen formeln...
 # Boss-Supabasse bearbeitung... (service_key_role...)???
-# Rundenbearbeitung persönlich

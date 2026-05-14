@@ -4,9 +4,7 @@ from collections import defaultdict
 
 from services.supabase_client import supabase
 import streamlit as st
-import datetime
-
-
+from datetime import datetime
 
 
 # Modus Augschburg
@@ -197,6 +195,14 @@ def update_round(st):
         st.success("Runde erfolgreich aktualisiert!")
     except Exception as e:
         st.error(f"Fehler beim Update: {e}")
+
+def load_profiles():
+    response = supabase.table("profiles") \
+        .select("id, username") \
+        .order("username") \
+        .execute()
+
+    return response.data if response.data else []
 
 
 

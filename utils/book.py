@@ -465,7 +465,7 @@ def run_book():
                     confirm = st.checkbox("Sicher?", key="del_conf")
 
                 with cols[2]:
-                    if st.button(f"#{selected_nr} Kill 🗑️", disabled=not confirm, use_container_width=True):
+                    if st.button(f"#{selected_nr} Spiel löschen!", disabled=not confirm, use_container_width=True):
                         st.session_state.spiele.pop(idx)
                         st.toast(f"Spiel #{selected_nr} ({art} von {sm}) gelöscht!")  # Dezentes Feedback oben rechts
                         st.rerun()

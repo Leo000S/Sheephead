@@ -26,14 +26,6 @@ def group_in_usernames():
         DYNA_GRUPPEN[g_name] = member_names
     return DYNA_GRUPPEN
 
-def load_profiles():
-    response = supabase.table("profiles") \
-        .select("id, username") \
-        .order("username") \
-        .execute()
-
-    return response.data if response.data else []
-
 def get_id_to_username_map():
     try:
         response = supabase.table("profiles").select("id, username").execute()
@@ -149,47 +141,31 @@ def run_statistics():
 
     try:
         final_df = load_and_process_data()
+        backup_df_to_supabase(final_df, filename="spiele_backup.csv")
 
     except Exception as e:
         st.error(f"Fehler beim Laden der Statistik: {e}")
 
+    if st.button("Daten neu laden"):
+        try:
+            final_df = load_and_process_data()
+            backup_df_to_supabase(final_df, filename="spiele_backup.csv")
+
+        except Exception as e:
+            st.error(f"Fehler beim Laden der Statistik: {e}")
+
     # Das ist dein DF für die restliche Statistik-Seite
     df = final_df
+    st.write(df)
 
 
     alle_spielarten = sorted(df["Spielart"].dropna().unique())
     alle_tournaments = sorted(df["tournament"].dropna().unique())
 
-    alle_spieler = sorted(
-        {
-            s.strip()
-            for row in df["Mitspieler_Runde"].dropna()
-            if isinstance(row, list)  # Prüft, ob es eine Liste ist
-            for s in row  # Geht durch die Namen in der Liste
-            if isinstance(s, str) and s.strip()
-        }
-    )
 
     # 1. Alle Profile laden (Mapping von ID zu Username erstellen)
-    # Das brauchen wir, um die UUIDs aus dem members-Array in Namen umzuwandeln
     profiles_res = supabase.table("profiles").select("user_id, username").execute()
     id_to_name = {p["user_id"]: p["username"] for p in profiles_res.data}
-
-    # 2. Gruppen aus Supabase laden
-    groups_res = supabase.table("groups").select("groupname, members").execute()
-
-    # 3. Das SPIELER_GRUPPEN Dictionary dynamisch bauen
-    # Wir wandeln die Liste der IDs direkt in die Liste der Namen um
-    DYNA_GRUPPEN = {}
-    for g in groups_res.data:
-        g_name = g["groupname"]
-        member_ids = g.get("members", [])
-        # Nur Namen hinzufügen, die wir auch in der Profiles-Tabelle finden
-        member_names = [id_to_name[m_id] for m_id in member_ids if m_id in id_to_name]
-        DYNA_GRUPPEN[g_name] = member_names
-
-    # --- Dein UI Code ---
-
     alle_spieler = list(id_to_name.values())
 
     namen_einzel = st.sidebar.multiselect("SpielerInnen", options=alle_spieler)
@@ -211,11 +187,11 @@ def run_statistics():
 
     OhneKlopfen = st.sidebar.checkbox("Soll das Klopfen herausgerechnent werden?")
 
+    # exclude_strangers = st.sidebar.checkbox("Nur Spiele mit ausgewählten SpielerInnen")
+
     Punkteberechnung = st.sidebar.selectbox("Berechnung der Punkte", options = ["Normal", "Würzburg"])
 
-    MinSpiele = st.sidebar.number_input("Mindestanzahl Spiele pro SpielerIn", min_value=0,step=10, value=0)
-
-
+    MinSpiele = st.sidebar.number_input("Mindestanzahl Spiele pro SpielerIn", min_value=0,step=20, value=0)
 
     if Punkteberechnung == "Würzburg":
         Punkteart = "Endpunktestand_Wue"
@@ -243,18 +219,13 @@ def run_statistics():
             df,
             namen=namen if namen else None,
             spielarten=spielarten if spielarten else None,
-            tournament=tournament_filter,
+            tournament=tournament_filter
         )
 
         spieler_stats = analyse_all_players(df_result, namen, MinSpiele)
         if spieler_stats != {}:
             overview = analyse_different_stats(spieler_stats, Punkteart, show=True)
             st.dataframe(overview, use_container_width=True, height=600)
-            # Optional Download
-            csv_bytes = overview.to_csv(sep=";", index=False).encode("utf-8")
-            st.download_button("⬇️ CSV herunterladen", data=csv_bytes, file_name="gefilterte_overview.csv", mime="text/csv")
-
-
             plot_stats_streamlit(spieler_stats, KeyKumulativ)
 
         else:

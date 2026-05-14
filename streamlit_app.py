@@ -40,7 +40,7 @@ else:
     st.sidebar.title("Menü")
     menu = st.sidebar.radio(
         "Navigation",
-        ["Home", "Profil", "Sheephead-Book", "Sheephead-Statistic", "Logout"]
+        ["Home", "Profile", "Sheephead-Book", "Sheephead-Statistic", "Edit Tischrunden", "Logout"]
     )
 
     # =====================================
@@ -68,6 +68,7 @@ else:
     elif menu == "Sheephead-Statistic":
         run_statistics()
 
+
     # =====================================
     # LOGOUT
     # =====================================
@@ -81,7 +82,7 @@ else:
 
 # streamlit run /Users/leopoldschaller/Desktop/Sheephead/streamlit_app.py
 
-# Daten migrieren
 # Code verschlanken???
-# Spielerstatistik auch nach Spielart und mit komplexen formeln..
-# Boss-Supabasse bearbeitung... (service_key_role...)
+# Spielerstatistik auch nach Spielart und mit komplexen formeln...
+# Boss-Supabasse bearbeitung... (service_key_role...)???
+# Rundenbearbeitung persönlich

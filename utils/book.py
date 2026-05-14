@@ -15,97 +15,10 @@ from TurnierAuswahl import Turnier_Auswahl
 from SheepHeadBook import spielwert_bestimmen_wue
 from SheepHeadBook import spielwert_bestimmen_normal
 from SheepHeadBook import (berechne_statistik)
+from SheepHeadBook import load_open_rounds
+from SheepHeadBook import update_round
+from SheepHeadBook import save_round
 from SpieleAuswahl import Aux, Wue, AllR, Standard
-
-def load_open_rounds():
-    user_response = supabase.auth.get_user()
-    if not user_response.user:
-        st.error("Kein Benutzer angemeldet!")
-        return
-    user_id = user_response.user.id
-    heute = datetime.now().date().isoformat()
-
-    # Query mit Filter auf User ID und Datum
-    response = (
-        supabase
-        .table("rounds")
-        .select("*")
-        .eq("user_id", user_id)          # Nur Runden des aktuellen Users
-        .gte("created_at", heute)        # Alles ab heute 00:00
-        .execute()
-    )
-
-    offene_runden = []
-
-    for row in response.data:
-        # 'data' ist dein JSON-Feld in der Datenbank
-        data = row.get("data", {})
-
-        # Nur hinzufügen, wenn kein Ende-Info vorhanden ist
-        # (Ich prüfe hier auf None oder leeren String, je nachdem was du speicherst)
-        if not data.get("ende_info"):
-            offene_runden.append(data)
-
-    return offene_runden
-
-def save_round(st):
-    # Den aktuell eingeloggten User holen
-    user_response = supabase.auth.get_user()
-    if not user_response.user:
-        st.error("Kein Benutzer angemeldet!")
-        return
-    user_id = user_response.user.id
-
-    data = {
-        "runden_timestamp": st.session_state.runden_timestamp,
-        "tournament": st.session_state.tournament,
-        "User": user_id,
-        "start_info": st.session_state.start_info,
-        "ende_info": st.session_state.ende,
-        "spieler": st.session_state.spieler,
-        "spiele": st.session_state.spiele
-    }
-
-    supabase.table("rounds").insert({
-        "user_id": user_id,
-        "created_at": st.session_state.runden_timestamp,
-        "data": data
-    }).execute()
-
-
-def update_round(st):
-    # Den aktuell eingeloggten User holen
-    user_response = supabase.auth.get_user()
-    if not user_response.user:
-        st.error("Kein Benutzer angemeldet!")
-        return
-
-    user_id = user_response.user.id
-
-    # Dein Daten-Objekt für die Spalte "data"
-    data = {
-        "runden_timestamp": st.session_state.runden_timestamp,
-        "tournament": st.session_state.tournament,
-        "User": user_id,
-        "start_info": st.session_state.start_info,
-        "ende_info": st.session_state.ende,
-        "spieler": st.session_state.spieler,
-        "spiele": st.session_state.spiele
-    }
-
-    # UPDATE mit Filter
-    # WICHTIG: .eq() definiert, WELCHE Zeile geupdated wird.
-    # Filter nach created_at + user_id
-    try:
-        supabase.table("rounds").update({
-            "data": data  # Wir updaten primär das JSON-Feld
-        }).eq("user_id", user_id) \
-            .eq("created_at", st.session_state.runden_timestamp) \
-            .execute()
-
-        st.success("Runde erfolgreich aktualisiert!")
-    except Exception as e:
-        st.error(f"Fehler beim Update: {e}")
 
 def resolve_restrictions(tournament):
     restrictions = Standard
@@ -117,7 +30,12 @@ def resolve_restrictions(tournament):
         restrictions = Standard
     if tournament == "Allgäuer-Rundn":
         restrictions = AllR
-    return restrictions
+
+    st.session_state.SPIELWERTE = restrictions[0]
+    st.session_state.KLOPFEN = restrictions[1]
+    st.session_state.TOUT = restrictions[2]
+    st.session_state.SIE = restrictions[3]
+    st.session_state.mode = restrictions[4]
 
 # load profiles:
 
@@ -134,6 +52,13 @@ def run_book():
 
     # --- Streamlit App ---
     st.set_page_config(page_title="Sheephead - the game of bavarian culture", layout="centered")
+
+    st.session_state.profiles = load_profiles()
+    if not st.session_state.profiles:
+        st.error("Keine Profile gefunden.")
+        st.stop()
+    # Mapping bauen
+    st.session_state.username_to_id = {p["username"]: p["id"] for p in st.session_state.profiles}
 
     # --- Session State initialisieren ---
     if "runde_aktiv" not in st.session_state:
@@ -191,15 +116,9 @@ def run_book():
                 st.session_state.tournament = runde_daten.get("tournament", "")
                 st.session_state.runde_aktiv = True
 
-                # Erstelle erst die Liste der Namen
-                player_list = [s[0] for s in st.session_state.spieler]
-                player_to_id = {s[0]: s[1] for s in st.session_state.spieler}
-                st.session_state.player_list = player_list
-                st.session_state.player_to_id = player_to_id
-
-                update_round(st)
-
-
+                # Hintergrundeinstellungen:
+                resolve_restrictions(st.session_state.tournament)
+                save_round(st)
                 st.rerun()
 
     #########################################################################################
@@ -210,34 +129,16 @@ def run_book():
         anzahl = st.number_input("Wie viele SpielerInnen?", min_value=4, max_value=7, value=4, key="anzahl_spieler")
         tournament = st.selectbox("Welche Turnierstatistik soll gefüllt werden?", Turnier_Auswahl)
 
-
-        restrictions = resolve_restrictions(tournament)
-
-        st.session_state.SPIELWERTE = restrictions[0]
-        st.session_state.KLOPFEN = restrictions[1]
-        st.session_state.TOUT = restrictions[2]
-        st.session_state.SIE = restrictions[3]
-        st.session_state.mode = restrictions[4]
-
         Start_Info = st.text_input("Infos zur Tischrundn (optional):")
 
         with st.form("runde_start"):
             st.write("Wählt die SpielerInnen aus!")
             spieler = []
 
-            profiles = load_profiles()
-
-            if not profiles:
-                st.error("Keine Profile gefunden.")
-                st.stop()
-
-            # Mapping bauen
-            username_to_id = {p["username"]: p["id"] for p in profiles}
-
             for i in range(st.session_state.anzahl_spieler):
                 default_index = i
-                auswahl = st.selectbox(f"Spieler {i+1}:", list(username_to_id.keys()), index=default_index, key=f"spieler_{i}" )
-                auswahl_id = username_to_id[auswahl]
+                auswahl = st.selectbox(f"Spieler {i+1}:", list(st.session_state.username_to_id.keys()), index=default_index, key=f"spieler_{i}" )
+                auswahl_id = st.session_state.username_to_id[auswahl]
                 spieler.append([auswahl, auswahl_id])
             user_ids = [s[1] for s in spieler]
             starten = st.form_submit_button("Los gehts🎯")
@@ -254,15 +155,10 @@ def run_book():
                     st.session_state.runde_aktiv = True #
                     st.session_state.start_info = Start_Info #
                     st.session_state.tournament = tournament #
-                    save_round(st)
-                    # Erstelle erst die Liste der Namen
-                    player_list = [s[0] for s in spieler]
-                    player_to_id = {s[0]: s[1] for s in spieler}
-                    st.session_state.player_list = player_list
-                    st.session_state.player_to_id = player_to_id
 
-                    # Dann die Anzeige
-                    st.success(f"Runde gestartet mit: {', '.join(player_list)}")
+                    # Hintergrundeinstellung der Runde
+                    resolve_restrictions(tournament)
+                    save_round(st)
                     st.rerun()
 
     #########################################################################################
@@ -270,6 +166,42 @@ def run_book():
     #########################################################################################
 
     if st.session_state.runde_aktiv:
+
+        if st.session_state.anzahl < 7:
+
+            if st.checkbox("➕ Weiteren Spieler nachtragen"):
+
+                i = st.session_state.anzahl
+
+                # Bereits gewählte Namen
+                bereits = [s[0] for s in st.session_state.spieler]
+
+                # Nur verfügbare anzeigen
+                optionen = [
+                    name for name in st.session_state.username_to_id.keys()
+                    if name not in bereits
+                ]
+
+                if optionen:
+                    auswahl = st.selectbox(
+                        f"Spieler {i + 1}:",
+                        optionen,
+                        key=f"spieler_{i}"
+                    )
+
+                    if st.button("Spieler hinzufügen"):
+                        auswahl_id = st.session_state.username_to_id[auswahl]
+                        st.session_state.spieler.append([auswahl, auswahl_id])
+                        st.session_state.anzahl = len(st.session_state.spieler)
+                        st.rerun()
+
+        # Erstelle erst die Liste der Namen
+        player_list = [s[0] for s in st.session_state.spieler]
+        player_to_id = {s[0]: s[1] for s in st.session_state.spieler}
+        st.session_state.player_list = player_list
+        st.session_state.player_to_id = player_to_id
+
+        # Wer setzt die Runde aus?
         aussetzer = []
         if st.session_state.anzahl > 4:
             if st.session_state.anzahl == 5:
@@ -468,23 +400,19 @@ def run_book():
 
         # --- STATISTIK ---
         if st.session_state.spiele:
-            st.subheader("📊 Statistik der Tischrundn")
+            st.subheader("Statistik der Tischrundn")
             df = berechne_statistik(st.session_state.player_list, st.session_state.spiele)
             if st.session_state.mode == "normal":
-                ausblenden = ["Punkte_Wue", "Verloren"]
+                ausblenden = ["Punkte_Wue", "Verloren", "Gespielt"]
                 st.dataframe(
                     df.drop(columns=ausblenden),
                     hide_index=True)
             if st.session_state.mode == "wue":
-                ausblenden = ["Punkte", "Verloren"]
+                ausblenden = ["Punkte", "Verloren", "Gespielt"]
                 st.dataframe(
                     df.drop(columns=ausblenden),
                     hide_index=True)
 
-            # --- CSV Export Rundenstatistik---
-            timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-            dateiname = f"Schafkopfrunde_{timestamp}.csv"
-            csv_data = df.to_csv(index=False, sep=";").encode("utf-8")
 
             # --- CSV Export: einzelne Spiele ---
             spiele_df = pd.DataFrame(st.session_state.spiele)
@@ -492,30 +420,63 @@ def run_book():
             spiele_df.reset_index(inplace=True)
             spiele_df.rename(columns={"index": "Spielnummer"}, inplace=True)
 
-            # Spieler und Zeitstempel ergänzen
-            st.dataframe(spiele_df, hide_index=True)
+            # 2. Listen-Spalten "entpacken" (Nur den Namen extrahieren)
+            # Wir prüfen, ob die Spalte existiert, und nehmen dann den Index 0
+            for col in ["Spielmacher", "Rufpartner"]:
+                if col in spiele_df.columns:
+                    spiele_df[col] = spiele_df[col].apply(
+                        lambda x: x[0] if isinstance(x, list) and len(x) > 0 else x
+                    )
 
-            st.download_button(
-                label="📥 Export Tischrundn Statistik (csv.)",
-                data=csv_data,
-                file_name=dateiname,
-                mime="text/csv"
-            )
+            # 2. Mitspieler_Runde (Liste von Listen [[Name, ID], [Name, ID], ...])
+            if "Mitspieler_Runde" in spiele_df.columns:
+                spiele_df["Mitspieler_Runde"] = spiele_df["Mitspieler_Runde"].apply(
+                    lambda x: ", ".join([spieler[0] for spieler in x if isinstance(spieler, list)])
+                    if isinstance(x, list) else x
+                )
+            # Hier gibst du an, welche Spalten du behalten willst
+            gewuenschte_spalten = ["Spielnummer", "Spielart", "Spielmacher", "Rufpartner", "Gewonnen", "Wert", "Wert_Wue", "Mitspieler_Runde"]
 
-            # --- Info zum letzten Spiel ---
-            letztes_spiel = st.session_state.spiele[-1]
+            # Wir filtern das DataFrame (errors='ignore' verhindert Abstürze, falls eine Spalte fehlt)
+            spiele_anzeige_df = spiele_df[gewuenschte_spalten]
+
+            # Anzeige in Streamlit
+            st.dataframe(spiele_anzeige_df)
 
             # --- Button zum Löschen ---
-            if st.button("🔙 Lösche das letzte Spiel"):
-                geloeschtes_spiel = st.session_state.spiele.pop()
+            if st.session_state.spiele:
+                # 1. Auswahl: Welches Spiel soll weg?
+                # Wir erstellen eine Liste der Spielnummern (1 bis N)
+                spiel_optionen = list(range(1, len(st.session_state.spiele) + 1))
 
-                # ⬇️ NEU: in Autosave-Datei einfügen
-                update_round(st)
-
-                st.warning(
-                    f"Letztes Spiel gelöscht: {geloeschtes_spiel['Spielart']} von {geloeschtes_spiel['Spielmacher']}"
+                selected_nr = st.selectbox(
+                    "Wähle die Spielnummer zum Löschen aus:",
+                    options=spiel_optionen,
+                    index=len(spiel_optionen) - 1  # Standardmäßig das letzte Spiel vorauswählen
                 )
-                st.rerun()
+
+                # Details zum ausgewählten Spiel anzeigen, damit man sicher ist
+                idx_to_delete = selected_nr - 1
+                s = st.session_state.spiele[idx_to_delete]
+
+                # Kurze Info-Box zum Spiel
+                st.warning(
+                    f"Achtung: Du löschst Spiel #{selected_nr} ({s.get('Spielart', 'Unbekannt')} von {s.get('Spielmacher', ['?'])[0]}).")
+
+                # 2. Bestätigungs-Check
+                col1, col2 = st.columns([1, 2])
+                with col1:
+                    if st.button(f"Spiel #{selected_nr} endgültig löschen"):
+                        # Spiel aus der Liste entfernen
+                        entferntes_spiel = st.session_state.spiele.pop(idx_to_delete)
+
+                        # Erfolg melden
+                        st.success(f"Spiel #{selected_nr} wurde erfolgreich gelöscht!")
+
+                        # Seite neu laden, um die Tabellen zu aktualisieren
+                        st.rerun()
+            else:
+                st.info("Noch keine Spiele zum Löschen vorhanden.")
 
         # --- Runde beenden ---
         if st.button("🔚 Beende die Tischrundn?"):

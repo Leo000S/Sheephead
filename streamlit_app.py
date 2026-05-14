@@ -40,7 +40,7 @@ else:
     st.sidebar.title("Menü")
     menu = st.sidebar.radio(
         "Navigation",
-        ["Home", "Profile", "Sheephead-Book", "Sheephead-Statistic", "Edit Tischrunden", "Logout"]
+        ["Home", "Profile", "Sheephead-Book", "Sheephead-Statistic", "Logout"]
     )
 
     # =====================================

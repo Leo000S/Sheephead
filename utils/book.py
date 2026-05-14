@@ -443,40 +443,32 @@ def run_book():
             # Anzeige in Streamlit
             st.dataframe(spiele_anzeige_df)
 
-            # --- Button zum Löschen ---
+            # --- Kompakter Lösch-Bereich ---
             if st.session_state.spiele:
-                # 1. Auswahl: Welches Spiel soll weg?
-                # Wir erstellen eine Liste der Spielnummern (1 bis N)
-                spiel_optionen = list(range(1, len(st.session_state.spiele) + 1))
+                cols = st.columns([2, 1, 1])  # Verhältnis der Breite: Auswahl, Check, Button
 
-                selected_nr = st.selectbox(
-                    "Wähle die Spielnummer zum Löschen aus:",
-                    options=spiel_optionen,
-                    index=len(spiel_optionen) - 1  # Standardmäßig das letzte Spiel vorauswählen
-                )
+                with cols[0]:
+                    spiel_optionen = list(range(1, len(st.session_state.spiele) + 1))
+                    selected_nr = st.selectbox(
+                        "Spiel löschen:",  # Label kurz halten
+                        options=spiel_optionen,
+                        index=len(spiel_optionen) - 1,
+                        label_visibility="collapsed"  # Versteckt das Label für noch mehr Kompaktheit
+                    )
+                    idx = selected_nr - 1
+                    s = st.session_state.spiele[idx]
+                    sm = s.get('Spielmacher', ['?'])[0]
+                    art = s.get('Spielart', 'Spiel')
 
-                # Details zum ausgewählten Spiel anzeigen, damit man sicher ist
-                idx_to_delete = selected_nr - 1
-                s = st.session_state.spiele[idx_to_delete]
+                with cols[1]:
+                    # Kurze Sicherheitsabfrage
+                    confirm = st.checkbox("Sicher?", key="del_conf")
 
-                # Kurze Info-Box zum Spiel
-                st.warning(
-                    f"Achtung: Du löschst Spiel #{selected_nr} ({s.get('Spielart', 'Unbekannt')} von {s.get('Spielmacher', ['?'])[0]}).")
-
-                # 2. Bestätigungs-Check
-                col1, col2 = st.columns([1, 2])
-                with col1:
-                    if st.button(f"Spiel #{selected_nr} endgültig löschen"):
-                        # Spiel aus der Liste entfernen
-                        entferntes_spiel = st.session_state.spiele.pop(idx_to_delete)
-
-                        # Erfolg melden
-                        st.success(f"Spiel #{selected_nr} wurde erfolgreich gelöscht!")
-
-                        # Seite neu laden, um die Tabellen zu aktualisieren
+                with cols[2]:
+                    if st.button(f"#{selected_nr} Kill 🗑️", disabled=not confirm, use_container_width=True):
+                        st.session_state.spiele.pop(idx)
+                        st.toast(f"Spiel #{selected_nr} ({art} von {sm}) gelöscht!")  # Dezentes Feedback oben rechts
                         st.rerun()
-            else:
-                st.info("Noch keine Spiele zum Löschen vorhanden.")
 
         # --- Runde beenden ---
         if st.button("🔚 Beende die Tischrundn?"):

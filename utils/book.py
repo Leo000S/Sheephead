@@ -110,7 +110,7 @@ def run_book():
 
                 # Hintergrundeinstellungen:
                 resolve_restrictions(st.session_state.tournament)
-                save_round(st)
+                update_round(st)
                 st.rerun()
 
     #########################################################################################

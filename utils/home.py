@@ -82,11 +82,10 @@ def home(user):
         **Erklärung des Erstellers:**
         Diese App wurde nach bestem Wissen und Gewissen entwickelt. 
         *   Es wird **keine Haftung** für Richtigkeit der Punkte, Serverausfälle oder verlorene Daten übernommen.
-        *   Dies ist ein privates Projekt zur Förderung unserer Spielkultur.
+        *   Dies ist ein privates Projekt zur Förderung unserer Spielkultur.""")
+        #**Support:**
+        #Wenn dir die App gefällt und du das Projekt unterstützen möchtest:
+        #""")
 
-        **Support:**
-        Wenn dir die App gefällt und du  mein nächstes Kaltgetränk unterstützen möchtest, freue ich mich über eine kleine Spende:
-        """)
-
-        st.caption("Email für PayPal: schallerleopold01@gmail.com")
-        st.caption("Email für Wero: schallerleopold01@gmail.com")
+        #st.caption("Email für PayPal: schallerleopold01@gmail.com")
+        #st.caption("Email für Wero: schallerleopold01@gmail.com")

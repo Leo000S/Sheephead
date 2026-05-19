@@ -1,14 +1,11 @@
 import streamlit as st
-import base64
-from services.supabase_client import supabase
 
 
 def home(user):
     st.title("Infos & Aktuelles")
 
     # Begrüßung
-    st.info(f"Schön, dass du da bist! Eingeloggt als: **{user.email}**")
-
+    st.info(f"Schön, dass du da bist! Eingeloggt als: **{st.session_state.current_username}**")
     # Spalten-Layout für die erste Sektion
     col1, col2 = st.columns([2, 1])
 

@@ -1,10 +1,13 @@
 import streamlit as st
 from services.supabase_client import supabase
+from services.supabase_client import init_global_user_data
 from utils.statistic import run_statistics
 from utils.book import run_book
 from utils.login_and_registration import login_and_registration
 from utils.profile import profile_menu
 from utils.home import home
+from utils.player_statistic import run_player_statistics
+from services.supabase_client import log_event
 
 
 if "session" in st.session_state:
@@ -24,23 +27,24 @@ if "user" not in st.session_state:
 # NICHT EINGELOGGT → LOGIN / REGISTER
 # =========================================
 if st.session_state.user is None:
-
     st.title("Hallo liebe Freunde des Schafkopfens")
 
     login_and_registration()
+
+
 # =========================================
 # EINGELOGGT → APP BEREICH
 # =========================================
 else:
     user = st.session_state.user
-
+    init_global_user_data()
     # -----------------------------
     # SIDEBAR NAVIGATION
     # -----------------------------
     st.sidebar.title("Menü")
     menu = st.sidebar.radio(
         "Navigation",
-        ["Home", "Profile", "Sheephead-Book", "Sheephead-Statistic", "Logout"]
+        ["Home", "Profile", "Sheephead-Book", "Sheephead-Statistic", "Personal-Statistic", "Logout"]
     )
 
     # =====================================
@@ -68,6 +72,14 @@ else:
     elif menu == "Sheephead-Statistic":
         run_statistics()
 
+    # =====================================
+    # SPACE 3
+    # =====================================
+    elif menu == "Personal-Statistic":
+        run_player_statistics()
+
+
+
 
     # =====================================
     # LOGOUT
@@ -83,5 +95,3 @@ else:
 # streamlit run /Users/leopoldschaller/Desktop/Sheephead/streamlit_app.py
 
 # Code verschlanken???
-# Spielerstatistik auch nach Spielart und mit komplexen formeln...
-# Home verschönern

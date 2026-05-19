@@ -1,6 +1,6 @@
 import streamlit as st
 from services.supabase_client import supabase
-
+from services.supabase_client import log_event
 
 def login_and_registration():
     # --- 1. INITIALISIERUNG ---
@@ -37,6 +37,7 @@ def login_and_registration():
                                 supabase.table("profiles").insert(
                                     {"user_id": res.user.id, "username": email.split("@")[0]}).execute()
                             st.success("Erfolgreich eingeloggt!")
+
                             st.rerun()
                     except Exception as e:
                         err = str(e).lower()
@@ -69,7 +70,7 @@ def login_and_registration():
             st.subheader("Code eingeben")
             st.info(f"Code gesendet an: {st.session_state.reset_email}")
             with st.form("otp_form"):
-                code = st.text_input("6-stelliger Code")
+                code = st.text_input("8-stelliger Code")
                 new_p = st.text_input("Neues Passwort (min. 6 Zeichen)", type="password")
                 conf_p = st.text_input("Bestätigen", type="password")
                 submit = st.form_submit_button("Passwort speichern & Einloggen")
@@ -93,8 +94,20 @@ def login_and_registration():
                                 st.session_state.reset_mode = False
                                 st.session_state.otp_sent = False
                                 st.success("Passwort geändert!")
+
+                                log_event(
+                                    level="INFO",
+                                    message=f"{v.user} has succesfully changed pw",
+                                    details={"user": v.user}
+                                )
+
                                 st.rerun()
                         except Exception as e:
+                            log_event(
+                                level="INFO",
+                                message=f"{v.user} has failed changing pw",
+                                details={"user": v.user}
+                            )
                             st.error(f"Fehler: {e}")
                     else:
                         st.error("Prüfe deine Eingaben (Passwort-Länge/Gleichheit).")
@@ -116,6 +129,11 @@ def login_and_registration():
                         response = supabase.auth.sign_up({"email": reg_mail, "password": reg_pw})
                         if response.user:
                             st.success(f"✅ Account für {reg_mail} vorgemerkt!")
+                            log_event(
+                                level="INFO",
+                                message=f"Registration mail send to {reg_mail}",
+                                details={"mail": reg_mail}
+                            )
                             st.info("Bitte schau in dein Postfach")
                     except Exception as e:
                         st.error(f"Fehler: {e}")

@@ -1,7 +1,6 @@
 
 import streamlit as st
-from services.supabase_client import supabase
-
+from services.supabase_client import supabase, log_event
 
 def profile_menu(user):
     st.title("Profil & Gruppen")
@@ -29,6 +28,11 @@ def profile_menu(user):
                     supabase.table("profiles").update({"first_name": fn, "last_name": ln, "username": un}).eq("user_id",
                                                                                                               user.id).execute()
                     st.success("Gespeichert!");
+                    log_event(
+                        level="INFO",
+                        message=f"Profile of {un} succesfully changed",
+                        details={"username": un, "first_name": fn, "last_name": ln }
+                    )
                     st.rerun()
 
     # --- 2. ACCOUNT SICHERHEIT (Email & Passwort) ---
@@ -39,8 +43,18 @@ def profile_menu(user):
             try:
                 supabase.auth.update_user({"email": new_email})
                 st.info("Bestätigungs-Links wurden an die alte UND neue Adresse gesendet!")
+                log_event(
+                    level="INFO",
+                    message=f"Email of {st.session_state.current_username} changed and confirmation send",
+                    details={"new_email": new_email}
+                )
             except Exception as e:
                 st.error(f"Fehler: {e}")
+                log_event(
+                    level="INFO",
+                    message=f"Email changing of {st.session_state.current_username} failed",
+                    details={"error": e}
+                )
 
         st.write("---")
         # Passwort ändern
@@ -51,8 +65,18 @@ def profile_menu(user):
                 if p1 == p2 and len(p1) >= 6:
                     supabase.auth.update_user({"password": p1})
                     st.success("Passwort geändert!")
+                    log_event(
+                        level="INFO",
+                        message=f"password of {st.session_state.current_username} changed",
+                        details={"user": st.session_state.current_username}
+                    )
                 else:
                     st.error("Passwörter prüfen (min. 6 Zeichen).")
+                    log_event(
+                        level="INFO",
+                        message=f"password changing of {st.session_state.current_username} failed",
+                        details={"user": st.session_state.current_username}
+                    )
 
     # --- 3. GRUPPENVERWALTUNG ---
     st.divider()
@@ -69,6 +93,11 @@ def profile_menu(user):
                     supabase.table("groups").insert(
                         {"groupname": g_name, "boss": user.id, "members": [user.id]}).execute()
                     st.success(f"Gruppe {g_name} gegründet!");
+                    log_event(
+                        level="INFO",
+                        message=f"new group {g_name} added by {st.session_state.current_username}",
+                        details={"name": g_name, "boss": user.id}
+                    )
                     st.rerun()
 
     with t2:
@@ -113,9 +142,19 @@ def profile_menu(user):
                             # Löschen via groupname (oder id, falls du eine hast)
                             supabase.table("groups").delete().eq("groupname", sel_g).execute()
                             st.success(f"Gruppe '{sel_g}' wurde aufgelöst.")
+                            log_event(
+                                level="INFO",
+                                message=f"{st.session_state.current_username} deleted group {sel_g}",
+                                details={"name": sel_g, "boss": user.id}
+                            )
                             st.rerun()
                         except Exception as e:
                             st.error(f"Fehler beim Löschen: {e}")
+                            log_event(
+                                level="INFO",
+                                message=f"Deleting group {sel_g} by {st.session_state.current_username} failed",
+                                details={"name": sel_g, "boss": user.id}
+                            )
                     else:
                         st.error("Bitte bestätige mit dem Wort 'LÖSCHEN'.")
 

@@ -1,7 +1,6 @@
 
 import pandas as pd
 from collections import defaultdict
-
 from services.supabase_client import supabase
 import streamlit as st
 from datetime import datetime
@@ -106,11 +105,6 @@ def berechne_statistik(spieler, spiele):
     return df
 
 def load_open_rounds():
-    user_response = supabase.auth.get_user()
-    if not user_response.user:
-        st.error("Kein Benutzer angemeldet!")
-        return
-    user_id = user_response.user.id
     heute = datetime.now().date().isoformat()
 
     # Query mit Filter auf User ID und Datum
@@ -118,7 +112,7 @@ def load_open_rounds():
         supabase
         .table("rounds")
         .select("*")
-        .eq("user_id", user_id)          # Nur Runden des aktuellen Users
+        .eq("user_id", st.session_state.current_user_id)          # Nur Runden des aktuellen Users
         .gte("created_at", heute)        # Alles ab heute 00:00
         .execute()
     )
@@ -138,57 +132,43 @@ def load_open_rounds():
 
 
 def save_round(st):
-    # Den aktuell eingeloggten User holen
-    user_response = supabase.auth.get_user()
-    if not user_response.user:
-        st.error("Kein Benutzer angemeldet!")
-        return
-    user_id = user_response.user.id
-
     data = {
         "runden_timestamp": st.session_state.runden_timestamp,
         "tournament": st.session_state.tournament,
-        "User": user_id,
+        "User": st.session_state.current_user_id,
         "start_info": st.session_state.start_info,
         "ende_info": st.session_state.ende,
         "spieler": st.session_state.spieler,
         "spiele": st.session_state.spiele
     }
+    try:
+        supabase.table("rounds").insert({
+            "user_id": st.session_state.current_user_id,
+            "created_at": st.session_state.runden_timestamp,
+            "data": data
+        }).execute()
 
-    supabase.table("rounds").insert({
-        "user_id": user_id,
-        "created_at": st.session_state.runden_timestamp,
-        "data": data
-    }).execute()
+        st.success("Runde erfolgreich aktualisiert!")
+    except Exception as e:
+        st.error(f"Fehler beim Update: {e}")
 
 
 def update_round(st):
-    # Den aktuell eingeloggten User holen
-    user_response = supabase.auth.get_user()
-    if not user_response.user:
-        st.error("Kein Benutzer angemeldet!")
-        return
-
-    user_id = user_response.user.id
-
-    # Dein Daten-Objekt für die Spalte "data"
+    # Das Daten-Objekt für die Spalte "data"
     data = {
         "runden_timestamp": st.session_state.runden_timestamp,
         "tournament": st.session_state.tournament,
-        "User": user_id,
+        "User": st.session_state.current_user_id,
         "start_info": st.session_state.start_info,
         "ende_info": st.session_state.ende,
         "spieler": st.session_state.spieler,
         "spiele": st.session_state.spiele
     }
 
-    # UPDATE mit Filter
-    # WICHTIG: .eq() definiert, WELCHE Zeile geupdated wird.
-    # Filter nach created_at + user_id
     try:
         supabase.table("rounds").update({
             "data": data  # Wir updaten primär das JSON-Feld
-        }).eq("user_id", user_id) \
+        }).eq("user_id", st.session_state.current_user_id) \
             .eq("created_at", st.session_state.runden_timestamp) \
             .execute()
 
@@ -196,13 +176,7 @@ def update_round(st):
     except Exception as e:
         st.error(f"Fehler beim Update: {e}")
 
-def load_profiles():
-    response = supabase.table("profiles") \
-        .select("id, username") \
-        .order("username") \
-        .execute()
 
-    return response.data if response.data else []
 
 
 

@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd
 from datetime import datetime
-from services.supabase_client import supabase
 
 from TurnierAuswahl import Turnier_Auswahl
 from SheepHeadBook import spielwert_bestimmen_wue
@@ -10,8 +9,8 @@ from SheepHeadBook import (berechne_statistik)
 from SheepHeadBook import load_open_rounds
 from SheepHeadBook import update_round
 from SheepHeadBook import save_round
-from SheepHeadBook import load_profiles
 from SpieleAuswahl import Aux, Wue, AllR, Standard
+from services.supabase_client import log_event
 
 def resolve_restrictions(tournament):
     restrictions = Standard
@@ -31,26 +30,10 @@ def resolve_restrictions(tournament):
     st.session_state.mode = restrictions[4]
 
 
-def load_profiles():
-    response = supabase.table("profiles") \
-        .select("id, username") \
-        .order("username") \
-        .execute()
-
-    return response.data if response.data else []
-
-
 def run_book():
 
     # --- Streamlit App ---
     st.set_page_config(page_title="Sheephead - the game of bavarian culture", layout="centered")
-
-    st.session_state.profiles = load_profiles()
-    if not st.session_state.profiles:
-        st.error("Keine Profile gefunden.")
-        st.stop()
-    # Mapping bauen
-    st.session_state.username_to_id = {p["username"]: p["id"] for p in st.session_state.profiles}
 
     # --- Session State initialisieren ---
     if "runde_aktiv" not in st.session_state:
@@ -111,6 +94,11 @@ def run_book():
                 # Hintergrundeinstellungen:
                 resolve_restrictions(st.session_state.tournament)
                 update_round(st)
+                log_event(
+                    level="INFO",
+                    message=f"open round rejoined by {st.session_state.current_username}",
+                    details={"user": st.session_state.current_username}
+                )
                 st.rerun()
 
     #########################################################################################
@@ -151,6 +139,12 @@ def run_book():
                     # Hintergrundeinstellung der Runde
                     resolve_restrictions(tournament)
                     save_round(st)
+                    log_event(
+                        level="INFO",
+                        message=f"round created by {st.session_state.current_username}",
+                        details={"user": st.session_state.current_username}
+                    )
+
                     st.rerun()
 
     #########################################################################################
@@ -468,6 +462,11 @@ def run_book():
                     st.session_state.show_confirm_dialog = False
 
                     st.success("Tischrundn beendet !!!")
+                    log_event(
+                        level="INFO",
+                        message=f"round finished by {st.session_state.current_username}",
+                        details={"user": st.session_state.current_username}
+                    )
                     st.rerun()
 
                 if st.button("Nein, zurück"):

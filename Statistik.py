@@ -1,8 +1,7 @@
-import os
+import io
+from services.supabase_client import supabase
 import streamlit as st
-import json
 import numpy as np
-import re
 import pandas as pd
 
 # Berechnet aus allen Spielen eines Spielers die Punkte (wue, normal und mit/ohne Klopfen)
@@ -68,59 +67,92 @@ def berechne_punkte(x, player):
     return pd.Series([punkte, punkte_wue, punkte_NK, punkte_NK_wue])
 
 
-# Erstellt die Datentabelle für alle Spieler einzeln, welche die Inhalte in der großen Tabelle definieren in run_statistic():
+def analyze_single_player(player, df, MinSpiele):
+    """Analysiert die Daten für einen einzelnen Spieler (reine Strings)."""
+
+    # 1. Filter: Spiele, bei denen der Spieler am Tisch saß (als String-Suche)
+    df_player = df[df["Mitspieler_Runde"].str.contains(player, regex=False, na=False)].copy()
+    # Kriterien für Mindestspiele prüfen
+    if df_player.empty or len(df_player) < MinSpiele:
+        return None
+
+    # Sortieren nach Zeitstempel und Punkte berechnen
+    df_player.sort_values("Zeitstempel", inplace=True)
+    df_player = punkte_abspeichern(df_player, player)
+
+    # Basis-Statistiken
+    spiele_len = len(df_player)
+    gewonnene_spiele = df_player["Hat_gewonnen"].sum()
+    quote = (gewonnene_spiele / spiele_len * 100) if spiele_len > 0 else 0
+
+    # 2. Filter: Nur die Spiele als aktiver Spielmacher (ohne Ramsch)
+    df_player_s = df_player[
+        (df_player["Spielmacher"] == player) &
+        (df_player["Spielart"] != "Ramsch")
+        ].copy()
+
+    anzahl_spielmacher = len(df_player_s)
+    anteil_spielmacher = (anzahl_spielmacher / spiele_len * 100) if spiele_len > 0 else 0
+
+    # Punkte für die Runden als Spielmacher berechnen (falls vorhanden)
+    if not df_player_s.empty:
+        df_player_s = punkte_abspeichern(df_player_s, player)
+
+    # Gewinnquote als Nicht-SpielerIn berechnen
+    nicht_spieler_spiele = spiele_len - anzahl_spielmacher
+    if nicht_spieler_spiele > 0:
+        gewonnen_nicht_spieler = gewonnene_spiele - (df_player_s["Hat_gewonnen"].sum() if not df_player_s.empty else 0)
+        quote_nicht_spieler = round((gewonnen_nicht_spieler / nicht_spieler_spiele) * 100, 2)
+    else:
+        quote_nicht_spieler = 0.0
+
+    # Statistiken zusammenstellen
+    player_stat = {
+        "Spiele": df_player,
+        "Anzahl_Spiele": spiele_len,
+        "Gewonnene_Spiele": gewonnene_spiele,
+        "Gewinnquote": round(quote, 1),
+        "Anzahl_Spiele als SpielerIn": anzahl_spielmacher,
+        "Ansagequote": round(anteil_spielmacher, 1),
+        "Gewonnen als SpielerIn": df_player_s["Hat_gewonnen"].sum() if not df_player_s.empty else 0,
+        "Gewinnquote als Nicht-SpielerIn": quote_nicht_spieler,
+
+        # Endpunktestände als Mitspieler
+        "Endpunktestand": df_player["Kumulativer Punktestand"].iloc[
+            -1] if "Kumulativer Punktestand" in df_player else 0,
+        "Endpunktestand_Wue": df_player["Kumulativer Punktestand_Wue"].iloc[
+            -1] if "Kumulativer Punktestand_Wue" in df_player else 0,
+        "Endpunktestand_NK": df_player["Kumulativer Punktestand_NK"].iloc[
+            -1] if "Kumulativer Punktestand_NK" in df_player else 0,
+        "Endpunktestand_NK_Wue": df_player["Kumulativer Punktestand_NK_Wue"].iloc[
+            -1] if "Kumulativer Punktestand_NK_Wue" in df_player else 0,
+
+        # Endpunktestände als aktiver Spieler
+        "sEndpunktestand": df_player_s["Kumulativer Punktestand"].iloc[
+            -1] if not df_player_s.empty and "Kumulativer Punktestand" in df_player_s else 0,
+        "sEndpunktestand_Wue": df_player_s["Kumulativer Punktestand_Wue"].iloc[
+            -1] if not df_player_s.empty and "Kumulativer Punktestand_Wue" in df_player_s else 0,
+        "sEndpunktestand_NK": df_player_s["Kumulativer Punktestand_NK"].iloc[
+            -1] if not df_player_s.empty and "Kumulativer Punktestand_NK" in df_player_s else 0,
+        "sEndpunktestand_NK_Wue": df_player_s["Kumulativer Punktestand_NK_Wue"].iloc[
+            -1] if not df_player_s.empty and "Kumulativer Punktestand_NK_Wue" in df_player_s else 0
+    }
+
+    return player_stat
+
+
 def analyse_all_players(df, all_players, MinSpiele):
-    
-    spieler_stats = {} 
-       
+    """Hauptfunktion, die durch alle Spieler iteriert."""
+    spieler_stats = {}
+
     for player in all_players:
-        # Spiele, bei denen der Spieler beteiligt war
-        df_player = df[df["Mitspieler_Runde"].str.contains(player, regex=False, na=False)].copy()
-        
-        # Nichts zu tun, falls keine Spiele übrig sind
-        if df_player.empty:
-            continue 
-        if len(df_player) < MinSpiele:
-            continue
-        
-        # Sortieren nach Zeitstempel
-        df_player.sort_values("Zeitstempel", inplace=True)
-        df_player = punkte_abspeichern(df_player, player)
-        
-        # Basis-Statistiken
-        spiele_len = len(df_player)
-        gewonnene_spiele = df_player["Hat_gewonnen"].sum()
-        quote = (gewonnene_spiele / spiele_len * 100) if spiele_len > 0 else 0
+        # Aufruf der ausgelagerten Funktion
+        player_stat = analyze_single_player(player, df, MinSpiele)
 
-        # Nur die spiele als SpielerIn
-        df_player_s = df_player[df_player["Spielmacher"].str.contains(player, regex=False, na=False)].copy()
-        df_player_s = df_player_s[df_player_s["Spielart"] != "Ramsch"].copy()
-        anzahl_spielmacher = len(df_player_s) 
-        anteil_spielmacher = (anzahl_spielmacher / spiele_len * 100) if spiele_len > 0 else 0
+        # Nur speichern, wenn der Spieler genug Spiele hatte (nicht None ist)
+        if player_stat is not None:
+            spieler_stats[player] = player_stat
 
-        df_player_s = punkte_abspeichern(df_player_s, player) 
-
-        # Ergebnisse speichern
-        spieler_stats[player] = {
-            "Spiele": df_player,
-            "Anzahl_Spiele": spiele_len,
-            "Gewonnene_Spiele": gewonnene_spiele,
-            "Gewinnquote": round(quote, 1),
-            "Anzahl_Spiele als SpielerIn": anzahl_spielmacher,
-            "Ansagequote": round(anteil_spielmacher, 1),
-            "Gewonnen als SpielerIn": df_player_s["Hat_gewonnen"].sum(),
-            "Gewinnquote als Nicht-SpielerIn": round((df_player["Hat_gewonnen"].sum() - df_player_s["Hat_gewonnen"].sum())/(spiele_len - anzahl_spielmacher) * 100, 2),
-            "Endpunktestand": df_player["Kumulativer Punktestand"].iloc[-1],
-            "Endpunktestand_Wue": df_player["Kumulativer Punktestand_Wue"].iloc[-1],
-            "Endpunktestand_NK": df_player["Kumulativer Punktestand_NK"].iloc[-1],
-            "Endpunktestand_NK_Wue": df_player["Kumulativer Punktestand_NK_Wue"].iloc[-1],
-            "sEndpunktestand": df_player_s["Kumulativer Punktestand"].iloc[-1],
-            "sEndpunktestand_Wue": df_player_s["Kumulativer Punktestand_Wue"].iloc[-1],
-            "sEndpunktestand_NK": df_player_s["Kumulativer Punktestand_NK"].iloc[-1],
-            "sEndpunktestand_NK_Wue": df_player_s["Kumulativer Punktestand_NK_Wue"].iloc[-1]
-                               if not df_player.empty else 0
-        }
-    
     return spieler_stats
 
 
@@ -239,5 +271,282 @@ def filter_spiele(
 
 
     return df_f
+
+
+def make_Punkteart(Punkteberechnung, OhneKlopfen):
+    if Punkteberechnung == "Würzburg":
+        Punkteart = "Endpunktestand_Wue"
+    if Punkteberechnung == "Normal":
+        Punkteart = "Endpunktestand"
+
+    if OhneKlopfen == True:
+        Punkteart = Punkteart[0:14] + "_NK" + Punkteart[14:]
+
+    return Punkteart
+
+def get_player_stats_row(stats, Punkteberechnung, OhneKlopfen):
+    """Bereitet die Statistiken für eine Spielart als Tabellenzeile vor."""
+    anzahl_spiele = stats["Anzahl_Spiele"]
+    anzahl_spieler = stats["Anzahl_Spiele als SpielerIn"]
+    punkteart = make_Punkteart(Punkteberechnung, OhneKlopfen)
+
+    # Berechnungen
+    pq = stats[punkteart] / anzahl_spiele if anzahl_spiele > 0 else 0
+
+    pq_spieler = stats[f"s{punkteart}"] / anzahl_spieler if anzahl_spieler > 0 else 0
+    print(punkteart)
+    gq_spieler = (stats["Gewonnen als SpielerIn"] / anzahl_spieler * 100) if anzahl_spieler > 0 else 0
+
+    # Flaches Dictionary für die Tabellenzeile zurückgeben
+    return {
+        "Spiele": anzahl_spiele,
+        "PQ": round(pq, 2),
+        "GQ": round(stats["Gewinnquote"], 1),  # Für st.column_config.ProgressColumn durch 100 teilen
+        "AQ": round(stats["Ansagequote"], 1),
+        "GQ als SpielerIn": round(gq_spieler, 1),
+        "PQ als SpielerIn": round(pq_spieler, 2),
+        "GQ als NichtspielerIn": round(stats["Gewinnquote als Nicht-SpielerIn"], 1)
+    }
+
+import json
+from scipy.stats import norm
+
+
+def norm_value(val, avg, std):
+    # Falls alle Spieler exakt denselben Wert haben (std == 0),
+    # liegt der Spieler exakt im Durchschnitt, also bei 0.5
+    if std == 0 or pd.isna(std):
+        return 0.5
+
+    # 1. Schritt: Wie viele Standardabweichungen liegt der Wert vom Schnitt entfernt?
+    z_score = (val - avg) / std
+
+    # 2. Schritt: z-Score auf die Skala 0.0 bis 1.0 mappen (Gauß-Glocke)
+    norm_value = norm.cdf(z_score)
+
+    return round(norm_value, 3)
+
+def calculate_performance_score(row_dict, spielart, Punkteberechnung, OhneKlopfen):
+    with open("stats_uebersicht.json", "r", encoding="utf-8") as f:
+        stats_uebersicht = json.load(f)
+        # Sicherer Zugriff, egal ob echtes Dict oder aus JSON geladen:
+        klopf_key = str(OhneKlopfen)  # Macht aus True -> "True" oder aus false -> "False"
+
+        # Falls JSON es kleingeschrieben hat (z.B. "true"), kannst du .lower() nutzen:
+        klopf_key = str(OhneKlopfen).lower()  # Macht "true" oder "false"
+
+        stats = stats_uebersicht[Punkteberechnung][klopf_key][spielart]
+
+
+    anzahl_spiele = row_dict.get("Spiele", 0)
+    if anzahl_spiele < 10:  # Schutz vor Verzerrung bei zu wenigen Spielen
+        return None
+
+    gq_aktiv = row_dict.get("GQ als SpielerIn", 0)
+    gq_passiv = row_dict.get("GQ als NichtspielerIn", 0)
+    aq = row_dict.get("AQ", 0) / 100
+    pq = row_dict.get("PQ", 0)
+
+    # Ausnahme Ramsch
+    if spielart == "Ramsch":
+        gq = norm_value(row_dict.get("GQ", 0), stats["GQ"]["avg"], stats["GQ"]["std"])
+        pq = norm_value(row_dict.get("PQ", 0), stats["PQ"]["avg"], stats["PQ"]["std"])
+        score = pq * 4 + gq * 6
+
+    else:
+        # 1. Abschneiden in der Statistik
+        pq_norm = norm_value(pq, stats["PQ"]["avg"], stats["PQ"]["std"])
+        gq_aktiv_norm = norm_value(gq_aktiv, stats["GQ als SpielerIn"]["avg"], stats["GQ als SpielerIn"]["std"])
+        gq_passiv_norm = norm_value(gq_passiv, stats["GQ als NichtspielerIn"]["avg"], stats["GQ als NichtspielerIn"]["std"])
+
+        # 2. Mut-Faktor (Ansagequote) mit neuem Erwartungswert (25%)
+        aq_ziel = 0.25
+        aq_faktor = min(1.0, aq / aq_ziel) if aq > 0 else 0.0
+
+        # 3. Gesamt-Score nach Gewichtung zusammenrechnen
+        # 40% Aktiv-Quote + 30% Passiv-Quote + 20% Punkte-Schnitt + 10% Mut-Faktor
+        score = (gq_aktiv_norm * 4) + (gq_passiv_norm * 3) + (pq_norm * 2) + (aq_faktor * 1)
+
+    return round(score, 1)
+
+def analyse_display_playerstats(df, name, MinSpiele, tournament, Punkteberechnung, OhneKlopfen):
+    stats = {}
+    spielarten = ["Ruf", "Trumpfsolo", "Wenz", "Geier", "Ramsch", "Bettel"]
+    # --- In deinem Hauptskript / Schleife ---
+    rows = {}
+
+    for s in spielarten:
+        df_f = filter_spiele(df, [name], [s], tournament)
+        player_stat = analyze_single_player(name, df_f, MinSpiele)
+
+        if player_stat is not None:
+            stats[name] = player_stat
+            # Zeilen-Daten generieren und mit der Spielart als Key speichern
+            rows[s] = get_player_stats_row(player_stat, Punkteberechnung, OhneKlopfen)
+            rows[s]["Score"]= calculate_performance_score(rows[s], s, Punkteberechnung, OhneKlopfen)
+
+    if rows:
+        # Erstellt eine wunderschöne Gesamttabelle
+        overview_df = pd.DataFrame.from_dict(rows, orient="index")
+        overview_df.index.name = "Spielart"
+
+        st.subheader(f"Statistik für {name}")
+
+        # Streamlit Styling-Konfiguration für grandiose Optik
+        st.dataframe(
+            overview_df,
+            use_container_width=True,
+            column_config={
+                "Spiele": st.column_config.NumberColumn("Spiele Gesamt", format="%d"),
+                "PQ": st.column_config.NumberColumn("PQ", format="%.2f"),
+                # Oder Punkte, je nach System
+                "GQ": st.column_config.NumberColumn("GQ", format="%.0f %%", min_value=0.0,
+                                                               max_value=100.0),
+                "AQ": st.column_config.NumberColumn("AQ", format="%.0f %%", min_value=0.0,
+                                                               max_value=100.0),
+                "GQ als SpielerIn": st.column_config.NumberColumn("GQ als SpielerIn", format="%.0f %%", min_value=0.0,
+                                                                  max_value=100.0),
+                "PQ als SpielerIn": st.column_config.NumberColumn("PQ als SpielerIn"),
+                "GQ als NichtspielerIn": st.column_config.NumberColumn("GQ als NichtspielerIn", format="%.0f %%", min_value=0.0,
+                                                                     max_value=100.0),
+                "Score": st.column_config.NumberColumn("Score", format="%.1f", min_value=0.0,
+                                                                     max_value=100.0),
+            }
+        )
+    else:
+        st.info(f"Für {name} wurden mit den aktuellen Filtern (Mindestspiele: {MinSpiele}) keine Daten gefunden.")
+    return rows
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def group_in_usernames():
+    """Baut das DYNA_GRUPPEN Dict direkt aus dem Session State."""
+    groups_res = supabase.table("groups").select("groupname, members").execute()
+
+    DYNA_GRUPPEN = {}
+    for g in groups_res.data:
+        g_name = g["groupname"]
+        member_ids = g.get("members", [])
+
+        # Namen direkt aus dem zentralen Session State ziehen
+        member_names = [
+            st.session_state.id_to_username[m_id]
+            for m_id in member_ids
+            if m_id in st.session_state.id_to_username
+        ]
+        DYNA_GRUPPEN[g_name] = member_names
+    return DYNA_GRUPPEN
+
+
+def backup_df_to_supabase(df, filename="spiele_backup.csv"):
+    """Lädt das DataFrame als CSV-Backup in den Supabase Storage (unverändert)."""
+    csv_buffer = io.StringIO()
+    df.to_csv(csv_buffer, index=False)
+    csv_bytes = csv_buffer.getvalue().encode('utf-8')
+
+    response = supabase.storage.from_('all_games').upload(
+        path=filename,
+        file=csv_bytes,
+        file_options={"content-type": "text/csv", "x-upsert": "true"}
+    )
+    return response
+
+
+def process_supabase_rounds(supabase_rows):
+    """Verarbeitet die Supabase-Runden. Nutzt die Mapping-Dicts aus dem st.session_state."""
+    if not supabase_rows:
+        return pd.DataFrame()
+
+    # Lokale Referenz auf das globale Mapping für schnelleren Zugriff
+    id_to_name = st.session_state.id_to_username
+
+    # Sortieren nach Erstellungszeitpunkt
+    supabase_rows.sort(key=lambda x: x["created_at"])
+
+    all_games = []
+    seen_game_timestamps = set()
+
+    for row in supabase_rows:
+        data = row.get("data", {})
+        runden_ts = row.get("created_at")
+        games_list = data.get("spiele", [])
+
+        # --- Namen für die gesamte Runde vorab bestimmen ---
+        mitspieler_raw = data.get("spieler", [])  # [["Name_Alt", "ID"], ...]
+
+        runden_ids = []
+        runden_namen_aktuell = []
+
+        for s in mitspieler_raw:
+            if isinstance(s, list) and len(s) >= 2:
+                uid = s[1]
+                runden_ids.append(uid)
+                # Prio 1: Aktueller Name aus der DB (Session State), Prio 2: Alter Name aus Datei
+                runden_namen_aktuell.append(id_to_name.get(uid, s[0]))
+            else:
+                runden_ids.append(None)
+                runden_namen_aktuell.append(s)
+
+        for game in games_list:
+            game_ts = game.get("Zeitstempel", runden_ts)
+            while game_ts in seen_game_timestamps:
+                game_ts = str(game_ts) + "A"
+            game["Zeitstempel"] = game_ts
+            seen_game_timestamps.add(game_ts)
+
+            game.update({
+                "tournament": data.get("tournament"),
+                "runden_timestamp": data.get("runden_timestamp", runden_ts),
+                "start_info": data.get("start_info", ""),
+                "Mitspieler_Runde": runden_namen_aktuell,
+                "MitspielerRundeIds": runden_ids
+            })
+
+            # --- Spielmacher Zuordnung ---
+            sm_raw = game.get("Spielmacher")
+            if isinstance(sm_raw, list) and len(sm_raw) == 2:
+                uid = sm_raw[1]
+                game["SpielmacherId"] = uid
+                game["Spielmacher"] = id_to_name.get(uid, sm_raw[0])
+            else:
+                game["SpielmacherId"] = None
+
+            # --- Rufpartner Zuordnung ---
+            rp_raw = game.get("Rufpartner")
+            if isinstance(rp_raw, list) and len(rp_raw) == 2:
+                uid = rp_raw[1]
+                game["RufpartnerId"] = uid
+                game["Rufpartner"] = id_to_name.get(uid, rp_raw[0])
+            else:
+                game["RufpartnerId"] = None
+
+            all_games.append(game)
+
+    final_df = pd.DataFrame(all_games)
+
+    if not final_df.empty:
+        if "Spielnummer" in final_df.columns:
+            final_df.drop(columns=["Spielnummer"], inplace=True)
+        final_df.insert(0, "Spielnummer", range(1, len(final_df) + 1))
+
+    return final_df
+
 
 

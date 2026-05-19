@@ -1,0 +1,638 @@
+{
+    "Normal": {
+        "true": {
+            "Ruf": {
+                "PQ": {
+                    "avg": -0.03,
+                    "std": 0.43
+                },
+                "GQ": {
+                    "avg": 48.43,
+                    "std": 8.35
+                },
+                "AQ": {
+                    "avg": 24.3,
+                    "std": 8.66
+                },
+                "GQ als SpielerIn": {
+                    "avg": 72.41,
+                    "std": 12.13
+                },
+                "PQ als SpielerIn": {
+                    "avg": 1.18,
+                    "std": 0.63
+                },
+                "GQ als NichtspielerIn": {
+                    "avg": 41.03,
+                    "std": 9.25
+                }
+            },
+            "Trumpfsolo": {
+                "PQ": {
+                    "avg": -0.25,
+                    "std": 1.81
+                },
+                "GQ": {
+                    "avg": 38.46,
+                    "std": 8.87
+                },
+                "AQ": {
+                    "avg": 23.2,
+                    "std": 5.83
+                },
+                "GQ als SpielerIn": {
+                    "avg": 69.91,
+                    "std": 14.79
+                },
+                "PQ als SpielerIn": {
+                    "avg": 7.59,
+                    "std": 5.24
+                },
+                "GQ als NichtspielerIn": {
+                    "avg": 28.72,
+                    "std": 9.04
+                }
+            },
+            "Wenz": {
+                "PQ": {
+                    "avg": -0.27,
+                    "std": 1.58
+                },
+                "GQ": {
+                    "avg": 39.98,
+                    "std": 7.09
+                },
+                "AQ": {
+                    "avg": 24.43,
+                    "std": 13.47
+                },
+                "GQ als SpielerIn": {
+                    "avg": 63.83,
+                    "std": 23.96
+                },
+                "PQ als SpielerIn": {
+                    "avg": 6.42,
+                    "std": 4.97
+                },
+                "GQ als NichtspielerIn": {
+                    "avg": 31.94,
+                    "std": 5.36
+                }
+            },
+            "Geier": {
+                "PQ": {
+                    "avg": -0.44,
+                    "std": 2.06
+                },
+                "GQ": {
+                    "avg": 36.47,
+                    "std": 10.56
+                },
+                "AQ": {
+                    "avg": 22.69,
+                    "std": 11.51
+                },
+                "GQ als SpielerIn": {
+                    "avg": 67.99,
+                    "std": 27.83
+                },
+                "PQ als SpielerIn": {
+                    "avg": 8.98,
+                    "std": 5.97
+                },
+                "GQ als NichtspielerIn": {
+                    "avg": 26.28,
+                    "std": 9.2
+                }
+            },
+            "Ramsch": {
+                "PQ": {
+                    "avg": -0.0,
+                    "std": 0.63
+                },
+                "GQ": {
+                    "avg": 75.6,
+                    "std": 10.7
+                },
+                "AQ": {
+                    "avg": 0.0,
+                    "std": 0.0
+                },
+                "GQ als SpielerIn": {
+                    "avg": 0.0,
+                    "std": 0.0
+                },
+                "PQ als SpielerIn": {
+                    "avg": 0.0,
+                    "std": 0.0
+                },
+                "GQ als NichtspielerIn": {
+                    "avg": 75.6,
+                    "std": 10.7
+                }
+            },
+            "Bettel": {
+                "PQ": {
+                    "avg": -0.22,
+                    "std": 1.32
+                },
+                "GQ": {
+                    "avg": 44.67,
+                    "std": 8.28
+                },
+                "AQ": {
+                    "avg": 24.66,
+                    "std": 12.01
+                },
+                "GQ als SpielerIn": {
+                    "avg": 53.21,
+                    "std": 21.17
+                },
+                "PQ als SpielerIn": {
+                    "avg": 1.98,
+                    "std": 4.37
+                },
+                "GQ als NichtspielerIn": {
+                    "avg": 41.02,
+                    "std": 8.64
+                }
+            }
+        },
+        "false": {
+            "Ruf": {
+                "PQ": {
+                    "avg": -0.13,
+                    "std": 0.57
+                },
+                "GQ": {
+                    "avg": 48.43,
+                    "std": 8.35
+                },
+                "AQ": {
+                    "avg": 24.3,
+                    "std": 8.66
+                },
+                "GQ als SpielerIn": {
+                    "avg": 72.41,
+                    "std": 12.13
+                },
+                "PQ als SpielerIn": {
+                    "avg": 1.6,
+                    "std": 0.91
+                },
+                "GQ als NichtspielerIn": {
+                    "avg": 41.03,
+                    "std": 9.25
+                }
+            },
+            "Trumpfsolo": {
+                "PQ": {
+                    "avg": -0.48,
+                    "std": 3.73
+                },
+                "GQ": {
+                    "avg": 38.46,
+                    "std": 8.87
+                },
+                "AQ": {
+                    "avg": 23.2,
+                    "std": 5.83
+                },
+                "GQ als SpielerIn": {
+                    "avg": 69.91,
+                    "std": 14.79
+                },
+                "PQ als SpielerIn": {
+                    "avg": 13.22,
+                    "std": 11.89
+                },
+                "GQ als NichtspielerIn": {
+                    "avg": 28.72,
+                    "std": 9.04
+                }
+            },
+            "Wenz": {
+                "PQ": {
+                    "avg": -0.7,
+                    "std": 3.82
+                },
+                "GQ": {
+                    "avg": 39.98,
+                    "std": 7.09
+                },
+                "AQ": {
+                    "avg": 24.43,
+                    "std": 13.47
+                },
+                "GQ als SpielerIn": {
+                    "avg": 63.83,
+                    "std": 23.96
+                },
+                "PQ als SpielerIn": {
+                    "avg": 10.89,
+                    "std": 11.42
+                },
+                "GQ als NichtspielerIn": {
+                    "avg": 31.94,
+                    "std": 5.36
+                }
+            },
+            "Geier": {
+                "PQ": {
+                    "avg": -0.14,
+                    "std": 4.16
+                },
+                "GQ": {
+                    "avg": 36.47,
+                    "std": 10.56
+                },
+                "AQ": {
+                    "avg": 22.69,
+                    "std": 11.51
+                },
+                "GQ als SpielerIn": {
+                    "avg": 67.99,
+                    "std": 27.83
+                },
+                "PQ als SpielerIn": {
+                    "avg": 14.54,
+                    "std": 11.6
+                },
+                "GQ als NichtspielerIn": {
+                    "avg": 26.28,
+                    "std": 9.2
+                }
+            },
+            "Ramsch": {
+                "PQ": {
+                    "avg": 0.03,
+                    "std": 0.97
+                },
+                "GQ": {
+                    "avg": 75.6,
+                    "std": 10.7
+                },
+                "AQ": {
+                    "avg": 0.0,
+                    "std": 0.0
+                },
+                "GQ als SpielerIn": {
+                    "avg": 0.0,
+                    "std": 0.0
+                },
+                "PQ als SpielerIn": {
+                    "avg": 0.0,
+                    "std": 0.0
+                },
+                "GQ als NichtspielerIn": {
+                    "avg": 75.6,
+                    "std": 10.7
+                }
+            },
+            "Bettel": {
+                "PQ": {
+                    "avg": 0.14,
+                    "std": 2.69
+                },
+                "GQ": {
+                    "avg": 44.67,
+                    "std": 8.28
+                },
+                "AQ": {
+                    "avg": 24.66,
+                    "std": 12.01
+                },
+                "GQ als SpielerIn": {
+                    "avg": 53.21,
+                    "std": 21.17
+                },
+                "PQ als SpielerIn": {
+                    "avg": 4.83,
+                    "std": 8.32
+                },
+                "GQ als NichtspielerIn": {
+                    "avg": 41.02,
+                    "std": 8.64
+                }
+            }
+        }
+    },
+    "Würzburg": {
+        "true": {
+            "Ruf": {
+                "PQ": {
+                    "avg": -0.04,
+                    "std": 0.46
+                },
+                "GQ": {
+                    "avg": 48.43,
+                    "std": 8.35
+                },
+                "AQ": {
+                    "avg": 24.3,
+                    "std": 8.66
+                },
+                "GQ als SpielerIn": {
+                    "avg": 72.41,
+                    "std": 12.13
+                },
+                "PQ als SpielerIn": {
+                    "avg": 0.88,
+                    "std": 0.73
+                },
+                "GQ als NichtspielerIn": {
+                    "avg": 41.03,
+                    "std": 9.25
+                }
+            },
+            "Trumpfsolo": {
+                "PQ": {
+                    "avg": -0.17,
+                    "std": 1.2
+                },
+                "GQ": {
+                    "avg": 38.46,
+                    "std": 8.87
+                },
+                "AQ": {
+                    "avg": 23.2,
+                    "std": 5.83
+                },
+                "GQ als SpielerIn": {
+                    "avg": 69.91,
+                    "std": 14.79
+                },
+                "PQ als SpielerIn": {
+                    "avg": 5.18,
+                    "std": 3.56
+                },
+                "GQ als NichtspielerIn": {
+                    "avg": 28.72,
+                    "std": 9.04
+                }
+            },
+            "Wenz": {
+                "PQ": {
+                    "avg": -0.14,
+                    "std": 1.09
+                },
+                "GQ": {
+                    "avg": 39.98,
+                    "std": 7.09
+                },
+                "AQ": {
+                    "avg": 24.43,
+                    "std": 13.47
+                },
+                "GQ als SpielerIn": {
+                    "avg": 63.83,
+                    "std": 23.96
+                },
+                "PQ als SpielerIn": {
+                    "avg": 4.65,
+                    "std": 2.95
+                },
+                "GQ als NichtspielerIn": {
+                    "avg": 31.94,
+                    "std": 5.36
+                }
+            },
+            "Geier": {
+                "PQ": {
+                    "avg": -0.3,
+                    "std": 1.42
+                },
+                "GQ": {
+                    "avg": 36.47,
+                    "std": 10.56
+                },
+                "AQ": {
+                    "avg": 22.69,
+                    "std": 11.51
+                },
+                "GQ als SpielerIn": {
+                    "avg": 67.99,
+                    "std": 27.83
+                },
+                "PQ als SpielerIn": {
+                    "avg": 6.33,
+                    "std": 4.11
+                },
+                "GQ als NichtspielerIn": {
+                    "avg": 26.28,
+                    "std": 9.2
+                }
+            },
+            "Ramsch": {
+                "PQ": {
+                    "avg": -0.0,
+                    "std": 0.62
+                },
+                "GQ": {
+                    "avg": 75.6,
+                    "std": 10.7
+                },
+                "AQ": {
+                    "avg": 0.0,
+                    "std": 0.0
+                },
+                "GQ als SpielerIn": {
+                    "avg": 0.0,
+                    "std": 0.0
+                },
+                "PQ als SpielerIn": {
+                    "avg": 0.0,
+                    "std": 0.0
+                },
+                "GQ als NichtspielerIn": {
+                    "avg": 75.6,
+                    "std": 10.7
+                }
+            },
+            "Bettel": {
+                "PQ": {
+                    "avg": -0.13,
+                    "std": 0.83
+                },
+                "GQ": {
+                    "avg": 44.67,
+                    "std": 8.28
+                },
+                "AQ": {
+                    "avg": 24.66,
+                    "std": 12.01
+                },
+                "GQ als SpielerIn": {
+                    "avg": 53.21,
+                    "std": 21.17
+                },
+                "PQ als SpielerIn": {
+                    "avg": 1.23,
+                    "std": 2.68
+                },
+                "GQ als NichtspielerIn": {
+                    "avg": 41.02,
+                    "std": 8.64
+                }
+            }
+        },
+        "false": {
+            "Ruf": {
+                "PQ": {
+                    "avg": -0.09,
+                    "std": 0.52
+                },
+                "GQ": {
+                    "avg": 48.43,
+                    "std": 8.35
+                },
+                "AQ": {
+                    "avg": 24.3,
+                    "std": 8.66
+                },
+                "GQ als SpielerIn": {
+                    "avg": 72.41,
+                    "std": 12.13
+                },
+                "PQ als SpielerIn": {
+                    "avg": 0.99,
+                    "std": 0.84
+                },
+                "GQ als NichtspielerIn": {
+                    "avg": 41.03,
+                    "std": 9.25
+                }
+            },
+            "Trumpfsolo": {
+                "PQ": {
+                    "avg": -0.28,
+                    "std": 1.98
+                },
+                "GQ": {
+                    "avg": 38.46,
+                    "std": 8.87
+                },
+                "AQ": {
+                    "avg": 23.2,
+                    "std": 5.83
+                },
+                "GQ als SpielerIn": {
+                    "avg": 69.91,
+                    "std": 14.79
+                },
+                "PQ als SpielerIn": {
+                    "avg": 7.94,
+                    "std": 6.42
+                },
+                "GQ als NichtspielerIn": {
+                    "avg": 28.72,
+                    "std": 9.04
+                }
+            },
+            "Wenz": {
+                "PQ": {
+                    "avg": -0.35,
+                    "std": 1.96
+                },
+                "GQ": {
+                    "avg": 39.98,
+                    "std": 7.09
+                },
+                "AQ": {
+                    "avg": 24.43,
+                    "std": 13.47
+                },
+                "GQ als SpielerIn": {
+                    "avg": 63.83,
+                    "std": 23.96
+                },
+                "PQ als SpielerIn": {
+                    "avg": 7.11,
+                    "std": 5.93
+                },
+                "GQ als NichtspielerIn": {
+                    "avg": 31.94,
+                    "std": 5.36
+                }
+            },
+            "Geier": {
+                "PQ": {
+                    "avg": -0.32,
+                    "std": 2.21
+                },
+                "GQ": {
+                    "avg": 36.47,
+                    "std": 10.56
+                },
+                "AQ": {
+                    "avg": 22.69,
+                    "std": 11.51
+                },
+                "GQ als SpielerIn": {
+                    "avg": 67.99,
+                    "std": 27.83
+                },
+                "PQ als SpielerIn": {
+                    "avg": 9.44,
+                    "std": 5.87
+                },
+                "GQ als NichtspielerIn": {
+                    "avg": 26.28,
+                    "std": 9.2
+                }
+            },
+            "Ramsch": {
+                "PQ": {
+                    "avg": 0.04,
+                    "std": 0.92
+                },
+                "GQ": {
+                    "avg": 75.6,
+                    "std": 10.7
+                },
+                "AQ": {
+                    "avg": 0.0,
+                    "std": 0.0
+                },
+                "GQ als SpielerIn": {
+                    "avg": 0.0,
+                    "std": 0.0
+                },
+                "PQ als SpielerIn": {
+                    "avg": 0.0,
+                    "std": 0.0
+                },
+                "GQ als NichtspielerIn": {
+                    "avg": 75.6,
+                    "std": 10.7
+                }
+            },
+            "Bettel": {
+                "PQ": {
+                    "avg": -0.03,
+                    "std": 1.47
+                },
+                "GQ": {
+                    "avg": 44.67,
+                    "std": 8.28
+                },
+                "AQ": {
+                    "avg": 24.66,
+                    "std": 12.01
+                },
+                "GQ als SpielerIn": {
+                    "avg": 53.21,
+                    "std": 21.17
+                },
+                "PQ als SpielerIn": {
+                    "avg": 2.25,
+                    "std": 4.45
+                },
+                "GQ als NichtspielerIn": {
+                    "avg": 41.02,
+                    "std": 8.64
+                }
+            }
+        }
+    }
+}

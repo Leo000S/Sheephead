@@ -1,3 +1,4 @@
 streamlit
 supabase==2.13.0
 plotly
+scipy

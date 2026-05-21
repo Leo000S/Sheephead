@@ -1,53 +1,41 @@
-import io
+
 import streamlit as st
-import pandas as pd
-from Statistik import backup_df_to_supabase, process_supabase_rounds, analyse_all_players, analyse_different_stats, filter_spiele, plot_stats_streamlit, group_in_usernames
+from Statistik import backup_process_data, load_df_from_supabase_backup, analyse_all_players, analyse_different_stats, filter_spiele, plot_stats_streamlit, group_in_usernames
 from services.supabase_client import supabase
-# ===============================
-# Streamlit UI
-# ===============================
+
+# =====================================================================
+# 3. STREAMLIT UI
+# =====================================================================
+
 def run_statistics():
-    st.title("Statistik")
+    st.title("Schafkopf Statistik")
 
-    # 1. Daten laden (mit Cache, damit es schnell geht)
-    @st.cache_data(ttl=600)  # Speichert die Daten für 10 Minuten im RAM
-    def load_and_process_data():
-        response = supabase.table("rounds").select("*").execute()
-        return process_supabase_rounds(response.data)
+    # Daten blitzschnell aus dem Cache (oder frisch aus dem Storage Backup) holen
+    df = load_df_from_supabase_backup()
 
-    try:
-        final_df = load_and_process_data()
-        backup_df_to_supabase(final_df, filename="spiele_backup.csv")
+    if df is None or df.empty:
+        st.warning("Keine Spieldaten im Backup gefunden.")
 
-    except Exception as e:
-        st.error(f"Fehler beim Laden der Statistik: {e}")
+    # Wenn der Button geklickt wird, läuft der Code im if-Block
+    if st.button("Daten aktualisieren"):
+        with st.spinner("Aktualisieren..."):
+            # 1. Frische Daten aus der DB holen und neues Backup im Storage überschreiben
+            backup_process_data()
+            load_df_from_supabase_backup.clear()
 
-    if st.button("Daten neu laden"):
-        try:
-            final_df = load_and_process_data()
-            backup_df_to_supabase(final_df, filename="spiele_backup.csv")
-
-        except Exception as e:
-            st.error(f"Fehler beim Laden der Statistik: {e}")
-
-    # Das ist dein DF für die restliche Statistik-Seite
-    df = final_df
+        st.success("Erfolgreich aktualisiert!")
+        # 3. Die App kurz neu starten, damit sie die frischen Daten direkt zeichnet
+        st.rerun()
 
     alle_spielarten = sorted(df["Spielart"].dropna().unique())
     alle_tournaments = sorted(df["tournament"].dropna().unique())
-
-
-    # 1. Alle Profile laden (Mapping von ID zu Username erstellen)
-    profiles_res = supabase.table("profiles").select("user_id, username").execute()
-    id_to_name = {p["user_id"]: p["username"] for p in profiles_res.data}
-    alle_spieler = list(id_to_name.values())
+    alle_spieler = list(st.session_state.id_to_username.values())
 
     namen_einzel = st.sidebar.multiselect("SpielerInnen", options=alle_spieler)
 
     # Hier nutzen wir nun unser dynamisches Dictionary
     DYNA_GRUPPEN = group_in_usernames()
     gruppen_auswahl = st.sidebar.multiselect("Gruppen", options=list(DYNA_GRUPPEN.keys()))
-
 
     namen = set(namen_einzel)
     for gruppe in gruppen_auswahl:
@@ -84,11 +72,7 @@ def run_statistics():
         else [tournament]
     )
 
-    # -------------------------------
-    # Aktion
-    # -------------------------------
-
-    if st.button("📊 Anzeigen"):
+    if st.button("Anzeigen"):
         df_result = filter_spiele(
             df,
             namen=namen if namen else None,

@@ -29,10 +29,7 @@ def resolve_restrictions(tournament):
     st.session_state.SIE = restrictions[3]
     st.session_state.mode = restrictions[4]
 
-
 def run_book():
-
-    # --- Streamlit App ---
     st.set_page_config(page_title="Sheephead - the game of bavarian culture", layout="centered")
 
     # --- Session State initialisieren ---
@@ -50,21 +47,15 @@ def run_book():
 
     # --- RUNDENSTART ---
     if not st.session_state.runde_aktiv:
-        st.header("Griaß di, spui ma o gscheide Rundn?")
-
-    #########################################################################################
-    # Offene Runde???
-    #########################################################################################
+        st.header("Lass uns Schafkopf spielen")
 
         if st.button("🔄 Offene Runden suchen"):
             with st.spinner("Suche nach offenen Tischrunden..."):
                 st.session_state.open_rounds = load_open_rounds()
-
         offene_runden = st.session_state.open_rounds
 
         if offene_runden:
-
-            st.subheader("🔄 Laufende Tischrunden")
+            st.subheader("Aktuell offene Tischrunden")
 
             optionen = [
                 f"{r['start_info']} ({', '.join(s[0] for s in r['spieler'])}) – {len(r['spiele'])} Spiele"
@@ -155,7 +146,7 @@ def run_book():
 
         if st.session_state.anzahl < 7:
 
-            if st.checkbox("➕ Weiteren Spieler nachtragen"):
+            if st.checkbox("➕ Weiteren Spieler nachtragen?"):
                 i = st.session_state.anzahl
                 bereits = [s[0] for s in st.session_state.spieler]
 
@@ -272,6 +263,9 @@ def run_book():
 
                 gewonnen = st.checkbox("Gewonnen?")
                 kontra = st.checkbox("Kontra?")
+                Re = False
+                if kontra:
+                    Re = st.checkbox("Retour?")
                 schneider = st.checkbox("Schneider? (Verliererteam unter 30 Punkte)")
                 schwarz = st.checkbox("Schwarz?")
                 laufende = st.selectbox("Wie viele Laufende?", [0] + list(range(3, 15)))
@@ -283,6 +277,7 @@ def run_book():
 
                 gewonnen = False
                 kontra = False
+                Re = False
                 schwarz = False
                 schneider = False
                 laufende = 0
@@ -294,6 +289,7 @@ def run_book():
                 if st.session_state.TOUT == False:
                     tout = False
                 kontra = False
+                Re = False
                 schwarz = False
                 schneider = False
                 laufende = 0
@@ -301,6 +297,7 @@ def run_book():
             if spielart == "Durchmarsch":
                 gewonnen = True
                 kontra = False
+                Re = False
                 schwarz = False
                 schneider = False
                 laufende = 0
@@ -316,21 +313,28 @@ def run_book():
                 if st.session_state.SIE == False:
                     Sie = False
                 kontra = st.checkbox("Kontra?")
+                Re = False
+                if kontra:
+                    Re = st.checkbox("Retour?")
                 schneider = st.checkbox("Schneider? (Verliererteam unter 30 Punkte)")
                 schwarz = st.checkbox("Schwarz?")
                 laufende = st.selectbox("Wie viele Laufende?", [0] + list(range(2, 15)))
 
-            wertn, wertn_NK = spielwert_bestimmen_normal(spielart, klopfer, laufende, tout, jungfrau, schneider, schwarz, kontra, st.session_state.SPIELWERTE)
-            wertw, wertw_NK = spielwert_bestimmen_wue(spielart, klopfer, laufende, tout, jungfrau, schneider, schwarz, kontra, gewonnen, st.session_state.SPIELWERTE)
+            wertn, wertn_NK = spielwert_bestimmen_normal(spielart, klopfer, laufende, tout, jungfrau, schneider, schwarz, kontra, Re, st.session_state.SPIELWERTE)
+            wertw, wertw_NK = spielwert_bestimmen_wue(spielart, klopfer, laufende, tout, jungfrau, schneider, schwarz, kontra, Re, gewonnen, st.session_state.SPIELWERTE)
+
             win_text = "gewonnen"
             if gewonnen == False:
                 win_text = " verloren"
+
             Punkte = wertn
-            Punkte_str = " Punkt "
             if st.session_state.mode == "wue":
                 Punkte = wertw
+
+            Punkte_str = " Punkt "
             if Punkte > 1:
                 Punkte_str = " Punkte "
+
             st.write(spielmacher + " würde ein " + spielart + " für " + str(Punkte) + " (" + st.session_state.mode + ")" + Punkte_str + win_text + " haben")
             abschicken = st.button("Spiel abspeichern ✅")
 
@@ -347,6 +351,7 @@ def run_book():
                     "Schneider" :schneider,
                     "Schwarz" :schwarz,
                     "Kontra" :kontra,
+                    "Re" :Re,
                     "Gewonnen" :gewonnen
                 }
                 spiel_dict = {
@@ -446,7 +451,6 @@ def run_book():
         if st.button("🔚 Beende die Tischrundn?"):
             st.session_state.show_confirm_dialog = True
 
-
         if st.session_state.get("show_confirm_dialog", False):
 
             @st.dialog("Tischrundn wirklich beenden?")
@@ -473,5 +477,4 @@ def run_book():
                     st.session_state.show_confirm_dialog = False
                     st.rerun()
 
-            confirm_end_dialog()
         

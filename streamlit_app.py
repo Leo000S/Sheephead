@@ -1,13 +1,11 @@
 import streamlit as st
-from services.supabase_client import supabase
-from services.supabase_client import init_global_user_data
+from services.supabase_client import supabase, init_global_user_data
 from utils.statistic import run_statistics
 from utils.book import run_book
 from utils.login_and_registration import login_and_registration
 from utils.profile import profile_menu
 from utils.home import home
 from utils.player_statistic import run_player_statistics
-from services.supabase_client import log_event
 
 
 if "session" in st.session_state:

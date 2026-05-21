@@ -1,9 +1,6 @@
 import streamlit as st
-
-
 def home(user):
     st.title("Infos & Aktuelles")
-
     # Begrüßung
     st.info(f"Schön, dass du da bist! Eingeloggt als: **{st.session_state.current_username}**")
     # Spalten-Layout für die erste Sektion
@@ -26,11 +23,9 @@ def home(user):
     st.subheader("Nächste Termine")
     t1, t2, t3 = st.columns(3)
     t1.metric("Stammtisch", "Jeden ??.")
-    t2.metric("Nächster Spielabend", "25. Mai")
-    t3.metric("Großes Turnier", "Juni '??")
-
+    t2.metric("Nächstes Turnier", "25. Mai, bei Schallers")
+    t3.metric("Großes Turnier", "23. Dezember in der Augsburger Stadtbücherei")
     st.divider()
-
 
     # Was dir noch einfallen könnte (Vorschlag: Statistiken oder Zitate)
     st.divider()
@@ -43,7 +38,6 @@ def home(user):
     app_url = "https://sheephead.streamlit.app"
     st.code(f"{app_url}", language="text")
     st.caption("Kopiere diesen Link und sende ihn deinen Freunden, damit sie sich registrieren können.")
-
 
     # Aufrufen der Funktion
     st.subheader("Regeln zum nachlesen")

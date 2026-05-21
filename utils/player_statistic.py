@@ -1,31 +1,22 @@
 import streamlit as st
-from Statistik import analyse_display_playerstats, backup_df_to_supabase, process_supabase_rounds, make_Punkteart
-from services.supabase_client import supabase
+from Statistik import analyse_display_playerstats, backup_process_data, load_df_from_supabase_backup
 
 def run_player_statistics():
+    df = load_df_from_supabase_backup()
 
-    # 1. Daten laden (mit Cache, damit es schnell geht)
-    def load_and_process_data():
-        response = supabase.table("rounds").select("*").execute()
-        return process_supabase_rounds(response.data)
+    if df is None or df.empty:
+        st.warning("Keine Spieldaten im Backup gefunden.")
 
-    try:
-        final_df = load_and_process_data()
-        backup_df_to_supabase(final_df, filename="spiele_backup.csv")
+    # Wenn der Button geklickt wird, läuft der Code im if-Block
+    if st.button("Daten aktualisieren"):
+        with st.spinner("Aktualisieren..."):
+            # 1. Frische Daten aus der DB holen und neues Backup im Storage überschreiben
+            backup_process_data()
+            load_df_from_supabase_backup.clear()
 
-    except Exception as e:
-        st.error(f"Fehler beim Laden der Statistik: {e}")
-
-    if st.button("Daten neu laden"):
-        try:
-            final_df = load_and_process_data()
-            backup_df_to_supabase(final_df, filename="spiele_backup.csv")
-
-        except Exception as e:
-            st.error(f"Fehler beim Laden der Statistik: {e}")
-
-    # Das ist dein DF für die restliche Statistik-Seite
-    df = final_df
+        st.success("Erfolgreich aktualisiert!")
+        # 3. Die App kurz neu starten, damit sie die frischen Daten direkt zeichnet
+        st.rerun()
 
     alle_tournaments = sorted(df["tournament"].dropna().unique())
 
@@ -35,10 +26,7 @@ def run_player_statistics():
 
     Punkteberechnung = st.sidebar.selectbox("Berechnung der Punkte", options = ["Normal", "Würzburg"])
 
-    MinSpiele = st.sidebar.number_input("Mindestanzahl Spiele pro SpielerIn", min_value=0,step=20, value=0)
-
-    Punkteart = make_Punkteart(Punkteberechnung, OhneKlopfen)
-
+    MinSpiele = 10
 
     tournament_filter = (
         [t for t in df["tournament"].unique() if t != "Allgäuer-Rundn"]
@@ -46,37 +34,45 @@ def run_player_statistics():
         else [tournament]
     )
 
-    # -------------------------------
-    # Aktion
-    # -------------------------------
-    user_response = supabase.auth.get_user()
-    if not user_response.user:
-        st.error("Kein Benutzer angemeldet!")
-    else:
-        # Profil abfragen (Spaltenname ggf. auf 'id' oder 'user_id' anpassen)
-        res = supabase.table("profiles").select("username").eq("user_id",
-                                                               user_response.user.id).maybe_single().execute()
+    name = st.session_state.current_username
+    if name == "Leo Schaller":
+        alle_spieler = list(st.session_state.id_to_username.values())
+        name = st.sidebar.selectbox("SpielerInnen", options=alle_spieler)
 
-        # Username auslesen
-        name = res.data["username"] if res.data else "Unbekannt"
+    if st.button("Anzeigen"):
+        rows = analyse_display_playerstats(df, name, MinSpiele, tournament_filter, Punkteberechnung, OhneKlopfen)
 
-    analyse_display_playerstats(df, name, MinSpiele, tournament_filter, Punkteberechnung, OhneKlopfen)
+        try:
+            combinedscore = (
+                    0.3 * rows["Ruf"]["Score"]
+                    + 0.3 * rows["Trumpfsolo"]["Score"]
+                    + 0.3 * rows["Wenz + Geier"]["Score"]
+                    + 0.05 * rows["Ramsch"]["Score"]
+                    + 0.05 * rows["Bettel"]["Score"]
+            )
+            st.write(f"Du erhältst einen Gesamt-Performance-Score von {round(combinedscore, 3)}")
 
-    with st.expander("ℹ️ Wie wird der Performance-Score berechnet?"):
-        st.markdown("""
-        Der Score bewertet das Spielkönnen auf einer Skala von **0 bis 10 Punkten** und wird **ab mindestens 10 Spielen** der jeweiligen Spielart berechnet.
+        except KeyError:
+            st.write(f"Spiele mehr Schafkopf, um deinen Gesamt-Score zu erfahren!!!")
 
-        ### Die Formel (für Ruf, Trumpfsolo, Wenz, Bettel):
-        """)
-        st.latex(
-            r"\text{Score} = (\text{GQ}_A^n \times 4) + (\text{GQ}_P^n \times 3) + (\text{PQ}^n \times 2) + (\text{AQ}_{faktor}^n \times 1)")
+        with st.expander("ℹ️ Wie wird der Performance-Score berechnet?"):
+            st.markdown("""
+            Der Score bewertet das Spielkönnen auf einer Skala von **0 bis 10 Punkten** und wird **ab mindestens 10 Spielen** der jeweiligen Spielart berechnet.
+    
+            ### Die Formel (für Ruf, Trumpfsolo, Wenz+Geier, Bettel):
+            """)
+            st.latex(
+                r"\text{Score} = (\text{GQ}_A^n \times 4) + (\text{GQ}_P^n \times 3) + (\text{PQ}^n \times 2) + (\text{AQ}_{faktor}^n \times 1)")
 
-        st.markdown("""
-        * **$ GQ_A^n$ (40%):** im Vergleich zur Gesamtstatistik normierte Gewinnquote als aktiver SpielerIn.
-        * **$ GQ_P^n$ (30%):** im Vergleich zur Gesamtstatistik normierte Gewinnquote als NichtspielerIn.
-        * **$ PQ^n$ (20%):** im Vergleich zur Gesamtstatistik normierte Punkteschnitt ($PQ$).
-        * **$ AQ_{faktor}^n$ (10%):** Mut-Faktor, volle Punktzahl ab 25%.
-
-        ### Sonderfall Ramsch:
-        Da kein Spieler aktiv ansagt, entfällt der Mut-Faktor. Der Score berechnet sich aus **60% Gesamt-Gewinnquote** und **40% Punkte-Effizienz** (Punkte normiert von $0 \rightarrow 60$ gefressene Augen, je weniger desto besser).
-        """)
+            st.markdown("""
+            * **$ GQ_A^n$ (20%):** im Vergleich zur Gesamtstatistik normierte Gewinnquote als aktiver SpielerIn.
+            * **$ GQ_P^n$ (20%):** im Vergleich zur Gesamtstatistik normierte Gewinnquote als NichtspielerIn.
+            * **$ PQ^n$ (50%):** im Vergleich zur Gesamtstatistik normierte Punkteschnitt ($PQ$).
+            * **$ AQ_{faktor}^n$ (10%):** Mut-Faktor, volle Punktzahl ab 25%.
+    
+            ### Sonderfall Ramsch:
+            Da kein Spieler aktiv ansagt, entfällt der Mut-Faktor. Der Score berechnet sich aus **60% Gesamt-Gewinnquote** und **40% Punkte-Effizienz** (Punkte normiert von $0 \rightarrow 60$ gefressene Augen, je weniger desto besser).
+            
+            ### Gesamt-Performance-Score:
+            Hier werden die Scores aller Spiele zusammngezählt. Man erhält eine Zahl zwischen 0 und 10.
+            """)

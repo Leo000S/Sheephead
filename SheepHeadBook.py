@@ -8,12 +8,14 @@ from datetime import datetime
 
 # Modus Augschburg
 # --- Hilfsfunktionen ---
-def spielwert_bestimmen_normal(spielart, klopfer, laufende, tout, jungfrau, schneider, schwarz, kontra, SPIELWERTE):
+def spielwert_bestimmen_normal(spielart, klopfer, laufende, tout, jungfrau, schneider, schwarz, kontra, Re, SPIELWERTE):
     basis = SPIELWERTE.get(spielart, 1) 
     bonus = 0 + jungfrau
     if tout:
         basis += 1 
     if kontra: 
+        bonus += 1
+    if Re:
         bonus += 1
     if schneider or schwarz:
         basis += 1 
@@ -23,7 +25,7 @@ def spielwert_bestimmen_normal(spielart, klopfer, laufende, tout, jungfrau, schn
     wertn_NK = (basis + laufende) * (2 ** bonus)
     return wertn, wertn_NK
 
-def spielwert_bestimmen_wue(spielart, klopfer, laufende, tout, jungfrau, schneider, schwarz, kontra, gewonnen, SPIELWERTE):
+def spielwert_bestimmen_wue(spielart, klopfer, laufende, tout, jungfrau, schneider, schwarz, kontra, Re, gewonnen, SPIELWERTE):
     basis = SPIELWERTE.get(spielart, 1) 
     if basis == 5:
         basis = 3
@@ -33,6 +35,8 @@ def spielwert_bestimmen_wue(spielart, klopfer, laufende, tout, jungfrau, schneid
     if tout:
         basis += 1 
     if kontra: 
+        kontrazahl += 1
+    if Re:
         kontrazahl += 1
     if schneider or schwarz:
         basis += 1 

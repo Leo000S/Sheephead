@@ -3,6 +3,7 @@ from services.supabase_client import supabase
 import streamlit as st
 import numpy as np
 import pandas as pd
+import ast
 
 # Berechnet aus allen Spielen eines Spielers die Punkte (wue, normal und mit/ohne Klopfen)
 def punkte_abspeichern(df_player, player):
@@ -253,14 +254,21 @@ def filter_spiele(
  ):
     df_f = df.copy()
 
-    # --- Namen ---
     if namen:
         df_f = df_f[
             df_f["Mitspieler_Runde"].apply(
-                lambda spieler: any(n in spieler for n in namen)
+                lambda spieler_liste:
+                any(
+                    n == s
+                    for n in namen
+                    for s in (
+                        ast.literal_eval(spieler_liste)
+                        if isinstance(spieler_liste, str)
+                        else spieler_liste
+                    )
+                )
             )
         ]
-
     # --- Spielart ---
     if spielarten and "alle" not in spielarten:
         df_f = df_f[df_f["Spielart"].isin(spielarten)]
@@ -294,7 +302,6 @@ def get_player_stats_row(stats, Punkteberechnung, OhneKlopfen):
     pq = stats[punkteart] / anzahl_spiele if anzahl_spiele > 0 else 0
 
     pq_spieler = stats[f"s{punkteart}"] / anzahl_spieler if anzahl_spieler > 0 else 0
-    print(punkteart)
     gq_spieler = (stats["Gewonnen als SpielerIn"] / anzahl_spieler * 100) if anzahl_spieler > 0 else 0
 
     # Flaches Dictionary für die Tabellenzeile zurückgeben
@@ -365,18 +372,20 @@ def calculate_performance_score(row_dict, spielart, Punkteberechnung, OhneKlopfe
 
         # 3. Gesamt-Score nach Gewichtung zusammenrechnen
         # 40% Aktiv-Quote + 30% Passiv-Quote + 20% Punkte-Schnitt + 10% Mut-Faktor
-        score = (gq_aktiv_norm * 4) + (gq_passiv_norm * 3) + (pq_norm * 2) + (aq_faktor * 1)
+        score = (gq_aktiv_norm * 2) + (gq_passiv_norm * 2) + (pq_norm * 5) + (aq_faktor * 1)
 
     return round(score, 1)
 
 def analyse_display_playerstats(df, name, MinSpiele, tournament, Punkteberechnung, OhneKlopfen):
     stats = {}
-    spielarten = ["Ruf", "Trumpfsolo", "Wenz", "Geier", "Ramsch", "Bettel"]
+    spielarten = ["Ruf", "Trumpfsolo", "Wenz + Geier", "Ramsch", "Bettel"]
     # --- In deinem Hauptskript / Schleife ---
     rows = {}
-
     for s in spielarten:
-        df_f = filter_spiele(df, [name], [s], tournament)
+        if s == "Wenz + Geier":
+            df_f = filter_spiele(df, [name], ["Wenz", "Geier"], tournament)
+        else:
+            df_f = filter_spiele(df, [name], [s], tournament)
         player_stat = analyze_single_player(name, df_f, MinSpiele)
 
         if player_stat is not None:
@@ -469,6 +478,26 @@ def backup_df_to_supabase(df, filename="spiele_backup.csv"):
     return response
 
 
+def load_df_from_supabase_backup(filename="spiele_backup.csv"):
+    """Lädt das CSV-Backup aus dem Supabase Storage und gibt es als DataFrame zurück."""
+    try:
+        # 1. Datei als Bytes aus dem Supabase Storage herunterladen
+        file_bytes = supabase.storage.from_('all_games').download(filename)
+
+        # 2. Bytes in einen Stream umwandeln, den Pandas lesen kann
+        csv_buffer = io.BytesIO(file_bytes)
+
+        # 3. Als DataFrame einlesen
+        df = pd.read_csv(csv_buffer)
+
+        print(f"✅ Backup '{filename}' erfolgreich aus Supabase geladen! ({len(df)} Zeilen)")
+        return df
+
+    except Exception as e:
+        print(f"❌ Fehler beim Laden des Backups aus Supabase: {e}")
+        return None
+
+
 def process_supabase_rounds(supabase_rows):
     """Verarbeitet die Supabase-Runden. Nutzt die Mapping-Dicts aus dem st.session_state."""
     if not supabase_rows:
@@ -547,6 +576,38 @@ def process_supabase_rounds(supabase_rows):
         final_df.insert(0, "Spielnummer", range(1, len(final_df) + 1))
 
     return final_df
+
+def backup_process_data():
+    """Holt die frischen Daten aus der DB, transformiert sie und überschreibt das Backup."""
+    try:
+        response = supabase.table("rounds").select("*").execute()
+        final_df = process_supabase_rounds(response.data)
+
+        # Sichert die fertig verarbeiteten Daten im Storage
+        backup_df_to_supabase(final_df, filename="spiele_backup.csv")
+
+        # WICHTIG: Wenn sich das Backup ändert, müssen wir den Streamlit-Cache leeren!
+        load_df_from_supabase_backup.clear()
+        print("🔄 Backend: Daten verarbeitet, Backup aktualisiert und Cache geleert.")
+    except Exception as e:
+        print(f"❌ Fehler im Backup-Prozess: {e}")
+
+
+# =====================================================================
+# 2. DATA LOADING & CACHING (Für die UI)
+# =====================================================================
+
+@st.cache_data(ttl=600)  # Daten für 10 Minuten im RAM behalten
+def load_df_from_supabase_backup(filename="spiele_backup.csv"):
+    """Lädt das CSV-Backup blitzschnell aus dem Supabase Storage."""
+    try:
+        file_bytes = supabase.storage.from_('all_games').download(filename)
+        csv_buffer = io.BytesIO(file_bytes)
+        df = pd.read_csv(csv_buffer)
+        return df
+    except Exception as e:
+        st.error(f"Fehler beim Laden der Spieldaten: {e}")
+        return None
 
 
 

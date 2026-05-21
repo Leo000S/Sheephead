@@ -9,7 +9,6 @@ def log_event(level: str, message: str, details: dict = None):
     Levels: 'INFO', 'WARNING', 'ERROR'
     """
     try:
-        # Versuche die aktuell gespeicherte User-ID aus dem Session State zu holen
         user_id = st.session_state.get("current_user_id", None)
 
         log_entry = {
@@ -23,8 +22,6 @@ def log_event(level: str, message: str, details: dict = None):
         supabase.table("app_logs").insert(log_entry).execute()
 
     except Exception as e:
-        # WICHTIG: Wenn das Logging fehlschlägt, darf nicht die ganze App abstürzen!
-        # Daher loggen wir es hier nur stumpf in die Server-Konsole.
         print(f"CRITICAL: Logging fehlgeschlagen: {e}: #{message}#")
 
 url = st.secrets["SUPABASE_URL"]
@@ -57,7 +54,6 @@ def init_global_user_data():
             if user_response.user:
                 u_id = user_response.user.id
                 st.session_state.current_user_id = u_id
-                # Username aus dem frisch gebauten Dict holen
                 st.session_state.current_username = st.session_state.id_to_username.get(u_id, "Unbekannt")
             else:
                 st.session_state.current_user_id = None

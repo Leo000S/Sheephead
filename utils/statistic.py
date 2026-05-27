@@ -80,6 +80,7 @@ def run_statistics():
             tournament=tournament_filter
         )
 
+
         spieler_stats = analyse_all_players(df_result, namen, MinSpiele)
         if spieler_stats != {}:
             overview = analyse_different_stats(spieler_stats, Punkteart, show=True)

@@ -72,7 +72,15 @@ def analyze_single_player(player, df, MinSpiele):
     """Analysiert die Daten für einen einzelnen Spieler (reine Strings)."""
 
     # 1. Filter: Spiele, bei denen der Spieler am Tisch saß (als String-Suche)
-    df_player = df[df["Mitspieler_Runde"].str.contains(player, regex=False, na=False)].copy()
+    def player_in_row(cell):
+        try:
+            liste = ast.literal_eval(cell) if isinstance(cell, str) else cell
+            return player in liste
+        except:
+            return False
+
+    df_player = df[df["Mitspieler_Runde"].apply(player_in_row)].copy()
+
     # Kriterien für Mindestspiele prüfen
     if df_player.empty or len(df_player) < MinSpiele:
         return None
@@ -93,7 +101,9 @@ def analyze_single_player(player, df, MinSpiele):
         ].copy()
 
     anzahl_spielmacher = len(df_player_s)
-    anteil_spielmacher = (anzahl_spielmacher / spiele_len * 100) if spiele_len > 0 else 0
+    anzahl_ramsch = len(df_player[(df_player["Spielart"] == "Ramsch")].copy())
+    spiele_len_minus_ramsch = spiele_len - anzahl_ramsch
+    anteil_spielmacher = (anzahl_spielmacher / spiele_len_minus_ramsch * 100) if spiele_len_minus_ramsch > 0 else 0
 
     # Punkte für die Runden als Spielmacher berechnen (falls vorhanden)
     if not df_player_s.empty:
@@ -149,7 +159,6 @@ def analyse_all_players(df, all_players, MinSpiele):
     for player in all_players:
         # Aufruf der ausgelagerten Funktion
         player_stat = analyze_single_player(player, df, MinSpiele)
-
         # Nur speichern, wenn der Spieler genug Spiele hatte (nicht None ist)
         if player_stat is not None:
             spieler_stats[player] = player_stat
@@ -517,22 +526,20 @@ def process_supabase_rounds(supabase_rows):
         runden_ts = row.get("created_at")
         games_list = data.get("spiele", [])
 
-        # --- Namen für die gesamte Runde vorab bestimmen ---
+        # --- SCHRITT 1: Übersetzungs-Hilfe für diese Runde bauen ---
         mitspieler_raw = data.get("spieler", [])  # [["Name_Alt", "ID"], ...]
 
-        runden_ids = []
-        runden_namen_aktuell = []
-
+        # Ein kleines Wörterbuch, um von JEDEM bekannten Namen (alt oder neu) zur ID zu kommen
+        name_zu_id = {}
         for s in mitspieler_raw:
             if isinstance(s, list) and len(s) >= 2:
-                uid = s[1]
-                runden_ids.append(uid)
-                # Prio 1: Aktueller Name aus der DB (Session State), Prio 2: Alter Name aus Datei
-                runden_namen_aktuell.append(id_to_name.get(uid, s[0]))
-            else:
-                runden_ids.append(None)
-                runden_namen_aktuell.append(s)
+                alt_name, uid = s[0], s[1]
+                aktueller_name = id_to_name.get(uid, alt_name)
 
+                name_zu_id[alt_name] = uid
+                name_zu_id[aktueller_name] = uid
+
+        # --- SCHRITT 2: Durch die Spiele gehen ---
         for game in games_list:
             game_ts = game.get("Zeitstempel", runden_ts)
             while game_ts in seen_game_timestamps:
@@ -540,12 +547,36 @@ def process_supabase_rounds(supabase_rows):
             game["Zeitstempel"] = game_ts
             seen_game_timestamps.add(game_ts)
 
+            # Wer hat an DIESEM Spiel tatsächlich teilgenommen? (Garantiert immer 4)
+            tatsaechliche_mitspieler = game.get("Mitspieler_Runde", [])
+
+            # Sicherheitsnetz: Falls es als String-Text in der DB lag, parsen
+            if isinstance(tatsaechliche_mitspieler, str):
+                try:
+                    tatsaechliche_mitspieler = ast.literal_eval(tatsaechliche_mitspieler)
+                except:
+                    tatsaechliche_mitspieler = []
+
+            # Jetzt filtern wir IDs und aktuelle Namen für genau diese 4 Spieler
+            spiel_ids = []
+            spiel_namen_aktuell = []
+
+            for name in tatsaechliche_mitspieler:
+                st.write(name)
+                uid = name[1] # ID holen
+                spiel_ids.append(uid)
+                # Aktuellsten Namen aus st.session_state holen (Fallback auf den vorhandenen Namen)
+                spiel_namen_aktuell.append(id_to_name.get(uid, name))
+
+            st.write(len(spiel_ids))
+
+            # Spieldaten mit den exakten 4 Spielern aktualisieren
             game.update({
                 "tournament": data.get("tournament"),
                 "runden_timestamp": data.get("runden_timestamp", runden_ts),
                 "start_info": data.get("start_info", ""),
-                "Mitspieler_Runde": runden_namen_aktuell,
-                "MitspielerRundeIds": runden_ids
+                "Mitspieler_Runde": spiel_namen_aktuell,  # Nur die aktuellen 4 Namen!
+                "MitspielerRundeIds": spiel_ids  # Nur die aktuellen 4 IDs!
             })
 
             # --- Spielmacher Zuordnung ---
@@ -577,27 +608,27 @@ def process_supabase_rounds(supabase_rows):
 
     return final_df
 
+
 def backup_process_data():
     """Holt die frischen Daten aus der DB, transformiert sie und überschreibt das Backup."""
-    try:
-        response = supabase.table("rounds").select("*").execute()
-        final_df = process_supabase_rounds(response.data)
 
-        # Sichert die fertig verarbeiteten Daten im Storage
-        backup_df_to_supabase(final_df, filename="spiele_backup.csv")
+    response = supabase.table("rounds").select("*").execute()
+    final_df = process_supabase_rounds(response.data)
 
-        # WICHTIG: Wenn sich das Backup ändert, müssen wir den Streamlit-Cache leeren!
-        load_df_from_supabase_backup.clear()
-        print("🔄 Backend: Daten verarbeitet, Backup aktualisiert und Cache geleert.")
-    except Exception as e:
-        print(f"❌ Fehler im Backup-Prozess: {e}")
+    # Sichert die fertig verarbeiteten Daten im Storage
+    backup_df_to_supabase(final_df, filename="spiele_backup.csv")
+
+    # WICHTIG: Wenn sich das Backup ändert, müssen wir den Streamlit-Cache leeren!
+    load_df_from_supabase_backup.clear()
+    print("🔄 Backend: Daten verarbeitet, Backup aktualisiert und Cache geleert.")
+
 
 
 # =====================================================================
 # 2. DATA LOADING & CACHING (Für die UI)
 # =====================================================================
 
-@st.cache_data(ttl=600)  # Daten für 10 Minuten im RAM behalten
+@st.cache_data(ttl=60)  # Daten für 10 Minuten im RAM behalten
 def load_df_from_supabase_backup(filename="spiele_backup.csv"):
     """Lädt das CSV-Backup blitzschnell aus dem Supabase Storage."""
     try:

@@ -138,7 +138,8 @@ def load_open_rounds():
 def save_round(st):
     data = {
         "runden_timestamp": st.session_state.runden_timestamp,
-        "tournament": st.session_state.tournament,
+        "tournament": st.session_state.tournament_name,
+        "groupname": st.session_state.groupname,
         "User": st.session_state.current_user_id,
         "start_info": st.session_state.start_info,
         "ende_info": st.session_state.ende,
@@ -161,7 +162,8 @@ def update_round(st):
     # Das Daten-Objekt für die Spalte "data"
     data = {
         "runden_timestamp": st.session_state.runden_timestamp,
-        "tournament": st.session_state.tournament,
+        "tournament": st.session_state.tournament_name,
+        "groupname" : st.session_state.groupname,
         "User": st.session_state.current_user_id,
         "start_info": st.session_state.start_info,
         "ende_info": st.session_state.ende,

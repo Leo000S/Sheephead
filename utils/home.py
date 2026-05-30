@@ -9,13 +9,13 @@ def home(user):
     with col1:
         st.subheader("Neuigkeiten")
         st.write("""
-        *   **Nächstes Turnier:** 25. Mai 2026!
-        *   **App-Status:** Wir sind jetzt in einer Art Beta-Phase, Fehler gerne melden.
+        *   **Nächstes Turnier:** ??. ?? 2026!
+        *   **App-Status:** Es kommt imme rmher dazu, bei Fehlern gerne melden.
         """)
 
     with col2:
-        st.caption("Besitzer des Wanderpokals seit: 12.04.2026")
-        st.write("Ben - *Ehre, wem Ehre gebührt!*")
+        st.caption("Besitzer des Wanderpokals seit: 25.05.2026")
+        st.write("Davina - *Ehre, wem Ehre gebührt!*")
 
     st.divider()
 
@@ -23,7 +23,7 @@ def home(user):
     st.subheader("Nächste Termine")
     t1, t2, t3 = st.columns(3)
     t1.metric("Stammtisch", "Jeden ??.")
-    t2.metric("Nächstes Turnier", "25. Mai, bei Schallers")
+    t2.metric("Nächstes Turnier", "??")
     t3.metric("Großes Turnier", "23. Dezember in der Augsburger Stadtbücherei")
     st.divider()
 

@@ -40,6 +40,8 @@ def init_global_user_data():
             profiles = res.data if res.data else []
 
             # Die beiden gewünschten Lookup-Dicts bauen
+            st.session_state.user_ids = [p["user_id"] for p in profiles]
+            st.session_state.usernames = [p["username"] for p in profiles]
             st.session_state.id_to_username = {p["user_id"]: p["username"] for p in profiles}
             st.session_state.username_to_id = {p["username"]: p["user_id"] for p in profiles}
         except Exception as e:

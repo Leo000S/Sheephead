@@ -6,6 +6,20 @@ from utils.login_and_registration import login_and_registration
 from utils.profile import profile_menu
 from utils.home import home
 from utils.player_statistic import run_player_statistics
+from utils.groups import group_menu
+
+
+def aktualisiere_alle_spieler_gruppe():
+    try:
+        alle_spieler_ids = st.session_state.user_ids
+        # 2. Überschreibe die 'members'-Liste der Gruppe "Alle" mit der Gesamtliste
+        supabase.table("groups") \
+            .update({"members": alle_spieler_ids}) \
+            .eq("groupname", "Alle") \
+            .execute()
+
+    except Exception as e:
+        print(f"Fehler beim Synchronisieren der 'Alle'-Gruppe: {e}")
 
 
 if "session" in st.session_state:
@@ -36,13 +50,14 @@ if st.session_state.user is None:
 else:
     user = st.session_state.user
     init_global_user_data()
+    aktualisiere_alle_spieler_gruppe()
     # -----------------------------
     # SIDEBAR NAVIGATION
     # -----------------------------
     st.sidebar.title("Menü")
     menu = st.sidebar.radio(
         "Navigation",
-        ["Home", "Profile", "Sheephead-Book", "Sheephead-Statistic", "Personal-Statistic", "Logout"]
+        ["Home", "Profile", "Groups", "Sheephead-Book", "Sheephead-Statistic", "Personal-Statistic", "Logout"]
     )
 
     # =====================================
@@ -56,6 +71,12 @@ else:
     # =====================================
     elif menu == "Profile":
         profile_menu(user)
+
+    # =====================================
+    # Gruppe
+    # =====================================
+    elif menu == "Groups":
+        group_menu(user)
 
     # =====================================
     # SPACE 1

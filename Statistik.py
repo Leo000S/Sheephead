@@ -260,24 +260,40 @@ def filter_spiele(
     namen=None,
     spielarten=None,
     tournament=None,
- ):
+    modus=False  # Wenn True, müssen ALLE Spieler der Runde aus 'namen' sein
+):
     df_f = df.copy()
 
     if namen:
-        df_f = df_f[
-            df_f["Mitspieler_Runde"].apply(
-                lambda spieler_liste:
-                any(
-                    n == s
-                    for n in namen
-                    for s in (
-                        ast.literal_eval(spieler_liste)
-                        if isinstance(spieler_liste, str)
-                        else spieler_liste
+        if modus == True:
+            # NEUER MODUS: Alle Spieler (s) der Runde müssen im namen-Pool existieren
+            df_f = df_f[
+                df_f["Mitspieler_Runde"].apply(
+                    lambda spieler_liste: all(
+                        s in namen
+                        for s in (
+                            ast.literal_eval(spieler_liste)
+                            if isinstance(spieler_liste, str)
+                            else spieler_liste
+                        )
                     )
                 )
-            )
-        ]
+            ]
+        else:
+            df_f = df_f[
+                df_f["Mitspieler_Runde"].apply(
+                    lambda spieler_liste: any(
+                        n == s
+                        for n in namen
+                        for s in (
+                            ast.literal_eval(spieler_liste)
+                            if isinstance(spieler_liste, str)
+                            else spieler_liste
+                        )
+                    )
+                )
+            ]
+
     # --- Spielart ---
     if spielarten and "alle" not in spielarten:
         df_f = df_f[df_f["Spielart"].isin(spielarten)]
@@ -285,7 +301,6 @@ def filter_spiele(
     # --- Tournament ---
     if tournament:
         df_f = df_f[df_f["tournament"].isin(tournament)]
-
 
     return df_f
 
@@ -511,6 +526,7 @@ def process_supabase_rounds(supabase_rows):
     """Verarbeitet die Supabase-Runden. Nutzt die Mapping-Dicts aus dem st.session_state."""
     if not supabase_rows:
         return pd.DataFrame()
+    print(10*"\n")
 
     # Lokale Referenz auf das globale Mapping für schnelleren Zugriff
     id_to_name = st.session_state.id_to_username
@@ -562,14 +578,8 @@ def process_supabase_rounds(supabase_rows):
             spiel_namen_aktuell = []
 
             for name in tatsaechliche_mitspieler:
-                st.write(name)
-                uid = name[1] # ID holen
-                spiel_ids.append(uid)
-                # Aktuellsten Namen aus st.session_state holen (Fallback auf den vorhandenen Namen)
-                spiel_namen_aktuell.append(id_to_name.get(uid, name))
-
-            st.write(len(spiel_ids))
-
+                spiel_ids.append(name[1])
+                spiel_namen_aktuell.append(name[0])
             # Spieldaten mit den exakten 4 Spielern aktualisieren
             game.update({
                 "tournament": data.get("tournament"),

@@ -49,7 +49,7 @@ def run_statistics():
 
     OhneKlopfen = st.sidebar.checkbox("Soll das Klopfen herausgerechnent werden?")
 
-    # exclude_strangers = st.sidebar.checkbox("Nur Spiele mit ausgewählten SpielerInnen")
+    OnlyNames = st.sidebar.checkbox("Nur Runden mit den ausgewählten SpielerInnen")
 
     Punkteberechnung = st.sidebar.selectbox("Berechnung der Punkte", options = ["Normal", "Würzburg"])
 
@@ -77,7 +77,8 @@ def run_statistics():
             df,
             namen=namen if namen else None,
             spielarten=spielarten if spielarten else None,
-            tournament=tournament_filter
+            tournament=tournament_filter,
+            modus = OnlyNames
         )
 
 

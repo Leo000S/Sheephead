@@ -2,27 +2,87 @@ import streamlit as st
 import pandas as pd
 from datetime import datetime
 
-from TurnierAuswahl import Turnier_Auswahl
 from SheepHeadBook import spielwert_bestimmen_wue
 from SheepHeadBook import spielwert_bestimmen_normal
 from SheepHeadBook import (berechne_statistik)
 from SheepHeadBook import load_open_rounds
 from SheepHeadBook import update_round
 from SheepHeadBook import save_round
-from SpieleAuswahl import Aux, Wue, AllR, Standard
-from services.supabase_client import log_event
+from services.supabase_client import log_event, supabase
+import json
+
+
+def hole_alle_gruppennamen() -> list:
+    """
+    Fragt die Tabelle 'groups' ab und gibt eine Liste aller Gruppennamen zurück.
+    """
+    try:
+        # Nur die Spalte 'groupname' abfragen, um Datenverkehr zu minimieren
+        res = supabase.table("groups").select("groupname").execute()
+
+        if res.data:
+            # Liste aus den Dictionaries extrahieren
+            return [g["groupname"] for g in res.data]
+        return []
+
+    except Exception as e:
+        print(f"Fehler beim Laden der Gruppennamen: {e}")
+        return []
+
+def hole_alle_turniere(groupname: str) -> list:
+    """
+    Lädt alle Turniere einer Gruppe aus Supabase und parst die JSON-Strings.
+    Gibt eine Liste von Dictionaries zurück.
+    """
+    try:
+        # Spalte 'tournaments' für die entsprechende Gruppe abfragen
+        result = supabase.table("groups").select("tournaments").eq("groupname", groupname).execute()
+
+        if not result.data:
+            return []
+
+        rohe_liste = result.data[0].get("tournaments") or []
+
+        # Sicherheitsnetz, falls ein einzelner String statt einer Liste zurückkommt
+        if isinstance(rohe_liste, str):
+            rohe_liste = [rohe_liste] if rohe_liste else []
+
+        # JSON-Strings in echte Python-Dicts umwandeln
+        turniere = []
+        for t_raw in rohe_liste:
+            try:
+                turniere.append(json.loads(t_raw))
+            except json.JSONDecodeError:
+                pass  # Ignoriert fehlerhafte Einträge
+
+        return turniere
+
+    except Exception as e:
+        print(f"Fehler beim Auslesen der Turniere: {e}")
+        return []
+
+
+def hole_aktuell_aktives_turnier(groupname: str) -> dict or None:
+    """
+    Sucht aus allen Turnieren der Gruppe das heraus, das am heutigen Tag aktiv ist.
+    Gibt das Turnier-Dict zurück oder None, wenn kein Turnier läuft.
+    """
+    turniere = hole_alle_turniere(groupname)
+    heute_str = datetime.now().strftime("%Y%m%d")  # Format: YYYYMMDD
+
+    for t in turniere:
+        zeitraum = t.get("zeitraum", "")
+        if "_" in zeitraum:
+            start_tag, end_tag = zeitraum.split("_")
+            # Text-Vergleich (funktioniert bei YYYYMMDD perfekt)
+            if start_tag <= heute_str <= end_tag:
+                return t
+
+    return None
 
 def resolve_restrictions(tournament):
-    restrictions = Standard
-    if tournament[0:3] == "Aux":
-        restrictions = Aux
-    if tournament[0:12] == "Ak-Schafkopf":
-        restrictions = Wue
-    if tournament == "Gesamtstatistik":
-        restrictions = Standard
-    if tournament == "Allgäuer-Rundn":
-        restrictions = AllR
-
+    restrictions = tournament["restrictions"]
+    st.write(restrictions)
     st.session_state.SPIELWERTE = restrictions[0]
     st.session_state.KLOPFEN = restrictions[1]
     st.session_state.TOUT = restrictions[2]
@@ -79,7 +139,8 @@ def run_book():
                 st.session_state.spiele = runde_daten.get("spiele", [])
                 st.session_state.anzahl = len(st.session_state.spieler)
                 st.session_state.start_info = runde_daten.get("start_info", "")
-                st.session_state.tournament = runde_daten.get("tournament", "")
+                st.session_state.tournament_name = runde_daten.get("tournament", "")
+                st.session_state.groupname = runde_daten.get("groupname", "")
                 st.session_state.runde_aktiv = True
 
                 # Hintergrundeinstellungen:
@@ -97,18 +158,59 @@ def run_book():
     #########################################################################################
 
         # Spieleranzahl muss außerhalb des Forms liegen!
+        alle_gruppen = supabase.table("groups").select("*").execute().data
+        groupnames = hole_alle_gruppennamen()
+        st.session_state.groupname = st.selectbox("Welche Gruppe spielt?", groupnames)
+        Turnier_Komplett = hole_alle_turniere(st.session_state.groupname)
+
+        # Extrahiert den Namen aus jedem Turnier-Dictionary
+        Turnier_Auswahl = [t["name"] for t in Turnier_Komplett]
         anzahl = st.number_input("Wie viele SpielerInnen?", min_value=4, max_value=7, value=4, key="anzahl_spieler")
-        tournament = st.selectbox("Welche Turnierstatistik soll gefüllt werden?", Turnier_Auswahl)
+
+        tournament_name = st.selectbox("Welche Turnierstatistik soll gefüllt werden?", Turnier_Auswahl)
+
+        # 2. Wenn ein Turnier ausgewählt wurde, das komplette Dict im Session State speichern
+        if tournament_name:
+            gewaehltes_turnier_dict = next(
+                t for t in Turnier_Komplett
+                if t["name"] == tournament_name
+            )
+            st.session_state.tournament = gewaehltes_turnier_dict
+        else:
+            # Sicherheitsnetz: Wenn kein Turnier gewählt ist, State leeren
+            st.session_state.tournament = None
 
         Start_Info = st.text_input("Infos zur Tischrundn (optional):")
 
         with st.form("runde_start"):
             st.write("Wählt die SpielerInnen aus!")
-            spieler = []
+            # 1. Daten der aktuellen Gruppe holen, um an die 'members'-Liste zu kommen
+            aktuelle_gruppe = next((g for g in alle_gruppen if g["groupname"] == st.session_state.groupname), None)
+            gruppen_mitglieder_ids = aktuelle_gruppe.get("members", []) if aktuelle_gruppe else []
 
+            # 2. Die Namensliste filtern: Nur Usernamen zulassen, deren ID in der Gruppe ist
+            erlaubte_gruppen_spieler = [
+                name for name, uid in st.session_state.username_to_id.items()
+                if uid in gruppen_mitglieder_ids
+            ]
+
+            # Falls die Gruppe (z.B. bei Fehlern) leer ist, Fallback auf alle Spieler, um Abstürze zu verhindern
+            if not erlaubte_gruppen_spieler:
+                erlaubte_gruppen_spieler = list(st.session_state.username_to_id.keys())
+
+            # 3. Das UI-Loop mit der gefilterten Liste ausgeben
+            spieler = []
             for i in range(st.session_state.anzahl_spieler):
-                default_index = i
-                auswahl = st.selectbox(f"Spieler {i+1}:", list(st.session_state.username_to_id.keys()), index=default_index, key=f"spieler_{i}" )
+                # Sicherheitscheck für den default_index (falls weniger Gruppenmitglieder als anzahl_spieler da sind)
+                default_index = i if i < len(erlaubte_gruppen_spieler) else 0
+
+                auswahl = st.selectbox(
+                    f"Spieler {i + 1}:",
+                    options=erlaubte_gruppen_spieler,  # 🎯 Hier greift jetzt die gefilterte Liste
+                    index=default_index,
+                    key=f"spieler_{i}"
+                )
+
                 auswahl_id = st.session_state.username_to_id[auswahl]
                 spieler.append([auswahl, auswahl_id])
             user_ids = [s[1] for s in spieler]
@@ -125,10 +227,10 @@ def run_book():
                     st.session_state.anzahl = anzahl #
                     st.session_state.runde_aktiv = True #
                     st.session_state.start_info = Start_Info #
-                    st.session_state.tournament = tournament #
+                    st.session_state.tournament_name = tournament_name #
 
                     # Hintergrundeinstellung der Runde
-                    resolve_restrictions(tournament)
+                    resolve_restrictions(st.session_state.tournament)
                     save_round(st)
                     log_event(
                         level="INFO",
@@ -447,34 +549,33 @@ def run_book():
                         st.toast(f"Spiel #{selected_nr} ({art} von {sm}) gelöscht!")  # Dezentes Feedback oben rechts
                         st.rerun()
 
-        # --- Runde beenden ---
-        if st.button("🔚 Beende die Tischrundn?"):
-            st.session_state.show_confirm_dialog = True
+        # 1. Die Dialog-Funktion definieren (ganz normal auf der Hauptebene deines Codes, NICHT in einem if)
+        @st.dialog("Tischrundn wirklich beenden?")
+        def confirm_end_dialog():
+            st.write("Willst du die Tischrundn wirklich beenden?")
 
-        if st.session_state.get("show_confirm_dialog", False):
-
-            @st.dialog("Tischrundn wirklich beenden?")
-            def confirm_end_dialog():
-                st.write("Willst du die Tischrundn wirklich beenden?")
-
-                if st.button("Ja, beenden"):
+            c1, c2 = st.columns(2)
+            with c1:
+                if st.button("Ja, beenden", type="primary", use_container_width=True):
                     st.session_state.ende = True
                     update_round(st)
                     st.session_state.runde_aktiv = False
                     st.session_state.spiele = []
                     st.session_state.spieler = []
-                    st.session_state.show_confirm_dialog = False
 
-                    st.success("Tischrundn beendet !!!")
                     log_event(
                         level="INFO",
                         message=f"round finished by {st.session_state.current_username}",
                         details={"user": st.session_state.current_username}
                     )
+                    # st.success anzeigen und direkt neu laden
+                    st.toast("🟢 Tischrundn erfolgreich beendet!")
                     st.rerun()
 
-                if st.button("Nein, zurück"):
-                    st.session_state.show_confirm_dialog = False
-                    st.rerun()
+            with c2:
+                if st.button("Nein, zurück", use_container_width=True):
+                    st.rerun()  # Schließt den Dialog automatisch durch den Rerun
 
-        
+        # 2. Der Button, der den Dialog einfach direkt aufruft
+        if st.button("🔚 Beende die Tischrundn?"):
+            confirm_end_dialog()

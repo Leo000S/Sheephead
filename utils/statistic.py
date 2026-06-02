@@ -2,6 +2,7 @@
 import streamlit as st
 from Statistik import backup_process_data, load_df_from_supabase_backup, analyse_all_players, analyse_different_stats, filter_spiele, plot_stats_streamlit, group_in_usernames
 from services.supabase_client import supabase
+from utils.book import hole_alle_turniere
 
 # =====================================================================
 # 3. STREAMLIT UI
@@ -28,24 +29,29 @@ def run_statistics():
         st.rerun()
 
     alle_spielarten = sorted(df["Spielart"].dropna().unique())
-    alle_tournaments = sorted(df["tournament"].dropna().unique())
+
+    # 1. Alle Gruppen aus der DB holen
+    alle_gruppen = supabase.table("groups").select("groupname, members").execute().data
+    group = st.sidebar.selectbox(
+        "Gruppe",
+        options=["Alle Gruppen"] + alle_gruppen,
+        format_func=lambda g: g["groupname"] if isinstance(g, dict) else g
+    )
+
     alle_spieler = list(st.session_state.id_to_username.values())
-
     namen_einzel = st.sidebar.multiselect("SpielerInnen", options=alle_spieler)
-
-    # Hier nutzen wir nun unser dynamisches Dictionary
-    DYNA_GRUPPEN = group_in_usernames()
-    gruppen_auswahl = st.sidebar.multiselect("Gruppen", options=list(DYNA_GRUPPEN.keys()))
-
     namen = set(namen_einzel)
-    for gruppe in gruppen_auswahl:
-        namen.update(DYNA_GRUPPEN[gruppe])
+    tournament = "alle Turniere"
+    if group != "Alle Gruppen":
+        gruppen_mitglieder_ids = group["members"] if group else []
+        erlaubte_spieler = [ name for name, uid in st.session_state.username_to_id.items() if uid in gruppen_mitglieder_ids ]
+        namen.update(erlaubte_spieler)
+        namen = list(namen)
+        Turnier_Komplett = hole_alle_turniere(group["groupname"])
+        Turnier_Auswahl = [t["name"] for t in Turnier_Komplett]
+        tournament = st.sidebar.selectbox("Turnier", options=["alle Turniere"] + Turnier_Auswahl)
 
-    namen = list(namen)
-
-    spielarten = st.sidebar.multiselect("Spielart", options= ["alle"] + alle_spielarten)
-
-    tournament = st.sidebar.selectbox("Turnier", options=["alle"] + alle_tournaments)
+    spielarten = st.sidebar.multiselect("Spielart", options=["alle"] + alle_spielarten)
 
     OhneKlopfen = st.sidebar.checkbox("Soll das Klopfen herausgerechnent werden?")
 
@@ -68,7 +74,7 @@ def run_statistics():
 
     tournament_filter = (
         [t for t in df["tournament"].unique() if t != "Allgäuer-Rundn"]
-        if tournament == "alle"
+        if tournament == "alle Turniere"
         else [tournament]
     )
 
@@ -76,6 +82,7 @@ def run_statistics():
         df_result = filter_spiele(
             df,
             namen=namen if namen else None,
+            group=[group["groupname"]] if group != "Alle Gruppen" else None,
             spielarten=spielarten if spielarten else None,
             tournament=tournament_filter,
             modus = OnlyNames
@@ -89,6 +96,7 @@ def run_statistics():
             plot_stats_streamlit(spieler_stats, KeyKumulativ)
 
         else:
+
             st.write("⬅️ Bitte wähle SpielerInnen aus!")
 
     else:

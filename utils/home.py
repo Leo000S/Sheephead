@@ -10,7 +10,7 @@ def home(user):
         st.subheader("Neuigkeiten")
         st.write("""
         *   **Nächstes Turnier:** ??. ?? 2026!
-        *   **App-Status:** Es kommt imme rmher dazu, bei Fehlern gerne melden.
+        *   **App-Status:** Es kommen immer mehr Funktionen dazu, bei Fehlern gerne melden.
         """)
 
     with col2:
@@ -19,12 +19,21 @@ def home(user):
 
     st.divider()
 
-    # Termine & Kalender
     st.subheader("Nächste Termine")
-    t1, t2, t3 = st.columns(3)
-    t1.metric("Stammtisch", "Jeden ??.")
-    t2.metric("Nächstes Turnier", "??")
-    t3.metric("Großes Turnier", "23. Dezember in der Augsburger Stadtbücherei")
+
+    t1, t2 = st.columns(2)
+
+    with t1:
+        st.markdown('<p style="font-size:14px; margin-bottom:0px; color:gray;">Großes Turnier</p>',
+                    unsafe_allow_html=True)
+        st.markdown('<p style="font-size:18px; font-weight:bold;">23.12 in der Augsburger Stadtbücherei</p>',
+                    unsafe_allow_html=True)
+
+    with t2:
+        st.markdown('<p style="font-size:14px; margin-bottom:0px; color:gray;">Nächstes Turnier</p>',
+                    unsafe_allow_html=True)
+        st.markdown('<p style="font-size:24px; font-weight:bold;">??</p>', unsafe_allow_html=True)
+
     st.divider()
 
     # Was dir noch einfallen könnte (Vorschlag: Statistiken oder Zitate)

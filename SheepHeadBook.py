@@ -141,7 +141,6 @@ def save_round(st):
         "tournament": st.session_state.tournament_name,
         "groupname": st.session_state.groupname,
         "User": st.session_state.current_user_id,
-        "start_info": st.session_state.start_info,
         "ende_info": st.session_state.ende,
         "spieler": st.session_state.spieler,
         "spiele": st.session_state.spiele
@@ -165,7 +164,6 @@ def update_round(st):
         "tournament": st.session_state.tournament_name,
         "groupname" : st.session_state.groupname,
         "User": st.session_state.current_user_id,
-        "start_info": st.session_state.start_info,
         "ende_info": st.session_state.ende,
         "spieler": st.session_state.spieler,
         "spiele": st.session_state.spiele

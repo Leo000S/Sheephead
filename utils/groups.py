@@ -12,6 +12,19 @@ def ist_admin_oder_boss(group_data, user_id):
     admins = group_data.get("admins") or []
     return user_id == group_data["boss"] or user_id in admins
 
+def update_group_alle():
+    try:
+        alle_spieler_ids = st.session_state.user_ids
+        # 2. Überschreibe die 'members'-Liste der Gruppe "Alle" mit der Gesamtliste
+        supabase.table("groups") \
+            .update({"members": alle_spieler_ids}) \
+            .eq("groupname", "Alle") \
+            .execute()
+
+    except Exception as e:
+        print(f"Fehler beim Synchronisieren der 'Alle'-Gruppe: {e}")
+
+
 def group_menu(user):
     st.header("Gruppen- & Rechteverwaltung")
 
@@ -30,7 +43,7 @@ def group_menu(user):
             g_name = st.text_input("Name der Schafkopf-Runde")
             if st.form_submit_button("Gründen") and g_name:
                 if supabase.table("groups").select("groupname").eq("groupname", g_name).execute().data:
-                    st.error("Name existiert bereits.")
+                    st.error("Gruppenname existiert bereits.")
                 else:
                     # Wir initialisieren leere Admins und den Boss als erstes Mitglied
                     supabase.table("groups").insert({
@@ -78,7 +91,7 @@ def group_menu(user):
                 .execute().data
 
             if not anfragen:
-                st.write("_Keine offenen Anfragen vorhanden._")
+                st.write("Keine offenen Anfragen vorhanden")
             else:
                 for req in anfragen:
                     from datetime import datetime
@@ -94,12 +107,12 @@ def group_menu(user):
                             neue_m_liste = aktuelle_mitglieder + [antragsteller_id]
                             supabase.table("groups").update({"members": neue_m_liste}).eq("groupname", sel_g).execute()
                         supabase.table("group_requests").update({"status": "accepted"}).eq("id", req["id"]).execute()
-                        st.toast(f"⏳ 10 Tage abgelaufen: {antragsteller_name} wurde automatisch aufgenommen!")
+                        st.toast(f"10 Tage abgelaufen: {antragsteller_name} wurde automatisch aufgenommen!")
                         st.rerun()
 
                     # Normale manuelle Freigabe/Ablehnung
                     c1, c2, c3 = st.columns([2, 1, 1])
-                    c1.write(f"🃏 **{antragsteller_name}** *(Anfrage vor {tage_alt} Tagen)*")
+                    c1.write(f"**{antragsteller_name}** *(Anfrage vor {tage_alt} Tagen)*")
 
                     if c2.button("Annehmen ✅", key=f"acc_{req['id']}"):
                         if antragsteller_id not in aktuelle_mitglieder:
@@ -113,7 +126,7 @@ def group_menu(user):
                         st.rerun()
 
             # --- MITGLIEDERLISTE & ROLLENVERGABE ---
-            st.write(f"### 👥 Mitglieder ({len(aktuelle_mitglieder)})")
+            st.write(f"### Mitglieder ({len(aktuelle_mitglieder)})")
             for m_id in aktuelle_mitglieder:
                 c1, c2, c3 = st.columns([2, 1, 1])
 
@@ -124,7 +137,7 @@ def group_menu(user):
                 elif m_id in aktuelle_admins:
                     rolle = " 🛡️ (Admin)"
 
-                c1.write(f"🃏 {all_p.get(m_id, 'Unbekannt')}{rolle}")
+                c1.write(f"{all_p.get(m_id, 'Unbekannt')}{rolle}")
 
                 # Rechteverwaltung (Nur der Gründer/Boss darf Admins ernennen oder Kicken)
                 if ist_mein_boss and m_id != user.id:
@@ -134,7 +147,7 @@ def group_menu(user):
                             supabase.table("groups").update({"admins": neue_ads}).eq("groupname", sel_g).execute()
                             st.rerun()
                     else:
-                        if c2.button("Zum Admin befördern 👑", key=f"prom_{m_id}"):
+                        if c2.button("Zum Admin befördern 🛡️", key=f"prom_{m_id}"):
                             neue_ads = aktuelle_admins + [m_id]
                             supabase.table("groups").update({"admins": neue_ads}).eq("groupname", sel_g).execute()
                             st.rerun()
@@ -145,12 +158,13 @@ def group_menu(user):
                         supabase.table("groups").update({"members": neue_m, "admins": neue_a}).eq("groupname",
                                                                                                   sel_g).execute()
                         st.rerun()
+
                 else:
                     if m_id != user.id:
-                        c2.write("_Keine Rechte_")
+                        c2.write("Keine Rechte")
 
             # --- EINLADUNGEN VERSCHICKEN (Admins & Boss dürfen das) ---
-            st.write("### ✉️ Spieler in die Runde einladen")
+            st.write("Spieler in die Runde einladen")
             # Alle User herausfiltern, die weder Mitglied sind noch eine offene Einladung/Anfrage haben
             bereits_aktiv = supabase.table("group_requests").select("user_id").eq("groupname", sel_g).eq("status",
                                                                                                          "pending").execute().data
@@ -159,7 +173,7 @@ def group_menu(user):
             verfuegbare_user = {uname: uid for uid, uname in all_p.items() if uid not in blockierte_ids}
 
             if not verfuegbare_user:
-                st.write("_Alle registrierten Spieler sind bereits versorgt._")
+                st.write("Alle registrierten Spieler sind bereits versorgt.")
             else:
                 zu_einladen = st.selectbox("Spieler wählen", ["-- bitte wählen --"] + list(verfuegbare_user.keys()))
                 if st.button("Einladung abschicken") and zu_einladen != "-- bitte wählen --":
@@ -173,11 +187,38 @@ def group_menu(user):
                     st.success(f"Einladung an {zu_einladen} wurde übermittelt!")
                     st.rerun()
 
+            if st.session_state.current_username == "Leo Schaller":
+                st.write("Du bist Leo, du kannst auch einfach so Mitglieder hinzufügen!!!")
+                blockierte_ids = aktuelle_mitglieder
+                verfuegbare_user = {uname: uid for uid, uname in all_p.items() if uid not in blockierte_ids}
+
+                ausgewaehlter_name = st.selectbox(
+                    "Spieler wählen",
+                    ["-- bitte wählen --"] + list(verfuegbare_user.keys()), key=f"selectbox_add_member_{sel_g}_admin")
+                # Ein Button verhindert die unendliche st.rerun()-Schleife
+                if st.button("Spieler verbindlich hinzufügen"):
+                    if ausgewaehlter_name != "-- bitte wählen --":
+
+                        # Hier holen wir die ECHTE UUID aus dem Dictionary
+                        neue_user_id = verfuegbare_user[ausgewaehlter_name]
+
+                        # Die neue ID zu den aktuellen Mitgliedern in die Liste packen
+                        neue_mitglieder_liste = aktuelle_mitglieder + [neue_user_id]
+
+                        # Ab mit der sauberen UUID-Liste zu Supabase
+                        supabase.table("groups").update({"members": neue_mitglieder_liste}).eq("groupname",
+                                                                                               sel_g).execute()
+
+                        st.success(f"{ausgewaehlter_name} wurde erfolgreich hinzugefügt!")
+                        st.rerun()
+                    else:
+                        st.warning("Bitte wähle zuerst einen gültigen Spieler aus!")
+
             # =====================================================================
             # TAB 2.1 : Spieleinstellungen & Turniere (Komplett & Schlank)
             # =====================================================================
             st.divider()
-            st.subheader("🎚️ Spieleinstellungen & Turniere")
+            st.subheader("Spieleinstellungen & Turniere")
 
             import json
             from datetime import datetime, timedelta
@@ -198,8 +239,8 @@ def group_menu(user):
             col1, col2 = st.columns(2)
 
             with col1:
-                st.write("**🏆 Turnier-Verwaltung**")
-                turnier_optionen = ["🆕 Neues Turnier erstellen"] + [t["name"] for t in bestehende_turniere]
+                st.write("**Turnier-Verwaltung**")
+                turnier_optionen = ["🆕Neues Turnier erstellen🆕"] + [t["name"] for t in bestehende_turniere]
                 ausgewaehltes_turnier_name = st.selectbox("Turnier auswählen", options=turnier_optionen,
                                                           key=f"sel_tourney_{sel_g}")
 
@@ -208,7 +249,7 @@ def group_menu(user):
                 default_start, default_end = datetime.now().date(), datetime.now().date() + timedelta(days=14)
 
                 # Werte laden, falls ein bestehendes Turnier gewählt wurde
-                if ausgewaehltes_turnier_name != "🆕 Neues Turnier erstellen":
+                if ausgewaehltes_turnier_name != "🆕Neues Turnier erstellen🆕":
                     bearbeitungs_modus = True
                     altes_t = next(t for t in bestehende_turniere if t["name"] == ausgewaehltes_turnier_name)
                     default_name = altes_t["name"]
@@ -225,12 +266,12 @@ def group_menu(user):
                                            key=f"t_date_{sel_g}")
 
             with col2:
-                st.write("**🃏 Regelwerk & Einschränkungen**")
+                st.write("**Regelwerk & Einschränkungen**")
                 # Spezifische Restrictions holen oder auf Standard zurückgreifen
                 aktuelle_restr = altes_t.get("restrictions", Standard) if bearbeitungs_modus and altes_t else Standard
                 akt_spielwerte, akt_klopfen, akt_tout, akt_sie, akt_punkteart = aktuelle_restr
 
-                st.write("_Erlaubte Spielarten:_")
+                st.write("Erlaubte Spielarten:")
                 neue_spielwerte = {}
                 for spiel, wert in SPIELWERTE.items():
                     if st.checkbox(spiel, value=(spiel in akt_spielwerte), key=f"chk_{spiel}_{sel_g}"):
@@ -256,9 +297,9 @@ def group_menu(user):
 
                     with col1:
                         if start_tag <= datetime.now().strftime("%Y%m%d") <= end_tag:
-                            st.success(f"🟢 '{t_name if t_name else 'Neues Turnier'}' läuft aktuell!")
+                            st.success(f"🟢'{t_name if t_name else 'Neues Turnier'}' läuft aktuell!")
                         else:
-                            st.error(f"🔴 '{t_name if t_name else 'Neues Turnier'}' ist aktuell inaktiv/abgelaufen.")
+                            st.error(f"🔴'{t_name if t_name else 'Neues Turnier'}' ist aktuell inaktiv/abgelaufen.")
 
                 st.divider()
                 btn_col1, btn_col2 = st.columns([3, 1])
@@ -266,7 +307,7 @@ def group_menu(user):
                 # SPEICHERN
                 with btn_col1:
                     # --- BEIM SPEICHERN ---
-                    if st.button("💾 Einstellungen & Turnier speichern", type="primary", use_container_width=True,
+                    if st.button("Einstellungen & Turnier speichern", type="primary", use_container_width=True,
                                  key=f"save_{sel_g}"):
 
                         # Alle existierenden Namen dieser Gruppe sammeln
@@ -278,7 +319,7 @@ def group_menu(user):
                         # 🎯 DER NEUE CHECK: Wenn wir NEU erstellen, darf der Name nicht existieren
                         elif not bearbeitungs_modus and t_name.strip() in existierende_namen:
                             st.error(
-                                f"🚫 Ein Turnier mit dem Namen '{t_name.strip()}' existiert bereits in dieser Gruppe! Bitte wähle einen anderen Namen.")
+                                f"🚫Turniername existiert bereits! Bitte wähle einen anderen Namen.")
 
                         elif not ist_zeitraum_valide:
                             st.error("Bitte wähle einen gültigen Zeitraum aus!")
@@ -297,6 +338,13 @@ def group_menu(user):
                                 supabase.table("groups").update({"tournaments": neue_liste_raw}).eq("groupname",
                                                                                                     sel_g).execute()
                                 st.success("Erfolgreich gespeichert!")
+
+                                log_event(
+                                    level="INFO",
+                                    message=f"{t_name.strip()} founded/updated by {st.session_state.current_username}",
+                                    details={"user": st.session_state.current_username, "group": sel_g, "tournament": t_name.strip()},
+                                )
+
                                 st.rerun()
                             except Exception as e:
                                 st.error(f"Fehler beim Speichern: {e}")
@@ -311,6 +359,14 @@ def group_menu(user):
                                 supabase.table("groups").update({"tournaments": neue_liste_raw}).eq("groupname",
                                                                                                     sel_g).execute()
                                 st.success("Turnier gelöscht!")
+
+                                log_event(
+                                    level="INFO",
+                                    message=f"{t_name.strip()} deleted by {st.session_state.current_username}",
+                                    details={"user": st.session_state.current_username, "group": sel_g,
+                                             "tournament": t_name.strip()},
+                                )
+
                                 st.rerun()
                             except Exception as e:
                                 st.error(f"Fehler beim Löschen: {e}")
@@ -329,6 +385,13 @@ def group_menu(user):
                         supabase.table("group_requests").delete().eq("groupname", sel_g).execute()
                         supabase.table("groups").delete().eq("groupname", sel_g).execute()
                         st.success("Gruppe erfolgreich gelöscht.")
+
+                        log_event(
+                            level="INFO",
+                            message=f"{sel_g} deleted by {st.session_state.current_username}",
+                            details={"user": st.session_state.current_username, "group": sel_g},
+                        )
+
                         st.rerun()
 
     # =====================================================================
@@ -350,7 +413,7 @@ def group_menu(user):
                 c1, c2, c3 = st.columns([2, 1, 1])
                 c1.write(f"Du wurdest in die Gruppe **{einl['groupname']}** eingeladen!")
 
-                if c2.button("Annehmen 👍", key=f"acc_inv_{einl['id']}"):
+                if c2.button("Annehmen ✅", key=f"acc_inv_{einl['id']}"):
                     g_ref = supabase.table("groups").select("members").eq("groupname", einl["groupname"]).execute().data[0]
                     m_neu = (g_ref.get("members") or []) + [user.id]
 
@@ -359,12 +422,12 @@ def group_menu(user):
                     st.success("Gruppe beigetreten!")
                     st.rerun()
 
-                if c3.button("Ablehnen 👎", key=f"rej_inv_{einl['id']}"):
+                if c3.button("Ablehnen ❌", key=f"rej_inv_{einl['id']}"):
                     supabase.table("group_requests").update({"status": "rejected"}).eq("id", einl["id"]).execute()
                     st.rerun()
 
         st.divider()
-        st.write("### 🔍 Gruppe suchen & beitreten")
+        st.write("Gruppe suchen & beitreten")
 
         # Gruppen finden, bei denen der User weder Mitglied ist, noch eine Anfrage läuft
         meine_gruppen_namen = [g["groupname"] for g in alle_gruppen if user.id in (g.get("members") or [])]

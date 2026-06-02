@@ -18,21 +18,11 @@ def run_player_statistics():
         # 3. Die App kurz neu starten, damit sie die frischen Daten direkt zeichnet
         st.rerun()
 
-    alle_tournaments = sorted(df["tournament"].dropna().unique())
-
-    tournament = st.sidebar.selectbox("Turnier", options=["alle"] + alle_tournaments)
-
     OhneKlopfen = st.sidebar.checkbox("Soll das Klopfen herausgerechnent werden?")
 
     Punkteberechnung = st.sidebar.selectbox("Berechnung der Punkte", options = ["Normal", "Würzburg"])
 
     MinSpiele = 10
-
-    tournament_filter = (
-        [t for t in df["tournament"].unique() if t != "Allgäuer-Rundn"]
-        if tournament == "alle"
-        else [tournament]
-    )
 
     name = st.session_state.current_username
     if name == "Leo Schaller":
@@ -40,20 +30,34 @@ def run_player_statistics():
         name = st.sidebar.selectbox("SpielerInnen", options=alle_spieler)
 
     if st.button("Anzeigen"):
-        rows = analyse_display_playerstats(df, name, MinSpiele, tournament_filter, Punkteberechnung, OhneKlopfen)
+        rows = analyse_display_playerstats(df, name, MinSpiele, Punkteberechnung, OhneKlopfen)
 
         try:
+            # Wir holen die Scores. Wenn eine Spielart fehlt, fliegt durch .get() kein KeyError,
+            # aber es liefert None zurück, was beim Multiplizieren (*) sofort den Fehler auslöst.
+            ruf_score = rows.get("Ruf", {}).get("Score")
+            solo_score = rows.get("Trumpfsolo", {}).get("Score")
+            wenz_score = rows.get("Wenz + Geier", {}).get("Score")
+            ramsch_score = rows.get("Ramsch", {}).get("Score")
+            bettel_score = rows.get("Bettel", {}).get("Score")
+
+            # Sobald hier eine Variable 'None' ist, knallt es in dieser Zeile
+            # und Python springt SOFORT und direkt zum 'except'-Block.
             combinedscore = (
-                    0.3 * rows["Ruf"]["Score"]
-                    + 0.3 * rows["Trumpfsolo"]["Score"]
-                    + 0.3 * rows["Wenz + Geier"]["Score"]
-                    + 0.05 * rows["Ramsch"]["Score"]
-                    + 0.05 * rows["Bettel"]["Score"]
+                    0.30 * ruf_score
+                    + 0.30 * solo_score
+                    + 0.30 * wenz_score
+                    + 0.05 * ramsch_score
+                    + 0.05 * bettel_score
             )
             st.write(f"Du erhältst einen Gesamt-Performance-Score von {round(combinedscore, 3)}")
 
-        except KeyError:
+        except TypeError:
+            # Hier landet Python direkt, wenn ein Score None war
             st.write(f"Spiele mehr Schafkopf, um deinen Gesamt-Score zu erfahren!!!")
+        except Exception as e:
+            # Für alle anderen unerwarteten Fehler
+            st.error(f"Ein unerwarteter Fehler ist aufgetreten: {e}")
 
         with st.expander("ℹ️ Wie wird der Performance-Score berechnet?"):
             st.markdown("""

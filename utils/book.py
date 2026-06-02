@@ -2,83 +2,56 @@ import streamlit as st
 import pandas as pd
 from datetime import datetime
 
-from SheepHeadBook import spielwert_bestimmen_wue
-from SheepHeadBook import spielwert_bestimmen_normal
+from SheepHeadBook import spielwert_bestimmen_wue, spielwert_bestimmen_normal, load_open_rounds, update_round, save_round
 from SheepHeadBook import (berechne_statistik)
-from SheepHeadBook import load_open_rounds
-from SheepHeadBook import update_round
-from SheepHeadBook import save_round
 from services.supabase_client import log_event, supabase
 import json
 
-
-def hole_alle_gruppennamen() -> list:
-    """
-    Fragt die Tabelle 'groups' ab und gibt eine Liste aller Gruppennamen zurück.
-    """
-    try:
-        # Nur die Spalte 'groupname' abfragen, um Datenverkehr zu minimieren
-        res = supabase.table("groups").select("groupname").execute()
-
-        if res.data:
-            # Liste aus den Dictionaries extrahieren
-            return [g["groupname"] for g in res.data]
-        return []
-
-    except Exception as e:
-        print(f"Fehler beim Laden der Gruppennamen: {e}")
-        return []
-
 def hole_alle_turniere(groupname: str) -> list:
-    """
-    Lädt alle Turniere einer Gruppe aus Supabase und parst die JSON-Strings.
-    Gibt eine Liste von Dictionaries zurück.
-    """
+    """Lädt alle Turniere einer Gruppe aus Supabase und parst die JSON-Strings."""
     try:
-        # Spalte 'tournaments' für die entsprechende Gruppe abfragen
         result = supabase.table("groups").select("tournaments").eq("groupname", groupname).execute()
-
         if not result.data:
             return []
 
         rohe_liste = result.data[0].get("tournaments") or []
-
-        # Sicherheitsnetz, falls ein einzelner String statt einer Liste zurückkommt
         if isinstance(rohe_liste, str):
-            rohe_liste = [rohe_liste] if rohe_liste else []
+            rohe_liste = [rohe_liste]
 
-        # JSON-Strings in echte Python-Dicts umwandeln
+        # Sauber, kompakt und ohne verschachtelte Funktionen:
         turniere = []
-        for t_raw in rohe_liste:
+        for s in rohe_liste:
             try:
-                turniere.append(json.loads(t_raw))
-            except json.JSONDecodeError:
-                pass  # Ignoriert fehlerhafte Einträge
+                turniere.append(json.loads(s))
+            except (json.JSONDecodeError, TypeError):
+                continue  # Springt zum nächsten Eintrag, falls JSON kaputt ist
 
         return turniere
 
-    except Exception as e:
-        print(f"Fehler beim Auslesen der Turniere: {e}")
+    except Exception:
         return []
 
-
-def hole_aktuell_aktives_turnier(groupname: str) -> dict or None:
+def hole_aktive_turniere(groupname: str):
     """
-    Sucht aus allen Turnieren der Gruppe das heraus, das am heutigen Tag aktiv ist.
-    Gibt das Turnier-Dict zurück oder None, wenn kein Turnier läuft.
+    Sucht aus allen Turnieren der Gruppe diejenigen heraus, die am heutigen Tag aktiv sind.
+    Gibt eine Liste von Turnier-Dicts zurück (kann leer sein).
     """
     turniere = hole_alle_turniere(groupname)
     heute_str = datetime.now().strftime("%Y%m%d")  # Format: YYYYMMDD
+
+    # Eine leere Liste zum Sammeln der aktiven Turniere
+    aktive_turniere = []
 
     for t in turniere:
         zeitraum = t.get("zeitraum", "")
         if "_" in zeitraum:
             start_tag, end_tag = zeitraum.split("_")
-            # Text-Vergleich (funktioniert bei YYYYMMDD perfekt)
-            if start_tag <= heute_str <= end_tag:
-                return t
 
-    return None
+            # Wenn das Turnier heute aktiv ist...
+            if start_tag <= heute_str <= end_tag:
+                aktive_turniere.append(t)  # ...fügen wir es der Liste hinzu, statt abzubrechen
+
+    return aktive_turniere  # Gibt die Liste zurück (enthält 0, 1 oder mehr Turniere)
 
 def resolve_restrictions(tournament):
     restrictions = tournament["restrictions"]
@@ -138,7 +111,6 @@ def run_book():
                 st.session_state.spieler = runde_daten.get("spieler", [])
                 st.session_state.spiele = runde_daten.get("spiele", [])
                 st.session_state.anzahl = len(st.session_state.spieler)
-                st.session_state.start_info = runde_daten.get("start_info", "")
                 st.session_state.tournament_name = runde_daten.get("tournament", "")
                 st.session_state.groupname = runde_daten.get("groupname", "")
                 st.session_state.runde_aktiv = True
@@ -156,17 +128,28 @@ def run_book():
     #########################################################################################
     # normaler Start einer Runde:
     #########################################################################################
+        alle_gruppen = supabase.table("groups").select("groupname, members").execute().data
 
-        # Spieleranzahl muss außerhalb des Forms liegen!
-        alle_gruppen = supabase.table("groups").select("*").execute().data
-        groupnames = hole_alle_gruppennamen()
-        st.session_state.groupname = st.selectbox("Welche Gruppe spielt?", groupnames)
-        Turnier_Komplett = hole_alle_turniere(st.session_state.groupname)
+        gewaehlte_gruppe = st.selectbox(
+            "Welche Gruppe spielt?",
+            options=alle_gruppen,
+            format_func=lambda g: g["groupname"]
+        )
 
-        # Extrahiert den Namen aus jedem Turnier-Dictionary
-        Turnier_Auswahl = [t["name"] for t in Turnier_Komplett]
+        st.session_state.groupname = gewaehlte_gruppe["groupname"] if gewaehlte_gruppe else None
+
+        gruppen_mitglieder_ids = gewaehlte_gruppe.get("members", []) if gewaehlte_gruppe else []
+        erlaubte_spieler = [
+            name for name, uid in st.session_state.username_to_id.items()
+            if uid in gruppen_mitglieder_ids
+        ]
+
+        # Wie viele SpielerInnen
         anzahl = st.number_input("Wie viele SpielerInnen?", min_value=4, max_value=7, value=4, key="anzahl_spieler")
 
+        # Turnierauswahl
+        Turnier_Komplett = hole_aktive_turniere(st.session_state.groupname)
+        Turnier_Auswahl = [t["name"] for t in Turnier_Komplett]
         tournament_name = st.selectbox("Welche Turnierstatistik soll gefüllt werden?", Turnier_Auswahl)
 
         # 2. Wenn ein Turnier ausgewählt wurde, das komplette Dict im Session State speichern
@@ -177,36 +160,18 @@ def run_book():
             )
             st.session_state.tournament = gewaehltes_turnier_dict
         else:
-            # Sicherheitsnetz: Wenn kein Turnier gewählt ist, State leeren
             st.session_state.tournament = None
-
-        Start_Info = st.text_input("Infos zur Tischrundn (optional):")
 
         with st.form("runde_start"):
             st.write("Wählt die SpielerInnen aus!")
-            # 1. Daten der aktuellen Gruppe holen, um an die 'members'-Liste zu kommen
-            aktuelle_gruppe = next((g for g in alle_gruppen if g["groupname"] == st.session_state.groupname), None)
-            gruppen_mitglieder_ids = aktuelle_gruppe.get("members", []) if aktuelle_gruppe else []
 
-            # 2. Die Namensliste filtern: Nur Usernamen zulassen, deren ID in der Gruppe ist
-            erlaubte_gruppen_spieler = [
-                name for name, uid in st.session_state.username_to_id.items()
-                if uid in gruppen_mitglieder_ids
-            ]
-
-            # Falls die Gruppe (z.B. bei Fehlern) leer ist, Fallback auf alle Spieler, um Abstürze zu verhindern
-            if not erlaubte_gruppen_spieler:
-                erlaubte_gruppen_spieler = list(st.session_state.username_to_id.keys())
-
-            # 3. Das UI-Loop mit der gefilterten Liste ausgeben
             spieler = []
             for i in range(st.session_state.anzahl_spieler):
-                # Sicherheitscheck für den default_index (falls weniger Gruppenmitglieder als anzahl_spieler da sind)
-                default_index = i if i < len(erlaubte_gruppen_spieler) else 0
+                default_index = i if i < len(erlaubte_spieler) else 0
 
                 auswahl = st.selectbox(
                     f"Spieler {i + 1}:",
-                    options=erlaubte_gruppen_spieler,  # 🎯 Hier greift jetzt die gefilterte Liste
+                    options=erlaubte_spieler,
                     index=default_index,
                     key=f"spieler_{i}"
                 )
@@ -218,7 +183,7 @@ def run_book():
 
             if starten:
                 if len(set(user_ids)) < st.session_state.anzahl_spieler:
-                    st.error(f"Zackl-Zement! Choose {st.session_state.anzahl_spieler} unique players!")
+                    st.error(f"Zackl-Zement! Wähle {st.session_state.anzahl_spieler} verschiedene SpielerInnen!")
                 else:
                     st.session_state.runden_timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S-%f")#
                     st.session_state.ende = False #
@@ -226,8 +191,8 @@ def run_book():
                     st.session_state.spiele = [] #
                     st.session_state.anzahl = anzahl #
                     st.session_state.runde_aktiv = True #
-                    st.session_state.start_info = Start_Info #
                     st.session_state.tournament_name = tournament_name #
+                    st.session_state.allowed_players = erlaubte_spieler
 
                     # Hintergrundeinstellung der Runde
                     resolve_restrictions(st.session_state.tournament)
@@ -253,7 +218,7 @@ def run_book():
                 bereits = [s[0] for s in st.session_state.spieler]
 
                 optionen = [
-                    name for name in st.session_state.username_to_id.keys()
+                    name for name in st.session_state.allowed_players
                     if name not in bereits
                 ]
 

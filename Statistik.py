@@ -253,11 +253,13 @@ def plot_stats_streamlit(spieler_stats, KeyKumulativ):
 
     st.plotly_chart(fig, use_container_width=True)
 
+print_filter = False
 
 # Setzt die filter in run_statistic() um:
 def filter_spiele(
     df: pd.DataFrame,
     namen=None,
+    group=None,
     spielarten=None,
     tournament=None,
     modus=False  # Wenn True, müssen ALLE Spieler der Runde aus 'namen' sein
@@ -279,6 +281,8 @@ def filter_spiele(
                     )
                 )
             ]
+            if print_filter:
+                st.write(df_f)
         else:
             df_f = df_f[
                 df_f["Mitspieler_Runde"].apply(
@@ -293,15 +297,22 @@ def filter_spiele(
                     )
                 )
             ]
-
+            if print_filter:
+                st.write(df_f)
+    if group:
+        df_f = df_f[df_f["groupname"].isin(group)]
+        if print_filter:
+            st.write(df_f)
     # --- Spielart ---
     if spielarten and "alle" not in spielarten:
         df_f = df_f[df_f["Spielart"].isin(spielarten)]
-
+        if print_filter:
+            st.write(df_f)
     # --- Tournament ---
     if tournament:
         df_f = df_f[df_f["tournament"].isin(tournament)]
-
+        if print_filter:
+            st.write(df_f)
     return df_f
 
 
@@ -400,16 +411,17 @@ def calculate_performance_score(row_dict, spielart, Punkteberechnung, OhneKlopfe
 
     return round(score, 1)
 
-def analyse_display_playerstats(df, name, MinSpiele, tournament, Punkteberechnung, OhneKlopfen):
+def analyse_display_playerstats(df, name, MinSpiele, Punkteberechnung, OhneKlopfen):
     stats = {}
     spielarten = ["Ruf", "Trumpfsolo", "Wenz + Geier", "Ramsch", "Bettel"]
     # --- In deinem Hauptskript / Schleife ---
     rows = {}
     for s in spielarten:
         if s == "Wenz + Geier":
-            df_f = filter_spiele(df, [name], ["Wenz", "Geier"], tournament)
+            df_f = filter_spiele(df, [name], ["Alle"],["Wenz", "Geier"], None)
         else:
-            df_f = filter_spiele(df, [name], [s], tournament)
+            df_f = filter_spiele(df, [name], ["Alle"], [s], None)
+
         player_stat = analyze_single_player(name, df_f, MinSpiele)
 
         if player_stat is not None:
@@ -583,6 +595,7 @@ def process_supabase_rounds(supabase_rows):
             # Spieldaten mit den exakten 4 Spielern aktualisieren
             game.update({
                 "tournament": data.get("tournament"),
+                "groupname": data.get("groupname"),
                 "runden_timestamp": data.get("runden_timestamp", runden_ts),
                 "start_info": data.get("start_info", ""),
                 "Mitspieler_Runde": spiel_namen_aktuell,  # Nur die aktuellen 4 Namen!

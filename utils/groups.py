@@ -127,41 +127,49 @@ def group_menu(user):
 
             # --- MITGLIEDERLISTE & ROLLENVERGABE ---
             st.write(f"### Mitglieder ({len(aktuelle_mitglieder)})")
-            for m_id in aktuelle_mitglieder:
-                c1, c2, c3 = st.columns([2, 1, 1])
 
-                # Label bestimmen
+            for m_id in aktuelle_mitglieder:
+                # Rolle bestimmen
                 rolle = ""
                 if m_id == g_data["boss"]:
                     rolle = " 👑 (Gründer)"
                 elif m_id in aktuelle_admins:
                     rolle = " 🛡️ (Admin)"
 
-                c1.write(f"{all_p.get(m_id, 'Unbekannt')}{rolle}")
+                name_anzeige = f"{all_p.get(m_id, 'Unbekannt')}{rolle}"
 
-                # Rechteverwaltung (Nur der Gründer/Boss darf Admins ernennen oder Kicken)
-                if ist_mein_boss and m_id != user.id:
-                    if m_id in aktuelle_admins:
-                        if c2.button("Admin entziehen ⬇️", key=f"dem_{m_id}"):
-                            neue_ads = [a for a in aktuelle_admins if a != m_id]
-                            supabase.table("groups").update({"admins": neue_ads}).eq("groupname", sel_g).execute()
+                # Eigener Name bekommt einen Hinweis
+                if m_id == user.id:
+                    name_anzeige += " (Du)"
+
+                # Ein Expander pro Mitglied schont den Platz auf dem Smartphone
+                with st.expander(name_anzeige):
+                    if ist_mein_boss and m_id != user.id:
+                        # Auf dem Handy lieber Buttons untereinander oder in 2 saubere Spalten
+                        btn_c1, btn_c2 = st.columns(2)
+
+                        if m_id in aktuelle_admins:
+                            if btn_c1.button("Admin entziehen ⬇️", key=f"dem_{m_id}", use_container_width=True):
+                                neue_ads = [a for a in aktuelle_admins if a != m_id]
+                                supabase.table("groups").update({"admins": neue_ads}).eq("groupname", sel_g).execute()
+                                st.rerun()
+                        else:
+                            if btn_c1.button("Befördern 🛡️", key=f"prom_{m_id}", use_container_width=True):
+                                neue_ads = aktuelle_admins + [m_id]
+                                supabase.table("groups").update({"admins": neue_ads}).eq("groupname", sel_g).execute()
+                                st.rerun()
+
+                        if btn_c2.button("Entfernen ❌", key=f"kick_{m_id}", use_container_width=True):
+                            neue_m = [m for m in aktuelle_mitglieder if m != m_id]
+                            neue_a = [a for a in aktuelle_admins if a != m_id]
+                            supabase.table("groups").update({"members": neue_m, "admins": neue_a}).eq("groupname",
+                                                                                                      sel_g).execute()
                             st.rerun()
+
+                    elif m_id != user.id:
+                        st.caption("Keine Rechte für Aktionen")
                     else:
-                        if c2.button("Zum Admin befördern 🛡️", key=f"prom_{m_id}"):
-                            neue_ads = aktuelle_admins + [m_id]
-                            supabase.table("groups").update({"admins": neue_ads}).eq("groupname", sel_g).execute()
-                            st.rerun()
-
-                    if c3.button("Entfernen ❌", key=f"kick_{m_id}"):
-                        neue_m = [m for m in aktuelle_mitglieder if m != m_id]
-                        neue_a = [a for a in aktuelle_admins if a != m_id]
-                        supabase.table("groups").update({"members": neue_m, "admins": neue_a}).eq("groupname",
-                                                                                                  sel_g).execute()
-                        st.rerun()
-
-                else:
-                    if m_id != user.id:
-                        c2.write("Keine Rechte")
+                        st.caption("Das bist du selbst.")
 
             # --- EINLADUNGEN VERSCHICKEN (Admins & Boss dürfen das) ---
             st.write("Spieler in die Runde einladen")

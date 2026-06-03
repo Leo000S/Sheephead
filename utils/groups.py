@@ -273,6 +273,9 @@ def group_menu(user):
                 t_zeitraum = st.date_input("Turnier-Zeitraum", value=(default_start, default_end),
                                            key=f"t_date_{sel_g}")
 
+                if ausgewaehltes_turnier_name != "🆕Neues Turnier erstellen🆕":
+                    t_name = ausgewaehltes_turnier_name
+
             with col2:
                 st.write("**Regelwerk & Einschränkungen**")
                 # Spezifische Restrictions holen oder auf Standard zurückgreifen

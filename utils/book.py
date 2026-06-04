@@ -91,7 +91,7 @@ def run_book():
             st.subheader("Aktuell offene Tischrunden")
 
             optionen = [
-                f"{r['start_info']} ({', '.join(s[0] for s in r['spieler'])}) – {len(r['spiele'])} Spiele"
+                f"Runde: ({', '.join(s[0] for s in r['spieler'])}) – {len(r['spiele'])} Spiele"
                 for r in offene_runden
             ]
 

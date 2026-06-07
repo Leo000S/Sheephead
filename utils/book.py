@@ -7,6 +7,34 @@ from SheepHeadBook import (berechne_statistik)
 from services.supabase_client import log_event, supabase
 import json
 
+
+def deal_aussetzer():
+    aussetzer = []
+    if st.session_state.anzahl > 4:
+        if st.session_state.anzahl == 5:
+            a1 = st.selectbox("Diese SpielerIn setzt aus:", st.session_state.player_list, key="aus1")
+            aussetzer.extend([[a1, st.session_state.player_to_id[a1]]])
+
+        if st.session_state.anzahl == 6:
+            a1 = st.selectbox("1. SpielerIn setzt aus:", st.session_state.player_list, key="aus1")
+            # 2. Auswahl ohne den ersten Aussetzer
+            rest = [s for s in st.session_state.player_list if s != a1]
+            a2 = st.selectbox("2. SpielerIn setzt aus:", rest, key="aus2")
+            aussetzer.extend([[a1, st.session_state.player_to_id[a1]], [a2, st.session_state.player_to_id[a2]]])
+
+        if st.session_state.anzahl == 7:
+            a1 = st.selectbox("1. SpielerIn setzt aus:", st.session_state.player_list, key="aus1")
+            rest = [s for s in st.session_state.player_list if s != a1]
+
+            a2 = st.selectbox("2. SpielerIn setzt aus:", rest, key="aus2")
+            rest = [s for s in st.session_state.player_list if s not in [a1, a2]]
+
+            a3 = st.selectbox("3. SpielerIn setzt aus:", rest, key="aus3")
+            aussetzer.extend([[a1, st.session_state.player_to_id[a1]], [a2, st.session_state.player_to_id[a2]],
+                              [a3, st.session_state.player_to_id[a3]]])
+
+    return aussetzer
+
 def hole_alle_turniere(groupname: str) -> list:
     """Lädt alle Turniere einer Gruppe aus Supabase und parst die JSON-Strings."""
     try:
@@ -116,6 +144,8 @@ def run_book():
                 st.session_state.runde_aktiv = True
 
                 # Hintergrundeinstellungen:
+                turnier_open_rounds = hole_aktive_turniere(st.session_state.groupname)
+                st.session_state.tournament = next(t for t in turnier_open_rounds if t["name"] == st.session_state.tournament_name)
                 resolve_restrictions(st.session_state.tournament)
                 update_round(st)
                 log_event(
@@ -128,39 +158,28 @@ def run_book():
     #########################################################################################
     # normaler Start einer Runde:
     #########################################################################################
+        # 1. Daten wie gehabt aus Supabase holen
         alle_gruppen = supabase.table("groups").select("groupname, members").execute().data
 
-        gewaehlte_gruppe = st.selectbox(
-            "Welche Gruppe spielt?",
-            options=alle_gruppen,
-            format_func=lambda g: g["groupname"]
-        )
-
-        st.session_state.groupname = gewaehlte_gruppe["groupname"] if gewaehlte_gruppe else None
-
-        gruppen_mitglieder_ids = gewaehlte_gruppe.get("members", []) if gewaehlte_gruppe else []
-        erlaubte_spieler = [
-            name for name, uid in st.session_state.username_to_id.items()
-            if uid in gruppen_mitglieder_ids
+        # 2. Filtern: Nur Gruppen behalten, in deren 'members'-Liste der User existiert
+        meine_gruppen = [
+            gruppe for gruppe in alle_gruppen
+            if gruppe.get("members") is not None and st.session_state.current_user_id in gruppe["members"]
         ]
+
+        gewaehlte_gruppe = st.selectbox("Welche Gruppe spielt?", options=meine_gruppen, format_func=lambda g: g["groupname"])
+        gruppen_mitglieder_ids = gewaehlte_gruppe.get("members", []) if gewaehlte_gruppe else []
+        erlaubte_spieler = [name for name, uid in st.session_state.username_to_id.items() if uid in gruppen_mitglieder_ids]
 
         # Wie viele SpielerInnen
         anzahl = st.number_input("Wie viele SpielerInnen?", min_value=4, max_value=7, value=4, key="anzahl_spieler")
 
         # Turnierauswahl
+        st.session_state.groupname = gewaehlte_gruppe["groupname"]
         Turnier_Komplett = hole_aktive_turniere(st.session_state.groupname)
         Turnier_Auswahl = [t["name"] for t in Turnier_Komplett]
         tournament_name = st.selectbox("Welche Turnierstatistik soll gefüllt werden?", Turnier_Auswahl)
-
-        # 2. Wenn ein Turnier ausgewählt wurde, das komplette Dict im Session State speichern
-        if tournament_name:
-            gewaehltes_turnier_dict = next(
-                t for t in Turnier_Komplett
-                if t["name"] == tournament_name
-            )
-            st.session_state.tournament = gewaehltes_turnier_dict
-        else:
-            st.session_state.tournament = None
+        st.session_state.tournament = next(t for t in Turnier_Komplett if t["name"] == tournament_name)
 
         with st.form("runde_start"):
             st.write("Wählt die SpielerInnen aus!")
@@ -211,59 +230,9 @@ def run_book():
 
     if st.session_state.runde_aktiv:
 
-        if st.session_state.anzahl < 7:
-
-            if st.checkbox("➕ Weiteren Spieler nachtragen?"):
-                i = st.session_state.anzahl
-                bereits = [s[0] for s in st.session_state.spieler]
-
-                optionen = [
-                    name for name in st.session_state.allowed_players
-                    if name not in bereits
-                ]
-
-                if optionen:
-                    auswahl = st.selectbox(
-                        f"Spieler {i + 1}:",
-                        optionen,
-                        key=f"spieler_{i}"
-                    )
-
-                    if st.button("Spieler hinzufügen"):
-                        auswahl_id = st.session_state.username_to_id[auswahl]
-                        st.session_state.spieler.append([auswahl, auswahl_id])
-                        st.session_state.anzahl = len(st.session_state.spieler)
-                        st.rerun()
-
         # Erstelle erst die Liste der Namen
-        player_list = [s[0] for s in st.session_state.spieler]
-        player_to_id = {s[0]: s[1] for s in st.session_state.spieler}
-        st.session_state.player_list = player_list
-        st.session_state.player_to_id = player_to_id
-
-        # Wer setzt die Runde aus?
-        aussetzer = []
-        if st.session_state.anzahl > 4:
-            if st.session_state.anzahl == 5:
-                a1 = st.selectbox("Diese SpielerIn setzt aus:", st.session_state.player_list, key="aus1")
-                aussetzer.extend([[a1, st.session_state.player_to_id[a1]]])
-
-            if st.session_state.anzahl == 6:
-                a1 = st.selectbox("1. SpielerIn setzt aus:", st.session_state.player_list, key="aus1")
-                # 2. Auswahl ohne den ersten Aussetzer
-                rest = [s for s in st.session_state.player_list if s != a1]
-                a2 = st.selectbox("2. SpielerIn setzt aus:", rest, key="aus2")
-                aussetzer.extend([[a1, st.session_state.player_to_id[a1]], [a2, st.session_state.player_to_id[a2]]])
-
-            if st.session_state.anzahl == 7:
-                a1 = st.selectbox("1. SpielerIn setzt aus:", st.session_state.player_list, key="aus1")
-                rest = [s for s in st.session_state.player_list if s != a1]
-
-                a2 = st.selectbox("2. SpielerIn setzt aus:", rest, key="aus2")
-                rest = [s for s in st.session_state.player_list if s not in [a1, a2]]
-
-                a3 = st.selectbox("3. SpielerIn setzt aus:", rest, key="aus3")
-                aussetzer.extend([[a1, st.session_state.player_to_id[a1]], [a2, st.session_state.player_to_id[a2]], [a3, st.session_state.player_to_id[a3]]])
+        st.session_state.player_list = [s[0] for s in st.session_state.spieler]
+        st.session_state.player_to_id = {s[0]: s[1] for s in st.session_state.spieler}
 
         if "letztes_spiel" in st.session_state:
             st.success(st.session_state.letztes_spiel)
@@ -274,7 +243,7 @@ def run_book():
         if "spielart_temp" not in st.session_state:
             st.session_state.spielart_temp = None
 
-
+        aussetzer = deal_aussetzer()
         spielende_spieler = [s for s in st.session_state.spieler if s not in aussetzer]
         spielende_spieler_names = [s[0] for s in spielende_spieler]
 
@@ -283,11 +252,11 @@ def run_book():
         # -------------------------
         if st.session_state.eingabe_phase == 1:
             spielart = st.selectbox(
-                "Was wurde gespielt?",
+                "Was wird gespielt?",
                 list(st.session_state.SPIELWERTE.keys()))
             klopfer = 0
             if st.session_state.KLOPFEN == True:
-                klopfer = st.number_input("Geklopft?", min_value=0, max_value=4, value=0)
+                klopfer = st.number_input("Wurde geklopft?", min_value=0, max_value=4, value=0)
 
             if st.button("Weiter"):
                 st.session_state.spielart_temp = spielart
@@ -301,6 +270,19 @@ def run_book():
         elif st.session_state.eingabe_phase == 2:
             spielart = st.session_state.spielart_temp
             klopfer = st.session_state.klopfer_temp
+            rufpartner = None
+            rufpartner_id = None
+            jungfrau = 0
+            Sie = False
+            tout = False
+            gewonnen = False
+            kontra = False
+            Re = False
+            Hirsch = False
+            schwarz = False
+            schneider = False
+            laufende = 0
+
             st.write(f"**Spiel:** {spielart}")
 
             if st.button("Zurück zur Spielauswahl"):
@@ -312,15 +294,20 @@ def run_book():
                 spielmacher = st.selectbox("Wer hat das Spiel angesagt?", spielende_spieler_names)
             if spielart == "Ramsch":
                 spielmacher = st.selectbox("Wer hat den Ramsch verloren?", spielende_spieler_names)
+                jungfrau = st.number_input(
+                    "Wie viele Jungfrauen sitzen am Tisch?",
+                    min_value=0, max_value=2, value=0)
 
             spielmacher_id = st.session_state.player_to_id[spielmacher]
-            if st.session_state.KLOPFEN == False:
-                klopfer = 0
-            rufpartner = None
-            rufpartner_id = None
-            jungfrau = 0
-            Sie = False
-            tout = False
+
+            if spielart == "Bettel":
+                if st.session_state.TOUT == True:
+                    tout = st.checkbox("Brett?")
+                if st.session_state.TOUT == False:
+                    tout = False
+
+            if spielart == "Durchmarsch":
+                gewonnen = True
 
             if spielart == "Ruf":
                 mögliche_rufpartner = [s for s in spielende_spieler_names if s != spielmacher]
@@ -328,49 +315,17 @@ def run_book():
                 rufpartner_id = st.session_state.player_to_id[rufpartner]
                 Verteilungsfaktor *= 0.5
 
-                gewonnen = st.checkbox("Gewonnen?")
                 kontra = st.checkbox("Kontra?")
                 Re = False
                 if kontra:
                     Re = st.checkbox("Retour?")
+                    if Re:
+                        st.checkbox("Hirsch?")
                 schneider = st.checkbox("Schneider? (Verliererteam unter 30 Punkte)")
                 schwarz = st.checkbox("Schwarz?")
                 laufende = st.selectbox("Wie viele Laufende?", [0] + list(range(3, 15)))
 
-            if spielart == "Ramsch":
-                jungfrau = st.number_input(
-                    "Wie viele Jungfrauen sitzen am Tisch?",
-                    min_value=0, max_value=3, value=0)
-
-                gewonnen = False
-                kontra = False
-                Re = False
-                schwarz = False
-                schneider = False
-                laufende = 0
-
-            if spielart == "Bettel":
-                gewonnen = st.checkbox("Gewonnen?")
-                if st.session_state.TOUT == True:
-                    tout = st.checkbox("Brett?")
-                if st.session_state.TOUT == False:
-                    tout = False
-                kontra = False
-                Re = False
-                schwarz = False
-                schneider = False
-                laufende = 0
-
-            if spielart == "Durchmarsch":
-                gewonnen = True
-                kontra = False
-                Re = False
-                schwarz = False
-                schneider = False
-                laufende = 0
-
             if spielart not in ["Ramsch", "Ruf", "Bettel", "Durchmarsch"]:
-                gewonnen = st.checkbox("Gewonnen?")
                 if st.session_state.TOUT == True:
                     tout = st.checkbox("Tout (= mit offenen Karten spielen)?")
                 if st.session_state.TOUT == False:
@@ -383,14 +338,43 @@ def run_book():
                 Re = False
                 if kontra:
                     Re = st.checkbox("Retour?")
+                    if Re:
+                        st.checkbox("Hirsch?")
+
                 schneider = st.checkbox("Schneider? (Verliererteam unter 30 Punkte)")
                 schwarz = st.checkbox("Schwarz?")
                 laufende = st.selectbox("Wie viele Laufende?", [0] + list(range(2, 15)))
 
-            wertn, wertn_NK = spielwert_bestimmen_normal(spielart, klopfer, laufende, tout, jungfrau, schneider, schwarz, kontra, Re, st.session_state.SPIELWERTE)
-            wertw, wertw_NK = spielwert_bestimmen_wue(spielart, klopfer, laufende, tout, jungfrau, schneider, schwarz, kontra, Re, gewonnen, st.session_state.SPIELWERTE)
 
-            win_text = "gewonnen"
+            abschicken = False
+
+            if spielart == "Ramsch":
+                abschicken = st.button("Ramsch abspeichern ✅", use_container_width=True)
+
+            elif spielart == "Durchmarsch":
+                gewonnen = True
+                abschicken = st.button("Durchmarsch abspeichern ✅", use_container_width=True)
+
+            else:
+                col1, col2 = st.columns(2)
+
+                with col1:
+                    if st.button("🟢 Gewonnen 🟢", use_container_width=True):
+                        gewonnen = True
+                        abschicken = True
+
+                with col2:
+                    if st.button("🔴 Verloren 🔴", use_container_width=True):
+                        gewonnen = False
+                        abschicken = True
+
+
+            wertn, wertn_NK = spielwert_bestimmen_normal(spielart, klopfer, laufende, tout, jungfrau, schneider,
+                                                         schwarz, kontra, Re, Hirsch, st.session_state.SPIELWERTE)
+            wertw, wertw_NK = spielwert_bestimmen_wue(spielart, klopfer, laufende, tout, jungfrau, schneider, schwarz,
+                                                      kontra, Re, Hirsch, gewonnen, st.session_state.SPIELWERTE)
+
+            win_text = " gewonnen"
             if gewonnen == False:
                 win_text = " verloren"
 
@@ -402,8 +386,6 @@ def run_book():
             if Punkte > 1:
                 Punkte_str = " Punkte "
 
-            st.write(spielmacher + " würde ein " + spielart + " für " + str(Punkte) + " (" + st.session_state.mode + ")" + Punkte_str + win_text + " haben")
-            abschicken = st.button("Spiel abspeichern ✅")
 
             if abschicken:
                 # 🕒 individueller Zeitstempel pro Spiel
@@ -486,10 +468,37 @@ def run_book():
             # Hier gibst du an, welche Spalten du behalten willst
             gewuenschte_spalten = ["Spielnummer", "Spielart", "Spielmacher", "Rufpartner", "Gewonnen", "Wert", "Wert_Wue", "Mitspieler_Runde"]
             spiele_anzeige_df = spiele_df[gewuenschte_spalten]
-            st.dataframe(spiele_anzeige_df)
+
+            # Alle Spiele Anzeigen
+            if st.checkbox("Alle Spiele anzeigen?"):
+                st.dataframe(spiele_anzeige_df)
+
+            # Spieler hinzufügen
+            if st.session_state.anzahl < 7:
+                if st.checkbox("Weiteren Spieler nachtragen?"):
+                    i = st.session_state.anzahl
+                    bereits = [s[0] for s in st.session_state.spieler]
+
+                    optionen = [
+                        name for name in st.session_state.allowed_players
+                        if name not in bereits
+                    ]
+
+                    if optionen:
+                        auswahl = st.selectbox(
+                            f"Spieler {i + 1}:",
+                            optionen,
+                            key=f"spieler_{i}"
+                        )
+
+                        if st.button("Spieler hinzufügen"):
+                            auswahl_id = st.session_state.username_to_id[auswahl]
+                            st.session_state.spieler.append([auswahl, auswahl_id])
+                            st.session_state.anzahl = len(st.session_state.spieler)
+                            st.rerun()
 
             # --- Kompakter Lösch-Bereich ---
-            if st.session_state.spiele:
+            if st.checkbox("Willst du ein Spiel löschen?"):
                 cols = st.columns([2, 1, 1])  # Verhältnis der Breite: Auswahl, Check, Button
 
                 with cols[0]:

@@ -95,3 +95,4 @@ else:
             st.rerun()
 
 # streamlit run /Users/leopoldschaller/Desktop/Sheephead/streamlit_app.py
+# Gastmodus

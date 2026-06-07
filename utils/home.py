@@ -10,12 +10,12 @@ def home(user):
         st.subheader("Neuigkeiten")
         st.write("""
         *   **Nächstes Turnier:** ??. ?? 2026!
-        *   **App-Status:** Es kommen immer mehr Funktionen dazu, bei Fehlern gerne melden.
+        *   **App-Status:** Ich freue mich über Feedback.
         """)
 
     with col2:
         st.caption("Besitzer des Wanderpokals seit: 25.05.2026")
-        st.write("Davina - *Ehre, wem Ehre gebührt!*")
+        st.write("Davina - *Glückwunsch!*")
 
     st.divider()
 

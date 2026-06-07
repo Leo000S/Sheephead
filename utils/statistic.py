@@ -10,8 +10,6 @@ from utils.book import hole_alle_turniere
 
 def run_statistics():
     st.title("Schafkopf Statistik")
-
-    # Daten blitzschnell aus dem Cache (oder frisch aus dem Storage Backup) holen
     df = load_df_from_supabase_backup()
 
     if df is None or df.empty:
@@ -22,7 +20,6 @@ def run_statistics():
         with st.spinner("Aktualisieren..."):
             # 1. Frische Daten aus der DB holen und neues Backup im Storage überschreiben
             backup_process_data()
-            load_df_from_supabase_backup.clear()
 
         st.success("Erfolgreich aktualisiert!")
         # 3. Die App kurz neu starten, damit sie die frischen Daten direkt zeichnet
@@ -38,18 +35,25 @@ def run_statistics():
         format_func=lambda g: g["groupname"] if isinstance(g, dict) else g
     )
 
-    alle_spieler = list(st.session_state.id_to_username.values())
-    namen_einzel = st.sidebar.multiselect("SpielerInnen", options=alle_spieler)
-    namen = set(namen_einzel)
+    erlaubte_spieler = list(st.session_state.id_to_username.values())
+
     tournament = "alle Turniere"
     if group != "Alle Gruppen":
         gruppen_mitglieder_ids = group["members"] if group else []
         erlaubte_spieler = [ name for name, uid in st.session_state.username_to_id.items() if uid in gruppen_mitglieder_ids ]
-        namen.update(erlaubte_spieler)
-        namen = list(namen)
         Turnier_Komplett = hole_alle_turniere(group["groupname"])
         Turnier_Auswahl = [t["name"] for t in Turnier_Komplett]
         tournament = st.sidebar.selectbox("Turnier", options=["alle Turniere"] + Turnier_Auswahl)
+
+    namen_einzel = st.sidebar.multiselect("SpielerInnen", options=erlaubte_spieler)
+    if st.sidebar.checkbox("Alle Spieler auswählen?"):
+        namen_einzel = erlaubte_spieler
+    namen = set(namen_einzel)
+
+    namen_ids = [
+        user_id for user_id, username in st.session_state.id_to_username.items()
+        if username in namen
+    ]
 
     spielarten = st.sidebar.multiselect("Spielart", options=["alle"] + alle_spielarten)
 
@@ -81,7 +85,7 @@ def run_statistics():
     if st.button("Anzeigen"):
         df_result = filter_spiele(
             df,
-            namen=namen if namen else None,
+            namen_ids=namen_ids if namen_ids else None,
             group=[group["groupname"]] if group != "Alle Gruppen" else None,
             spielarten=spielarten if spielarten else None,
             tournament=tournament_filter,
@@ -89,7 +93,7 @@ def run_statistics():
         )
 
 
-        spieler_stats = analyse_all_players(df_result, namen, MinSpiele)
+        spieler_stats = analyse_all_players(df_result, namen_ids, MinSpiele)
         if spieler_stats != {}:
             overview = analyse_different_stats(spieler_stats, Punkteart, show=True)
             st.dataframe(overview, use_container_width=True, height=600)

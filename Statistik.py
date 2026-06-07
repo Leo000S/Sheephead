@@ -22,8 +22,8 @@ def punkte_abspeichern(df_player, player):
     else:
         df_player["Hat_gewonnen"] = df_player.apply(
             lambda x: (
-                (x["Gewonnen"] == True and (player in [x["Spielmacher"], x["Rufpartner"]])) or
-                (x["Gewonnen"] == False and player not in [x["Spielmacher"], x["Rufpartner"]])
+                (x["Gewonnen"] == True and (player in [x["SpielmacherId"], x["RufpartnerId"]])) or
+                (x["Gewonnen"] == False and player not in [x["SpielmacherId"], x["RufpartnerId"]])
             ),
             axis=1
         )
@@ -59,7 +59,7 @@ def berechne_punkte(x, player):
         punkte_NK_wue = x["Wert_Wue_NK"] if x["Hat_gewonnen"] else -x["Wert_Wue_NK"]
     
     # Sonderfall: Kein Rufpartner → dreifacher Wert nur für Spielmacher
-    if (pd.isna(x["Rufpartner"]) or str(x["Rufpartner"]).strip() == "") and player == x["Spielmacher"]:
+    if (pd.isna(x["RufpartnerId"]) or str(x["RufpartnerId"]).strip() == "") and player == x["SpielmacherId"]:
         punkte *= 3
         punkte_wue *= 3
         punkte_NK *= 3
@@ -79,7 +79,7 @@ def analyze_single_player(player, df, MinSpiele):
         except:
             return False
 
-    df_player = df[df["Mitspieler_Runde"].apply(player_in_row)].copy()
+    df_player = df[df["MitspielerRundeIds"].apply(player_in_row)].copy()
 
     # Kriterien für Mindestspiele prüfen
     if df_player.empty or len(df_player) < MinSpiele:
@@ -96,7 +96,7 @@ def analyze_single_player(player, df, MinSpiele):
 
     # 2. Filter: Nur die Spiele als aktiver Spielmacher (ohne Ramsch)
     df_player_s = df_player[
-        (df_player["Spielmacher"] == player) &
+        (df_player["SpielmacherId"] == player) &
         (df_player["Spielart"] != "Ramsch")
         ].copy()
 
@@ -109,10 +109,29 @@ def analyze_single_player(player, df, MinSpiele):
     if not df_player_s.empty:
         df_player_s = punkte_abspeichern(df_player_s, player)
 
-    # Gewinnquote als Nicht-SpielerIn berechnen
-    nicht_spieler_spiele = spiele_len - anzahl_spielmacher
+    # 1. Spiele als Rufpartner herausfiltern
+    df_player_rp = df_player[df_player["RufpartnerId"] == player]  
+    anzahl_rufpartner = len(df_player_rp)
+
+    # 2. Siege als Rufpartner zählen (Wenn das Team gewonnen hat, hat auch der Rufpartner gewonnen)
+    if not df_player_rp.empty:
+        gewonnen_rufpartner = df_player_rp["Hat_gewonnen"].sum()
+    else:
+        gewonnen_rufpartner = 0
+
+    # ---------------------------------------------------------
+    # Gewinnquote als reine/r GegenspielerIn (Nicht-SpielerIn)
+    # ---------------------------------------------------------
+    # Wir ziehen Spielmacher- UND Rufpartner-Spiele von den Gesamtspielen ab
+    nicht_spieler_spiele = spiele_len - anzahl_spielmacher - anzahl_rufpartner
+
     if nicht_spieler_spiele > 0:
-        gewonnen_nicht_spieler = gewonnene_spiele - (df_player_s["Hat_gewonnen"].sum() if not df_player_s.empty else 0)
+        # Siege als Spielmacher ermitteln
+        gewonnen_spielmacher = df_player_s["Hat_gewonnen"].sum() if not df_player_s.empty else 0
+
+        # Reine Gegenspieler-Siege = Gesamte Siege minus (Siege als Chef + Siege als Partner)
+        gewonnen_nicht_spieler = gewonnene_spiele - gewonnen_spielmacher - gewonnen_rufpartner
+
         quote_nicht_spieler = round((gewonnen_nicht_spieler / nicht_spieler_spiele) * 100, 2)
     else:
         quote_nicht_spieler = 0.0
@@ -152,15 +171,15 @@ def analyze_single_player(player, df, MinSpiele):
     return player_stat
 
 
-def analyse_all_players(df, all_players, MinSpiele):
+def analyse_all_players(df, all_ids, MinSpiele):
     """Hauptfunktion, die durch alle Spieler iteriert."""
     spieler_stats = {}
-
-    for player in all_players:
+    for ids in all_ids:
         # Aufruf der ausgelagerten Funktion
-        player_stat = analyze_single_player(player, df, MinSpiele)
+        player_stat = analyze_single_player(ids, df, MinSpiele)
         # Nur speichern, wenn der Spieler genug Spiele hatte (nicht None ist)
         if player_stat is not None:
+            player = st.session_state.id_to_username[ids]
             spieler_stats[player] = player_stat
 
     return spieler_stats
@@ -258,7 +277,7 @@ print_filter = False
 # Setzt die filter in run_statistic() um:
 def filter_spiele(
     df: pd.DataFrame,
-    namen=None,
+    namen_ids=None,
     group=None,
     spielarten=None,
     tournament=None,
@@ -266,13 +285,13 @@ def filter_spiele(
 ):
     df_f = df.copy()
 
-    if namen:
+    if namen_ids:
         if modus == True:
             # NEUER MODUS: Alle Spieler (s) der Runde müssen im namen-Pool existieren
             df_f = df_f[
-                df_f["Mitspieler_Runde"].apply(
+                df_f["MitspielerRundeIds"].apply(
                     lambda spieler_liste: all(
-                        s in namen
+                        s in namen_ids
                         for s in (
                             ast.literal_eval(spieler_liste)
                             if isinstance(spieler_liste, str)
@@ -285,10 +304,10 @@ def filter_spiele(
                 st.write(df_f)
         else:
             df_f = df_f[
-                df_f["Mitspieler_Runde"].apply(
+                df_f["MitspielerRundeIds"].apply(
                     lambda spieler_liste: any(
                         n == s
-                        for n in namen
+                        for n in namen_ids
                         for s in (
                             ast.literal_eval(spieler_liste)
                             if isinstance(spieler_liste, str)
@@ -313,6 +332,11 @@ def filter_spiele(
         df_f = df_f[df_f["tournament"].isin(tournament)]
         if print_filter:
             st.write(df_f)
+
+    # 2. Deine bestehende Turnier-Filterung (auf 'is not None' korrigiert)
+    if tournament is None:
+        df_f = df_f[df_f["tournament"] != "Allgäuer-Rundn"]
+
     return df_f
 
 
@@ -411,18 +435,20 @@ def calculate_performance_score(row_dict, spielart, Punkteberechnung, OhneKlopfe
 
     return round(score, 1)
 
-def analyse_display_playerstats(df, name, MinSpiele, Punkteberechnung, OhneKlopfen):
+def analyse_display_playerstats(df, name_id, MinSpiele, Punkteberechnung, OhneKlopfen):
     stats = {}
+    name = st.session_state.id_to_username[name_id]
     spielarten = ["Ruf", "Trumpfsolo", "Wenz + Geier", "Ramsch", "Bettel"]
     # --- In deinem Hauptskript / Schleife ---
     rows = {}
     for s in spielarten:
         if s == "Wenz + Geier":
-            df_f = filter_spiele(df, [name], ["Alle"],["Wenz", "Geier"], None)
-        else:
-            df_f = filter_spiele(df, [name], ["Alle"], [s], None)
+            df_f = filter_spiele(df, [name_id], None,["Wenz", "Geier"], None)
 
-        player_stat = analyze_single_player(name, df_f, MinSpiele)
+        else:
+            df_f = filter_spiele(df, [name_id], None, [s], None)
+
+        player_stat = analyze_single_player(name_id, df_f, MinSpiele)
 
         if player_stat is not None:
             stats[name] = player_stat
@@ -461,7 +487,6 @@ def analyse_display_playerstats(df, name, MinSpiele, Punkteberechnung, OhneKlopf
     else:
         st.info(f"Für {name} wurden mit den aktuellen Filtern (Mindestspiele: {MinSpiele}) keine Daten gefunden.")
     return rows
-
 
 
 
@@ -640,28 +665,10 @@ def backup_process_data():
 
     # Sichert die fertig verarbeiteten Daten im Storage
     backup_df_to_supabase(final_df, filename="spiele_backup.csv")
-
-    # WICHTIG: Wenn sich das Backup ändert, müssen wir den Streamlit-Cache leeren!
-    load_df_from_supabase_backup.clear()
     print("🔄 Backend: Daten verarbeitet, Backup aktualisiert und Cache geleert.")
 
 
 
-# =====================================================================
-# 2. DATA LOADING & CACHING (Für die UI)
-# =====================================================================
-
-@st.cache_data(ttl=60)  # Daten für 10 Minuten im RAM behalten
-def load_df_from_supabase_backup(filename="spiele_backup.csv"):
-    """Lädt das CSV-Backup blitzschnell aus dem Supabase Storage."""
-    try:
-        file_bytes = supabase.storage.from_('all_games').download(filename)
-        csv_buffer = io.BytesIO(file_bytes)
-        df = pd.read_csv(csv_buffer)
-        return df
-    except Exception as e:
-        st.error(f"Fehler beim Laden der Spieldaten: {e}")
-        return None
 
 
 

@@ -3,7 +3,6 @@ from Statistik import analyse_display_playerstats, backup_process_data, load_df_
 
 def run_player_statistics():
     df = load_df_from_supabase_backup()
-
     if df is None or df.empty:
         st.warning("Keine Spieldaten im Backup gefunden.")
 
@@ -12,7 +11,6 @@ def run_player_statistics():
         with st.spinner("Aktualisieren..."):
             # 1. Frische Daten aus der DB holen und neues Backup im Storage überschreiben
             backup_process_data()
-            load_df_from_supabase_backup.clear()
 
         st.success("Erfolgreich aktualisiert!")
         # 3. Die App kurz neu starten, damit sie die frischen Daten direkt zeichnet
@@ -25,12 +23,17 @@ def run_player_statistics():
     MinSpiele = 10
 
     name = st.session_state.current_username
+    name_id = st.session_state.current_user_id
     if name == "Leo Schaller":
         alle_spieler = list(st.session_state.id_to_username.values())
         name = st.sidebar.selectbox("SpielerInnen", options=alle_spieler)
+        name_id = st.session_state.username_to_id[name]
+
 
     if st.button("Anzeigen"):
-        rows = analyse_display_playerstats(df, name, MinSpiele, Punkteberechnung, OhneKlopfen)
+        rows = analyse_display_playerstats(df, name_id, MinSpiele, Punkteberechnung, OhneKlopfen)
+
+
 
         try:
             # Wir holen die Scores. Wenn eine Spielart fehlt, fliegt durch .get() kein KeyError,

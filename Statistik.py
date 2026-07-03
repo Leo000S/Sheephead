@@ -110,7 +110,7 @@ def analyze_single_player(player, df, MinSpiele):
         df_player_s = punkte_abspeichern(df_player_s, player)
 
     # 1. Spiele als Rufpartner herausfiltern
-    df_player_rp = df_player[df_player["RufpartnerId"] == player]  
+    df_player_rp = df_player[df_player["RufpartnerId"] == player]
     anzahl_rufpartner = len(df_player_rp)
 
     # 2. Siege als Rufpartner zählen (Wenn das Team gewonnen hat, hat auch der Rufpartner gewonnen)
@@ -301,6 +301,7 @@ def filter_spiele(
                 )
             ]
             if print_filter:
+                st.write("Filter 1")
                 st.write(df_f)
         else:
             df_f = df_f[
@@ -317,20 +318,24 @@ def filter_spiele(
                 )
             ]
             if print_filter:
+                st.write("Filter 2")
                 st.write(df_f)
     if group:
         df_f = df_f[df_f["groupname"].isin(group)]
         if print_filter:
+            st.write("Filter 3")
             st.write(df_f)
     # --- Spielart ---
     if spielarten and "alle" not in spielarten:
         df_f = df_f[df_f["Spielart"].isin(spielarten)]
         if print_filter:
+            st.write("Filter 4")
             st.write(df_f)
     # --- Tournament ---
     if tournament:
         df_f = df_f[df_f["tournament"].isin(tournament)]
         if print_filter:
+            st.write("Filter 5")
             st.write(df_f)
 
     # 2. Deine bestehende Turnier-Filterung (auf 'is not None' korrigiert)

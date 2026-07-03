@@ -348,43 +348,62 @@ def run_book():
 
             abschicken = False
 
-            if spielart == "Ramsch":
-                abschicken = st.button("Ramsch abspeichern ✅", use_container_width=True)
+            # Gewonnen
+            wertn, wertn_NK = spielwert_bestimmen_normal(spielart, klopfer, laufende, tout, jungfrau, schneider,
+                                                         schwarz, kontra, Re, Hirsch, st.session_state.SPIELWERTE)
+            wertw, wertw_NK = spielwert_bestimmen_wue(spielart, klopfer, laufende, tout, jungfrau, schneider, schwarz,
+                                                      kontra, Re, Hirsch, True, st.session_state.SPIELWERTE)
 
-            elif spielart == "Durchmarsch":
-                gewonnen = True
-                abschicken = st.button("Durchmarsch abspeichern ✅", use_container_width=True)
+            # Verloren
+            wertw_l, wertw_NK_l = spielwert_bestimmen_wue(spielart, klopfer, laufende, tout, jungfrau, schneider,
+                                                          schwarz,
+                                                          kontra, Re, Hirsch, False, st.session_state.SPIELWERTE)
+
+            # 1. Standard-Initialisierungen (Sicherheitsnetze)
+            abschicken = False
+            gewonnen = None  # Wird in den Bedingungen gesetzt
+
+            # 2. Punkte für die Button-Beschriftung ermitteln (Wichtig, damit wir es überall nutzen können!)
+            aktueller_wert = wertw if st.session_state.mode == "wue" else wertn
+
+            # 3. Fallunterscheidung für die Buttons
+            if spielart in ["Ramsch", "Durchmarsch"]:
+                if spielart == "Durchmarsch":
+                    gewonnen = True
+
+                # Hier nutzen wir das oben ermittelte 'aktueller_wert' -> kein doppeltes st.button nötig!
+                abschicken = st.button(f"{spielart} abspeichern ({aktueller_wert}) ✅", use_container_width=True)
 
             else:
+                # Dynamisch die Beschriftungen für das normale Spiel bestimmen
+                if st.session_state.mode == "wue":
+                    text_gewonnen = f"🟢 Gewonnen ({wertw}) 🟢"
+                    text_verloren = f"🔴 Verloren ({wertw_l}) 🔴"
+                else:
+                    text_gewonnen = f"🟢 Gewonnen ({wertn}) 🟢"
+                    text_verloren = f"🔴 Verloren ({wertn}) 🔴"
+
+                # Spalten anzeigen und Buttons füttern
                 col1, col2 = st.columns(2)
 
                 with col1:
-                    if st.button("🟢 Gewonnen 🟢", use_container_width=True):
+                    if st.button(text_gewonnen, use_container_width=True):
                         gewonnen = True
                         abschicken = True
 
                 with col2:
-                    if st.button("🔴 Verloren 🔴", use_container_width=True):
+                    if st.button(text_verloren, use_container_width=True):
                         gewonnen = False
                         abschicken = True
+                        # Deine Spezial-Zuweisungen im Verlustfall (wichtig!)
+                        wertw = wertw_l
+                        wertw_NK = wertw_NK_l
 
+            # 4. Nachgelagerte Logik (Win-Text & finale Punkte für die Datenbank)
+            win_text = " verloren" if gewonnen == False else " gewonnen"
 
-            wertn, wertn_NK = spielwert_bestimmen_normal(spielart, klopfer, laufende, tout, jungfrau, schneider,
-                                                         schwarz, kontra, Re, Hirsch, st.session_state.SPIELWERTE)
-            wertw, wertw_NK = spielwert_bestimmen_wue(spielart, klopfer, laufende, tout, jungfrau, schneider, schwarz,
-                                                      kontra, Re, Hirsch, gewonnen, st.session_state.SPIELWERTE)
-
-            win_text = " gewonnen"
-            if gewonnen == False:
-                win_text = " verloren"
-
-            Punkte = wertn
-            if st.session_state.mode == "wue":
-                Punkte = wertw
-
-            Punkte_str = " Punkt "
-            if Punkte > 1:
-                Punkte_str = " Punkte "
+            Punkte = wertw if st.session_state.mode == "wue" else wertn
+            Punkte_str = " Punkte " if Punkte > 1 else " Punkt "
 
 
             if abschicken:

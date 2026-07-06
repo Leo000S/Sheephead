@@ -8,11 +8,13 @@ from datetime import datetime
 
 # Modus Augschburg
 # --- Hilfsfunktionen ---
-def spielwert_bestimmen_normal(spielart, klopfer, laufende, tout, jungfrau, schneider, schwarz, kontra, Re, Hirsch, SPIELWERTE):
+def spielwert_bestimmen_normal(spielart, klopfer, laufende, tout, Sie, jungfrau, schneider, schwarz, kontra, Re, Hirsch, SPIELWERTE):
     basis = SPIELWERTE.get(spielart, 1) 
     bonus = 0 + jungfrau
     if tout:
-        basis += 1 
+        basis += 1
+    if Sie:
+        basis += 1
     if kontra: 
         bonus += 1
     if Re:
@@ -27,7 +29,7 @@ def spielwert_bestimmen_normal(spielart, klopfer, laufende, tout, jungfrau, schn
     wertn_NK = (basis + laufende) * (2 ** bonus)
     return wertn, wertn_NK
 
-def spielwert_bestimmen_wue(spielart, klopfer, laufende, tout, jungfrau, schneider, schwarz, kontra, Re, Hirsch, gewonnen, SPIELWERTE):
+def spielwert_bestimmen_wue(spielart, klopfer, laufende, tout, Sie, jungfrau, schneider, schwarz, kontra, Re, Hirsch, gewonnen, SPIELWERTE):
     basis = SPIELWERTE.get(spielart, 1) 
     if basis == 5:
         basis = 3
@@ -35,7 +37,9 @@ def spielwert_bestimmen_wue(spielart, klopfer, laufende, tout, jungfrau, schneid
     if not gewonnen and spielart == "Ruf":
         basis += 1
     if tout:
-        basis += 1 
+        basis += 1
+    if Sie:
+        basis += 1
     if kontra: 
         kontrazahl += 1
     if Re:
@@ -184,11 +188,30 @@ def update_round(st):
     except Exception as e:
         st.error(f"Fehler beim Update: {e}")
 
+def delete_round(st):
+    try:
+        # Löscht den Eintrag aus der Tabelle "rounds", der zum aktuellen User und Zeitstempel passt
+        supabase.table("rounds").delete().eq(
+            "user_id", st.session_state.current_user_id
+        ).eq(
+            "created_at", st.session_state.runden_timestamp
+        ).execute()
+
+        st.success("Leere Runde erfolgreich aus der Datenbank gelöscht!")
+    except Exception as e:
+        st.error(f"Fehler beim Löschen der Runde: {e}")
 
 
 
+import streamlit as st
 
-
+def load_css(file_name="assets/style.css"):
+    try:
+        with open(file_name, "r", encoding="utf-8") as f:
+            st.html(f"<style>{f.read()}</style>")
+    except FileNotFoundError:
+        # Falls der Pfad mal nicht stimmt, läuft die App trotzdem weiter
+        pass
 
 
 

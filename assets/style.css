@@ -1,0 +1,34 @@
+/* assets/style.css */
+
+/* Grüner Button (Gewonnen) */
+.st-key-btn_gewonnen button {
+    background-color: #28a745 !important;
+    color: white !important;
+    border: none !important;
+}
+.st-key-btn_gewonnen button:hover {
+    background-color: #218838 !important;
+    color: white !important;
+}
+
+/* Roter Button (Verloren) */
+.st-key-btn_verloren button {
+    background-color: #dc3545 !important;
+    color: white !important;
+    border: none !important;
+}
+.st-key-btn_verloren button:hover {
+    background-color: #c82333 !important;
+    color: white !important;
+}
+
+/* Tischrunde beenden */
+.st-key-btn_Tbeenden button {
+    background-color: #dc3545 !important;
+    color: white !important;
+    border: none !important;
+}
+.st-key-btn_Tbeenden button:hover {
+    background-color: #c82333 !important;
+    color: white !important;
+}

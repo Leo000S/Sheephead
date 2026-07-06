@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 from datetime import datetime
 
-from SheepHeadBook import spielwert_bestimmen_wue, spielwert_bestimmen_normal, load_open_rounds, update_round, save_round
+from SheepHeadBook import spielwert_bestimmen_wue, spielwert_bestimmen_normal, load_open_rounds, update_round, delete_round, load_css
 from SheepHeadBook import (berechne_statistik)
 from services.supabase_client import log_event, supabase
 import json
@@ -215,7 +215,6 @@ def run_book():
 
                     # Hintergrundeinstellung der Runde
                     resolve_restrictions(st.session_state.tournament)
-                    save_round(st)
                     log_event(
                         level="INFO",
                         message=f"round created by {st.session_state.current_username}",
@@ -306,9 +305,6 @@ def run_book():
                 if st.session_state.TOUT == False:
                     tout = False
 
-            if spielart == "Durchmarsch":
-                gewonnen = True
-
             if spielart == "Ruf":
                 mögliche_rufpartner = [s for s in spielende_spieler_names if s != spielmacher]
                 rufpartner = st.selectbox("RufpartnerIn", mögliche_rufpartner)
@@ -339,7 +335,7 @@ def run_book():
                 if kontra:
                     Re = st.checkbox("Retour?")
                     if Re:
-                        st.checkbox("Hirsch?")
+                        Hirsch = st.checkbox("Hirsch?")
 
                 schneider = st.checkbox("Schneider? (Verliererteam unter 30 Punkte)")
                 schwarz = st.checkbox("Schwarz?")
@@ -349,16 +345,16 @@ def run_book():
             abschicken = False
 
             # Gewonnen
-            wertn, wertn_NK = spielwert_bestimmen_normal(spielart, klopfer, laufende, tout, jungfrau, schneider,
+            wertn, wertn_NK = spielwert_bestimmen_normal(spielart, klopfer, laufende, tout, Sie, jungfrau, schneider,
                                                          schwarz, kontra, Re, Hirsch, st.session_state.SPIELWERTE)
-            wertw, wertw_NK = spielwert_bestimmen_wue(spielart, klopfer, laufende, tout, jungfrau, schneider, schwarz,
+            wertw, wertw_NK = spielwert_bestimmen_wue(spielart, klopfer, laufende, tout, Sie, jungfrau, schneider, schwarz,
                                                       kontra, Re, Hirsch, True, st.session_state.SPIELWERTE)
 
             # Verloren
-            wertw_l, wertw_NK_l = spielwert_bestimmen_wue(spielart, klopfer, laufende, tout, jungfrau, schneider,
+            wertw_l, wertw_NK_l = spielwert_bestimmen_wue(spielart, klopfer, laufende, tout, Sie, jungfrau, schneider,
                                                           schwarz,
                                                           kontra, Re, Hirsch, False, st.session_state.SPIELWERTE)
-
+            load_css()
             # 1. Standard-Initialisierungen (Sicherheitsnetze)
             abschicken = False
             gewonnen = None  # Wird in den Bedingungen gesetzt
@@ -372,27 +368,27 @@ def run_book():
                     gewonnen = True
 
                 # Hier nutzen wir das oben ermittelte 'aktueller_wert' -> kein doppeltes st.button nötig!
-                abschicken = st.button(f"{spielart} abspeichern ({aktueller_wert}) ✅", use_container_width=True)
+                abschicken = st.button(f"{spielart} abspeichern ({aktueller_wert})", use_container_width=True)
 
             else:
                 # Dynamisch die Beschriftungen für das normale Spiel bestimmen
                 if st.session_state.mode == "wue":
-                    text_gewonnen = f"🟢 Gewonnen ({wertw}) 🟢"
-                    text_verloren = f"🔴 Verloren ({wertw_l}) 🔴"
+                    text_gewonnen = f"Gewonnen ({wertw}) "
+                    text_verloren = f"Verloren ({wertw_l}) "
                 else:
-                    text_gewonnen = f"🟢 Gewonnen ({wertn}) 🟢"
-                    text_verloren = f"🔴 Verloren ({wertn}) 🔴"
+                    text_gewonnen = f"Gewonnen ({wertn}) "
+                    text_verloren = f"Verloren ({wertn}) "
 
                 # Spalten anzeigen und Buttons füttern
                 col1, col2 = st.columns(2)
 
                 with col1:
-                    if st.button(text_gewonnen, use_container_width=True):
+                    if st.button(text_gewonnen, use_container_width=True, key="btn_gewonnen"):
                         gewonnen = True
                         abschicken = True
 
                 with col2:
-                    if st.button(text_verloren, use_container_width=True):
+                    if st.button(text_verloren, use_container_width=True, key="btn_verloren"):
                         gewonnen = False
                         abschicken = True
                         # Deine Spezial-Zuweisungen im Verlustfall (wichtig!)
@@ -547,28 +543,47 @@ def run_book():
         def confirm_end_dialog():
             st.write("Willst du die Tischrundn wirklich beenden?")
 
-            c1, c2 = st.columns(2)
+            c1, c2, c3 = st.columns(3)
             with c1:
                 if st.button("Ja, beenden", type="primary", use_container_width=True):
-                    st.session_state.ende = True
-                    update_round(st)
+                    # Logik zum Löschen oder Updaten der Runde
+                    if len(st.session_state.spiele) == 0:
+                        delete_round(st)
+                        log_event(
+                            level="INFO",
+                            message=f"empty round deleted by {st.session_state.current_username}",
+                            details={"user": st.session_state.current_username}
+                        )
+                        st.toast("Leere Runde wurde gelöscht.")
+                    else:
+                        # WENN SPIELE NICHT LEER IST: Normal beenden und updaten
+                        st.session_state.ende = True
+                        update_round(st)
+                        log_event(
+                            level="INFO",
+                            message=f"round finished by {st.session_state.current_username}",
+                            details={"user": st.session_state.current_username}
+                        )
+                        st.toast("Tischrundn erfolgreich beendet!")
+
+                    # States zurücksetzen
                     st.session_state.runde_aktiv = False
                     st.session_state.spiele = []
                     st.session_state.spieler = []
 
-                    log_event(
-                        level="INFO",
-                        message=f"round finished by {st.session_state.current_username}",
-                        details={"user": st.session_state.current_username}
-                    )
-                    # st.success anzeigen und direkt neu laden
-                    st.toast("🟢 Tischrundn erfolgreich beendet!")
                     st.rerun()
 
             with c2:
                 if st.button("Nein, zurück", use_container_width=True):
-                    st.rerun()  # Schließt den Dialog automatisch durch den Rerun
+                    st.rerun()  # Schließt den Dialog einfach und bleibt in der Runde
+
+            with c3:
+                if st.button("Kurze Unterbrechung", use_container_width=True):
+                    # Setzt das Radio-Menü in der Sidebar direkt auf "Home"
+                    st.session_state.navigation_menu = "Home"
+                    st.rerun()
 
         # 2. Der Button, der den Dialog einfach direkt aufruft
-        if st.button("🔚 Beende die Tischrundn?"):
+        st.divider()
+        if st.button("Tischrunde beenden?", type="primary"):
             confirm_end_dialog()

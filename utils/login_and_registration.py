@@ -23,7 +23,7 @@ def login_and_registration():
             with st.form("login_form"):
                 email = st.text_input("Email")
                 password = st.text_input("Passwort", type="password")
-                if st.form_submit_button("Login", use_container_width=True):
+                if st.form_submit_button("Login", use_container_width=True, type="primary"):
                     try:
                         res = supabase.auth.sign_in_with_password({"email": email, "password": password})
                         if res.user:
@@ -123,7 +123,7 @@ def login_and_registration():
         with st.form("reg_form"):
             reg_mail = st.text_input("Email")
             reg_pw = st.text_input("Passwort (min. 6 Zeichen)", type="password")
-            if st.form_submit_button("Account erstellen", use_container_width=True):
+            if st.form_submit_button("Account erstellen", use_container_width=True, type="primary"):
                 if len(reg_pw) >= 6:
                     try:
                         response = supabase.auth.sign_up({"email": reg_mail, "password": reg_pw})

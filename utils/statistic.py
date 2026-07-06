@@ -15,19 +15,15 @@ def run_statistics():
     if df is None or df.empty:
         st.warning("Keine Spieldaten im Backup gefunden.")
 
-    # Wenn der Button geklickt wird, läuft der Code im if-Block
     if st.button("Daten aktualisieren"):
         with st.spinner("Aktualisieren..."):
-            # 1. Frische Daten aus der DB holen und neues Backup im Storage überschreiben
             backup_process_data()
 
         st.success("Erfolgreich aktualisiert!")
-        # 3. Die App kurz neu starten, damit sie die frischen Daten direkt zeichnet
         st.rerun()
 
     alle_spielarten = sorted(df["Spielart"].dropna().unique())
 
-    # 1. Alle Gruppen aus der DB holen
     alle_gruppen = supabase.table("groups").select("groupname, members").execute().data
     group = st.sidebar.selectbox(
         "Gruppe",
@@ -46,7 +42,7 @@ def run_statistics():
         tournament = st.sidebar.selectbox("Turnier", options=["alle Turniere"] + Turnier_Auswahl)
 
     namen_einzel = st.sidebar.multiselect("SpielerInnen", options=erlaubte_spieler)
-    if st.sidebar.checkbox("Alle Spieler auswählen?"):
+    if st.sidebar.checkbox("Alle Spieler auswählen?", value=True):
         namen_einzel = erlaubte_spieler
     namen = set(namen_einzel)
 
@@ -57,9 +53,9 @@ def run_statistics():
 
     spielarten = st.sidebar.multiselect("Spielart", options=["alle"] + alle_spielarten)
 
-    OhneKlopfen = st.sidebar.checkbox("Soll das Klopfen herausgerechnent werden?")
+    OhneKlopfen = st.sidebar.checkbox("Ohne Klopfen?")
 
-    OnlyNames = st.sidebar.checkbox("Nur Runden mit den ausgewählten SpielerInnen")
+    OnlyNames = st.sidebar.checkbox("Nur Runden mit den ausgewählten SpielerInnen?")
 
     Punkteberechnung = st.sidebar.selectbox("Berechnung der Punkte", options = ["Normal", "Würzburg"])
 

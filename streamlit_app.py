@@ -44,44 +44,50 @@ else:
     st.sidebar.title("Menü")
     menu = st.sidebar.radio(
         "Navigation",
-        ["Home", "Profile", "Groups", "Sheephead-Book", "Sheephead-Statistic", "Personal-Statistic", "Logout"]
+        ["Home", "Profile", "Groups", "Sheephead-Book", "Sheephead-Statistic", "Personal-Statistic", "Logout"],
+                key = "navigation_menu"
     )
 
     # =====================================
     # DASHBOARD
     # =====================================
     if menu == "Home":
+        st.sidebar.divider()
         home(user)
 
     # =====================================
     # PROFIL
     # =====================================
     elif menu == "Profile":
+        st.sidebar.divider()
         profile_menu(user)
 
     # =====================================
     # Gruppe
     # =====================================
     elif menu == "Groups":
+        st.sidebar.divider()
         group_menu(user)
 
     # =====================================
     # SPACE 1
     # =====================================
     elif menu == "Sheephead-Book":
+        st.sidebar.divider()
         run_book()
-
 
     # =====================================
     # SPACE 2
     # =====================================
     elif menu == "Sheephead-Statistic":
+        st.sidebar.divider()
         run_statistics()
 
     # =====================================
     # SPACE 3
     # =====================================
     elif menu == "Personal-Statistic":
+        st.sidebar.divider()
         run_player_statistics()
 
     # =====================================

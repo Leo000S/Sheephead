@@ -549,6 +549,7 @@ def run_book():
                 if st.button("Ja, beenden", type="primary", use_container_width=True):
                     # Logik zum Löschen oder Updaten der Runde
                     if len(st.session_state.spiele) == 0:
+                        st.session_state.ende = True
                         delete_round(st)
                         log_event(
                             level="INFO",

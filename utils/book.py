@@ -551,6 +551,7 @@ def run_book():
                     # Logik zum Löschen oder Updaten der Runde
                     if len(st.session_state.spiele) == 0:
                         st.session_state.ende = True
+                        update_round(st)
                         delete_round(st)
                         log_event(
                             level="INFO",

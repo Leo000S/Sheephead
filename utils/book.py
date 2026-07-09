@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 from datetime import datetime
 
-from SheepHeadBook import spielwert_bestimmen_wue, spielwert_bestimmen_normal, load_open_rounds, update_round, delete_round, load_css
+from SheepHeadBook import spielwert_bestimmen_wue, spielwert_bestimmen_normal, load_open_rounds, update_round, delete_round, load_css, save_round
 from SheepHeadBook import (berechne_statistik)
 from services.supabase_client import log_event, supabase
 import json
@@ -215,6 +215,7 @@ def run_book():
 
                     # Hintergrundeinstellung der Runde
                     resolve_restrictions(st.session_state.tournament)
+                    save_round(st)
                     log_event(
                         level="INFO",
                         message=f"round created by {st.session_state.current_username}",

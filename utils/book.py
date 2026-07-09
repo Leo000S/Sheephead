@@ -537,6 +537,7 @@ def run_book():
                     if st.button(f"#{selected_nr} Spiel löschen!", disabled=not confirm, use_container_width=True):
                         st.session_state.spiele.pop(idx)
                         st.toast(f"Spiel #{selected_nr} ({art} von {sm}) gelöscht!")  # Dezentes Feedback oben rechts
+                        update_round(st)
                         st.rerun()
 
         # 1. Die Dialog-Funktion definieren (ganz normal auf der Hauptebene deines Codes, NICHT in einem if)

@@ -176,7 +176,28 @@ def group_menu(user):
                         st.rerun()
 
                 if st.session_state.current_username == "Leo Schaller":
-                    st.write("Du bist Leo, du kannst auch einfach so Mitglieder hinzufügen!!!")
+                    st.write("Du bist Admin, du kannst auch einfach so Mitglieder hinzufügen!!!")
+                    blockierte_ids = aktuelle_mitglieder
+                    verfuegbare_user = {uname: uid for uid, uname in all_p.items() if uid not in blockierte_ids}
+
+                    ausgewaehlter_name = st.selectbox(
+                        "SpielerIn wählen",
+                        ["-- bitte wählen --"] + list(verfuegbare_user.keys()), key=f"selectbox_add_member_{sel_g}_admin")
+
+                    if st.button("SpielerIn verbindlich hinzufügen"):
+                        if ausgewaehlter_name != "-- bitte wählen --":
+
+                            neue_user_id = verfuegbare_user[ausgewaehlter_name]
+                            neue_mitglieder_liste = aktuelle_mitglieder + [neue_user_id]
+                            supabase.table("groups").update({"members": neue_mitglieder_liste}).eq("groupname",
+                                                                                                   sel_g).execute()
+                            st.success(f"{ausgewaehlter_name} wurde erfolgreich hinzugefügt!")
+                            st.rerun()
+                        else:
+                            st.warning("Bitte wähle zuerst eine gültige SpielerIn aus!")
+
+                if  ist_admin_oder_boss:
+                    st.write("Du bist Admin, du kannst auch einfach so Mitglieder hinzufügen!!!")
                     blockierte_ids = aktuelle_mitglieder
                     verfuegbare_user = {uname: uid for uid, uname in all_p.items() if uid not in blockierte_ids}
 

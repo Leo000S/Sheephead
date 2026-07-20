@@ -302,22 +302,29 @@ def run_book():
             if spielart == "Ramsch":
 
                 ramschverlierer = st.multiselect("Wer hat den Ramsch verloren?", spielende_spieler_names, max_selections=3, default=spielende_spieler_names[0])
-                jungfrau = st.number_input(
-                    "Wie viele Jungfrauen sitzen am Tisch?",
-                    min_value=0, max_value=2, value=0)
+
                 if len(ramschverlierer) == 1:
                     spielmacher = ramschverlierer[0]
                     gewonnen = False
+                    jungfrau = st.number_input(
+                        "Wie viele Jungfrauen sitzen am Tisch?",
+                        min_value=0, max_value=2, value=0)
                 if len(ramschverlierer) == 2:
                     spielmacher = ramschverlierer[0]
                     rufpartner = ramschverlierer[1]
                     rufpartner_id = st.session_state.player_to_id[rufpartner]
                     Verteilungsfaktor *= 0.5
                     gewonnen = False
+                    jungfrau = st.number_input(
+                        "Wie viele Jungfrauen sitzen am Tisch?",
+                        min_value=0, max_value=2, value=0)
 
                 if len(ramschverlierer) == 3:
                     spielmacher = (set(spielende_spieler_names)- set(ramschverlierer)).pop()
                     gewonnen = True
+                    jungfrau = st.number_input(
+                        "Wie viele Jungfrauen sitzen am Tisch?",
+                        min_value=0, max_value=1, value=0)
 
             spielmacher_id = st.session_state.player_to_id[spielmacher]
 
@@ -362,7 +369,10 @@ def run_book():
 
                 schneider = st.checkbox("Schneider? (Verliererteam unter 30 Punkte)")
                 schwarz = st.checkbox("Schwarz?")
-                laufende = st.selectbox("Wie viele Laufende?", [0] + list(range(2, 15)))
+                if spielart == "Trumpfsolo":
+                    laufende = st.selectbox("Wie viele Laufende?", [0] + list(range(3, 8)))
+                if spielart in ["Wenz", "Geier"]:
+                    laufende = st.selectbox("Wie viele Laufende?", [0] + list(range(2, 4)))
 
 
             abschicken = False

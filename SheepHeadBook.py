@@ -29,8 +29,9 @@ def spielwert_bestimmen_normal(spielart, klopfer, laufende, tout, Sie, jungfrau,
     wertn_NK = (basis + laufende) * (2 ** bonus)
     return wertn, wertn_NK
 
+
 def spielwert_bestimmen_wue(spielart, klopfer, laufende, tout, Sie, jungfrau, schneider, schwarz, kontra, Re, Hirsch, gewonnen, SPIELWERTE):
-    basis = SPIELWERTE.get(spielart, 1) 
+    basis = SPIELWERTE.get(spielart, 1)
     if basis == 5:
         basis = 3
     kontrazahl = 0
@@ -63,15 +64,22 @@ def berechne_statistik(spieler, spiele):
     for spiel in spiele:
         faktor = spiel.get("Verteilungsfaktor", 1)
         sa = spiel["Spielart"]
-        sm = spiel["Spielmacher"][0]
-        rp = spiel["Rufpartner"][0]
         wertn = spiel["Wert"]
         wertw = spiel["Wert_Wue"]
         gewonnen = spiel["Gewonnen"]
         spielende = set([s[0] for s in spiel["Mitspieler_Runde"]])
-        team = {sm}
-        if rp:
-            team.add(rp)
+
+        def als_liste(wert):
+            if wert is None:
+                return []
+            if isinstance(wert, list):
+                return wert
+            return [wert]
+
+        spielmacher = als_liste(spiel["Spielmacher"][0])
+        rufpartner = als_liste(spiel["Rufpartner"][0])
+
+        team = set(spielmacher + rufpartner)
         gegner = spielende - team
 
         # Statistikzähler
@@ -187,20 +195,6 @@ def update_round(st):
         st.success("Runde erfolgreich aktualisiert!")
     except Exception as e:
         st.error(f"Fehler beim Update: {e}")
-
-def delete_round(st):
-    try:
-        # Löscht den Eintrag aus der Tabelle "rounds", der zum aktuellen User und Zeitstempel passt
-        supabase.table("rounds").delete().eq(
-            "user_id", st.session_state.current_user_id
-        ).eq(
-            "created_at", st.session_state.runden_timestamp
-        ).execute()
-
-        st.success("Leere Runde erfolgreich aus der Datenbank gelöscht!")
-    except Exception as e:
-        st.error(f"Fehler beim Löschen der Runde: {e}")
-
 
 
 import streamlit as st

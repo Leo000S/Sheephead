@@ -35,17 +35,11 @@ def punkte_abspeichern(df_player, player):
     df_player["Kumulativer Punktestand_Wue"] = df_player["Punkte_Wue"].cumsum()
     df_player["Kumulativer Punktestand_NK"] = df_player["Punkte_NK"].cumsum()
     df_player["Kumulativer Punktestand_NK_Wue"] = df_player["Punkte_NK_Wue"].cumsum()
-    
-    standardabweichung = {
-    "stdPunkte": df_player["Punkte"].std(ddof=0),
-    "stdPunkte_Wue": df_player["Punkte_Wue"].std(ddof=0),
-    "stdPunkte_NK": df_player["Punkte_NK"].std(ddof=0),
-    "stdPunkte_NK_Wue": df_player["Punkte_NK_Wue"].std(ddof=0),
-    }
+
     return df_player
 
 
-# Wir in Punkte abspeichern benötigt
+# Wird in Punkte abspeichern benötigt
 def berechne_punkte(x, player):
     # Basiswert: + oder - je nach Sieg/Niederlage
     punkte = x["Wert"] if x["Hat_gewonnen"] else -x["Wert"]

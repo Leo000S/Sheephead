@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 from datetime import datetime
 
-from SheepHeadBook import spielwert_bestimmen_wue, spielwert_bestimmen_normal, load_open_rounds, update_round, delete_round, load_css, save_round
+from SheepHeadBook import spielwert_bestimmen_wue, spielwert_bestimmen_normal, load_open_rounds, update_round, load_css, save_round
 from SheepHeadBook import (berechne_statistik)
 from services.supabase_client import log_event, supabase
 import json
@@ -234,8 +234,15 @@ def run_book():
         st.session_state.player_list = [s[0] for s in st.session_state.spieler]
         st.session_state.player_to_id = {s[0]: s[1] for s in st.session_state.spieler}
 
+        import time
+
         if "letztes_spiel" in st.session_state:
-            st.success(st.session_state.letztes_spiel)
+            meldung, zeitpunkt = st.session_state.letztes_spiel
+
+            if time.time() - zeitpunkt < 5:
+                st.success(meldung)
+            else:
+                del st.session_state.letztes_spiel
 
         if "eingabe_phase" not in st.session_state:
             st.session_state.eingabe_phase = 1
@@ -275,13 +282,13 @@ def run_book():
             jungfrau = 0
             Sie = False
             tout = False
-            gewonnen = False
             kontra = False
             Re = False
             Hirsch = False
             schwarz = False
             schneider = False
             laufende = 0
+            gewonnen = False
 
             st.write(f"**Spiel:** {spielart}")
 
@@ -293,12 +300,27 @@ def run_book():
             if spielart != "Ramsch":
                 spielmacher = st.selectbox("Wer hat das Spiel angesagt?", spielende_spieler_names)
             if spielart == "Ramsch":
-                spielmacher = st.selectbox("Wer hat den Ramsch verloren?", spielende_spieler_names)
+
+                ramschverlierer = st.multiselect("Wer hat den Ramsch verloren?", spielende_spieler_names, max_selections=3, default=spielende_spieler_names[0])
                 jungfrau = st.number_input(
                     "Wie viele Jungfrauen sitzen am Tisch?",
                     min_value=0, max_value=2, value=0)
+                if len(ramschverlierer) == 1:
+                    spielmacher = ramschverlierer[0]
+                    gewonnen = False
+                if len(ramschverlierer) == 2:
+                    spielmacher = ramschverlierer[0]
+                    rufpartner = ramschverlierer[1]
+                    rufpartner_id = st.session_state.player_to_id[rufpartner]
+                    Verteilungsfaktor *= 0.5
+                    gewonnen = False
+
+                if len(ramschverlierer) == 3:
+                    spielmacher = (set(spielende_spieler_names)- set(ramschverlierer)).pop()
+                    gewonnen = True
 
             spielmacher_id = st.session_state.player_to_id[spielmacher]
+
 
             if spielart == "Bettel":
                 if st.session_state.TOUT == True:
@@ -317,7 +339,7 @@ def run_book():
                 if kontra:
                     Re = st.checkbox("Retour?")
                     if Re:
-                        st.checkbox("Hirsch?")
+                        Hirsch = st.checkbox("Hirsch?")
                 schneider = st.checkbox("Schneider? (Verliererteam unter 30 Punkte)")
                 schwarz = st.checkbox("Schwarz?")
                 laufende = st.selectbox("Wie viele Laufende?", [0] + list(range(3, 15)))
@@ -355,30 +377,54 @@ def run_book():
             wertw_l, wertw_NK_l = spielwert_bestimmen_wue(spielart, klopfer, laufende, tout, Sie, jungfrau, schneider,
                                                           schwarz,
                                                           kontra, Re, Hirsch, False, st.session_state.SPIELWERTE)
+
+
             load_css()
+            rufpartner_string = ""
+            if rufpartner:
+                rufpartner_string = f" (mit {rufpartner})"
             # 1. Standard-Initialisierungen (Sicherheitsnetze)
             abschicken = False
-            gewonnen = None  # Wird in den Bedingungen gesetzt
 
             # 2. Punkte für die Button-Beschriftung ermitteln (Wichtig, damit wir es überall nutzen können!)
             aktueller_wert = wertw if st.session_state.mode == "wue" else wertn
 
             # 3. Fallunterscheidung für die Buttons
-            if spielart in ["Ramsch", "Durchmarsch"]:
-                if spielart == "Durchmarsch":
-                    gewonnen = True
+            if spielart == "Durchmarsch":
+                gewonnen = True
 
                 # Hier nutzen wir das oben ermittelte 'aktueller_wert' -> kein doppeltes st.button nötig!
-                abschicken = st.button(f"{spielart} abspeichern ({aktueller_wert})", use_container_width=True)
+                abschicken = st.button(f"{spielart} gewonnen ({aktueller_wert}) ({spielmacher})", use_container_width=True)
+
+            elif spielart == "Ramsch":
+                if gewonnen:
+                    abschicken = st.button(
+                    f"{spielart} gewonnen ({aktueller_wert}) ({spielmacher}" + rufpartner_string + ")",
+                    use_container_width=True, key="btn_gewonnen")
+
+                if not gewonnen:
+                    abschicken = st.button(
+                    f"{spielart} verloren ({aktueller_wert}) ({spielmacher}" + rufpartner_string + ")",
+                    use_container_width=True, key="btn_verloren")
+
 
             else:
                 # Dynamisch die Beschriftungen für das normale Spiel bestimmen
                 if st.session_state.mode == "wue":
-                    text_gewonnen = f"Gewonnen ({wertw}) "
-                    text_verloren = f"Verloren ({wertw_l}) "
+                    text_gewonnen = f"Gewonnen ({wertw}) ({spielmacher})"
+                    text_verloren = f"Verloren ({wertw_l}) ({spielmacher})"
                 else:
-                    text_gewonnen = f"Gewonnen ({wertn}) "
-                    text_verloren = f"Verloren ({wertn}) "
+                    text_gewonnen = f"Gewonnen ({wertn}) ({spielmacher})"
+                    text_verloren = f"Verloren ({wertn}) ({spielmacher})"
+
+                if spielart == "Ruf":
+                    # Dynamisch die Beschriftungen für das normale Spiel bestimmen
+                    if st.session_state.mode == "wue":
+                        text_gewonnen = f"Gewonnen ({wertw}) ({spielmacher} ruft {rufpartner})"
+                        text_verloren = f"Verloren ({wertw_l}) ({spielmacher} ruft {rufpartner})"
+                    else:
+                        text_gewonnen = f"Gewonnen ({wertn}) ({spielmacher} ruft {rufpartner})"
+                        text_verloren = f"Verloren ({wertn}) ({spielmacher} ruft {rufpartner})"
 
                 # Spalten anzeigen und Buttons füttern
                 col1, col2 = st.columns(2)
@@ -438,7 +484,7 @@ def run_book():
                 st.session_state.spiele.append(spiel_dict)
                 update_round(st)
 
-                st.session_state.letztes_spiel = (spielmacher + " hat ein " + spielart + " für " + str(Punkte) + " (" + st.session_state.mode + ")" + Punkte_str + win_text)
+                st.session_state.letztes_spiel = (spielmacher + rufpartner_string + " hat ein " + spielart + " für " + str(Punkte) + " (" + st.session_state.mode + ")" + Punkte_str + win_text, time.time())
                 st.session_state.eingabe_phase = 1
                 st.session_state.spielart_temp = None
                 st.rerun()
@@ -548,27 +594,15 @@ def run_book():
             c1, c2, c3 = st.columns(3)
             with c1:
                 if st.button("Ja, beenden", type="primary", use_container_width=True):
-                    # Logik zum Löschen oder Updaten der Runde
-                    if len(st.session_state.spiele) == 0:
-                        st.session_state.ende = True
-                        update_round(st)
-                        delete_round(st)
-                        log_event(
-                            level="INFO",
-                            message=f"empty round deleted by {st.session_state.current_username}",
-                            details={"user": st.session_state.current_username}
-                        )
-                        st.toast("Leere Runde wurde gelöscht.")
-                    else:
-                        # WENN SPIELE NICHT LEER IST: Normal beenden und updaten
-                        st.session_state.ende = True
-                        update_round(st)
-                        log_event(
-                            level="INFO",
-                            message=f"round finished by {st.session_state.current_username}",
-                            details={"user": st.session_state.current_username}
-                        )
-                        st.toast("Tischrundn erfolgreich beendet!")
+
+                    st.session_state.ende = True
+                    update_round(st)
+                    log_event(
+                        level="INFO",
+                        message=f"round finished by {st.session_state.current_username}",
+                        details={"user": st.session_state.current_username}
+                    )
+                    st.toast("Tischrundn erfolgreich beendet!")
 
                     # States zurücksetzen
                     st.session_state.runde_aktiv = False

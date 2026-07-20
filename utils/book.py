@@ -382,7 +382,7 @@ def run_book():
             load_css()
             rufpartner_string = ""
             if rufpartner:
-                rufpartner_string = f" (mit {rufpartner})"
+                rufpartner_string = f" + {rufpartner}"
             # 1. Standard-Initialisierungen (Sicherheitsnetze)
             abschicken = False
 
@@ -444,7 +444,8 @@ def run_book():
 
             # 4. Nachgelagerte Logik (Win-Text & finale Punkte für die Datenbank)
             win_text = " verloren" if gewonnen == False else " gewonnen"
-
+            if rufpartner:
+                rufpartner_string = f" (mit {rufpartner})"
             Punkte = wertw if st.session_state.mode == "wue" else wertn
             Punkte_str = " Punkte " if Punkte > 1 else " Punkt "
 

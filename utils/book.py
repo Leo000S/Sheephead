@@ -370,9 +370,9 @@ def run_book():
                 schneider = st.checkbox("Schneider? (Verliererteam unter 30 Punkte)")
                 schwarz = st.checkbox("Schwarz?")
                 if spielart == "Trumpfsolo":
-                    laufende = st.selectbox("Wie viele Laufende?", [0] + list(range(3, 8)))
+                    laufende = st.selectbox("Wie viele Laufende?", [0] + list(range(3, 9)))
                 if spielart in ["Wenz", "Geier"]:
-                    laufende = st.selectbox("Wie viele Laufende?", [0] + list(range(2, 4)))
+                    laufende = st.selectbox("Wie viele Laufende?", [0] + list(range(2, 5)))
 
 
             abschicken = False

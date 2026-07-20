@@ -184,7 +184,7 @@ def group_menu(user):
                         "SpielerIn wählen durch Boss",
                         ["-- bitte wählen --"] + list(verfuegbare_user.keys()))
 
-                    if st.button("SpielerIn verbindlich hinzufügen"):
+                    if st.button("SpielerIn verbindlich hinzufügen durch Boss"):
                         if ausgewaehlter_name != "-- bitte wählen --":
 
                             neue_user_id = verfuegbare_user[ausgewaehlter_name]

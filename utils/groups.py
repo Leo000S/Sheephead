@@ -176,13 +176,13 @@ def group_menu(user):
                         st.rerun()
 
                 if st.session_state.current_username == "Leo Schaller":
-                    st.write("Du bist Admin, du kannst auch einfach so Mitglieder hinzufügen!!!")
+                    st.write("Du bist Leo, du kannst auch einfach so Mitglieder hinzufügen!!!")
                     blockierte_ids = aktuelle_mitglieder
                     verfuegbare_user = {uname: uid for uid, uname in all_p.items() if uid not in blockierte_ids}
 
                     ausgewaehlter_name = st.selectbox(
-                        "SpielerIn wählen",
-                        ["-- bitte wählen --"] + list(verfuegbare_user.keys()), key=f"selectbox_add_member_{sel_g}_admin")
+                        "SpielerIn wählen durch Boss",
+                        ["-- bitte wählen --"] + list(verfuegbare_user.keys()))
 
                     if st.button("SpielerIn verbindlich hinzufügen"):
                         if ausgewaehlter_name != "-- bitte wählen --":
@@ -203,7 +203,7 @@ def group_menu(user):
 
                     ausgewaehlter_name = st.selectbox(
                         "SpielerIn wählen",
-                        ["-- bitte wählen --"] + list(verfuegbare_user.keys()), key=f"selectbox_add_member_{sel_g}_admin")
+                        ["-- bitte wählen --"] + list(verfuegbare_user.keys()))
 
                     if st.button("SpielerIn verbindlich hinzufügen"):
                         if ausgewaehlter_name != "-- bitte wählen --":
